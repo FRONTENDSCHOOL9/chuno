@@ -100,7 +100,7 @@ function Signup() {
               className="block text-gray-700 dark:text-gray-200 font-bold mb-2"
               htmlFor="email"
             >
-              이메일
+              아이디
             </label>
             <input
               type="email"
@@ -121,6 +121,7 @@ function Signup() {
               </p>
             )}
           </div>
+          
           <div className="mb-4">
             <label
               className="block text-gray-700 dark:text-gray-200 font-bold mb-2"
@@ -147,6 +148,30 @@ function Signup() {
           <div className="mb-4">
             <label
               className="block text-gray-700 dark:text-gray-200 font-bold mb-2"
+              htmlFor="password"
+            >
+              비밀번호 확인
+            </label>
+            <input
+              type="password"
+              id="passwordConfirm"
+              placeholder="비밀번호를 한 번 더 입력하세요"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700"
+              {...register("passwordConfirm", {
+                required: "비밀번호를 한 번 더 입력하세요.",
+              })}
+            />
+            //FIXME - 이걸 이렇게 써도 제 기능에 맞게 작동할런지 모르겠어용...
+            {data.password !== data.passwordConfirm && (
+              <p className="ml-2 mt-1 text-sm text-red-500">
+                {errors.password.message}
+              </p>
+            )}
+          </div>
+
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 dark:text-gray-200 font-bold mb-2"
               htmlFor="profileImage"
             >
               프로필 이미지
@@ -160,6 +185,8 @@ function Signup() {
               {...register("profileImage")}
             />
           </div>
+
+//ANCHOR - 여기에 추가하고 싶은 게 유저 개인의 취향인데... 추후 구현하는 걸로!
 
           <div className="mt-14 flex justify-center items-center">
             <Submit>회원가입</Submit>
