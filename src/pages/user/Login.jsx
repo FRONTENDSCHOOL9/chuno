@@ -7,7 +7,6 @@ import Submit from "@components/Submit";
 
 function Login() {
   const location = useLocation();
-  // recoil setter 반환
   const setUser = useSetRecoilState(memberState);
   const axios = useCustomAxios();
   const navigate = useNavigate();
@@ -18,8 +17,8 @@ function Login() {
     setError,
   } = useForm({
     values: {
-      email: "aaa@aa.aa",
-      password: "11111112",
+      email: "manager@chu.no",
+      password: "11111111",
     },
   });
 
@@ -63,7 +62,7 @@ function Login() {
               className="block text-gray-700 dark:text-gray-200 font-bold mb-2"
               htmlFor="email"
             >
-              이메일
+              아이디
             </label>
             <input
               type="email"
@@ -105,13 +104,8 @@ function Login() {
                 {errors.password.message}
               </p>
             )}
-            <Link
-              className="block mt-6 ml-auto text-gray-500 dark:text-gray-300 hover:underline"
-              to="#"
-            >
-              비밀번호를 잊으셨나요?
-            </Link>
           </div>
+          
           <div className="mt-14 flex justify-center items-center">
             <Submit>로그인</Submit>
             <Link

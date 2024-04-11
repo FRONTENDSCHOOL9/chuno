@@ -15,9 +15,8 @@ function Signup() {
 
   const onSubmit = async (formData) => {
     try {
-      formData.type = "user";
-
-      console.log(formData);
+//NOTE - 셀러 형식으로 회원등록 처리합니다!
+      formData.type = "seller";
 
       // 이미지 먼저 업로드
       if (formData.profileImage.length > 0) {
@@ -75,7 +74,7 @@ function Signup() {
               className="block text-gray-700 dark:text-gray-200 font-bold mb-2"
               htmlFor="name"
             >
-              이름
+              닉네임
             </label>
             <input
               type="text"
