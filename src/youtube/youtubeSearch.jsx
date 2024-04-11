@@ -1,13 +1,12 @@
-import useState from 'react';
-import useCustomAxios from '../hook/useCustomeAxios.mjs';
+import { useState } from "react";
+import useCustomAxios from "../hook/useCustomeAxios.mjs";
 
-
-const API_KEY = 'AIzaSyBj9A3NV5_Q6Ev-v38ZtPBvURuGV3ufyOE';
+const API_KEY = import.meta.env.VITE_YOUTUBE_API;
 
 function YoutubeSearch() {
   const axiosInstance = useCustomAxios();
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [selectedVideos, setSelectedVideos] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
@@ -19,7 +18,7 @@ function YoutubeSearch() {
       );
       setSearchResult(response.data.items);
     } catch (error) {
-      console.error('Error searching YouTube:', error);
+      console.error("Error searching YouTube:", error);
     }
   };
 
