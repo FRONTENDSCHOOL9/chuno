@@ -1,0 +1,19 @@
+meta {
+  name: 필수-파일 링크(img의 src 속성으로 지정)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/files/00-sample/sample-classic.jpg?name=레고.jpg
+  body: multipartForm
+  auth: none
+}
+
+query {
+  name: 레고.jpg
+}
+
+body:multipart-form {
+  attach: undefined
+}

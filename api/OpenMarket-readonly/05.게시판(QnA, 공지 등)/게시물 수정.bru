@@ -1,0 +1,25 @@
+meta {
+  name: 게시물 수정
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{url}}/posts/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "title": "크기가 얼마나 큰가요?",
+      "content": "6세 아이가 가지고 놀 수 있을 정도로 컸으면 좋겠네요.",
+      "extra": {
+          "image": "hello.jpg"
+      }
+  }
+}

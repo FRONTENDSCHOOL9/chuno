@@ -1,0 +1,15 @@
+meta {
+  name: 댓글 삭제
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{url}}/posts/1/replies/2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}

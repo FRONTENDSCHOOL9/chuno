@@ -1,0 +1,24 @@
+meta {
+  name: 필수-상품 수정1
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{url}}/seller/products/6
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "price": 22000,
+    "shippingFees": 3000,
+    "show": true,
+    "extra.isNew": false
+  }
+}

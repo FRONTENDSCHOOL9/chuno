@@ -1,0 +1,15 @@
+meta {
+  name: 필수-Access Token 재발행
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/auth/refresh
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{refreshToken}}
+}

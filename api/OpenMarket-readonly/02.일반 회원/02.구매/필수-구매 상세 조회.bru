@@ -1,0 +1,15 @@
+meta {
+  name: 필수-구매 상세 조회
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/orders/3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
