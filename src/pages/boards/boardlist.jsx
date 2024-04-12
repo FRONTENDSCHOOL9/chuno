@@ -1,5 +1,5 @@
-import Boardlistitem from "./boardlistitem";
 
+import Boardlistitem from "./boardlistitem";
 
 function Boardlist(){
     return (

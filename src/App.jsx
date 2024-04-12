@@ -2,7 +2,6 @@ import { RecoilRoot } from 'recoil';
 import Boardlist from './pages/boards/boardlist';
 
 
-
 function App() {
   return (
     <RecoilRoot>
@@ -11,4 +10,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
