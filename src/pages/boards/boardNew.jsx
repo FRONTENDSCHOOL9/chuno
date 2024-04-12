@@ -2,9 +2,6 @@
 function BoardNew(){
   return (
     <div className="">
-      <div className="">
-        <h2 className="">게시물 등록</h2>
-      </div>
       <section className="">
         <form>
           <div className="">

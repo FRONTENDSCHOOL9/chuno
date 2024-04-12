@@ -11,4 +11,4 @@ function Boardlist(){
     )
 }
 
-export default Boardlist;   
+export default Boardlist;
