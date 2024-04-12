@@ -1,9 +1,8 @@
-import './button.css'
-
+import './styles/button.css'
 function Button1(){
     return(
         <>
-            <button className='btn1'>완료</button>
+            <button className='common-btn-style btn1 btn-active'>완료</button>
         </>
     )
 }

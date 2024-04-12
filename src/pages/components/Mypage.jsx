@@ -1,7 +1,3 @@
-import { RecoilRoot } from 'recoil';
-
-
-
 function Mypage() {
   return (
     <>
