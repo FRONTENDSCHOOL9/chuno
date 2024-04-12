@@ -1,4 +1,3 @@
-
 import { RecoilRoot } from 'recoil';
 import Boardlist from './pages/boards/boardlist';
 
