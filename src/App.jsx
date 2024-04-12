@@ -1,11 +1,14 @@
 import { RecoilRoot } from 'recoil';
-import Boardlist from './pages/boards/boardlist';
+import Button1 from './pages/components/Button1';
+import Button2 from './pages/components/Button2';
+import Button3 from './pages/components/Button3';
+import Mypage from './pages/components/Mypage';
 
 
 function App() {
   return (
     <RecoilRoot>
-        <Boardlist />
+        <Mypage /><br/>
     </RecoilRoot>
   );
 }
