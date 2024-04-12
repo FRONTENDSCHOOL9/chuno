@@ -1,9 +1,11 @@
+
 import { RecoilRoot } from 'recoil';
+import Boardlist from './pages/boards/boardlist';
 
 function App() {
   return (
     <RecoilRoot>
-      <h1>9팀 화이팅!</h1>
+        <Boardlist />
     </RecoilRoot>
   );
 }
