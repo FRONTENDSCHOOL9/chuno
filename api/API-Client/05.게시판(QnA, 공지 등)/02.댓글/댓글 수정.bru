@@ -1,0 +1,21 @@
+meta {
+  name: 댓글 수정
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{url}}/posts/1/replies/2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "content": "상세정보에서 찾을수 없습니다."
+  }
+}

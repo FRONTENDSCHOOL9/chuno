@@ -1,14 +1,13 @@
+import { RouterProvider } from 'react-router-dom';
+import router from '@/routes';
 import { RecoilRoot } from 'recoil';
-import Boardlist from './pages/boards/boardlist';
-
-
 
 function App() {
   return (
     <RecoilRoot>
-      <Boardlist/>
+      <RouterProvider router={router} />
     </RecoilRoot>
   );
 }
 
-export default App; 
+export default App;

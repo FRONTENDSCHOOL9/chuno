@@ -1,0 +1,15 @@
+meta {
+  name: 파일 업로드
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/files
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  attach: @file(C:\Users\ruell\Downloads\background.png)
+}
