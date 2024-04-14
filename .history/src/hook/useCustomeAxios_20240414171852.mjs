@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useRecoilValue } from 'recoil';
-import { memberState } from '../recoil/user/atoms.mjs';
+import { memberState } from '../recoil/atom.mjs';
 
 const API_SERVER = 'https://www.googleapis.com/youtube/v3/search';
 
@@ -19,7 +19,7 @@ function useCustomAxios() {
   });
 
   // 요청 인터셉터
-  instance.interceptors.request.use(config => {
+  instance.interceptors.request.use((config) => {
     if (user) {
       const accessToken = user.token.accessToken;
       config.headers.Authorization = `Bearer ${accessToken}`;
