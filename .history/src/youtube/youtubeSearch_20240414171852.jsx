@@ -1,13 +1,7 @@
-// 수정 사항1 리스트에서 삭제 버튼 만들고 적용
-// 수정 사항2 제목에 같이 나오던 특수문자 매치
-// 수정 사항3 key값 추가
-
 import { useState } from 'react';
 import useCustomAxios from '../hook/useCustomeAxios.mjs';
 
-const API_KEY = import.meta.env.VITE_YOUTUBE_API;
-
-const changechar = /[^\w\s]/gi; // 특수 문자를 제거하는 정규식
+const API_KEY = 'AIzaSyBj9A3NV5_Q6Ev-v38ZtPBvURuGV3ufyOE';
 
 function YoutubeSearch() {
   const axiosInstance = useCustomAxios();
@@ -45,33 +39,20 @@ function YoutubeSearch() {
     setSelectedVideoId(videoId);
   };
 
-  const handleDeleteButtonClick = videoId => {
-    setSelectedVideos(selectedVideos.filter(video => video.id !== videoId)); // 리스트에서 삭제하는 함수
-  };
-
   return (
-    <div className="container">
-      <div className="search-container">
-        <input
-          className="search-input"
-          type="text"
-          value={searchTerm}
-          onChange={handleInputChange}
-        />
-        <button className="search-button" onClick={handleSearchClick}>
-          Search
-        </button>
-      </div>
+    <div>
+      <input type="text" value={searchTerm} onChange={handleInputChange} />
+      <button onClick={handleSearchClick}>Search</button>
 
       <ul>
         {searchResult.map(item => (
           <li key={item.id.videoId}>
-            <div>{item.snippet.title.replace(changechar, '')}</div>{' '}
-            {/*// 특수문자 매치 */}
+            <div>{item.snippet.title}</div>
             <iframe
-              width="100"
-              height="80"
+              width="430"
+              height="315"
               src={`https://youtube.com/embed/${item.id.videoId}`}
+              frameBorder="0"
             ></iframe>
             <button
               onClick={() =>
@@ -98,20 +79,10 @@ function YoutubeSearch() {
             width="430"
             height="315"
             src={`https://youtube.com/embed/${selectedVideoId}`}
+            frameBorder="0"
           ></iframe>
         </div>
       )}
-      <ul>
-        {selectedVideos.map(video => (
-          <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
-            {video.title.replace(changechar, '')} {/*// 특수문자 매치 */}
-            <button onClick={() => handleDeleteButtonClick(video.id)}>
-              -
-            </button>{' '}
-            {/*// 리스트에서 삭제하는 버튼 */}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
