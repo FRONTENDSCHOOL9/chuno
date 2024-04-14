@@ -1,0 +1,21 @@
+meta {
+  name: 댓글 등록
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/posts/1/replies
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "content": "답변 감사합니다."
+  }
+}

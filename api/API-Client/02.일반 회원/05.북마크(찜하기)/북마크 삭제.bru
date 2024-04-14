@@ -1,0 +1,15 @@
+meta {
+  name: 북마크 삭제
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{url}}/bookmarks/6
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
