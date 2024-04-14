@@ -3,7 +3,11 @@ import router from '@/routes';
 import { RecoilRoot } from 'recoil';
 
 function App() {
-  return <RecoilRoot></RecoilRoot>;
+  return (
+    <RecoilRoot>
+      <RouterProvider router={router} />
+    </RecoilRoot>
+  );
 }
 
 export default App;
