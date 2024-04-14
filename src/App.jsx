@@ -11,11 +11,12 @@ import Button5 from './pages/components/Button5';
 function App() {
   return (
     <RecoilRoot>
-        <Button1 />
+{/*         <Button1 />
         <Button2 />
         <Button3 />
         <Button4 />
-        <Button5 />
+        <Button5 /> */}
+        <Mypage />
     </RecoilRoot>
   );
 }

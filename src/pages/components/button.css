@@ -37,31 +37,29 @@
     border: 1px solid #619AE0;
     font-weight: bold; 
     margin: 0 8px 8px 0;
+    
+    box-sizing: border-box;
+}
+
+.btn4, .btn5{
+    font-size: 22px;
+    width: 174px;
+    padding: 7px;
+    border-radius: 30px;
+
     box-sizing: border-box;
 }
 
 .btn4{
-    font-size: 22px;
-    width: 174px;
-    padding: 10px;
-    border-radius: 30px;
     background-color: #619AE0;
     border: none;
     color: white;
-
-    box-sizing: border-box;
 }
 
 .btn5{
-    font-size: 22px;
-    width: 174px;
-    padding: 10px;
-    border-radius: 30px;
     background-color: white;
     border: 2px solid #619AE0;
     color: #619AE0;
-
-    box-sizing: border-box;
 }
 
 .btn1:hover, .btn2:hover {

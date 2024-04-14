@@ -1,0 +1,89 @@
+h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+.mypage {
+    width: 393px;
+    flex-direction: column;
+    border: 2px solid red;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.mypageBefore {
+    width: 11px;
+    height: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.mypageHead{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mainLogo {
+    width: 45px;
+    margin-bottom: 15px;
+}
+
+.mypageHeadTitle {
+    color: #619AE0;
+}
+
+.mypageHeadHr {
+    border: 1.5px solid #E7ECFF;
+    margin-bottom: 30px;
+}
+
+.mypageBody {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileCover {
+    width: 95px;
+    height: 95px;
+    display: block;
+    justify-content: center;
+    background-color: blue;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.mypageBodyStitle {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.mypageBodyInput {
+    width: 100%;
+}
+.mypageBodyInput input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.mypageBodyHash {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.confirmButton {
+    display: flex;;
+    justify-content: space-between;
+}
