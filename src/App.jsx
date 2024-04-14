@@ -1,10 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
+import router from '@/routes';
 import { RecoilRoot } from 'recoil';
-import YoutubeSearch from './youtube/youtubeSearch';
 
 function App() {
   return (
     <RecoilRoot>
-      <YoutubeSearch />
+      <RouterProvider router={router} />
     </RecoilRoot>
   );
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import useCustomAxios from '../hook/useCustomeAxios.mjs';
 
-
 const API_KEY = 'AIzaSyBj9A3NV5_Q6Ev-v38ZtPBvURuGV3ufyOE';
 
 function YoutubeSearch() {
@@ -15,7 +14,7 @@ function YoutubeSearch() {
   const searchYoutube = async () => {
     try {
       const response = await axiosInstance.get(
-        `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&q=${searchTerm}&maxResults=5&type=video`
+        `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&q=${searchTerm}&maxResults=5&type=video`,
       );
       setSearchResult(response.data.items);
     } catch (error) {
@@ -23,7 +22,7 @@ function YoutubeSearch() {
     }
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     setSearchTerm(event.target.value);
   };
 
@@ -36,7 +35,7 @@ function YoutubeSearch() {
     setSelectedVideos([...selectedVideos, newVideo]);
   };
 
-  const handleVideoItemClick = (videoId) => {
+  const handleVideoItemClick = videoId => {
     setSelectedVideoId(videoId);
   };
 
@@ -46,7 +45,7 @@ function YoutubeSearch() {
       <button onClick={handleSearchClick}>Search</button>
 
       <ul>
-        {searchResult.map((item) => (
+        {searchResult.map(item => (
           <li key={item.id.videoId}>
             <div>{item.snippet.title}</div>
             <iframe
@@ -67,7 +66,7 @@ function YoutubeSearch() {
       </ul>
 
       <ul>
-        {selectedVideos.map((video) => (
+        {selectedVideos.map(video => (
           <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
             {video.title}
           </li>
