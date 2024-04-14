@@ -1,9 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
+import router from '@/routes';
 import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
     <RecoilRoot>
-      <h1>9팀 화이팅!</h1>
+      <RouterProvider router={router} />
     </RecoilRoot>
   );
 }
