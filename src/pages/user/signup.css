@@ -1,0 +1,16 @@
+.signuppage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signuplabel > label {
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+}
+
+.signuplabel > .essential {
+  color: #df8484;
+}
