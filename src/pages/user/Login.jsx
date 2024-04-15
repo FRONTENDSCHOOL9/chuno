@@ -46,8 +46,8 @@ function Login() {
   };
 
   return (
-    <div>
-      <div className="loginpage">
+    <div className="loginpage">
+      <div className="loginpage-container">
         <div className="pagename">
           <svg
             width="45"
