@@ -14,6 +14,11 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
+    "react-player": "^2.16.0",
+=======
+>>>>>>> d09b5d2da6d89a5e675b863cf487108668b79af4
+    "react-router-dom": "^6.22.3",
     "recoil": "^0.7.7",
     "recoil-persist": "^5.1.0",
     "tailwind": "^4.0.0"
