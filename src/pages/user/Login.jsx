@@ -26,7 +26,6 @@ function Login() {
   const onSubmit = async formData => {
     try {
       const res = await axios.post('/users/login', formData);
-      // 사용자 정보를 recoil에 저장
       setUser({
         _id: res.data.item._id,
         name: res.data.item.name,
