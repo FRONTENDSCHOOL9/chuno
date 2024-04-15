@@ -1,23 +1,26 @@
-
-function BoardNew(){
+function BoardNew() {
   return (
     <div className="">
       <section className="">
         <form>
           <div className="">
-            <label className="" htmlFor="title">제목</label>
-            <input             
+            <label className="" htmlFor="title">
+              제목
+            </label>
+            <input
               type="text"
-              id="title" 
-              placeholder="제목을 입력하세요." 
+              id="title"
+              placeholder="제목을 입력하세요."
               className=""
             />
           </div>
           <div className="">
-            <label className="" htmlFor="content">내용</label>
-            <textarea 
-              id="content" 
-              rows="15" 
+            <label className="" htmlFor="content">
+              내용
+            </label>
+            <textarea
+              id="content"
+              rows="15"
               placeholder="내용을 입력하세요."
               className=""
             />

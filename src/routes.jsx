@@ -1,12 +1,11 @@
-import Layout from "@components/layout";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
+import BoardNew from './pages/boards/boardNew';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Layout />,
+    path: '/',
+    element: <BoardNew />,
   },
-  
 ]);
 
 export default router;
