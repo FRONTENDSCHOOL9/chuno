@@ -29,8 +29,11 @@
     padding: 10px;
     background-color: #ecf1ff;
     border-radius: 8px;
-    border: 0;
+    border: 2px solid transparent;
     outline: none;
+    &:focus {
+      border: 2px solid #619ae0;
+    }
   }
   & textarea {
     resize: none;
@@ -39,9 +42,9 @@
     border-radius: 8px;
     padding: 10px;
     outline: none;
-    border-color: none;
+    border: 2px solid transparent;
     &:focus {
-      border: 1px solid #ccc;
+      border: 2px solid #619ae0;
     }
   }
 }

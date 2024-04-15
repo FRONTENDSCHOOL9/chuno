@@ -1,54 +1,120 @@
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import styles from './boardnew.module.css';
+import Submit from '../../components/Button1';
 
 function BoardNew() {
+  const axios = useCustomAxios();
+  const navigate = useNavigate();
+  const [selectedValues, setSelectedValues] = useState([]);
+
+  const handleClick = value => {
+    setSelectedValues(prevValues => {
+      const index = prevValues.indexOf(value);
+      if (index === -1) {
+        return [...prevValues, value];
+      } else {
+        return prevValues.filter(v => v !== value);
+      }
+    });
+  };
+  const { register, handleSubmit } = useForm({
+    values: {
+      price: 0,
+      name: '',
+      quantity: 99999,
+      show: true,
+      extra: {},
+    },
+  });
+
+  // FIXME - 폼데이터를 post했을때 value값이 배열로 저장되는지 아님 문자열로 저장되는지 좀 더 회의가 필요합니다.
+  const onSubmit = async formData => {
+    formData.extra = {
+      ...formData.extra,
+      keyword: selectedValues.join(','),
+    };
+
+    // formData.extra = {
+    //   ...formData.extra,
+    //   selectedValues: selectedValues,
+    // };
+
+    try {
+      const res = await axios.post('/seller/products/', formData);
+      console.log(res);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   return (
     <div className={styles.wrap}>
-      <a href="/">
-        <svg
-          width="11"
-          height="20"
-          viewBox="0 0 11 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10.6078 17.6212C11.1252 18.1383 11.1252 19.0347 10.6401 19.5863C10.3814 19.8621 10.058 20 9.70223 20C9.37882 20 9.0554 19.8621 8.79667 19.6208L0.388073 11.002C0.129347 10.7262 0 10.3814 0 10.0022C0 9.62298 0.129347 9.27823 0.388073 9.00243L8.79667 0.383642C9.31412 -0.133485 10.1227 -0.133483 10.6401 0.41812C11.1252 0.969722 11.1252 1.83159 10.6078 2.3832L3.16941 10.0022L10.6078 17.6212Z"
-            fill="#7E96E8"
-          />
-        </svg>
+      <a href="/" onClick={() => navigate('/boards')}>
+        {/* 네비게이션 아이콘 */}
       </a>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputsection}>
-          <label className={styles} htmlFor="file">
-            썸네일을 지정해주세요
-          </label>
-          {/* NOTE - 플레이리스트 추가영역입니다. */}
-          <input type="file" id="file" className={styles} />
-        </div>
-        <div className={styles.inputsection}>
-          <label className={styles} htmlFor="title">
-            제목
-          </label>
+          <label htmlFor="name">제목</label>
           <input
             type="text"
-            id="title"
+            id="name"
             placeholder="제목을 입력하세요."
             className={styles}
+            {...register('name', {
+              required: '제목을 입력하세요.',
+            })}
           />
         </div>
         <div className={styles.inputsection}>
-          <label className={styles} htmlFor="content">
-            내용
-          </label>
+          <label htmlFor="mainImages">썸네일을 지정해주세요</label>
+          <input
+            type="file"
+            id="mainImages"
+            className={styles}
+            {...register('file')}
+          />
+        </div>
+        {/* NOTE - 플레이리스트 추가영역입니다. */}
+        플레이리스트 영역입니다.
+        <div className={styles.inputsection}>
+          <label htmlFor="content">내용</label>
           <textarea
             id="content"
             rows="15"
             placeholder="내용을 입력하세요."
             className={styles}
+            {...register('content', {
+              required: '내용을 입력하세요.',
+            })}
           />
         </div>
         <div className={styles.inputsection}>
-          <button type="submit">등록 완료</button>
+          <div className={styles.inputsection}>
+            <div className={styles.inputsection}>
+              <div className="btn3Parent">
+                {['이별', '운동', '행복', '우울', '집중', '사랑', '분노'].map(
+                  value => (
+                    <a
+                      key={value}
+                      href="#"
+                      className={`btn3 ${
+                        selectedValues.includes(value) ? 'active' : ''
+                      }`}
+                      onClick={() => handleClick(value)}
+                    >
+                      {value}
+                    </a>
+                  ),
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.inputsection}>
+          <Submit type="submit">등록 완료</Submit>
         </div>
       </form>
     </div>

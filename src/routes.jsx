@@ -1,10 +1,10 @@
-import BoardNew from '@pages/boards/boardNew';
 import { createBrowserRouter } from 'react-router-dom';
+import Layout from './components/layout';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <BoardNew />,
+    element: <Layout />,
   },
 ]);
 

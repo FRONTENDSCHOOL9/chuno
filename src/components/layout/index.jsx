@@ -1,13 +1,15 @@
-import Footer from '@components/layout/Footer';
-import Header from '@components/layout/Header';
 import { Outlet } from 'react-router-dom';
+import BoardNew from '@/pages/boards/boardNew';
+import Login from '@pages/user/Login';
 
 function Layout() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
+    <div>
+      {/* <Header /> */}
       <Outlet />
-      <Footer />
+      <Login />
+      <BoardNew />
+      {/* <Footer /> */}
     </div>
   );
 }
