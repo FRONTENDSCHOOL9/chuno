@@ -1,0 +1,47 @@
+.wrap {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  border: solid 1px red;
+  padding: 20px 10px;
+}
+.inputsection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 0;
+
+  &:last-child {
+    & button {
+      border: 0;
+      background-color: #4e7cf3;
+      color: #fff;
+      border-radius: 8px;
+      padding: 10px;
+    }
+  }
+
+  & label {
+    margin: 5px 0;
+  }
+  & input {
+    width: 100%;
+    padding: 10px;
+    background-color: #ecf1ff;
+    border-radius: 8px;
+    border: 0;
+    outline: none;
+  }
+  & textarea {
+    resize: none;
+    height: 200px;
+    background-color: #ecf1ff;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    border-color: none;
+    &:focus {
+      border: 1px solid #ccc;
+    }
+  }
+}
