@@ -37,7 +37,7 @@ a:hover {
   padding: 34px;
 }
 
-.loginpage-container > .pagename {
+.pagename {
   display: flex;
   align-items: center;
   gap: 12px;
