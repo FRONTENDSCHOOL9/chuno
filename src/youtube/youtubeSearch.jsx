@@ -1,10 +1,7 @@
-// 수정 사항1 리스트에서 삭제 버튼 만들고 적용
-// 수정 사항2 제목에 같이 나오던 특수문자 매치
-// 수정 사항3 key값 추가
-
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import useCustomAxios from '../hook/useCustomAxios.mjs';
 import styles from './youtube.module.css';
+import ReactPlayer from 'react-player/youtube';
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API;
 
@@ -12,11 +9,12 @@ const changechar = /[^\w\s]/gi; // 특수 문자를 제거하는 정규식
 
 function YoutubeSearch() {
   const axiosInstance = useCustomAxios();
+  const playerRef = useRef(null);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [selectedVideos, setSelectedVideos] = useState([]);
-  const [selectedVideoId, setSelectedVideoId] = useState(null);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const searchYoutube = async () => {
     try {
@@ -40,14 +38,33 @@ function YoutubeSearch() {
   const handleAddButtonClick = (videoId, videoTitle) => {
     const newVideo = { id: videoId, title: videoTitle };
     setSelectedVideos([...selectedVideos, newVideo]);
+    if (selectedVideos.length === 0) {
+      setCurrentVideoIndex(0);
+    }
   };
 
-  const handleVideoItemClick = videoId => {
-    setSelectedVideoId(videoId);
+  const handleVideoItemClick = (videoId, index) => {
+    setCurrentVideoIndex(index);
   };
 
   const handleDeleteButtonClick = videoId => {
     setSelectedVideos(selectedVideos.filter(video => video.id !== videoId)); // 리스트에서 삭제하는 함수
+    if (selectedVideos[currentVideoIndex]?.id === videoId) {
+      // 삭제된 동영상이 현재 플레이 중인 동영상이면 다음 동영상으로 변경
+      setCurrentVideoIndex(currentVideoIndex + 1);
+    }
+  };
+
+  const handlePrevClick = () => {
+    setCurrentVideoIndex(prev =>
+      prev === 0 ? selectedVideos.length - 1 : prev - 1,
+    );
+  };
+
+  const handleNextClick = () => {
+    setCurrentVideoIndex(prev =>
+      prev === selectedVideos.length - 1 ? 0 : prev + 1,
+    );
   };
 
   return (
@@ -80,34 +97,44 @@ function YoutubeSearch() {
         ))}
       </ul>
 
-      <ul className={styles.playlistadded}>
-        {selectedVideos.map(video => (
-          <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
-            {video.title}
-          </li>
-        ))}
-      </ul>
+      <div className={styles.playlistadded}>
+        <h2>Playlist</h2>
+        <ul>
+          {selectedVideos.map((video, index) => (
+            <li key={video.id}>
+              {video.title.replace(changechar, '')} {/*// 특수문자 매치 */}
+              <button onClick={() => handleDeleteButtonClick(video.id)}>
+                -
+              </button>{' '}
+              {/*// 리스트에서 삭제하는 버튼 */}
+              <button onClick={() => handleVideoItemClick(video.id, index)}>
+                Play
+              </button>{' '}
+              {/*// 비디오 재생 버튼 */}
+            </li>
+          ))}
+        </ul>
+        <div>
+          <button onClick={handlePrevClick}>Prev</button>
+          <button onClick={handleNextClick}>Next</button>
+        </div>
+      </div>
 
-      {selectedVideoId && (
+      {selectedVideos.length > 0 && (
         <div className={styles.addedvideo}>
-          <iframe
-            width="390"
-            height="380"
-            src={`https://youtube.com/embed/${selectedVideoId}`}
-          ></iframe>
+          <div className="player-wrapper">
+            <ReactPlayer
+              ref={playerRef}
+              className="react-player"
+              playing={true}
+              url={`https://youtube.com/embed/${selectedVideos[currentVideoIndex]?.id}`}
+              width="100%"
+              height="100%"
+              controls={false}
+            />
+          </div>
         </div>
       )}
-      <ul>
-        {selectedVideos.map(video => (
-          <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
-            {video.title.replace(changechar, '')} {/*// 특수문자 매치 */}
-            <button onClick={() => handleDeleteButtonClick(video.id)}>
-              -
-            </button>{' '}
-            {/*// 리스트에서 삭제하는 버튼 */}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
