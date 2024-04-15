@@ -78,7 +78,7 @@ function Login() {
               id="email"
               placeholder="이메일을 입력하세요"
               {...register('email', {
-                required: '이메일을 입력하세요.',
+                required: '이메일은 필수로 입력해주세요.',
                 pattern: {
                   value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                   message: '이메일 형식이 아닙니다.',
@@ -99,7 +99,7 @@ function Login() {
             />
             {errors.password && <p>{errors.password.message}</p>}
           </div>
-          <div>
+          <div className="login-buttons">
             <Submit>로그인</Submit>
             <Link to="/users/signup">회원가입</Link>
           </div>
