@@ -51,21 +51,23 @@ function YoutubeSearch() {
   };
 
   return (
-    <div>
-      <input type="text" value={searchTerm} onChange={handleInputChange} />
-      <button onClick={handleSearchClick}>Search</button>
-
+    <div className={styles.wrap}>
+      <div className={styles.searchbar}>
+        <input type="text" value={searchTerm} onChange={handleInputChange} />
+        <button onClick={handleSearchClick}>Search</button>
+      </div>
       <ul className={styles.wrap_player}>
         {searchResult.map(item => (
-          <li key={item.id.videoId}>
-            <div>{item.snippet.title.replace(changechar, '')}</div>{' '}
+          <li className={styles.playerlist} key={item.id.videoId}>
             {/*// 특수문자 매치 */}
             <iframe
               width="100"
-              height="80"
+              height="140"
               src={`https://youtube.com/embed/${item.id.videoId}`}
             ></iframe>
-            <h2 className={styles.listname}>{item.snippet.title}</h2>
+            <h3 className={styles.listname}>
+              {item.snippet.title.replace(changechar, '')}
+            </h3>{' '}
             <button
               className={styles.playadd}
               onClick={() =>
@@ -87,10 +89,10 @@ function YoutubeSearch() {
       </ul>
 
       {selectedVideoId && (
-        <div>
+        <div className={styles.addedvideo}>
           <iframe
-            width="430"
-            height="315"
+            width="390"
+            height="380"
             src={`https://youtube.com/embed/${selectedVideoId}`}
           ></iframe>
         </div>
