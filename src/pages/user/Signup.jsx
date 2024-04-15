@@ -89,13 +89,14 @@ function Signup() {
                 fill="#619AE0"
               />
             </svg>
-            <h2>회원가입</h2>
           </Link>
+          <h2>회원가입</h2>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="name">닉네임</label>
+            <label htmlFor="name">*</label>
             <input
               type="text"
               id="name"
@@ -112,6 +113,7 @@ function Signup() {
           </div>
           <div>
             <label htmlFor="email">아이디</label>
+            <label htmlFor="name">*</label>
             <input
               type="email"
               id="email"
@@ -128,6 +130,7 @@ function Signup() {
           </div>
           <div>
             <label htmlFor="password">비밀번호</label>
+            <label htmlFor="name">*</label>
             <input
               type="password"
               id="password"
@@ -140,6 +143,7 @@ function Signup() {
           </div>
           <div>
             <label htmlFor="passwordCheck">비밀번호 확인</label>
+            <label htmlFor="name">*</label>
             <input
               type="password"
               id="passwordCheck"
