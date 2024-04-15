@@ -6,7 +6,7 @@ function First() {
   const navigate = useNavigate();
 
   return (
-    <div className="container">
+    <div className="firstpage">
       <svg
         width="89"
         height="89"

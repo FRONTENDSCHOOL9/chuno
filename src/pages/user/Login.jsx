@@ -47,7 +47,7 @@ function Login() {
 
   return (
     <div>
-      <div>
+      <div className="loginpage">
         <div className="pagename">
           <svg
             width="45"
@@ -69,8 +69,8 @@ function Login() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label htmlFor="email">이메일</label>
+          <div className="idpw">
+            <label htmlFor="email">아이디</label>
             <input
               type="email"
               id="email"
@@ -85,7 +85,7 @@ function Login() {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
-          <div>
+          <div className="idpw">
             <label htmlFor="password">비밀번호</label>
             <input
               type="password"
