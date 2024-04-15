@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import useCustomAxios from '../hook/useCustomeAxios.mjs';
+import useCustomAxios from '../hook/useCustomAxios.mjs';
+import styles from './youtube.module.css';
 
 const API_KEY = 'AIzaSyBj9A3NV5_Q6Ev-v38ZtPBvURuGV3ufyOE';
 
@@ -40,21 +41,28 @@ function YoutubeSearch() {
   };
 
   return (
-    <div>
-      <input type="text" value={searchTerm} onChange={handleInputChange} />
-      <button onClick={handleSearchClick}>Search</button>
+    <div className={styles.wrap}>
+      <div className={styles.searchbar}>
+        <input
+          type="text"
+          placeholder="추가하고 싶은 노래를 검색해용"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleSearchClick}>Search</button>
+      </div>
 
-      <ul>
+      <ul className={styles.wrap_player}>
         {searchResult.map(item => (
-          <li key={item.id.videoId}>
-            <div>{item.snippet.title}</div>
+          <li className={styles.playerlist} key={item.id.videoId}>
             <iframe
-              width="430"
-              height="315"
+              width="140"
+              height="180"
               src={`https://youtube.com/embed/${item.id.videoId}`}
-              frameBorder="0"
             ></iframe>
+            <h2 className={styles.listname}>{item.snippet.title}</h2>
             <button
+              className={styles.playadd}
               onClick={() =>
                 handleAddButtonClick(item.id.videoId, item.snippet.title)
               }
@@ -65,7 +73,7 @@ function YoutubeSearch() {
         ))}
       </ul>
 
-      <ul>
+      <ul className={styles.playlistadded}>
         {selectedVideos.map(video => (
           <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
             {video.title}

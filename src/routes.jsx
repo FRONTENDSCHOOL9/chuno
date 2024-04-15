@@ -1,12 +1,11 @@
-import Layout from "@components/layout";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
+import YoutubeSearch from './youtube/youtubeSearch';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Layout />,
+    path: '/',
+    element: <YoutubeSearch />,
   },
-  
 ]);
 
 export default router;
