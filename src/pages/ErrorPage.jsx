@@ -1,4 +1,5 @@
-import Header from '@layout/Header';
+import Footer from '@components/layout/Footer';
+import Header from '@components/layout/Header';
 import { useRouteError } from 'react-router-dom';
 
 function ErrorPage() {
@@ -14,6 +15,7 @@ function ErrorPage() {
         <h2>에러 메세지</h2>
         <p>{message}</p>
       </div>
+      <Footer />
     </>
   );
 }
