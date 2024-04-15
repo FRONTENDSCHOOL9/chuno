@@ -69,7 +69,7 @@ function Login() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
+          <div>
             <label htmlFor="email">이메일</label>
             <input
               type="email"
@@ -85,7 +85,7 @@ function Login() {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
-          <div className="mb-4">
+          <div>
             <label htmlFor="password">비밀번호</label>
             <input
               type="password"
