@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useState, useRef } from 'react';
-=======
-import { useState } from 'react';
->>>>>>> d09b5d2da6d89a5e675b863cf487108668b79af4
 import useCustomAxios from '../hook/useCustomAxios.mjs';
 import styles from './youtube.module.css';
 import ReactPlayer from 'react-player/youtube';
@@ -112,7 +108,6 @@ function YoutubeSearch() {
         ))}
       </ul>
 
-<<<<<<< HEAD
       <div className={styles.playlistadded}>
         <h2>Playlist</h2>
         <ul>
@@ -135,19 +130,9 @@ function YoutubeSearch() {
           <button onClick={handleNextClick}>Next</button>
         </div>
       </div>
-=======
-      {/* {/* <ul className={styles.playlistadded}>
-        {selectedVideos.map(video => (
-          <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
-            {video.title}
-          </li>
-        ))}
-      </ul> */}
->>>>>>> d09b5d2da6d89a5e675b863cf487108668b79af4
 
       {selectedVideos.length > 0 && (
         <div className={styles.addedvideo}>
-<<<<<<< HEAD
           <div className="player-wrapper">
             <ReactPlayer
               ref={playerRef}
@@ -159,13 +144,6 @@ function YoutubeSearch() {
               controls={false}
             />
           </div>
-=======
-          {/* <iframe
-            width="390"
-            height="380"
-            src={`https://youtube.com/embed/${selectedVideoId}`}
-          ></iframe> */}
->>>>>>> d09b5d2da6d89a5e675b863cf487108668b79af4
         </div>
       )}
     </div>
