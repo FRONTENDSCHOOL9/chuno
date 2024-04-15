@@ -96,7 +96,6 @@ function Login() {
               })}
             />
             {errors.password && <p>{errors.password.message}</p>}
-            <Link to="#">비밀번호를 잊으셨나요?</Link>
           </div>
           <div>
             <Submit>로그인</Submit>
