@@ -8,7 +8,6 @@ import './login.css';
 
 function Login() {
   const location = useLocation();
-  // recoil setter 반환
   const setUser = useSetRecoilState(memberState);
   const axios = useCustomAxios();
   const navigate = useNavigate();
@@ -35,11 +34,9 @@ function Login() {
         token: res.data.item.token,
       });
       alert(res.data.item.name + '님 로그인 되었습니다.');
-      navigate(location.state?.from ? location.state?.from : '/boards'); // 메인페이지로 이동
+      navigate(location.state?.from ? location.state?.from : '/boards');
     } catch (err) {
-      // AxiosError(네트워크 에러-response가 없음, 서버의 4xx, 5xx 응답 상태 코드를 받았을 때-response 있음)
       if (err.response?.data.errors) {
-        // API 서버가 응답한 에러
         err.response?.data.errors.forEach(error =>
           setError(error.path, { message: error.msg }),
         );
@@ -52,7 +49,7 @@ function Login() {
   return (
     <div>
       <div>
-        <div className='pagename'>
+        <div className="pagename">
           <svg
             width="45"
             height="45"
