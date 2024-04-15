@@ -70,7 +70,7 @@ function Signup() {
 
   return (
     <div className="signuppage">
-      <div>
+      <div className="signuppage-container">
         <div className="pagename">
           <Link to="/">
             <svg
@@ -94,7 +94,7 @@ function Signup() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
+          <div className="idpw">
             <div className="signuplabel">
               <label htmlFor="name">닉네임</label>
               <label className="essential" htmlFor="name">
@@ -115,7 +115,7 @@ function Signup() {
             />
             {errors.name && <p>{errors.name.message}</p>}
           </div>
-          <div>
+          <div className="idpw">
             <div className="signuplabel">
               <label htmlFor="email">아이디</label>
               <label className="essential" htmlFor="name">
@@ -136,7 +136,7 @@ function Signup() {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
-          <div>
+          <div className="idpw">
             <div className="signuplabel">
               <label htmlFor="password">비밀번호</label>
               <label className="essential" htmlFor="name">
@@ -153,7 +153,7 @@ function Signup() {
             />
             {errors.password && <p>{errors.password.message}</p>}
           </div>
-          <div>
+          <div className="idpw">
             <div className="signuplabel">
               <label htmlFor="passwordCheck">비밀번호 확인</label>
               <label className="essential" htmlFor="name">
@@ -178,7 +178,7 @@ function Signup() {
             />
             {errors.passwordCheck && <p>{errors.passwordCheck.message}</p>}
           </div>
-          <div>
+          <div className="idpw">
             <div className="signuplabel">
               <label htmlFor="profileImage">프로필 이미지</label>
             </div>
@@ -190,7 +190,7 @@ function Signup() {
               {...register('profileImage')}
             />
           </div>
-          <div>
+          <div className="signup-buttons">
             <Submit>회원가입</Submit>
           </div>
         </form>
