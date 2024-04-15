@@ -1,11 +1,11 @@
-:root {
+body {
   margin: 0;
   padding: 0;
   font-weight: bolder;
   vertical-align: baseline;
 }
 
-.container {
+.firstpage {
   min-width: 280px;
   min-height: 290px;
   background: #619ae0;
@@ -21,7 +21,7 @@
   height: 100vh;
 }
 
-.container Button {
+.firstpage Button {
   font-size: 0.9rem;
   color: #fff;
   width: 196px;
@@ -47,6 +47,6 @@ Button.signup {
   font-size: 0.8rem;
 }
 
-.container a {
+.firstpage a {
   color: #858484;
 }

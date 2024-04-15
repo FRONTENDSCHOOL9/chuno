@@ -1,15 +1,49 @@
-:root {
+body {
   margin: 0;
   padding: 0;
   font-weight: bolder;
   vertical-align: baseline;
 }
 
-.pagename {
+.loginpage {
+  min-width: 280px;
+  min-height: 290px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loginpage > .pagename {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 h2 {
   color: #619ae0;
   font-size: 1.4rem;
+}
+
+.loginpage > form > .idpw {
+  display: flex;
+  flex-direction: column;
+  margin: auto 100px;
+  gap: 10px;
+}
+
+input {
+  line-height: normal;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  border: solid 2px #eee;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 0.625rem 0.75rem;
+}
+
+input:focus {
+  border: solid 2px #619ae0;
 }

@@ -26,7 +26,6 @@ function Login() {
   const onSubmit = async formData => {
     try {
       const res = await axios.post('/users/login', formData);
-      // 사용자 정보를 recoil에 저장
       setUser({
         _id: res.data.item._id,
         name: res.data.item.name,
@@ -48,7 +47,7 @@ function Login() {
 
   return (
     <div>
-      <div>
+      <div className="loginpage">
         <div className="pagename">
           <svg
             width="45"
@@ -70,8 +69,8 @@ function Login() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
-            <label htmlFor="email">이메일</label>
+          <div className="idpw">
+            <label htmlFor="email">아이디</label>
             <input
               type="email"
               id="email"
@@ -86,7 +85,7 @@ function Login() {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
-          <div className="mb-4">
+          <div className="idpw">
             <label htmlFor="password">비밀번호</label>
             <input
               type="password"
@@ -97,7 +96,6 @@ function Login() {
               })}
             />
             {errors.password && <p>{errors.password.message}</p>}
-            <Link to="#">비밀번호를 잊으셨나요?</Link>
           </div>
           <div>
             <Submit>로그인</Submit>
