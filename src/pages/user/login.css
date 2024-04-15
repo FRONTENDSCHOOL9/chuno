@@ -16,7 +16,7 @@ a:hover {
   color: #a4a4a4;
 }
 
-button {
+.login-buttons > button {
   background: inherit;
   padding: unset;
   font-size: 1rem;
@@ -37,7 +37,7 @@ button {
   padding: 34px;
 }
 
-.loginpage-container > .pagename {
+.pagename {
   display: flex;
   align-items: center;
   gap: 12px;
