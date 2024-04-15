@@ -69,8 +69,8 @@ function Signup() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="signuppage">
+      <div className="signuppage-container">
         <div className="pagename">
           <Link to="/">
             <svg
@@ -90,13 +90,17 @@ function Signup() {
               />
             </svg>
           </Link>
-          <h2>회원가입</h2>
+          <h2>회원가입용</h2>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label htmlFor="name">닉네임</label>
-            <label htmlFor="name">*</label>
+          <div className="idpw">
+            <div className="signuplabel">
+              <label htmlFor="name">닉네임</label>
+              <label className="essential" htmlFor="name">
+                *
+              </label>
+            </div>
             <input
               type="text"
               id="name"
@@ -111,9 +115,13 @@ function Signup() {
             />
             {errors.name && <p>{errors.name.message}</p>}
           </div>
-          <div>
-            <label htmlFor="email">아이디</label>
-            <label htmlFor="name">*</label>
+          <div className="idpw">
+            <div className="signuplabel">
+              <label htmlFor="email">아이디</label>
+              <label className="essential" htmlFor="name">
+                *
+              </label>
+            </div>
             <input
               type="email"
               id="email"
@@ -128,9 +136,13 @@ function Signup() {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
-          <div>
-            <label htmlFor="password">비밀번호</label>
-            <label htmlFor="name">*</label>
+          <div className="idpw">
+            <div className="signuplabel">
+              <label htmlFor="password">비밀번호</label>
+              <label className="essential" htmlFor="name">
+                *
+              </label>
+            </div>
             <input
               type="password"
               id="password"
@@ -141,9 +153,13 @@ function Signup() {
             />
             {errors.password && <p>{errors.password.message}</p>}
           </div>
-          <div>
-            <label htmlFor="passwordCheck">비밀번호 확인</label>
-            <label htmlFor="name">*</label>
+          <div className="idpw">
+            <div className="signuplabel">
+              <label htmlFor="passwordCheck">비밀번호 확인</label>
+              <label className="essential" htmlFor="name">
+                *
+              </label>
+            </div>
             <input
               type="password"
               id="passwordCheck"
@@ -162,8 +178,10 @@ function Signup() {
             />
             {errors.passwordCheck && <p>{errors.passwordCheck.message}</p>}
           </div>
-          <div>
-            <label htmlFor="profileImage">프로필 이미지</label>
+          <div className="idpw">
+            <div className="signuplabel">
+              <label htmlFor="profileImage">프로필 이미지</label>
+            </div>
             <input
               type="file"
               accept="image/*"
@@ -172,7 +190,7 @@ function Signup() {
               {...register('profileImage')}
             />
           </div>
-          <div>
+          <div className="signup-buttons">
             <Submit>회원가입</Submit>
           </div>
         </form>
