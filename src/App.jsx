@@ -5,11 +5,7 @@ import { RecoilRoot } from 'recoil';
 function App() {
   return (
     <RecoilRoot>
-        <Button1 />
-        <Button2 />
-        <Button3 />
-        <Button4 />
-        <Button5 />
+      <RouterProvider router={router} />
     </RecoilRoot>
   );
 }
