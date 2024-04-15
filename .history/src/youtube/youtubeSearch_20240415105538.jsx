@@ -87,21 +87,21 @@ function YoutubeSearch() {
         ))}
       </ul>
 
-      {/* {/* <ul className={styles.playlistadded}>
+      <ul className={styles.playlistadded}>
         {selectedVideos.map(video => (
           <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
             {video.title}
           </li>
         ))}
-      </ul> */}
+      </ul>
 
       {selectedVideoId && (
         <div className={styles.addedvideo}>
-          {/* <iframe
+          <iframe
             width="390"
             height="380"
             src={`https://youtube.com/embed/${selectedVideoId}`}
-          ></iframe> */}
+          ></iframe>
         </div>
       )}
       <ul>
