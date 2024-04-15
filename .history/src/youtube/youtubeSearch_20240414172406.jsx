@@ -3,8 +3,8 @@
 // 수정 사항3 key값 추가
 
 import { useState } from 'react';
-import useCustomAxios from '../hook/useCustomAxios.mjs';
-import styles from './youtube.module.css';
+import useCustomAxios from '../hook/useCustomeAxios.mjs';
+import './youtubeSearch.css';
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API;
 
@@ -51,11 +51,20 @@ function YoutubeSearch() {
   };
 
   return (
-    <div>
-      <input type="text" value={searchTerm} onChange={handleInputChange} />
-      <button onClick={handleSearchClick}>Search</button>
+    <div className="container">
+      <div className="search-container">
+        <input
+          className="search-input"
+          type="text"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <button className="search-button" onClick={handleSearchClick}>
+          Search
+        </button>
+      </div>
 
-      <ul className={styles.wrap_player}>
+      <ul>
         {searchResult.map(item => (
           <li key={item.id.videoId}>
             <div>{item.snippet.title.replace(changechar, '')}</div>{' '}
@@ -65,9 +74,7 @@ function YoutubeSearch() {
               height="80"
               src={`https://youtube.com/embed/${item.id.videoId}`}
             ></iframe>
-            <h2 className={styles.listname}>{item.snippet.title}</h2>
             <button
-              className={styles.playadd}
               onClick={() =>
                 handleAddButtonClick(item.id.videoId, item.snippet.title)
               }
@@ -78,7 +85,7 @@ function YoutubeSearch() {
         ))}
       </ul>
 
-      <ul className={styles.playlistadded}>
+      <ul>
         {selectedVideos.map(video => (
           <li key={video.id} onClick={() => handleVideoItemClick(video.id)}>
             {video.title}
