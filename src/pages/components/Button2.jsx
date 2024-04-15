@@ -1,9 +1,8 @@
-import './button.css'
-
+import './styles/button.css'
 function Button1(){
     return(
         <>
-            <button className='btn2'>플레이리스트 추가하기</button>
+            <button className='common-btn-style btn2 btn-active'>플레이리스트 추가하기</button>
         </>
     )
 }

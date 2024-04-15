@@ -1,6 +1,6 @@
-import './button.css'
+import './styles/button.css'
 
-function Button3(){
+function Button1(){
     return(
         <div className='btn3Parent'>
             <a href='#' className='btn3'>이별</a>
@@ -13,4 +13,4 @@ function Button3(){
         </div>
     )
 }
-export default Button3;
+export default Button1;
