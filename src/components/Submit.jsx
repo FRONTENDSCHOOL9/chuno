@@ -1,3 +1,4 @@
+import Button from '@components/Button';
 import PropTypes from 'prop-types';
 
 Submit.propTypes = {
@@ -6,9 +7,9 @@ Submit.propTypes = {
 
 function Submit({ children, ...rest }) {
   return (
-    <button type="submit" {...rest}>
+    <Button type="submit" {...rest}>
       {children}
-    </button>
+    </Button>
   );
 }
 
