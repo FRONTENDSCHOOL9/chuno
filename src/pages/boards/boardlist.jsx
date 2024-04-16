@@ -13,7 +13,7 @@ function BoardList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('/products', {});
+        const res = await axios.get('/products');
         setData(res.data.item); // 데이터에서 item만 설정합니다.
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -27,7 +27,7 @@ function BoardList() {
     <BoardListItem key={item._id} item={item} />
   ));
   const handleNewPost = () => {
-    navigate(`/boards/new`);
+    navigate(`/products/new`);
   };
 
   return (
