@@ -82,6 +82,21 @@ input:focus {
   margin-top: 0.3rem;
 }
 
+/* *NOTE - 비밀번호가 보이고 안 보이게 만드는 버튼 구현용 */
+.pwvisibility {
+  position: relative;
+}
+
+.pwvisibility > input {
+  width: calc(280px);
+}
+
+.pwvisibility > span {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+
 .login-buttons {
   display: flex;
   flex-direction: column;
