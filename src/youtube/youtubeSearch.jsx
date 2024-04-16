@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import useCustomAxios from '../hook/useCustomAxios.mjs';
 import styles from './youtube.module.css';
 import ReactPlayer from 'react-player/youtube';
@@ -15,6 +15,17 @@ function YoutubeSearch() {
   const [searchResult, setSearchResult] = useState([]);
   const [selectedVideos, setSelectedVideos] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [volume, setVolume] = useState(0.5); // 초기 볼륨은 0.5로 설정
+  const [playedSeconds, setPlayedSeconds] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    const player = playerRef.current?.getInternalPlayer(); // playerRef.current가 null이 아닌 경우에만 getInternalPlayer()를 호출합니다.
+    if (player) {
+      player.setVolume(volume * 100);
+    }
+  }, [volume]);
 
   const searchYoutube = async () => {
     try {
@@ -71,6 +82,24 @@ function YoutubeSearch() {
     setCurrentVideoIndex(prev =>
       prev === selectedVideos.length - 1 ? 0 : prev + 1,
     );
+  };
+
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleVolumeChange = e => {
+    setVolume(parseFloat(e.target.value));
+  };
+
+  const handleSeekChange = e => {
+    const seekTo = parseFloat(e.target.value);
+    playerRef.current.seekTo(seekTo, 'seconds');
+  };
+
+  const handleProgress = state => {
+    setPlayedSeconds(state.playedSeconds);
+    setDuration(state.loadedSeconds);
   };
 
   return (
@@ -137,11 +166,33 @@ function YoutubeSearch() {
             <ReactPlayer
               ref={playerRef}
               className="react-player"
-              playing={true}
+              playing={isPlaying}
               url={`https://youtube.com/embed/${selectedVideos[currentVideoIndex]?.id}`}
               width="100%"
               height="100%"
               controls={false}
+              onProgress={handleProgress}
+            />
+          </div>
+          <div className={styles.controls}>
+            <button onClick={handlePlayPause}>
+              {isPlaying ? 'Pause' : 'Play'}
+            </button>
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step="any"
+              value={volume}
+              onChange={handleVolumeChange}
+            />
+            <input
+              type="range"
+              min={0}
+              max={duration}
+              step="any"
+              value={playedSeconds}
+              onChange={handleSeekChange}
             />
           </div>
         </div>
