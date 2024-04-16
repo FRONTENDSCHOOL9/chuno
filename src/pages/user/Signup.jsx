@@ -25,34 +25,27 @@ function Signup() {
 
       formData.type = 'seller';
 
-      //FIXME - 이미지를 업로드하면 회원가입이 안됩니다, 이미지를 보내는 과정에서 뭔가 오류가 있는 것 같은데 잘 모르겠어요... 뭘 어떻게 고쳐야 할까나~
-      // 이미지 먼저 업로드
-      // 이미지 먼저 업로드
       if (formData.profileImage.length > 0) {
-        // 프로필 이미지를 추가한 경우
         const imageFormData = new FormData();
         imageFormData.append('attach', formData.profileImage[0]);
 
         const fileRes = await axios('/files', {
           method: 'post',
           headers: {
-            // 파일 업로드시 필요한 설정
             'Content-Type': 'multipart/form-data',
           },
           data: imageFormData,
         });
-
-        // 서버로부터 응답받은 이미지 이름을 회원 정보에 포함
-        formData.profileImage = fileRes.data.file.name;
+        formData.profileImage = fileRes.data.item.name;
       } else {
-        // profileImage 속성을 제거
         delete formData.profileImage;
       }
 
       const res = await axios.post('/users', formData);
+
       alert(
         res.data.item.name +
-          '님 회원가입이 완료 되었습니다.\n로그인 후에 이용하세요.',
+          '님 회원가입을 축하드려용.\n로그인 후에 이용하세용',
       );
       navigate('/users/login');
     } catch (err) {
