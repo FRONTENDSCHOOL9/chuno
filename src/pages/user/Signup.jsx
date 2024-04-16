@@ -92,7 +92,6 @@ function Signup() {
           </Link>
           <h2>회원가입용</h2>
         </div>
-
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="idpw">
             <div className="signuplabel">
@@ -146,6 +145,7 @@ function Signup() {
             <input
               type="password"
               id="password"
+              maxLength="24"
               placeholder="비밀번호를 입력하세요"
               {...register('password', {
                 required: '비밀번호를 입력하세요.',
@@ -163,12 +163,8 @@ function Signup() {
             <input
               type="password"
               id="passwordCheck"
+              maxLength="24"
               placeholder="비밀번호를 한 번 더 입력하세요"
-              /*               className={`w-full px-3 py-2 border rounded-lg focus:outline-none ${
-                errors.passwordCheck
-                  ? 'border-red-500'
-                  : 'focus:border-blue-500'
-              } dark:bg-gray-700`} */
               {...register('passwordCheck', {
                 required: '비밀번호를 다시 확인해주세요.',
                 validate: value =>
