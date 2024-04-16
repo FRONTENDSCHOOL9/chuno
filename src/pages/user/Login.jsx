@@ -39,7 +39,7 @@ function Login() {
     },
   });
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async formData => {
     try {
       const res = await axios.post('/users/login', formData);
       setUser({
