@@ -122,8 +122,8 @@ function YoutubeSearch() {
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
+        handlePrevClick={handlePrevClick} // handlePrevClick 함수 전달
+        handleNextClick={handleNextClick} // handleNextClick 함수 전달
       />
 
       {selectedVideos.length > 0 && (

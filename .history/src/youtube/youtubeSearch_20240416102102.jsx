@@ -1,9 +1,11 @@
+// YoutubeSearch.js
+
 import { useState, useRef, useEffect } from 'react';
 import useCustomAxios from '../hook/useCustomAxios.mjs';
 import styles from './youtube.module.css';
 import ReactPlayer from 'react-player/youtube';
-import SearchResult from './SearchResult'; // 검색 결과를 표시하는 컴포넌트
-import Playlist from './playlist'; // 재생목록을 표시하는 컴포넌트
+import SearchResult from './SearchResult'; // SearchResult 컴포넌트 임포트
+import Playlist from './Playlist'; // Playlist 컴포넌트 임포트
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API;
 
@@ -21,7 +23,7 @@ function YoutubeSearch() {
   const [duration, setDuration] = useState(0);
 
   useEffect(() => {
-    const player = playerRef.current?.getInternalPlayer();
+    const player = playerRef.current?.getInternalPlayer(); // playerRef.current가 null이 아닌 경우에만 getInternalPlayer()를 호출합니다.
     if (player) {
       player.setVolume(volume * 100);
     }
@@ -65,8 +67,9 @@ function YoutubeSearch() {
   };
 
   const handleDeleteButtonClick = videoId => {
-    setSelectedVideos(selectedVideos.filter(video => video.id !== videoId));
+    setSelectedVideos(selectedVideos.filter(video => video.id !== videoId)); // 리스트에서 삭제하는 함수
     if (selectedVideos[currentVideoIndex]?.id === videoId) {
+      // 삭제된 동영상이 현재 플레이 중인 동영상이면 다음 동영상으로 변경
       setCurrentVideoIndex(currentVideoIndex + 1);
     }
   };
@@ -103,29 +106,20 @@ function YoutubeSearch() {
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.searchbar}>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleInputChange}
-          onKeyPress={handleSearchKeyPress}
-        />
-        <button onClick={handleSearchClick}>Search</button>
-      </div>
-
+      {/* 검색바 및 검색 결과를 보여주는 SearchResult 컴포넌트 */}
       <SearchResult
         searchResult={searchResult}
         handleAddButtonClick={handleAddButtonClick}
       />
 
+      {/* 선택된 동영상 리스트를 보여주는 Playlist 컴포넌트 */}
       <Playlist
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
       />
 
+      {/* 선택된 동영상을 재생하는 ReactPlayer 컴포넌트 */}
       {selectedVideos.length > 0 && (
         <div className={styles.addedvideo}>
           <div className="player-wrapper">

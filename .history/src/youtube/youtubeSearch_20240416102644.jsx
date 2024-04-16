@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import useCustomAxios from '../hook/useCustomAxios.mjs';
 import styles from './youtube.module.css';
 import ReactPlayer from 'react-player/youtube';
-import SearchResult from './SearchResult'; // 검색 결과를 표시하는 컴포넌트
-import Playlist from './playlist'; // 재생목록을 표시하는 컴포넌트
+import SearchResult from './SearchResult';
+import Playlist from './playlist';
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API;
 
@@ -122,8 +122,6 @@ function YoutubeSearch() {
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
       />
 
       {selectedVideos.length > 0 && (
