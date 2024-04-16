@@ -93,7 +93,7 @@ function YoutubeSearch() {
 
   const handleSeekChange = e => {
     const seekTo = parseFloat(e.target.value);
-    playerRef.current.seekTo(seekTo, 'seconds');
+    playerRef.current.seekTo(seekTo, 'seconds'); // 시간을 옮겨준다?
   };
 
   const handleProgress = state => {
@@ -108,7 +108,7 @@ function YoutubeSearch() {
           type="text"
           value={searchTerm}
           onChange={handleInputChange}
-          onKeyPress={handleSearchKeyPress}
+          onKeyDown={handleSearchKeyPress} // onKeyPress -> onKeyDown으로 변경
         />
         <button onClick={handleSearchClick}>Search</button>
       </div>
