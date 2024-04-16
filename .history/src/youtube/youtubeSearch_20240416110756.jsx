@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import useCustomAxios from '../hook/useCustomAxios.mjs';
 import styles from './youtube.module.css';
 import ReactPlayer from 'react-player/youtube';
-import SearchResult from './SearchResult';
+import SearchResult from './SearchResult'; //YouTube 플레이어를 렌더링하기 위한 React 컴포넌트를 가져옴
 import Playlist from './playlist';
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API;
@@ -122,8 +122,8 @@ function YoutubeSearch() {
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
+        handlePrevClick={handlePrevClick} // handlePrevClick 함수 전달
+        handleNextClick={handleNextClick} // handleNextClick 함수 전달
       />
 
       {selectedVideos.length > 0 && (

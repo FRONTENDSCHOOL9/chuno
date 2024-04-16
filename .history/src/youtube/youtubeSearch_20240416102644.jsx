@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import useCustomAxios from '../hook/useCustomAxios.mjs';
 import styles from './youtube.module.css';
 import ReactPlayer from 'react-player/youtube';
@@ -122,8 +122,6 @@ function YoutubeSearch() {
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
       />
 
       {selectedVideos.length > 0 && (
