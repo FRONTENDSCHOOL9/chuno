@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form";
-import useCustomAxios from "@hooks/useCustomAxios.mjs";
-import { memberState } from "@recoil/user/atoms.mjs";
-import { useSetRecoilState } from "recoil";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Submit from "@components/Submit";
+import { useForm } from 'react-hook-form';
+import useCustomAxios from '@hooks/useCustomAxios.mjs';
+import { memberState } from '@recoil/user/atoms.mjs';
+import { useSetRecoilState } from 'recoil';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Submit from '@components/Submit';
 
 function Login() {
   const location = useLocation();
@@ -18,14 +18,14 @@ function Login() {
     setError,
   } = useForm({
     values: {
-      email: "aaa@aa.aa",
-      password: "11111112",
+      email: 'test@market.com',
+      password: '11111111',
     },
   });
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async formData => {
     try {
-      const res = await axios.post("/users/login", formData);
+      const res = await axios.post('/users/login', formData);
       // 사용자 정보를 recoil에 저장
       setUser({
         _id: res.data.item._id,
@@ -33,14 +33,14 @@ function Login() {
         profile: res.data.item.profileImage,
         token: res.data.item.token,
       });
-      alert(res.data.item.name + "님 로그인 되었습니다.");
-      navigate(location.state?.from ? location.state?.from : "/"); // 메인페이지로 이동
+      alert(res.data.item.name + '님 로그인 되었습니다.');
+      navigate(location.state?.from ? location.state?.from : '/'); // 메인페이지로 이동
     } catch (err) {
       // AxiosError(네트워크 에러-response가 없음, 서버의 4xx, 5xx 응답 상태 코드를 받았을 때-response 있음)
       if (err.response?.data.errors) {
         // API 서버가 응답한 에러
-        err.response?.data.errors.forEach((error) =>
-          setError(error.path, { message: error.msg })
+        err.response?.data.errors.forEach(error =>
+          setError(error.path, { message: error.msg }),
         );
       } else if (err.response?.data.message) {
         alert(err.response?.data.message);
@@ -70,11 +70,11 @@ function Login() {
               id="email"
               placeholder="이메일을 입력하세요"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700"
-              {...register("email", {
-                required: "이메일을 입력하세요.",
+              {...register('email', {
+                required: '이메일을 입력하세요.',
                 pattern: {
                   value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "이메일 형식이 아닙니다.",
+                  message: '이메일 형식이 아닙니다.',
                 },
               })}
             />
@@ -96,8 +96,8 @@ function Login() {
               id="password"
               placeholder="비밀번호를 입력하세요"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700"
-              {...register("password", {
-                required: "비밀번호를 입력하세요.",
+              {...register('password', {
+                required: '비밀번호를 입력하세요.',
               })}
             />
             {errors.password && (
