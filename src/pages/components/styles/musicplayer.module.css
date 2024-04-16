@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    cursor: pointer;
+}
+
+.musicplayerWrap {
+    padding: 20px;
+}
+
+.musicplayerTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #545050;
+    margin-bottom: 20px;
+    & button {
+        background-color: transparent;
+        border: none;
+    }
+}
+
+.userIcon {
+    height: 18px;
+}
+
+.musicMainCover {
+    background-color: #63FFE3;
+    width: 100%;
+    aspect-ratio:1/1;
+    overflow: hidden;
+    border-radius: 6px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.songTitle {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #333030;
+    margin-bottom: 50px;
+}
+
+.seekBar {
+    width: 100%;
+    border: none;
+    margin-bottom: 40px;
+    accent-color: #619AE0;
+    cursor: pointer;
+}
+
+
+
+.musicControl {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: center;
+    margin-bottom: 40px;
+    & button {
+        background-color: transparent;
+        border: none;
+    }
+}
+
+.wrap_list {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.thumbnail {
+    width: 42px;
+    height: 42px;
+    background-color: red;
+    margin-right: 20px;
+}
+
+.songTitle{
+    font-size: 16px;
+    color: white;
+    margin: auto 0;
+}
+
+.count {
+    margin-left: auto;
+}
+
+
+/* --toggle--- */
+
+.listBox {
+    position: absolute;
+    width: 100%;
+    background-color: #272727;
+    opacity: 60%;
+    color: white;
+    cursor: pointer;
+}
+
+.fullBox {
+    border: 1px solid red;
+}

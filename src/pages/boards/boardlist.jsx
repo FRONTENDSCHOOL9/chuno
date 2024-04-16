@@ -5,6 +5,7 @@ import Boardlistitem from "./boardlistitem";
 function Boardlist(){
     return (
         <>
+            <Search />
             <Boardlistitem />
             <Button1></Button1>    
         </>

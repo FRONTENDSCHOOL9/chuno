@@ -1,11 +1,9 @@
-import Search from '../components/Search';
 import './board.css';
 
 
 function Boardlistitem(){
     return (
         <>
-        <Search></Search>
         <ul className='wrap_list'>            
             <li className='listitem'>
                 <div className='thumbnail'>
