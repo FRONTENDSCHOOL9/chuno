@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import './board.css';
+import styles from './board.module.css'; // CSS 모듈 불러오기
+import defaultThumbnail from '../../../public/yongyong.png';
 
 BoardListItem.propTypes = {
   item: PropTypes.object.isRequired,
@@ -11,19 +12,22 @@ function BoardListItem({ item }) {
 
   return (
     <>
-      <ul className="wrap_list">
+      <ul className={styles.wrap_list}>
         <li
-          className="listitem"
+          className={styles.listitem}
           onClick={() => navigate(`/products/${item._id}`)}
         >
-          <div className="thumbnail">
-            <img src={`${item.path}`} alt={`${item.orginalname}`} />
+          <div className={styles.thumbnail}>
+            <img
+              src={item.path || defaultThumbnail}
+              alt={item.orginalname || 'Default Thumbnail'}
+            />
           </div>
-          <div className="desc">
+          <div className={styles.desc}>
             <h3>{item.name}</h3>
             <span>{item.name}</span>
           </div>
-          <span className="count">15곡</span>
+          <span className={styles.count}>15곡</span>
         </li>
       </ul>
     </>
