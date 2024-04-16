@@ -15,19 +15,21 @@ function Playlist({
 }) {
   const changechar = /[^\w\s]/gi;
 
+  // 중복된 id속성을(title..등등 다른 것도 가능) 가진 동영상 객체를 제거
+  // 똑같은 영상을 넣지 못함
+  const distinctVideos = selectedVideos.filter(
+    (video, index, self) => index === self.findIndex(v => v.id === video.id),
+  );
+
   return (
     <div className={styles.playlistadded}>
       <h2>Playlist</h2>
       <ul>
-        {selectedVideos.map((video, index) => (
-          <li key={index}>
-            {' '}
-            {/* 인덱스를 key로 사용 */}
+        {distinctVideos.map(video => (
+          <li key={video.id}>
             {video.title.replace(changechar, '')}
             <button onClick={() => handleDeleteButtonClick(video.id)}>-</button>
-            <button onClick={() => handleVideoItemClick(video.id, index)}>
-              Play
-            </button>
+            <button onClick={() => handleVideoItemClick(video.id)}>Play</button>
           </li>
         ))}
       </ul>
