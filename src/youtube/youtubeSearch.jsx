@@ -134,8 +134,8 @@ function YoutubeSearch() {
               className="react-player"
               playing={isPlaying}
               url={`https://youtube.com/embed/${selectedVideos[currentVideoIndex]?.id}`}
-              width="100%"
-              height="100%"
+              width="0"
+              height="0"
               controls={false}
               onProgress={handleProgress}
             />
