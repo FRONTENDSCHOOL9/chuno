@@ -27,7 +27,6 @@ function Signup() {
 
       //FIXME - 이미지를 업로드하면 회원가입이 안됩니다, 이미지를 보내는 과정에서 뭔가 오류가 있는 것 같은데 잘 모르겠어요... 뭘 어떻게 고쳐야 할까나~
       // 이미지 먼저 업로드
-      // 이미지 먼저 업로드
       if (formData.profileImage.length > 0) {
         // 프로필 이미지를 추가한 경우
         const imageFormData = new FormData();

@@ -39,7 +39,7 @@ function Login() {
     },
   });
 
-  const onSubmit = async formData => {
+  const onSubmit = async (formData) => {
     try {
       const res = await axios.post('/users/login', formData);
       setUser({
@@ -50,7 +50,7 @@ function Login() {
       });
       alert(res.data.item.name + '님 로그인 되었습니다.');
       //LINK - 게시판 완성 후 그에 맞춰 navigate 경로 수정이 필요합니다.
-      navigate(location.state?.from ? location.state?.from : '/boards');
+      navigate(location.state?.from ? location.state?.from : '/');
     } catch (err) {
       if (err.response?.data.errors) {
         err.response?.data.errors.forEach(error =>
@@ -93,6 +93,7 @@ function Login() {
             <input
               type="email"
               id="email"
+              autoComplete="email"
               placeholder="이메일을 입력하세요"
               {...register('email', {
                 required: '이메일은 필수로 입력해주세요.',
