@@ -1,10 +1,17 @@
-// 이 컴포넌트는 재생 목록을 표시하고 상호작용할 수 있는 기능을 제공합
-// 주어진 selectedVideos 배열에서 각 동영상의 제목을 표시하고, 삭제 및 재생 버튼을 포함한 목록을 렌더링
-// 이전과 다음 버튼을 통해 재생 목록을 옮길 수 있는 기능을 제공
-
-// 중복된 key 값 워닝 제거
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
+
+// YouTube 썸네일 URL 생성 함수
+function generateThumbnailUrl(videoId, quality = 'mqdefault') {
+  const baseUrl = 'https://img.youtube.com/vi/';
+  const qualityOptions = {
+    default: 'default.jpg',
+    mqdefault: 'mqdefault.jpg',
+    maxresdefault: 'maxresdefault.jpg',
+  };
+  const qualitySuffix = qualityOptions[quality] || qualityOptions.mqdefault;
+  return `${baseUrl}${videoId}/${qualitySuffix}`;
+}
 
 function Playlist({
   selectedVideos,
@@ -15,8 +22,6 @@ function Playlist({
 }) {
   const changechar = /[^\w\s]/gi;
 
-  // 중복된 id속성을(title..등등 다른 것도 가능) 가진 동영상 객체를 제거
-  // 똑같은 영상을 넣지 못함
   const distinctVideos = selectedVideos.filter(
     (video, index, self) => index === self.findIndex(v => v.id === video.id),
   );
@@ -27,13 +32,18 @@ function Playlist({
       <ul>
         {distinctVideos.map(video => (
           <li key={video.id}>
+            {/* 영상 제목 */}
             {video.title.replace(changechar, '')}
+            {/* 썸네일 이미지 */}
+            <img src={generateThumbnailUrl(video.id)} alt={video.title} />
+            {/* 삭제 및 재생 버튼 */}
             <button onClick={() => handleDeleteButtonClick(video.id)}>-</button>
             <button onClick={() => handleVideoItemClick(video.id)}>Play</button>
           </li>
         ))}
       </ul>
       <div>
+        {/* 이전 및 다음 버튼 */}
         <button onClick={handlePrevClick}>Prev</button>
         <button onClick={handleNextClick}>Next</button>
       </div>
@@ -42,11 +52,11 @@ function Playlist({
 }
 
 Playlist.propTypes = {
-  selectedVideos: PropTypes.array.isRequired, // 배열이어야 하며 필수
-  handleDeleteButtonClick: PropTypes.func.isRequired, // 함수이어야 하며 필수
-  handleVideoItemClick: PropTypes.func.isRequired, // 함수이어야 하며 필수
-  handlePrevClick: PropTypes.func.isRequired, // 함수이어야 하며 필수
-  handleNextClick: PropTypes.func.isRequired, // 함수이어야 하며 필수
+  selectedVideos: PropTypes.array.isRequired,
+  handleDeleteButtonClick: PropTypes.func.isRequired,
+  handleVideoItemClick: PropTypes.func.isRequired,
+  handlePrevClick: PropTypes.func.isRequired,
+  handleNextClick: PropTypes.func.isRequired,
 };
 
 export default Playlist;
