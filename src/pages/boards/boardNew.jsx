@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-import styles from './boardnew.module.css';
+import styles from './board.module.css'; // CSS 모듈 불러오기
 import Submit from '../../components/Button1';
 
 function BoardNew() {
@@ -92,25 +92,21 @@ function BoardNew() {
           />
         </div>
         <div className={styles.inputsection}>
-          <div className={styles.inputsection}>
-            <div className={styles.inputsection}>
-              <div className="btn3Parent">
-                {['이별', '운동', '행복', '우울', '집중', '사랑', '분노'].map(
-                  value => (
-                    <a
-                      key={value}
-                      href="#"
-                      className={`btn3 ${
-                        selectedValues.includes(value) ? 'active' : ''
-                      }`}
-                      onClick={() => handleClick(value)}
-                    >
-                      {value}
-                    </a>
-                  ),
-                )}
-              </div>
-            </div>
+          <div className="btn3Parent">
+            {['이별', '운동', '행복', '우울', '집중', '사랑', '분노'].map(
+              value => (
+                <a
+                  key={value}
+                  href="#"
+                  className={`btn3 ${
+                    selectedValues.includes(value) ? 'active' : ''
+                  }`}
+                  onClick={() => handleClick(value)}
+                >
+                  {value}
+                </a>
+              ),
+            )}
           </div>
         </div>
         <div className={styles.inputsection}>

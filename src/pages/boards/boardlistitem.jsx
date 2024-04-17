@@ -11,26 +11,22 @@ function BoardListItem({ item }) {
   const navigate = useNavigate();
 
   return (
-    <>
-      <ul className={styles.wrap_list}>
-        <li
-          className={styles.listitem}
-          onClick={() => navigate(`/products/${item._id}`)}
-        >
-          <div className={styles.thumbnail}>
-            <img
-              src={item.path || defaultThumbnail}
-              alt={item.orginalname || 'Default Thumbnail'}
-            />
-          </div>
-          <div className={styles.desc}>
-            <h3>{item.name}</h3>
-            <span>{item.name}</span>
-          </div>
-          <span className={styles.count}>15곡</span>
-        </li>
-      </ul>
-    </>
+    <li
+      className={styles.listitem}
+      onClick={() => navigate(`/products/${item._id}`)}
+    >
+      <div className={styles.thumbnail}>
+        <img
+          src={item.path || defaultThumbnail}
+          alt={item.orginalname || 'Default Thumbnail'}
+        />
+      </div>
+      <div className={styles.desc}>
+        <h3>{item.name}</h3>
+        <span>{item.name}</span>
+      </div>
+      <span className={styles.count}>15곡</span>
+    </li>
   );
 }
 
