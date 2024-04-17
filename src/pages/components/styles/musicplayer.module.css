@@ -94,7 +94,7 @@ button{
 /* --toggle--- */
 
 .listBox {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -102,12 +102,15 @@ button{
     opacity: 60%;
     color: white;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+    height: 82px;
 }
 
 .fullBox {
-    position: absolute;
+    position: fixed;
+    left: 0;
+    bottom: 0;
     height: 100%;
     /* border: 1px solid red; */
-    transition: 0.3s ease;    
+    transition: all 0.3s ease;    
 }
