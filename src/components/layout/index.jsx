@@ -1,11 +1,13 @@
+import Footer from '@components/layout/Footer';
+import Header from '@components/layout/Header';
 import { Outlet } from 'react-router-dom';
-import Signup from '../../pages/user/Signup';
 
 function Layout() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
+      <Header />
       <Outlet />
-      <Signup></Signup>
+      <Footer />
     </div>
   );
 }
