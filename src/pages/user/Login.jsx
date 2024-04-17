@@ -13,7 +13,7 @@ function Login() {
     visible: false,
   });
 
-  const handlePasswordType = e => {
+  const handlePasswordType = () => {
     setpwType(() => {
       if (!pwType.visible) {
         return { type: 'text', visible: true };
