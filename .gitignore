@@ -8,16 +8,15 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Node.js dependencies
-node_modules
+node_modules/
 
 # Distribution files
-dist
-dist-ssr
+dist/
+dist-ssr/
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+.vscode/
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
