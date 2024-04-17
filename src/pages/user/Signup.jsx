@@ -90,7 +90,7 @@ function Signup() {
               />
             </svg>
           </Link>
-          <h2>회원가입용</h2>
+          <h2>회원이 되어주세용</h2>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="idpw">
