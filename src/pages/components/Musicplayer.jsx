@@ -2,6 +2,7 @@ import Boardlist from "../boards/boardlist";
 import Boardlistitem from "../boards/boardlistitem";
 import styles from "./styles/musicplayer.module.css"
 import Songlist from "./Songlist"
+import { useState } from "react";
 
 function Musicplayer(){
     
@@ -9,9 +10,12 @@ function Musicplayer(){
       e.target.classList.toggle("fullbox");  
     }  */
 
+    const [isListBoxOpen, setListBoxOpen] = useState(true); // 초기값은 true로 설정
 
-    
-    /*  */
+    const toggleListBox = () => {
+        setListBoxOpen(!isListBoxOpen); // 상태를 반전시킴
+    };
+
 
     return(
         <div>
@@ -67,11 +71,16 @@ function Musicplayer(){
 
             </div>
 
-            {/* <div className={`{styles.listBox} ${styles.fullBox ? styles.fullBox : ""}`}   */}
-            <div className={styles.listBox} /* onClick={handleClick} */>
-                
-                <Songlist />
+            <div>
+            <div className={styles.musicplayerWrap}>
+                {/* 여기에 나머지 내용 */}
             </div>
+            <div className={`${styles.listBox} ${isListBoxOpen ? styles.fullBox : ""}`} onClick={toggleListBox}>
+            <Songlist />
+            </div>
+        </div>
+
+
 
         </div>
     )
