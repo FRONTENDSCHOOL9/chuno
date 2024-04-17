@@ -5,11 +5,21 @@ import ReactPlayer from 'react-player/youtube';
 import SearchResult from './SearchResult';
 import Playlist from './playlist';
 
-const API_KEY = import.meta.env.VITE_YOUTUBE_API;
+// const API_KEY_1 = import.meta.env.VITE_YOUTUBE_API_1;
+// const API_KEY_2 = import.meta.env.VITE_YOUTUBE_API_2;
+// const API_KEY_3 = import.meta.env.VITE_YOUTUBE_API_3;
+// const API_KEY_4 = import.meta.env.VITE_YOUTUBE_API_4;
+
+// const API_KEYS = [API_KEY_1, API_KEY_2, API_KEY_3, API_KEY_4];
+const API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(',');
+
+const MAX_API_KEYS = API_KEYS.length;
 
 function YoutubeSearch() {
   const axiosInstance = useCustomAxios();
   const playerRef = useRef(null);
+
+  const [currentKeyIndex, setCurrentKeyIndex] = useState(0); // 현재 사용 중인 API 키 인덱스
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
@@ -27,14 +37,23 @@ function YoutubeSearch() {
     }
   }, [volume]);
 
+  const selectNextKey = () => {
+    setCurrentKeyIndex(prevIndex => (prevIndex + 1) % MAX_API_KEYS);
+  };
+
   const searchYoutube = async () => {
     try {
       const response = await axiosInstance.get(
-        `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&q=${searchTerm}&maxResults=5&type=video`,
+        `https://www.googleapis.com/youtube/v3/search?key=${API_KEYS[currentKeyIndex]}&part=snippet&q=${searchTerm}&maxResults=5&type=video`,
       );
       setSearchResult(response.data.items);
     } catch (error) {
       console.error('Error searching YouTube:', error);
+      // 에러가 발생하면서 상태 코드가 403인 경우에는 할당량이 다 쓰였다고 판단하고 다음 키로 전환
+      //
+      if (error.response && error.response.status === 403) {
+        selectNextKey();
+      }
     }
   };
 
