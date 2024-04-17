@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-4;
-import '../components/styles/search.css';
 
 Search.propTypes = {
   onClick: PropTypes.func,
