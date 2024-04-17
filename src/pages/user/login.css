@@ -44,10 +44,11 @@ a:hover {
   margin-bottom: 30px;
 }
 
-h2 {
+.pagename > h2 {
   color: #619ae0;
   font-size: 1.4rem;
   flex-grow: 1;
+  font-weight: bolder;
 }
 
 .loginpage-container > form > .idpw {
