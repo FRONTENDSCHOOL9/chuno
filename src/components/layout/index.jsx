@@ -14,17 +14,7 @@ import Button4 from '../../pages/components/Button4';
 function Layout() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* <Header /> */}
       <Outlet />
-      {/* <Button1 />
-      <Button2 />
-      <Button3 />
-      <Button4 />
-      <Button5 /> */}
-      {/* <Musicplayer /> */}
-      <Mypage />
-      {/* <Empty /> */}
-      {/* <Footer /> */}
     </div>
   );
 }
