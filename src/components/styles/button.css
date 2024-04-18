@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/components/styles/button.css
 .common-btn-style {
   padding: 8px;
   border-radius: 8px;
@@ -59,7 +58,6 @@
 
 .back {
   margin-bottom: 20px;
-=======
 .common-btn-style{
     padding: 8px;
     border-radius: 8px;
@@ -120,5 +118,4 @@
     background-color: #619AE0;
     color: white;
     border: 2px solid #619AE0;
->>>>>>> feature/components:src/pages/components/styles/button.css
 }
