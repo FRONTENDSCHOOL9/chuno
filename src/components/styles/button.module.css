@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-.btn2 {
+.btn_post {
   display: block;
   margin: 0 auto;
   background-color: #619ae0;
@@ -23,6 +23,7 @@
   box-sizing: border-box;
   cursor: pointer;
 }
+
 .btn3Parent {
   display: flex;
   flex-wrap: wrap;

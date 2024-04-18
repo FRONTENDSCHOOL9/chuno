@@ -9,7 +9,7 @@ Button2.propTypes = {
 function Button2({ onClick, children }) {
   return (
     <button
-      className={`${styles.common_btn} ${styles.btn2} ${styles.btn_active}`}
+      className={`${styles.common_btn} ${styles.btn_post} ${styles.btn_active}`}
       onClick={onClick}
     >
       {children}
