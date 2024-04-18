@@ -1,0 +1,18 @@
+.searchform{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    & .search{
+        outline: none;
+        border: 0;
+        background-color: #F9F9F9;
+        border: 1px solid #EEEEEE;
+        border-radius: 8px;
+        font-size: 14px;
+        padding: 10px 8px;
+        width: 100%;
+    }
+    & .searchsubmit{
+        display: none;
+    }
+}

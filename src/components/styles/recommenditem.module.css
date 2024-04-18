@@ -1,0 +1,29 @@
+/* 
+      <ul className="recwrap_list">
+        <li className="reclistitem">
+          <h3>반려동물도 함께 듣는 곡</h3>
+*/
+
+.recwrap_list {
+  display: flex;
+  flex-grow: 1;
+  height: 170px;
+}
+
+.reclistitem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: stretch;
+  min-width: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 170px;
+  border-radius: 12px;
+  background-color: red;
+}
+
+.reclistitem h3 {
+  color: white;
+  font-size: 16px;
+}

@@ -5,9 +5,10 @@ import Login from '@pages/user/Login';
 import Signup from '@pages/user/Signup';
 import ErrorPage from '@pages/ErrorPage';
 import Mypage from '@pages/user/Mypage';
-import BoardList from './pages/boards/boardlist';
-import BoardNew from './pages/boards/boardNew';
-import BoardDetail from './pages/boards/BoardDetail';
+import BoardList from '@pages/boards/boardlist';
+import BoardNew from '@pages/boards/boardNew';
+import BoardDetail from '@pages/boards/BoardDetail';
+import Empty from '@pages/boards/empty';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: 'products/new',
         element: <BoardNew />,
+      },
+      {
+        path: 'products/empty',
+        element: <Empty />,
       },
       {
         path: 'users/login',

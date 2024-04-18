@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dbinit:sample": "node ./init.js sample 09-sample",
-    "dbinit:team": "node ./init.js team 00-board"
+    "dbinit:team": "node ./init.js team 09-chuno"
   },
   "keywords": [],
   "author": "",
