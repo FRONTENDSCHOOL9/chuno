@@ -1,8 +1,12 @@
-import Button1 from '../components/Button2';
-import Boardlistitem from './boardlistitem';
+import { useNavigate } from 'react-router-dom';
+import BtnCommon from '@/components/BtnCommon';
 import styles from './board2.module.css';
 
 function Empty() {
+  const navigate = useNavigate();
+  const handleNewPost = () => {
+    navigate(`/products/new`);
+  };
   return (
     <div className={styles.emptyScreen}>
       <div>
@@ -28,7 +32,7 @@ function Empty() {
         </p>
       </div>
 
-      <Button1 />
+      <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
     </div>
   );
 }

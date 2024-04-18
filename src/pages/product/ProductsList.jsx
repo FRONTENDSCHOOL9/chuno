@@ -2,11 +2,11 @@ import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '@components/Search';
-import BtnCommon from '../../components/BtnCommon';
-import BoardListItem from './boardlistitem';
-import styles from './board.module.css';
+import BtnCommon from '@/components/BtnCommon';
+import BoardListItem from './ProductsItem';
+import styles from './ProductsCommon.module.css';
 
-function BoardList() {
+function ProductsList() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
@@ -49,4 +49,4 @@ function BoardList() {
   );
 }
 
-export default BoardList;
+export default ProductsList;

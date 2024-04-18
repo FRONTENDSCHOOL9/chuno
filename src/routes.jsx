@@ -5,10 +5,10 @@ import Login from '@pages/user/Login';
 import Signup from '@pages/user/Signup';
 import ErrorPage from '@pages/ErrorPage';
 import Mypage from '@pages/user/Mypage';
-import BoardList from '@pages/boards/boardlist';
-import BoardNew from '@pages/boards/boardNew';
-import BoardDetail from '@pages/boards/BoardDetail';
-import Empty from '@pages/boards/empty';
+import ProductsList from '@pages/product/ProductsList';
+import ProductsNew from '@pages/product/ProductsNew';
+import ProductsDetail from '@pages/product/ProductsDetail';
+import Empty from '@pages/product/Empty';
 
 const router = createBrowserRouter([
   {
@@ -26,15 +26,15 @@ const router = createBrowserRouter([
       },
       {
         path: 'products/:_id',
-        element: <BoardDetail />,
+        element: <ProductsDetail />,
       },
       {
         path: 'products',
-        element: <BoardList />,
+        element: <ProductsList />,
       },
       {
         path: 'products/new',
-        element: <BoardNew />,
+        element: <ProductsNew />,
       },
       {
         path: 'products/empty',

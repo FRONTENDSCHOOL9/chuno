@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import styles from './board.module.css'; // CSS 모듈 불러오기
+
 import defaultThumbnail from '@public/yongyong.png';
 
-BoardListItem.propTypes = {
+import styles from './ProductsCommon.module.css';
+
+ProductsItem.propTypes = {
   item: PropTypes.object.isRequired,
 };
 
-function BoardListItem({ item }) {
+function ProductsItem({ item }) {
   const navigate = useNavigate();
 
   // *NOTE - 썸네일이 지정되지 않았다면 기본썸네일로 노출
@@ -31,4 +33,4 @@ function BoardListItem({ item }) {
   );
 }
 
-export default BoardListItem;
+export default ProductsItem;
