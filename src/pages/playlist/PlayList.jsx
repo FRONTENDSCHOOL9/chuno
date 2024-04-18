@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import ButtonBack from '@/components/ButtonBack';
-import BoardListItem from './ProductsItem';
+import PlayListItem from './PlayListItem';
 import Search from '@components/Search';
 
 import BtnCommon from '@/components/BtnCommon';
-import styles from './ProductsCommon.module.css';
+import styles from './PlayList.module.css';
 
-function ProductsList() {
+function PlayList() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
@@ -35,16 +35,16 @@ function ProductsList() {
   }, [axios, data]);
 
   const itemList = data?.map(item => (
-    <BoardListItem key={item._id} item={item} />
+    <PlayListItem key={item._id} item={item} />
   ));
 
   const handleNewPost = () => {
-    navigate(`/products/new`);
+    navigate(`/playlist/new`);
   };
 
   return (
     <div className={styles.wrap}>
-      <ButtonBack path={'/'} />
+      <ButtonBack path={'/main'} />
       <Search></Search>
       {/* 데이터가 존재하는 경우에만 BoardListItem을 렌더링합니다. */}
       <ul className={styles.wrap_list}>{itemList}</ul>
@@ -53,4 +53,4 @@ function ProductsList() {
   );
 }
 
-export default ProductsList;
+export default PlayList;

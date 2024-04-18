@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { Link, useNavigate } from 'react-router-dom';
 import Submit from '@components/Submit';
-import './signup.css';
+import styles from './signup.module.css'; // CSS 모듈 import
 
 function Signup() {
   const axios = useCustomAxios();
@@ -63,9 +63,9 @@ function Signup() {
   };
 
   return (
-    <div className="signuppage">
-      <div className="signuppage-container">
-        <div className="pagename">
+    <div className={styles.signuppage}>
+      <div className={styles['signuppage-container']}>
+        <div className={styles.pagename}>
           <Link to="/">
             <svg
               width="50"
@@ -87,10 +87,10 @@ function Signup() {
           <h2>회원이 되어주세용</h2>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="idpw">
-            <div className="signuplabel">
+          <div className={styles.idpw}>
+            <div className={styles.signuplabel}>
               <label htmlFor="name">닉네임</label>
-              <label className="essential" htmlFor="name">
+              <label className={styles.essential} htmlFor="name">
                 *
               </label>
             </div>
@@ -108,10 +108,10 @@ function Signup() {
             />
             {errors.name && <p>{errors.name.message}</p>}
           </div>
-          <div className="idpw">
-            <div className="signuplabel">
+          <div className={styles.idpw}>
+            <div className={styles.signuplabel}>
               <label htmlFor="email">아이디</label>
-              <label className="essential" htmlFor="name">
+              <label className={styles.essential} htmlFor="name">
                 *
               </label>
             </div>
@@ -129,10 +129,10 @@ function Signup() {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
-          <div className="idpw">
-            <div className="signuplabel">
+          <div className={styles.idpw}>
+            <div className={styles.signuplabel}>
               <label htmlFor="password">비밀번호</label>
-              <label className="essential" htmlFor="name">
+              <label className={styles.essential} htmlFor="name">
                 *
               </label>
             </div>
@@ -147,10 +147,10 @@ function Signup() {
             />
             {errors.password && <p>{errors.password.message}</p>}
           </div>
-          <div className="idpw">
-            <div className="signuplabel">
+          <div className={styles.idpw}>
+            <div className={styles.signuplabel}>
               <label htmlFor="passwordCheck">비밀번호 확인</label>
-              <label className="essential" htmlFor="name">
+              <label className={styles.essential} htmlFor="name">
                 *
               </label>
             </div>
@@ -168,8 +168,8 @@ function Signup() {
             />
             {errors.passwordCheck && <p>{errors.passwordCheck.message}</p>}
           </div>
-          <div className="idpw">
-            <div className="signuplabel">
+          <div className={styles.idpw}>
+            <div className={styles.signuplabel}>
               <label htmlFor="profileImage">프로필 이미지</label>
             </div>
             <input
@@ -180,7 +180,7 @@ function Signup() {
               {...register('profileImage')}
             />
           </div>
-          <div className="signup-buttons">
+          <div className={styles['signup-buttons']}>
             <Submit>회원가입</Submit>
           </div>
         </form>

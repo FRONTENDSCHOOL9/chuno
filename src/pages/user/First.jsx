@@ -1,12 +1,11 @@
 import Button from '@components/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import './first.css';
-
+import styles from './first.module.css';
 function First() {
   const navigate = useNavigate();
 
   return (
-    <div className="firstpage">
+    <div className={styles.firstpage}>
       <svg
         width="111"
         height="124"
@@ -27,14 +26,17 @@ function First() {
           fill="#619AE0"
         />
       </svg>
-
-      <Button className="login" onClick={() => navigate('/users/login')}>
+      {/* Use styles.firstpage */}
+      <Button className={styles.login} onClick={() => navigate('/users/login')}>
         로그인
       </Button>
-      <Button className="signup" onClick={() => navigate('/users/signup')}>
+      <Button
+        className={styles.signup}
+        onClick={() => navigate('/users/signup')}
+      >
         회원가입
       </Button>
-      <Link to="/products" className="link">
+      <Link to="/main" className={styles.link}>
         비회원으로 시작하기
       </Link>
     </div>

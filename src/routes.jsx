@@ -5,10 +5,12 @@ import Login from '@pages/user/Login';
 import Signup from '@pages/user/Signup';
 import ErrorPage from '@pages/ErrorPage';
 import Mypage from '@pages/user/Mypage';
-import ProductsList from '@pages/product/ProductsList';
-import ProductsNew from '@pages/product/ProductsNew';
-import ProductsDetail from '@pages/product/ProductsDetail';
-import Empty from '@pages/product/Empty';
+import PlayList from '@pages/playlist/PlayList';
+import PlayListNew from '@pages/playlist/PlayListNew';
+import PlayListDetail from '@pages/playlist/PlayListDetail';
+import Empty from '@pages/playlist/Empty';
+import Musicplayer from '@components/Musicplayer';
+import Mainpage from '@components/Mainpage';
 
 const router = createBrowserRouter([
   {
@@ -25,19 +27,19 @@ const router = createBrowserRouter([
         element: <Mypage />,
       },
       {
-        path: 'products/:_id',
-        element: <ProductsDetail />,
+        path: 'playlist/:_id',
+        element: <PlayListDetail />,
       },
       {
-        path: 'products',
-        element: <ProductsList />,
+        path: 'playlist',
+        element: <PlayList />,
       },
       {
-        path: 'products/new',
-        element: <ProductsNew />,
+        path: 'playlist/new',
+        element: <PlayListNew />,
       },
       {
-        path: 'products/empty',
+        path: 'playlist/empty',
         element: <Empty />,
       },
       {
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: 'users/signup',
         element: <Signup />,
+      },
+      {
+        path: 'music',
+        element: <Musicplayer />,
+      },
+      {
+        path: 'main',
+        element: <Mainpage />,
       },
     ],
   },

@@ -7,6 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
+# .history파일도 제거해주세요 ㅠㅠ from 희진님
+.history/
+
 # Node.js dependencies
 node_modules/
 

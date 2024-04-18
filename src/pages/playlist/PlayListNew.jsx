@@ -1,17 +1,15 @@
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Submit from '@/components/Submit';
 
 import ButtonBack from '@/components/ButtonBack';
 import Keywords from '@/components/Keywords';
 
-import styles from './ProductsCommon.module.css';
+import styles from './PlayList.module.css';
 
-function ProductsNew() {
+function PlayListNew() {
   const axios = useCustomAxios();
-  const navigate = useNavigate();
   const [selectedValues, setSelectedValues] = useState([]);
 
   const { register, handleSubmit } = useForm({
@@ -52,10 +50,7 @@ function ProductsNew() {
 
   return (
     <div className={styles.wrap}>
-      <ButtonBack path={'/products'} />
-      <a href="/" onClick={() => navigate('/boards')}>
-        {/* 네비게이션 아이콘 */}
-      </a>
+      <ButtonBack path={'/playlist'} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputsection}>
           <label htmlFor="name">제목</label>
@@ -101,4 +96,4 @@ function ProductsNew() {
   );
 }
 
-export default ProductsNew;
+export default PlayListNew;

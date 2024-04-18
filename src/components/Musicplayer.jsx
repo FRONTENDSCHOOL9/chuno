@@ -1,5 +1,3 @@
-import Boardlist from '../boards/boardlist';
-import Boardlistitem from '../boards/boardlistitem';
 import styles from './styles/musicplayer.module.css';
 import Songlist from './Songlist';
 import { useState } from 'react';
@@ -18,6 +16,7 @@ function Musicplayer() {
   }
 
   return (
+    // *FIXME - playlistitem 적용하여 화면에 보여줘야합니다.
     <div>
       <div
         className={`${styles.musicplayerWrap} ${
@@ -41,36 +40,11 @@ function Musicplayer() {
             </svg>
           </button>
           <h2>Songs</h2>
-          <button>
-            <svg
-              width="15"
-              height="20"
-              viewBox="0 0 15 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_529_7308)">
-                <path
-                  d="M7.35788 10.6169C11.4149 10.6169 14.7158 13.8902 14.7158 17.9133V19.4359C14.7158 19.7477 14.4613 20 14.1468 20H0.568908C0.254479 20 0 19.7477 0 19.4359V17.9133C0 13.8902 3.30089 10.6169 7.35788 10.6169Z"
-                  fill="#545050"
-                />
-                <path
-                  d="M9.16508 9.00516C11.5735 8.01586 12.7172 5.27777 11.7196 2.88946C10.722 0.501148 7.96077 -0.632982 5.55231 0.35631C3.14385 1.3456 2.00015 4.08369 2.99779 6.47201C3.99543 8.86032 6.75662 9.99445 9.16508 9.00516Z"
-                  fill="#545050"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_529_7308">
-                  <rect width="14.717" height="20" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </button>
+          <button></button>
         </div>
-        <Boardlistitem />
         <img className={styles.musicMainCover} src="" alt="" />
         <div className="songText">
-          <div className={styles.songTitle}>World's Smallest Violin</div>
+          <div className={styles.songTitle}>Worlds Smallest Violin</div>
         </div>
         <div>
           <input className={styles.seekBar} type="range" />

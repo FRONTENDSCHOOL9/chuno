@@ -103,26 +103,17 @@
   box-sizing: border-box;
 }
 
-.btn4,
-.btn5 {
+.btncomplete {
   font-size: 22px;
   width: 174px;
   padding: 7px;
   border-radius: 30px;
 
   box-sizing: border-box;
-}
 
-.btn4 {
   background-color: #619ae0;
   border: none;
   color: white;
-}
-
-.btn5 {
-  background-color: white;
-  border: 2px solid #619ae0;
-  color: #619ae0;
 }
 
 .btn1:hover,

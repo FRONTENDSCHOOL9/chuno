@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import defaultThumbnail from '../../../public/yongyong.png';
 import ButtonBack from '@/components/ButtonBack';
 
-import styles from './ProductsCommon.module.css';
+import styles from './PlayList.module.css';
 
-function ProductsDetail() {
+function PlayListDetail() {
   const axios = useCustomAxios();
   const { _id } = useParams();
   const [item, setItem] = useState(null);
@@ -89,4 +89,4 @@ function ProductsDetail() {
   );
 }
 
-export default ProductsDetail;
+export default PlayListDetail;
