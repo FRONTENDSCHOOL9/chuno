@@ -1,4 +1,4 @@
-.common-btn-style {
+.common_btn {
   padding: 8px;
   border-radius: 8px;
   font-size: 12px;
@@ -42,7 +42,7 @@
   box-sizing: border-box;
 }
 
-.btn-active {
+.btn_active {
   &:active {
     background-color: white;
     color: #619ae0;

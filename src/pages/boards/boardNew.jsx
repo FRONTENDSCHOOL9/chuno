@@ -1,28 +1,18 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-import styles from './board.module.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import Submit from '../../components/Button1';
-import YoutubeSearch from '../../youtube/youtubeSearch';
+
 import ButtonBack from '../../components/ButtonBack';
+import Button3 from '../../components/Keywords';
+
+import styles from '../boards/board.module.css';
 
 function BoardNew() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
   const [selectedValues, setSelectedValues] = useState([]);
-  const [youtubeData, setYoutubeData] = useState([]);
-
-  const handleClick = value => {
-    setSelectedValues(prevValues => {
-      const index = prevValues.indexOf(value);
-      if (index === -1) {
-        return [...prevValues, value];
-      } else {
-        return prevValues.filter(v => v !== value);
-      }
-    });
-  };
 
   const { register, handleSubmit } = useForm({
     values: {
@@ -34,11 +24,22 @@ function BoardNew() {
     },
   });
 
+  // 버튼 클릭 핸들러
+  const handleClick = value => {
+    setSelectedValues(prevValues => {
+      const index = prevValues.indexOf(value);
+      if (index === -1) {
+        return [...prevValues, value];
+      } else {
+        return prevValues.filter(v => v !== value);
+      }
+    });
+  };
+
   const onSubmit = async formData => {
     formData.extra = {
       ...formData.extra,
       keyword: selectedValues.join(','),
-      youtubeIds: youtubeData ? youtubeData.map(item => item.id).join(',') : '', // youtubeData가 null이 아닌 경우에만 map 함수 호출
     };
 
     try {
@@ -47,14 +48,6 @@ function BoardNew() {
     } catch (error) {
       console.error('Error:', error);
     }
-  };
-
-  const handleYoutubeData = data => {
-    setYoutubeData(data);
-    setSelectedValues(prevValues => {
-      const newValues = data.map(item => item.id);
-      return [...prevValues, ...newValues];
-    });
   };
 
   return (
@@ -76,7 +69,7 @@ function BoardNew() {
             })}
           />
         </div>
-        {/* <div className={styles.inputsection}>
+        <div className={styles.inputsection}>
           <label htmlFor="mainImages">썸네일을 지정해주세요</label>
           <input
             type="file"
@@ -84,17 +77,7 @@ function BoardNew() {
             className={styles}
             {...register('file')}
           />
-        </div> */}
-        <YoutubeSearch handleYoutubeData={handleYoutubeData} />
-        {youtubeData && (
-          <div>
-            <ul>
-              {youtubeData.map(item => (
-                <li key={item.id}>{item.title}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        </div>
         <div className={styles.inputsection}>
           <label htmlFor="content">내용</label>
           <textarea
@@ -108,22 +91,7 @@ function BoardNew() {
           />
         </div>
         <div className={styles.inputsection}>
-          <div className="btn3Parent">
-            {['이별', '운동', '행복', '우울', '집중', '사랑', '분노'].map(
-              value => (
-                <div
-                  key={value}
-                  href="#"
-                  className={`btn3 ${
-                    selectedValues.includes(value) ? 'active' : ''
-                  }`}
-                  onClick={() => handleClick(value)}
-                >
-                  {value}
-                </div>
-              ),
-            )}
-          </div>
+          <Button3 selectedValues={selectedValues} onClick={handleClick} />
         </div>
         <div className={styles.inputsection}>
           <Submit type="submit">등록 완료</Submit>

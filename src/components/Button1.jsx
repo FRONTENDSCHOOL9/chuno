@@ -1,4 +1,4 @@
-import './styles/button.css';
+import styles from './styles/button.module.css';
 import PropTypes from 'prop-types';
 
 Submit.propTypes = {
@@ -8,7 +8,7 @@ Submit.propTypes = {
 function Submit({ children, ...rest }) {
   return (
     <button
-      className="common-btn-style btn1 btn-active"
+      className={`${styles.comon_btn_style} ${styles.btn1} ${styles.btn_active}`}
       type="submit"
       {...rest}
     >

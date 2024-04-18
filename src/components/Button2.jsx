@@ -1,4 +1,4 @@
-import './styles/button.module.css';
+import styles from './styles/button.module.css';
 import PropTypes from 'prop-types';
 
 Button2.propTypes = {
@@ -8,7 +8,10 @@ Button2.propTypes = {
 
 function Button2({ onClick, children }) {
   return (
-    <button className={styles} onClick={onClick}>
+    <button
+      className={`${styles.common_btn} ${styles.btn2} ${styles.btn_active}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
