@@ -1,9 +1,12 @@
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Search from '@components/Search';
-import BtnCommon from '@/components/BtnCommon';
+
+import ButtonBack from '@/components/ButtonBack';
 import BoardListItem from './ProductsItem';
+import Search from '@components/Search';
+
+import BtnCommon from '@/components/BtnCommon';
 import styles from './ProductsCommon.module.css';
 
 function ProductsList() {
@@ -41,6 +44,7 @@ function ProductsList() {
 
   return (
     <div className={styles.wrap}>
+      <ButtonBack path={'/'} />
       <Search></Search>
       {/* 데이터가 존재하는 경우에만 BoardListItem을 렌더링합니다. */}
       <ul className={styles.wrap_list}>{itemList}</ul>
