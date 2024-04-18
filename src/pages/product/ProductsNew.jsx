@@ -2,7 +2,7 @@ import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import Submit from '../../components/Submit';
+import Submit from '@/components/Submit';
 
 import ButtonBack from '@/components/ButtonBack';
 import Keywords from '@/components/Keywords';

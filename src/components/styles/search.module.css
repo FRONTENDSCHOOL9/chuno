@@ -1,0 +1,34 @@
+.searchform {
+  display: flex;
+  margin: 10px 0;
+  position: relative;
+}
+.search {
+  outline: none;
+  border: 0;
+  background-color: #fefefe;
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 10px 8px;
+  width: 100%;
+
+  &:focus {
+    border-color: #4e7cf3;
+  }
+}
+.searchsubmit {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-10%, -40%);
+  outline: none;
+  border: 0;
+  background-color: transparent;
+
+  &:hover {
+    & svg {
+      fill: #000;
+    }
+  }
+}

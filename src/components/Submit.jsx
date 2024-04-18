@@ -8,7 +8,7 @@ Submit.propTypes = {
 function Submit({ children, ...rest }) {
   return (
     <button
-      className={`${styles.comon_btn_style} ${styles.btn1} ${styles.btn_active}`}
+      className={`${styles.common_btn} ${styles.btn1} ${styles.btn_active}`}
       type="submit"
       {...rest}
     >
