@@ -1,5 +1,6 @@
 .wrap_list {
   /* padding: 10px; */
+  margin-bottom: 12px;
   & .listitem {
     display: flex;
     align-items: center;
