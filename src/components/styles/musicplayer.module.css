@@ -1,0 +1,125 @@
+button {
+  cursor: pointer;
+}
+
+.musicplayerWrap {
+  padding: 20px;
+  /* &.overflow {
+    height: 100%;
+    overflow: hidden;
+  } */
+}
+
+.hiddenOverflow {
+  overflow: hidden;
+}
+
+.musicplayerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #545050;
+  margin-bottom: 20px;
+  & button {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.userIcon {
+  height: 18px;
+}
+
+.musicMainCover {
+  background-color: #63ffe3;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 6px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.songTitle {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #333030;
+  margin-bottom: 50px;
+}
+
+.seekBar {
+  width: 100%;
+  border: none;
+  margin-bottom: 40px;
+  accent-color: #619ae0;
+  cursor: pointer;
+}
+
+.musicControl {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+  margin-bottom: 40px;
+  & button {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.prev:active path,
+.pause:active path,
+.next:active path {
+  fill: #619ae0; /* 첫 번째 요소에 대한 색상 */
+}
+
+.wrap_list {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+}
+
+.thumbnail {
+  width: 42px;
+  height: 42px;
+  background-color: red;
+  margin-right: 20px;
+}
+
+.songTitle {
+  font-size: 16px;
+  color: white;
+  margin: auto 0;
+}
+
+.count {
+  margin-left: auto;
+}
+
+/* --toggle--- */
+
+.listBox {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #272727;
+  opacity: 80%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  height: 82px;
+}
+
+.fullBox {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  transition: all 0.3s;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
