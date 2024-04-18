@@ -5,26 +5,25 @@ import { useParams } from 'react-router-dom';
 import defaultThumbnail from '../../../public/yongyong.png';
 import ButtonBack from '@/components/ButtonBack';
 
-import styles from './ProductsCommon.module.css';
+import styles from './PlayList.module.css';
 
-function ProductsDetail() {
+function PlayListDetail() {
   const axios = useCustomAxios();
   const { _id } = useParams();
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
 
+  const fetchData = async () => {
+    try {
+      const res = await axios.get(`/products/${_id}`);
+      setItem(res.data.item);
+    } catch (error) {
+      setError(error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(`/products/${_id}`);
-        setItem(res.data.item);
-      } catch (error) {
-        setError(error);
-      }
-    };
-
     fetchData();
-  }, [_id, axios]);
+  }, []);
 
   // const handleDelete = async () => {
   //   try {
@@ -90,4 +89,4 @@ function ProductsDetail() {
   );
 }
 
-export default ProductsDetail;
+export default PlayListDetail;

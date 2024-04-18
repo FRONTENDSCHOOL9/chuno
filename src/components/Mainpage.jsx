@@ -1,10 +1,13 @@
-import Boardlistitem from '../boards/boardlistitem';
+import { Link } from 'react-router-dom';
 import Recommendlistitem from './Recommendlistitem';
+import Footer from './layout/Footer';
+import Header from './layout/Header';
 import styles from './styles/mainpage.module.css';
 
 function Mainpage() {
   return (
     <div>
+      <Header />
       <form className={styles.mainpageInput} action="">
         <input type="text" placeholder="키워드 검색" />
       </form>
@@ -26,18 +29,16 @@ function Mainpage() {
             <h5 className={`${styles.minititle} ${styles.minititle2}`}>
               Most Pick!
             </h5>
-            <p className={styles.bodytext}>TOP 조회수</p>
+            <p className={styles.bodytext}>최신 업데이트</p>
           </div>
-          <button className={styles.morebtn}>더보기</button>
+          <Link to={'/playlist'} className={styles.morebtn}>
+            더보기
+          </Link>
         </div>
-        <div className={styles.topList}>
-          <Boardlistitem />
-          <Boardlistitem />
-          <Boardlistitem />
-          <Boardlistitem />
-          <Boardlistitem />
-        </div>
+        <div className={styles.topList}></div>
       </div>
+      {/* *FIXME - 아이템리스트 렌더링 위치 입니다. */}
+      <Footer />
     </div>
   );
 }

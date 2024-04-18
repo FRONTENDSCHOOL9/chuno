@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
 
-Playlist.propTypes = {
+CreateList.propTypes = {
   selectedVideos: PropTypes.array.isRequired,
   handleDeleteButtonClick: PropTypes.func.isRequired,
   handleVideoItemClick: PropTypes.func.isRequired,
@@ -21,7 +21,7 @@ function generateThumbnailUrl(videoId, quality = 'mqdefault') {
   return `${baseUrl}${videoId}/${qualitySuffix}`;
 }
 
-function Playlist({ selectedVideos, handleDeleteButtonClick }) {
+function CreateList({ selectedVideos, handleDeleteButtonClick }) {
   const changechar = /[^\w\s]/gi;
 
   const distinctVideos = selectedVideos.filter(
@@ -58,4 +58,4 @@ function Playlist({ selectedVideos, handleDeleteButtonClick }) {
   );
 }
 
-export default Playlist;
+export default CreateList;

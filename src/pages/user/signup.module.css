@@ -43,3 +43,17 @@
   color: #fff;
   padding: 0.3rem 0;
 }
+
+.pagename {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.pagename > h2 {
+  color: #619ae0;
+  font-size: 1.4rem;
+  flex-grow: 1;
+  font-weight: bolder;
+}
