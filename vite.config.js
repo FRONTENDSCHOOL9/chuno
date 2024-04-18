@@ -12,6 +12,8 @@ export default defineConfig({
       { find: '@pages', replacement: '/src/pages' },
       { find: '@hooks', replacement: '/src/hooks' },
       { find: '@recoil', replacement: '/src/recoil' },
+      { find: '@public', replacement: '/public' },
+      { find: '@styles', replacement: '/styles' },
     ],
   },
 });

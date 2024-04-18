@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Submit from '../../components/Submit';
 
-import ButtonBack from '../../components/ButtonBack';
+import ButtonBack from '@/components/ButtonBack';
 import Keywords from '@/components/Keywords';
 
-import styles from '../boards/board.module.css';
+import styles from './ProductsCommon.module.css';
 
-function BoardNew() {
+function ProductsNew() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
   const [selectedValues, setSelectedValues] = useState([]);
@@ -101,4 +101,4 @@ function BoardNew() {
   );
 }
 
-export default BoardNew;
+export default ProductsNew;

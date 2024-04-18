@@ -1,10 +1,13 @@
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './board.module.css'; // CSS 모듈 불러오기
+
 import defaultThumbnail from '../../../public/yongyong.png';
 import ButtonBack from '@/components/ButtonBack';
-function BoardDetail() {
+
+import styles from './ProductsCommon.module.css';
+
+function ProductsDetail() {
   const axios = useCustomAxios();
   const { _id } = useParams();
   const [item, setItem] = useState(null);
@@ -87,4 +90,4 @@ function BoardDetail() {
   );
 }
 
-export default BoardDetail;
+export default ProductsDetail;
