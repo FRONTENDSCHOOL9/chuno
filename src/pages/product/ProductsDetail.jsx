@@ -13,18 +13,17 @@ function ProductsDetail() {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
 
+  const fetchData = async () => {
+    try {
+      const res = await axios.get(`/products/${_id}`);
+      setItem(res.data.item);
+    } catch (error) {
+      setError(error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(`/products/${_id}`);
-        setItem(res.data.item);
-      } catch (error) {
-        setError(error);
-      }
-    };
-
     fetchData();
-  }, [_id, axios]);
+  }, []);
 
   // const handleDelete = async () => {
   //   try {
