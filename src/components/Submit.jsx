@@ -1,3 +1,4 @@
+import styles from './styles/button.module.css';
 import PropTypes from 'prop-types';
 
 Submit.propTypes = {
@@ -6,7 +7,11 @@ Submit.propTypes = {
 
 function Submit({ children, ...rest }) {
   return (
-    <button type="submit" {...rest}>
+    <button
+      className={`${styles.comon_btn_style} ${styles.btn1} ${styles.btn_active}`}
+      type="submit"
+      {...rest}
+    >
       {children}
     </button>
   );

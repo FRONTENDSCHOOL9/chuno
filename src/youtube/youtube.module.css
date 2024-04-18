@@ -1,6 +1,5 @@
 .wrap {
   width: 100%;
-  max-width: 400px;
   margin: 20px auto;
   background-color: #cbd9ff;
   border-radius: 12px;
@@ -30,35 +29,35 @@
 }
 .wrap_player {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   max-height: 600px;
   overflow-y: scroll;
   flex-wrap: wrap;
   margin-top: 20px;
-  gap: 10px;
+  gap: 20px;
 }
 
 .playerlist {
-  width: 160px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ecf1ff;
-  padding: 10px;
+  padding: 15px;
   overflow: hidden;
-  & iframe {
-    width: 100%;
+
+  & .resultvideo {
     border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16/9;
   }
 }
 .listname {
   width: 100%;
-  text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 .playadd {
   width: 100%;
@@ -71,12 +70,30 @@
   border-radius: 8px;
 }
 
-.playlistadded {
+.added_wrap {
   margin: 20px 0;
-  & li {
-    margin: 10px 0;
-  }
 }
-.addedvideo {
-  width: 100%;
+.added_notice {
+  text-align: center;
+  margin: 20px 0;
+  color: #888;
+}
+.list {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.list_thumb {
+  width: 80px;
+  height: 50px;
+  border-radius: 8px;
+}
+.list_title {
+}
+.list_delete_button {
+}
+
+.controls {
+  margin: 0 auto;
 }

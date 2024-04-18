@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './styles/button.css';
+import styles from './styles/button.module.css';
 
 ButtonBack.propTypes = {
   path: PropTypes.string.isRequired,
@@ -9,7 +9,7 @@ ButtonBack.propTypes = {
 function ButtonBack({ path }) {
   const navigate = useNavigate();
   return (
-    <div className="back" onClick={() => navigate(path)}>
+    <div className={styles.back} onClick={() => navigate(path)}>
       <svg
         width="11"
         height="20"
