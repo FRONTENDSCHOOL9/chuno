@@ -2,7 +2,7 @@ import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '@components/Search';
-import Button2 from '../../components/Button2';
+import BtnCommon from '../../components/BtnCommon';
 import BoardListItem from './boardlistitem';
 import styles from './board.module.css';
 
@@ -44,7 +44,7 @@ function BoardList() {
       <Search></Search>
       {/* 데이터가 존재하는 경우에만 BoardListItem을 렌더링합니다. */}
       <ul className={styles.wrap_list}>{itemList}</ul>
-      <Button2 onClick={handleNewPost}>플레이리스트 추가하기</Button2>
+      <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
     </div>
   );
 }

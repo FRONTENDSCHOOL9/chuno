@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from './styles/button.module.css';
 
-Button3.propTypes = {
+Keywords.propTypes = {
   selectedValues: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-function Button3({ selectedValues, onClick }) {
+function Keywords({ selectedValues, onClick }) {
   const handleClick = value => {
     onClick(value);
   };
@@ -28,4 +28,4 @@ function Button3({ selectedValues, onClick }) {
   );
 }
 
-export default Button3;
+export default Keywords;

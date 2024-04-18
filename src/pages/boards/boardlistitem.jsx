@@ -10,6 +10,7 @@ BoardListItem.propTypes = {
 function BoardListItem({ item }) {
   const navigate = useNavigate();
 
+  // *NOTE - 썸네일이 지정되지 않았다면 기본썸네일로 노출
   return (
     <li
       className={styles.listitem}

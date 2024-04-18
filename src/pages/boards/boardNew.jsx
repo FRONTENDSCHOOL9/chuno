@@ -2,10 +2,10 @@ import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import Submit from '../../components/Button1';
+import Submit from '../../components/Submit';
 
 import ButtonBack from '../../components/ButtonBack';
-import Button3 from '../../components/Keywords';
+import Keywords from '@/components/Keywords';
 
 import styles from '../boards/board.module.css';
 
@@ -91,7 +91,7 @@ function BoardNew() {
           />
         </div>
         <div className={styles.inputsection}>
-          <Button3 selectedValues={selectedValues} onClick={handleClick} />
+          <Keywords selectedValues={selectedValues} onClick={handleClick} />
         </div>
         <div className={styles.inputsection}>
           <Submit type="submit">등록 완료</Submit>
