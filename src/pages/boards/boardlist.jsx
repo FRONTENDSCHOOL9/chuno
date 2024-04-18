@@ -4,25 +4,32 @@ import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useNavigate } from 'react-router-dom';
 import Button2 from '../../components/Button2';
 import BoardListItem from './boardlistitem';
-import styles from './board.module.css'; // CSS 모듈 불러오기
+import styles from './board.module.css';
 
 function BoardList() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
-  const [data, setData] = useState(null); // 데이터를 상태로 관리합니다.
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get('/products');
-        setData(res.data.item); // 데이터에서 item만 설정합니다.
+        const newData = res.data.item;
+        if (JSON.stringify(data) !== JSON.stringify(newData)) {
+          setData(newData);
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchData(); // 데이터를 가져오는 함수를 실행합니다.
-  }, [axios]); // useEffect를 axios 의존성으로 설정하여 컴포넌트가 마운트될 때 한 번만 실행되도록 합니다.
+    fetchData();
+
+    const intervalId = setInterval(fetchData, 5 * 60 * 1000);
+
+    return () => clearInterval(intervalId);
+  }, [axios, data]);
 
   const itemList = data?.map(item => (
     <BoardListItem key={item._id} item={item} />
