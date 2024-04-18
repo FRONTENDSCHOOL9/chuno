@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
 
+Playlist.propTypes = {
+  selectedVideos: PropTypes.array.isRequired,
+  handleDeleteButtonClick: PropTypes.func.isRequired,
+  handleVideoItemClick: PropTypes.func.isRequired,
+  handlePrevClick: PropTypes.func.isRequired,
+  handleNextClick: PropTypes.func.isRequired,
+};
+
 // YouTube 썸네일 URL 생성 함수
 function generateThumbnailUrl(videoId, quality = 'mqdefault') {
   const baseUrl = 'https://img.youtube.com/vi/';
@@ -13,13 +21,7 @@ function generateThumbnailUrl(videoId, quality = 'mqdefault') {
   return `${baseUrl}${videoId}/${qualitySuffix}`;
 }
 
-function Playlist({
-  selectedVideos,
-  handleDeleteButtonClick,
-  handleVideoItemClick,
-  handlePrevClick,
-  handleNextClick,
-}) {
+function Playlist({ selectedVideos, handleDeleteButtonClick }) {
   const changechar = /[^\w\s]/gi;
 
   const distinctVideos = selectedVideos.filter(
@@ -27,36 +29,33 @@ function Playlist({
   );
 
   return (
-    <div className={styles.playlistadded}>
-      <h2>Playlist</h2>
-      <ul>
+    <div className={styles.added_wrap}>
+      <p className={styles.added_notice}>아래에 추가한 노래가 표시 됩니다. </p>
+      <ul className={styles.playlistadded}>
         {distinctVideos.map(video => (
-          <li key={video.id}>
-            {/* 영상 제목 */}
-            {video.title.replace(changechar, '')}
+          <li className={styles.list} key={video.id}>
             {/* 썸네일 이미지 */}
-            <img src={generateThumbnailUrl(video.id)} alt={video.title} />
+            <img
+              className={styles.list_thumb}
+              src={generateThumbnailUrl(video.id)}
+              alt={video.title}
+            />
+            {/* 영상 제목 */}
+            <p className={styles.list_title}>
+              {video.title.replace(changechar, '')}
+            </p>
             {/* 삭제 및 재생 버튼 */}
-            <button onClick={() => handleDeleteButtonClick(video.id)}>-</button>
-            <button onClick={() => handleVideoItemClick(video.id)}>Play</button>
+            <button
+              className={styles.list_delete_button}
+              onClick={() => handleDeleteButtonClick(video.id)}
+            >
+              -
+            </button>
           </li>
         ))}
       </ul>
-      <div>
-        {/* 이전 및 다음 버튼 */}
-        <button onClick={handlePrevClick}>Prev</button>
-        <button onClick={handleNextClick}>Next</button>
-      </div>
     </div>
   );
 }
-
-Playlist.propTypes = {
-  selectedVideos: PropTypes.array.isRequired,
-  handleDeleteButtonClick: PropTypes.func.isRequired,
-  handleVideoItemClick: PropTypes.func.isRequired,
-  handlePrevClick: PropTypes.func.isRequired,
-  handleNextClick: PropTypes.func.isRequired,
-};
 
 export default Playlist;

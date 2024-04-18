@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import styles from './board.module.css'; // CSS 모듈 불러오기
 import defaultThumbnail from '../../../public/yongyong.png';
 import ButtonBack from '@/components/ButtonBack';
-
 function BoardDetail() {
   const axios = useCustomAxios();
   const { _id } = useParams();
