@@ -5,7 +5,8 @@ import Submit from '@/components/Submit';
 import ButtonBack from '@/components/ButtonBack';
 import Keywords from '@/components/Keywords';
 import styles from './PlayList.module.css';
-import { Link } from 'react-router-dom';
+/* import { Link } from 'react-router-dom'; */
+import SearchYoutube from '@youtube/SearchYoutube';
 
 function PlayListNew() {
   const axios = useCustomAxios();
@@ -50,7 +51,7 @@ function PlayListNew() {
   return (
     <div className={styles.wrap}>
       <ButtonBack path={'/playlist'} />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
         <div className={styles.inputsection}>
           <label htmlFor="name">제목</label>
           <input
@@ -72,6 +73,7 @@ function PlayListNew() {
             {...register('file')}
           />
         </div>
+        <SearchYoutube></SearchYoutube>
         <div className={styles.inputsection}>
           <label htmlFor="content">내용</label>
           <textarea
@@ -83,9 +85,6 @@ function PlayListNew() {
               required: '내용을 입력하세요.',
             })}
           />
-        </div>
-        <div>
-          <Link to={'/searchyoutube'}>플리보기</Link>
         </div>
         <div className={styles.inputsection}>
           <Keywords selectedValues={selectedValues} onClick={handleClick} />
