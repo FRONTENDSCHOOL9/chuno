@@ -5,7 +5,6 @@ import { useRecoilState } from 'recoil';
 import Button from '@components/Button';
 import styles from './header.module.css';
 
-
 function Header() {
   const navigate = useNavigate();
 
@@ -15,6 +14,18 @@ function Header() {
   };
 
   const [user, setUser] = useRecoilState(memberState);
+  //NOTE - user 이미지 등록 관련 코드입니다. user가 로그인되어있다면 user의 profile를 불러옵니다.
+  //NOTE - 만약 유저가 등록한 이미지가 있다면 그 이미지를 연결하고, 없다면 서버에 저장되어있는 기본 이미지를 보여줍니다.
+  let profileImage = user?.profile;
+  if (profileImage && !profileImage.startsWith('http')) {
+    profileImage = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/${profileImage}`;
+  } else if (!profileImage) {
+    profileImage = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/yongyong.png`;
+  }
 
   return (
     <header>
@@ -50,9 +61,7 @@ function Header() {
                 <div>
                   <img
                     className={`${styles.w8} ${styles.roundedFull} ${styles.mr2}`}
-                    src={`${import.meta.env.VITE_API_SERVER}/files/${
-                      import.meta.env.VITE_CLIENT_ID
-                    }/${user.profile}`}
+                    src={profileImage}
                   ></img>
                 </div>
                 <span>{user.name}님 :)</span>
