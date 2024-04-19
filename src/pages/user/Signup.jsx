@@ -37,7 +37,7 @@ function Signup() {
           },
           data: imageFormData,
         });
-        formData.profileImage = fileRes.data.item.name;
+        formData.profileImage = fileRes.data.item[0].name;
       } else {
         // profileImage 속성을 제거
         delete formData.profileImage;
