@@ -1,5 +1,5 @@
 function Footer() {
-  return <footer>푸터영역</footer>;
+  return <footer>Made by Nol9</footer>;
 }
 
 export default Footer;

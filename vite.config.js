@@ -15,6 +15,7 @@ export default defineConfig({
       { find: '@public', replacement: '/public' },
       { find: '@styles', replacement: '/styles' },
       { find: '@youtube', replacement: '/src/youtube' },
+      { find: '@assets', replacement: '/src/assets' },
     ],
   },
 });

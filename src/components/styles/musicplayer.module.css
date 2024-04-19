@@ -1,9 +1,6 @@
-button {
-  cursor: pointer;
-}
-
 .musicplayerWrap {
   padding: 20px;
+  margin-bottom: 100px;
 }
 
 .hiddenOverflow {
@@ -70,11 +67,13 @@ button {
   padding: 10px;
   background: #ccc;
   & .thumbnail {
-    width: 50px;
-    aspect-ratio: 1/1;
-    background-color: red;
-    margin-right: 20px;
-    border-radius: 8px;
+    & img {
+      width: 50px;
+      aspect-ratio: 1/1;
+      background-color: red;
+      margin-right: 20px;
+      border-radius: 8px;
+    }
   }
 
   & .songlist_item,
