@@ -4,10 +4,6 @@ button {
 
 .musicplayerWrap {
   padding: 20px;
-  /* &.overflow {
-    height: 100%;
-    overflow: hidden;
-  } */
 }
 
 .hiddenOverflow {
@@ -15,11 +11,7 @@ button {
 }
 
 .musicplayerTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: #545050;
-  margin-bottom: 20px;
   & button {
     background-color: transparent;
     border: none;
@@ -41,11 +33,10 @@ button {
 }
 
 .songTitle {
-  font-size: 30px;
-  text-align: center;
+  font-size: 22px;
   font-weight: bold;
   color: #333030;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .seekBar {
@@ -62,42 +53,35 @@ button {
   gap: 50px;
   justify-content: center;
   margin-bottom: 40px;
-  & button {
-    background-color: transparent;
-    border: none;
-  }
 }
-
 .prev:active path,
 .pause:active path,
 .next:active path {
   fill: #619ae0; /* 첫 번째 요소에 대한 색상 */
 }
 
-.wrap_list {
+/* songlist 하단 곡리스트 부분 */
+.songlist {
   display: flex;
-  padding: 20px;
-  align-items: center;
-}
+  align-center: center;
+  padding: 10px;
+  background: #ccc;
+  & .thumbnail {
+    width: 50px;
+    aspect-ratio: 1/1;
+    background-color: red;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
 
-.thumbnail {
-  width: 42px;
-  height: 42px;
-  background-color: red;
-  margin-right: 20px;
+  & .songlist_item,
+  .option {
+    margin: auto 0;
+  }
+  & .option {
+    margin-left: auto;
+  }
 }
-
-.songTitle {
-  font-size: 16px;
-  color: white;
-  margin: auto 0;
-}
-
-.count {
-  margin-left: auto;
-}
-
-/* --toggle--- */
 
 .listBox {
   position: fixed;
@@ -105,11 +89,15 @@ button {
   bottom: 0;
   width: 100%;
   background-color: #272727;
-  opacity: 80%;
   color: white;
   cursor: pointer;
   transition: all 0.3s;
-  height: 82px;
+  height: 70px;
+  & .songlist_title {
+    opacity: 0;
+    height: 0;
+    transition: all 0.3s;
+  }
 }
 
 .fullBox {
@@ -122,4 +110,12 @@ button {
   &::-webkit-scrollbar {
     display: none;
   }
+  & .songlist_title {
+    text-align: center;
+    line-height: 50px;
+    opacity: 1;
+    height: 50px;
+    transition: all 0.3s;
+  }
 }
+/* --toggle--- */

@@ -27,7 +27,27 @@ export const initData = async nextSeq => {
       },
     ],
     // 상품
-    product: [],
+    product: [
+      {
+        _id: await nextSeq('product'),
+        seller_id: 1,
+        price: 0,
+        shippingFees: 0,
+        show: true,
+        active: true,
+        name: 'test플레이리스트',
+        quantity: 99999,
+        buyQuantity: 1,
+        mainImages: [{}],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          music: {
+            id: 'YmNj2FvdHho',
+          },
+        },
+      },
+    ],
     // 주문
     order: [],
     // 후기
