@@ -23,7 +23,7 @@ export const initData = async nextSeq => {
         type: 'seller',
         createdAt: getTime(-100, -60 * 60 * 3),
         updatedAt: getTime(-100, -60 * 60 * 3),
-        profileImage: `/files/09-chuno/yongyong.png`,
+        profileImage: `yongyong.png`,
       },
     ],
     // 상품
