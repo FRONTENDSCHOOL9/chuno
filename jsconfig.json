@@ -8,7 +8,8 @@
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
       "@recoil/*": ["recoil/*"],
-      "@youtube/*": ["youtube/*"]
+      "@youtube/*": ["youtube/*"],
+      "@assets/*": ["assets/*"]
     }
   }
 }

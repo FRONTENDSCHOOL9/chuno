@@ -1,4 +1,3 @@
-
 button {
   cursor: pointer;
   border: none;
@@ -6,6 +5,7 @@ button {
 }
 /* ------------------- */
 .mainpageInput {
+  margin-top: 20px;
   width: 100%;
 }
 .mainpageInput input {

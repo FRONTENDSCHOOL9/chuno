@@ -1,13 +1,16 @@
 import styles from './styles/recommenditem.module.css';
+import PropTypes from 'prop-types';
 
-function Recommendlistitem() {
+Recommendlistitem.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
+function Recommendlistitem({ theme }) {
   return (
     <>
       <ul className={styles.recwrap_list}>
         <li className={styles.reclistitem}>
-          <h3>#휴식</h3>
-          <h3>#쉼터</h3>
-          <h3>#산책</h3>
+          <h3>{theme}</h3>
         </li>
       </ul>
     </>

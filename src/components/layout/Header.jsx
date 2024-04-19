@@ -28,7 +28,7 @@ function Header() {
   }
 
   return (
-    <header>
+    <header className={styles.header}>
       <nav className={styles.navWrap}>
         <div className={styles.mainHeaderLeft}>
           <Link to="/main" className={styles.mainHeaderLogo}>
