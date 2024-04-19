@@ -15,12 +15,13 @@ function Mainpage() {
         <h5 className={styles.minititle}>주인장 PICK!</h5>
         <p className={styles.bodytext}>추천 플레이리스트</p>
         <div className={styles.recommendList}>
-          <Recommendlistitem />
-          <Recommendlistitem />
-          <Recommendlistitem />
-          <Recommendlistitem />
-          <Recommendlistitem />
-          <Recommendlistitem />
+          <Recommendlistitem theme={'이별'} />
+          <Recommendlistitem theme={'운동'} />
+          <Recommendlistitem theme={'행복'} />
+          <Recommendlistitem theme={'우울'} />
+          <Recommendlistitem theme={'집중'} />
+          <Recommendlistitem theme={'사랑'} />
+          <Recommendlistitem theme={'분노'} />
         </div>
       </div>
       <div>
