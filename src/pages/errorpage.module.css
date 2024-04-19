@@ -1,0 +1,22 @@
+.errorpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.errorpage h2 {
+  margin: 20px 0;
+}
+
+.errorimage {
+  width: 400px;
+  transform: translateX(10%);
+}
+
+.errormessage {
+  margin-top: 20px;
+  color: #619ae0;
+  font-size: 20px;
+}
