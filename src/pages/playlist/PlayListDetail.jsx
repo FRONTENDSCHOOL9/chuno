@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import defaultThumbnail from '../../../public/yongyong.png';
 import ButtonBack from '@/components/ButtonBack';
+import BtnPlaylistPlay from '@/components/BtnPlaylistPlay';
 
 import styles from './PlayList.module.css';
 
@@ -59,17 +60,33 @@ function PlayListDetail() {
 
           <div className={styles.content}>{item.content}</div>
           <div className={styles.inputsection}>
-            <div className="btn3Parent">
-              {['이별', '운동', '행복', '우울', '집중', '사랑', '분노'].map(
-                value => (
-                  <a key={value} href="#" className="btn3">
-                    {value}
-                  </a>
-                ),
-              )}
+            <div className={styles.btn3Parent}>
+              {[
+                '이별',
+                '운동',
+                '행복',
+                '우울',
+                '집중',
+                '사랑',
+                '분노',
+                '운전',
+                '여행',
+                '휴식',
+                '자신감',
+                '수면',
+              ].map((value, index) => (
+                // <a key={value} href="#" className={styles.btn3}>
+                <a
+                  key={value}
+                  href="#"
+                  className={`${styles.btn3} ${styles['btn3-' + index]}`}
+                >
+                  {value}
+                </a>
+              ))}
             </div>
           </div>
-          <div>
+          <div className={styles.playlistbox}>
             <ul className={styles.playlist_wrap}>
               <li className={styles.playlist}>1. 곡제목</li>
               <li className={styles.playlist}>2. 곡제목</li>
@@ -79,7 +96,8 @@ function PlayListDetail() {
               <li className={styles.playlist}>6. 곡제목</li>
             </ul>
             <button className={styles.button_play}>
-              플레이리스트 재생하기
+              <BtnPlaylistPlay />
+              {/* 플레이리스트 재생 */}
             </button>
           </div>
           <div>{/* <button onClick={handleDelete}>삭제</button> */}</div>
