@@ -7,7 +7,8 @@
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
-      "@recoil/*": ["recoil/*"]
+      "@recoil/*": ["recoil/*"],
+      "@youtube/*": ["youtube/*"]
     }
   }
 }

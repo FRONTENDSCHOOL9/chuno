@@ -14,6 +14,7 @@ export default defineConfig({
       { find: '@recoil', replacement: '/src/recoil' },
       { find: '@public', replacement: '/public' },
       { find: '@styles', replacement: '/styles' },
+      { find: '@youtube', replacement: '/src/youtube' },
     ],
   },
 });

@@ -2,13 +2,13 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './youtube.module.css';
 import ReactPlayer from 'react-player/youtube';
 import SearchResult from './SearchResult';
-import Playlist from './playlist';
 import axios from 'axios'; // axios를 import
+import CreateList from '@youtube/CreateList';
 
 const API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(',');
 const MAX_API_KEYS = API_KEYS.length;
 
-function YoutubeSearch() {
+function SearchYoutube() {
   const axiosInstance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3',
   });
@@ -148,7 +148,7 @@ function YoutubeSearch() {
         handleAddButtonClick={handleAddButtonClick}
       />
 
-      <Playlist
+      <CreateList
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}
@@ -197,4 +197,4 @@ function YoutubeSearch() {
   );
 }
 
-export default YoutubeSearch;
+export default SearchYoutube;
