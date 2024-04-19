@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   type: PropTypes.string,
 };
 

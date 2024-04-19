@@ -1,0 +1,64 @@
+.navWrap {
+  display: flex;
+  position: relative;
+}
+
+.mainHeaderLeft {
+  display: flex;
+  margin-right: auto;
+}
+
+.mainHeaderLeft span {
+  font-weight: bold;
+}
+
+.mainHeaderLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* right start */
+
+.mainHeaderRight div {
+  display: flex;
+  align-items: center;
+}
+
+.mainHeaderRight,
+.mainHeaderRight button {
+  color: #a4a4a4;
+  font-size: 12px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.mainHeaderRight .roundedFull {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.mainHeaderUser {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.mainHeaderUser span {
+  margin-left: 4px;
+}
+
+.mainHeaderRight .flex {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.userText {
+  margin-left: 6px;
+}

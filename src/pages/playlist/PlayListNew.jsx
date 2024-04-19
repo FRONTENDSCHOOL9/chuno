@@ -2,11 +2,11 @@ import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Submit from '@/components/Submit';
-
 import ButtonBack from '@/components/ButtonBack';
 import Keywords from '@/components/Keywords';
-
 import styles from './PlayList.module.css';
+/* import { Link } from 'react-router-dom'; */
+import SearchYoutube from '@youtube/SearchYoutube';
 
 function PlayListNew() {
   const axios = useCustomAxios();
@@ -51,7 +51,7 @@ function PlayListNew() {
   return (
     <div className={styles.wrap}>
       <ButtonBack path={'/playlist'} />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
         <div className={styles.inputsection}>
           <label htmlFor="name">제목</label>
           <input
@@ -73,6 +73,7 @@ function PlayListNew() {
             {...register('file')}
           />
         </div>
+        <SearchYoutube></SearchYoutube>
         <div className={styles.inputsection}>
           <label htmlFor="content">내용</label>
           <textarea

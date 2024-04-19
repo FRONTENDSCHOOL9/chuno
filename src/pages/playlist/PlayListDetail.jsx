@@ -37,7 +37,7 @@ function PlayListDetail() {
 
   return (
     <div className={styles.wrap}>
-      <ButtonBack path={'/products'} />
+      <ButtonBack path={'/playlist'} />
       {error && <div>Error: {error.message}</div>}
       {item && (
         <section>

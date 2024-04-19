@@ -11,6 +11,7 @@ import PlayListDetail from '@pages/playlist/PlayListDetail';
 import Empty from '@pages/playlist/Empty';
 import Musicplayer from '@components/Musicplayer';
 import Mainpage from '@components/Mainpage';
+import SearchYoutube from '@youtube/SearchYoutube';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: 'playlist/new',
         element: <PlayListNew />,
+      },
+      {
+        path: 'searchyoutube',
+        element: <SearchYoutube />,
       },
       {
         path: 'playlist/empty',

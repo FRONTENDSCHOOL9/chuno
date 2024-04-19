@@ -4,7 +4,7 @@ import { memberState } from '../recoil/user/atoms.mjs';
 
 const API_SERVER = 'https://www.googleapis.com/youtube/v3/search';
 
-function useCustomAxios2() {
+function useYoutubeDataV3() {
   // 로그인 된 사용자 정보
   const user = useRecoilValue(memberState);
 
@@ -30,4 +30,4 @@ function useCustomAxios2() {
   return instance;
 }
 
-export default useCustomAxios2;
+export default useYoutubeDataV3;
