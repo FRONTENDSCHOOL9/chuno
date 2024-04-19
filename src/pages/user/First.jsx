@@ -36,7 +36,7 @@ function First() {
       >
         회원가입
       </Button>
-      <Link to="/main" className={styles.link}>
+      <Link to="/main" className={styles.unsign}>
         비회원으로 시작하기
       </Link>
     </div>
