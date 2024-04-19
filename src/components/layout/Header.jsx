@@ -56,7 +56,7 @@ function Header() {
         </div>
         <div className={styles.mainHeaderRight}>
           {user ? (
-            <p>
+            <div>
               <Link to={'/users/mypage'} className={styles.mainHeaderUser}>
                 <div>
                   <img
@@ -66,7 +66,6 @@ function Header() {
                 </div>
                 <span>{user.name}님 :)</span>
               </Link>
-
               <Button size="sm" onClick={handleLogout}>
                 <svg
                   width="21"
@@ -93,9 +92,7 @@ function Header() {
                 </svg>
                 <span className={styles.userText}>로그아웃</span>
               </Button>
-
-              {/* *FIXME - 여기 마이페이지 연동버튼 스타일도 하고 알겠지용? from 원명님 */}
-            </p>
+            </div>
           ) : (
             <div className={`${styles.flex} ${styles.justifyEnd}`}>
               <Button size="sm" onClick={() => navigate('/users/login')}>

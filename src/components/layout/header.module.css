@@ -20,7 +20,7 @@
 
 /* right start */
 
-.mainHeaderRight p {
+.mainHeaderRight div {
   display: flex;
   align-items: center;
 }
