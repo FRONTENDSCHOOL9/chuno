@@ -1,0 +1,105 @@
+a:visited,
+a:active,
+a:link,
+a:hover {
+  text-decoration: none;
+  color: #a4a4a4;
+}
+
+.authpage {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+  padding: 10%;
+}
+
+.authpage_wrap {
+  width: 100%;
+  & .pagename {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+
+    & h2 {
+      color: #619ae0;
+      font-size: 18px;
+      flex-grow: 1;
+      font-weight: bolder;
+    }
+  }
+
+  /*  */
+  & .auth_input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+    & label {
+      font-weight: 600;
+      color: #141414;
+    }
+    & input {
+      /* 입력칸을 자동완성해도 input의 배경색이 변하지 않도록 해주는 코드 두 줄 */
+      box-shadow: 0 0 0 1000px #f9f9f9 inset;
+      background-color: #f9f9f9;
+      border: solid 2px #f9f9f9;
+      border-radius: 8px;
+      padding: 10px;
+      &:focus {
+        border: solid 2px;
+        outline-color: #619ae0;
+      }
+    }
+    & .required {
+      color: #fff;
+      font-size: 10px;
+      margin-top: 4px;
+      font-weight: 400;
+      background: #df8484;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    & .signuplabel {
+      margin-bottom: 4px;
+    }
+    & .essential {
+      color: #df8484;
+    }
+  }
+}
+
+/* *NOTE - 비밀번호가 보이고 안 보이게 만드는 버튼 구현용 */
+.pwvisibility {
+  position: relative;
+  & input {
+    width: 100%;
+  }
+  & span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+  }
+}
+.btn_auth {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  gap: 12px;
+  margin-top: 50px;
+  & button {
+    background-color: #619ae0;
+    border: solid 2px #619ae0;
+    border-radius: 8px;
+    color: #fff;
+  }
+  & a {
+    text-align: center;
+    font-weight: bolder;
+    padding: 10px 0;
+    background-color: #f6f6f6;
+    border: solid 2px #f6f6f6;
+    border-radius: 8px;
+  }
+}

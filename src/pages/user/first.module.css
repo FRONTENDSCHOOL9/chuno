@@ -1,13 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-weight: bolder;
-  vertical-align: baseline;
-}
-
 .firstpage {
-  min-width: 280px;
-  min-height: 290px;
   background: #619ae0;
   background: linear-gradient(
     0deg,
@@ -19,21 +10,24 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 0 10px;
 }
 
 .firstpage Button {
   font-size: 0.9rem;
+  max-width: 400px;
   color: #fff;
-  width: 196px;
-  height: 24px;
-  border: solid 2px #619ae0;
-  border-radius: 22px;
+  width: 100%;
+  box-shadow: 4px 2px 4px #ddd;
+  border-radius: 8px;
   line-height: unset;
-  box-sizing: border-box;
+  padding: 10px 0;
+  font-weight: 500;
 }
 
 Button.login {
-  background-color: rgba(203, 217, 255, 0.3);
+  color: #111;
+  background: #fff;
   margin-top: 40px;
   margin-bottom: 8px;
 }
@@ -42,11 +36,6 @@ Button.signup {
   background-color: #619ae0;
   margin-bottom: 16px;
 }
-
-.link {
-  font-size: 0.8rem;
-}
-
-.firstpage a {
-  color: #858484;
+.unsign {
+  font-size: 14px;
 }

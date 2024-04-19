@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { Link, useNavigate } from 'react-router-dom';
 import Submit from '@components/Submit';
-import styles from './signup.module.css'; // CSS 모듈 import
+import styles from './auth.module.css';
 
 function Signup() {
   const axios = useCustomAxios();
@@ -63,8 +63,8 @@ function Signup() {
   };
 
   return (
-    <div className={styles.signuppage}>
-      <div className={styles['signuppage-container']}>
+    <div className={styles.authpage}>
+      <div className={styles.authpage_wrap}>
         <div className={styles.pagename}>
           <Link to="/">
             <svg
@@ -87,7 +87,7 @@ function Signup() {
           <h2>회원이 되어주세용</h2>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.idpw}>
+          <div className={styles.auth_input}>
             <div className={styles.signuplabel}>
               <label htmlFor="name">닉네임</label>
               <label className={styles.essential} htmlFor="name">
@@ -106,9 +106,11 @@ function Signup() {
                 },
               })}
             />
-            {errors.name && <p>{errors.name.message}</p>}
+            {errors.name && (
+              <p className={styles.required}>{errors.name.message}</p>
+            )}
           </div>
-          <div className={styles.idpw}>
+          <div className={styles.auth_input}>
             <div className={styles.signuplabel}>
               <label htmlFor="email">아이디</label>
               <label className={styles.essential} htmlFor="name">
@@ -127,9 +129,11 @@ function Signup() {
                 },
               })}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && (
+              <p className={styles.required}>{errors.email.message}</p>
+            )}
           </div>
-          <div className={styles.idpw}>
+          <div className={styles.auth_input}>
             <div className={styles.signuplabel}>
               <label htmlFor="password">비밀번호</label>
               <label className={styles.essential} htmlFor="name">
@@ -145,9 +149,11 @@ function Signup() {
                 required: '비밀번호를 입력하세요.',
               })}
             />
-            {errors.password && <p>{errors.password.message}</p>}
+            {errors.password && (
+              <p className={styles.required}>{errors.password.message}</p>
+            )}
           </div>
-          <div className={styles.idpw}>
+          <div className={styles.auth_input}>
             <div className={styles.signuplabel}>
               <label htmlFor="passwordCheck">비밀번호 확인</label>
               <label className={styles.essential} htmlFor="name">
@@ -166,9 +172,11 @@ function Signup() {
                   '비밀번호가 일치하지 않습니다.',
               })}
             />
-            {errors.passwordCheck && <p>{errors.passwordCheck.message}</p>}
+            {errors.passwordCheck && (
+              <p className={styles.required}>{errors.passwordCheck.message}</p>
+            )}
           </div>
-          <div className={styles.idpw}>
+          <div className={styles.auth_input}>
             <div className={styles.signuplabel}>
               <label htmlFor="profileImage">프로필 이미지</label>
             </div>
@@ -180,7 +188,7 @@ function Signup() {
               {...register('profileImage')}
             />
           </div>
-          <div className={styles['signup-buttons']}>
+          <div className={styles.btn_auth}>
             <Submit>회원가입</Submit>
           </div>
         </form>
