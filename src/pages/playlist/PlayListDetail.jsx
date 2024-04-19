@@ -1,11 +1,8 @@
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-import defaultThumbnail from '../../../public/yongyong.png';
 import ButtonBack from '@/components/ButtonBack';
 import BtnPlaylistPlay from '@/components/BtnPlaylistPlay';
-
 import styles from './PlayList.module.css';
 
 function PlayListDetail() {
@@ -46,7 +43,7 @@ function PlayListDetail() {
             <li className={styles.listitem_detail}>
               <div className={styles.thumbnail}>
                 <img
-                  src={item.path || defaultThumbnail}
+                  src={item.path || 'yongyong.png'}
                   alt={item.orginalname || 'Default Thumbnail'}
                 />
               </div>
