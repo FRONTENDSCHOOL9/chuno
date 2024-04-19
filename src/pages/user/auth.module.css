@@ -103,3 +103,14 @@ a:hover {
     border-radius: 8px;
   }
 }
+
+input[type='file']::file-selector-button {
+  width: 80px;
+  height: 30px;
+  background: #619ae0;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}

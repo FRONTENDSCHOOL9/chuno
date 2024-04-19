@@ -1,9 +1,28 @@
 import styles from './styles/musicplayer.module.css';
 import Songlist from './Songlist';
 import { useState } from 'react';
+import PlayListItem from '@pages/playlist/PlayListItem';
+import ButtonBack from './ButtonBack';
 
 function Musicplayer() {
   const [isListBoxOpen, setListBoxOpen] = useState(false); // 초기값은 true로 설정
+
+  const axios = useCustomAxios();
+  const { _id } = useParams();
+  const [item, setItem] = useState(null);
+  const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const res = await axios.get(`/products/${_id}`);
+      setItem(res.data.item);
+    } catch (error) {
+      setError(error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const toggleListBox = () => {
     setListBoxOpen(!isListBoxOpen); // 상태를 반전시킴
@@ -17,35 +36,25 @@ function Musicplayer() {
 
   return (
     // *FIXME - playlistitem 적용하여 화면에 보여줘야합니다.
+    // *NOTE -  playlistitem에 prop을 전달하여 화면에 보여주도록 수정 하였습니다.
     <div>
       <div
         className={`${styles.musicplayerWrap} ${
           isListBoxOpen ? styles.overflow : ''
         } `}
       >
+        <ButtonBack path={'/playlist'} />
         <div className={styles.musicplayerTop}>
-          <button>
-            <svg
-              className={styles.beforeButton}
-              width="11"
-              height="20"
-              viewBox="0 0 11 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.6078 17.6212C11.1252 18.1383 11.1252 19.0347 10.6401 19.5863C10.3814 19.8621 10.058 20 9.70223 20C9.37882 20 9.0554 19.8621 8.79667 19.6208L0.388073 11.002C0.129347 10.7262 0 10.3814 0 10.0022C0 9.62298 0.129347 9.27823 0.388073 9.00243L8.79667 0.383642C9.31412 -0.133485 10.1227 -0.133483 10.6401 0.41812C11.1252 0.969722 11.1252 1.83159 10.6078 2.3832L3.16941 10.0022L10.6078 17.6212Z"
-                fill="#545050"
-              />
-            </svg>
-          </button>
-          <h2>Songs</h2>
-          <button></button>
+          <PlayListItem
+            item={{
+              _id: 1,
+              name: 'Playlist Name',
+              seller: { name: 'Seller Name' },
+            }}
+          />
         </div>
         <img className={styles.musicMainCover} src="" alt="" />
-        <div className="songText">
-          <div className={styles.songTitle}>Worlds Smallest Violin</div>
-        </div>
+        <p className={styles.songTitle}>Worlds Smallest Violin</p>
         <div>
           <input className={styles.seekBar} type="range" />
         </div>
@@ -106,18 +115,7 @@ function Musicplayer() {
           className={`${styles.listBox} ${isListBoxOpen ? styles.fullBox : ''}`}
           onClick={toggleListBox}
         >
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
-          <Songlist />
+          <h4 className={styles.songlist_title}>곡 목록</h4>
           <Songlist />
         </div>
       </div>

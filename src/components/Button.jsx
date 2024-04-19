@@ -2,9 +2,6 @@ import PropTypes from 'prop-types';
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
-  bgColor: PropTypes.string,
-  size: PropTypes.string,
-  className: PropTypes.string,
   type: PropTypes.string,
 };
 
