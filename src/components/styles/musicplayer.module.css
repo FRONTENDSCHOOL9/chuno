@@ -1,6 +1,14 @@
+html {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .musicplayerWrap {
   padding: 20px;
   margin-bottom: 100px;
+
+  backdrop-filter: blur(10px);
 }
 
 .hiddenOverflow {
@@ -43,16 +51,50 @@
   accent-color: #619ae0;
   cursor: pointer;
 }
+input[type='range'] {
+  /* 기본 스타일 */
+  -webkit-appearance: none;
+  height: 10px; /* 바의 높이를 조절합니다. */
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  /* 슬라이더(thumb) 스타일 */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
 
 .musicControl {
   display: flex;
   align-items: center;
-  gap: 50px;
   justify-content: center;
   margin: 20px 0;
 }
-.controls {
-  transform: rotate(-90deg) translateX(50%);
+.defaultcontrol {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-left: auto;
+}
+.volumes {
+  position: relative;
+  margin-left: auto;
+}
+.btn_volume {
+}
+.volumerange {
+  position: absolute;
+  top: 0;
+  right: 50px;
 }
 .prev:active path,
 .pause:active path,
@@ -60,37 +102,13 @@
   fill: #619ae0; /* 첫 번째 요소에 대한 색상 */
 }
 
-/* songlist 하단 곡리스트 부분 */
-.songlist {
-  display: flex;
-  align-center: center;
-  padding: 10px;
-  background: #ccc;
-  & .thumbnail {
-    & img {
-      width: 50px;
-      aspect-ratio: 1/1;
-      background-color: red;
-      margin-right: 20px;
-      border-radius: 8px;
-    }
-  }
-
-  & .songlist_item,
-  .option {
-    margin: auto 0;
-  }
-  & .option {
-    margin-left: auto;
-  }
-}
-
 .listBox {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #272727;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
   color: white;
   cursor: pointer;
   transition: all 0.3s;
@@ -121,3 +139,37 @@
   }
 }
 /* --toggle--- */
+.currentplay {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto 20px auto;
+}
+
+.songlist {
+  max-width: 800px;
+  margin: 0 auto;
+
+  & .songlist_item,
+  .option {
+    margin: auto 0;
+  }
+  & .option {
+    margin-left: auto;
+  }
+}
+
+.songlist_item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.thumbnail {
+  & img {
+    width: 50px;
+    aspect-ratio: 1/1;
+    background-color: white;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+}

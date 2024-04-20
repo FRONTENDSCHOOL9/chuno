@@ -37,7 +37,7 @@ function PlayListNew() {
   const onSubmit = async formData => {
     formData.extra = {
       ...formData.extra,
-      keyword: selectedValues.join(','),
+      keyword: selectedValues,
     };
 
     try {

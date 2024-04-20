@@ -1,0 +1,36 @@
+meta {
+  name: 상품 등록(옵션 있는 상품의 옵션)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/seller/products
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "price": 6900,
+      "shippingFees": 3000,
+      "quantity": 1,
+      "buyQuantity": 0,
+      "show": true,
+      "active": true,
+      "name": "새것같은 샤넬 NO.6",
+      "mainImages": ["https://localhost/uploads/sample-janngu.jpg"],
+      "content": "1주일 밖에 안썼어요...",
+  	"createdAt": "2023.10.12 12:34:56",
+      "updatedAt": "2023.10.12 12:34:56",
+      "extra": {
+          "depth": 2,
+          "parent": 17,
+          "size": "100m"
+      }
+  }
+}

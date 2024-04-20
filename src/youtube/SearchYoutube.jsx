@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './youtube.module.css';
-import ReactPlayer from 'react-player/youtube';
 import SearchResult from './SearchResult';
-import axios from 'axios'; // axios를 import
-import CreateList from '@youtube/CreateList';
+import CreateList from '@youtube/CreateList'; // 이 줄을 수정했습니다.
 
+import axios from 'axios'; // axios를 import
+
+// 환경 변수 설정
 const API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(',');
 const MAX_API_KEYS = API_KEYS.length;
 
@@ -12,24 +13,12 @@ function SearchYoutube() {
   const axiosInstance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3',
   });
-  const playerRef = useRef(null);
-
+  // 나머지 코드는 이전과 동일합니다.
   const [currentKeyIndex, setCurrentKeyIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [selectedVideos, setSelectedVideos] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [volume, setVolume] = useState(0.5);
-  const [playedSeconds, setPlayedSeconds] = useState(0);
-  const [duration, setDuration] = useState(0);
-
-  useEffect(() => {
-    const player = playerRef.current?.getInternalPlayer();
-    if (player) {
-      player.setVolume(volume * 100);
-    }
-  }, [volume]);
 
   const selectNextKey = () => {
     setCurrentKeyIndex(prevIndex => (prevIndex + 1) % MAX_API_KEYS);
@@ -88,36 +77,6 @@ function SearchYoutube() {
     }
   };
 
-  const handlePrevClick = () => {
-    setCurrentVideoIndex(prev =>
-      prev === 0 ? selectedVideos.length - 1 : prev - 1,
-    );
-  };
-
-  const handleNextClick = () => {
-    setCurrentVideoIndex(prev =>
-      prev === selectedVideos.length - 1 ? 0 : prev + 1,
-    );
-  };
-
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
-
-  const handleVolumeChange = e => {
-    setVolume(parseFloat(e.target.value));
-  };
-
-  const handleSeekChange = e => {
-    const seekTo = parseFloat(e.target.value);
-    playerRef.current.seekTo(seekTo, 'seconds'); // 시간을 옮겨준다?
-  };
-
-  const handleProgress = state => {
-    setPlayedSeconds(state.playedSeconds);
-    setDuration(state.loadedSeconds);
-  };
-
   return (
     <div className={styles.wrap}>
       <div className={styles.searchbar}>
@@ -152,45 +111,20 @@ function SearchYoutube() {
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
       />
 
       {selectedVideos.length > 0 && (
         <div className={styles.addedvideo}>
-          <div className="player-wrapper">
+          {/* <div className="player-wrapper">
             <ReactPlayer
               ref={playerRef}
               className="react-player"
-              playing={isPlaying}
               url={`https://youtube.com/embed/${selectedVideos[currentVideoIndex]?.id}`}
               width="0"
               height="0"
               controls={false}
-              onProgress={handleProgress}
             />
-          </div>
-          <div className={styles.controls}>
-            <button onClick={handlePlayPause}>
-              {isPlaying ? 'Pause' : 'Play'}
-            </button>
-            <input
-              type="range"
-              min={0}
-              max={1}
-              step="any"
-              value={volume}
-              onChange={handleVolumeChange}
-            />
-            <input
-              type="range"
-              min={0}
-              max={duration}
-              step="any"
-              value={playedSeconds}
-              onChange={handleSeekChange}
-            />
-          </div>
+          </div> */}
         </div>
       )}
     </div>

@@ -46,9 +46,7 @@ export const initData = async nextSeq => {
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          music: {
-            id: 'YmNj2FvdHho',
-          },
+          music: ['YmNj2FvdHho', 'YmNj2FvdHho'],
           keyword: ['운동', '행복'],
         },
       },
