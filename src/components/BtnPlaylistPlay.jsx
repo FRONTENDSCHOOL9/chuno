@@ -12,8 +12,7 @@ function BtnCommon({ onClick, children }) {
       className={`${styles.common_btn} ${styles.btn_post} ${styles.btn_active}`}
       onClick={onClick}
     >
-      {/* {children} */}
-      플레이리스트 재생
+      {children}
     </button>
   );
 }

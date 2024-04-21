@@ -1,20 +1,32 @@
+import PropTypes from 'prop-types';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
+
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import ButtonBack from '@/components/ButtonBack';
-import BtnPlaylistPlay from '@/components/BtnPlaylistPlay';
+import { useNavigate, useParams } from 'react-router-dom';
+import ButtonBack from '@components/ButtonBack';
+import BtnPlaylistPlay from '@components/BtnPlaylistPlay';
 import styles from './PlayList.module.css';
+
+PlayListDetail.propTypes = {
+  item: PropTypes.shape({
+    extra: PropTypes.shape({
+      keyword: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }),
+  }).isRequired,
+};
 
 function PlayListDetail() {
   const axios = useCustomAxios();
   const { _id } = useParams();
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
       const res = await axios.get(`/products/${_id}`);
       setItem(res.data.item);
+      console.log(res);
     } catch (error) {
       setError(error);
     }
@@ -23,15 +35,9 @@ function PlayListDetail() {
     fetchData();
   }, []);
 
-  // const handleDelete = async () => {
-  //   try {
-  //     await axios.delete(`/products/${_id}`);
-  //     alert('삭제되었습니다.');
-  //     navigate('/products');
-  //   } catch (error) {
-  //     console.error('Error deleting post:', error);
-  //   }
-  // };
+  const keywordList = item?.extra?.keyword?.map((keyword, index) => (
+    <span key={index}>{keyword}</span>
+  ));
 
   return (
     <div className={styles.wrap}>
@@ -43,7 +49,9 @@ function PlayListDetail() {
             <li className={styles.listitem_detail}>
               <div className={styles.thumbnail}>
                 <img
-                  src={item.path || 'yongyong.png'}
+                  src={`${import.meta.env.VITE_API_SERVER}/files/${
+                    import.meta.env.VITE_CLIENT_ID
+                  }/yongyong.png`}
                   alt={item.orginalname || 'Default Thumbnail'}
                 />
               </div>
@@ -56,48 +64,22 @@ function PlayListDetail() {
           </ul>
 
           <div className={styles.content}>{item.content}</div>
-          <div className={styles.inputsection}>
-            <div className={styles.btn3Parent}>
-              {[
-                '이별',
-                '운동',
-                '행복',
-                '우울',
-                '집중',
-                '사랑',
-                '분노',
-                '운전',
-                '여행',
-                '휴식',
-                '자신감',
-                '수면',
-              ].map((value, index) => (
-                // <a key={value} href="#" className={styles.btn3}>
-                <a
-                  key={value}
-                  href="#"
-                  className={`${styles.btn3} ${styles['btn3-' + index]}`}
-                >
-                  {value}
-                </a>
-              ))}
-            </div>
-          </div>
+          <div className={styles.themelist}>{keywordList}</div>
+
           <div className={styles.playlistbox}>
             <ul className={styles.playlist_wrap}>
-              <li className={styles.playlist}>1. 곡제목</li>
-              <li className={styles.playlist}>2. 곡제목</li>
-              <li className={styles.playlist}>3. 곡제목</li>
-              <li className={styles.playlist}>4. 곡제목</li>
-              <li className={styles.playlist}>5. 곡제목</li>
-              <li className={styles.playlist}>6. 곡제목</li>
+              {item.extra.music.map((music, index) => (
+                <li key={index} className={styles.playlist}>
+                  {music}
+                </li>
+              ))}
             </ul>
-            <button className={styles.button_play}>
-              <BtnPlaylistPlay />
-              {/* 플레이리스트 재생 */}
-            </button>
+            <div className={styles.button_play}>
+              <BtnPlaylistPlay onClick={() => navigate(`/music/${_id}`)}>
+                {'플레이리스트 재생'}
+              </BtnPlaylistPlay>
+            </div>
           </div>
-          <div>{/* <button onClick={handleDelete}>삭제</button> */}</div>
         </section>
       )}
     </div>

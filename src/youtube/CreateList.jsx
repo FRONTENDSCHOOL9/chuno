@@ -5,8 +5,6 @@ CreateList.propTypes = {
   selectedVideos: PropTypes.array.isRequired,
   handleDeleteButtonClick: PropTypes.func.isRequired,
   handleVideoItemClick: PropTypes.func.isRequired,
-  handlePrevClick: PropTypes.func.isRequired,
-  handleNextClick: PropTypes.func.isRequired,
 };
 
 // YouTube 썸네일 URL 생성 함수

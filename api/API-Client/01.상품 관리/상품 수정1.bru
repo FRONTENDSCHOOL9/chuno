@@ -1,0 +1,58 @@
+meta {
+  name: 상품 수정1
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{url}}/seller/products/3
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "ok": 1,
+    "item": {
+      "_id": 3,
+      "price": 0,
+      "name": "키워드 테스트 입니다.",
+      "quantity": 99999,
+      "show": true,
+      "extra": {
+        "keyword": [
+          "이별",
+          "운동",
+          "행복",
+          "우울",
+          "집중"
+        ],
+        "music" :[
+          "g82W6uwQcJE",
+          "4EQkYVtE-28",
+          "sg0GIM9TGaY"
+        ]
+      },
+      "file": {},
+      "content": "키워드 테스트 입니다.",
+      "shippingFees": 0,
+      "seller_id": 1,
+      "active": true,
+      "buyQuantity": 0,
+      "createdAt": "2024.04.20 13:05:49",
+      "updatedAt": "2024.04.20 13:05:49",
+      "seller": {
+        "_id": 1,
+        "email": "dragon@test.com",
+        "name": "용용이",
+        "type": "seller",
+        "createdAt": "2024.01.10 13:30:24",
+        "updatedAt": "2024.01.10 13:30:24"
+      }
+    }
+  }
+}

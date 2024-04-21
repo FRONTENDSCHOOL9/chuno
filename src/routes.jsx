@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: 'music',
+        path: 'music/:_id',
         element: <Musicplayer />,
       },
       {
