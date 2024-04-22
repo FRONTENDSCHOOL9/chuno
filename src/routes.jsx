@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <First />,
       },
       {
-        path: 'users/mypage',
+        path: 'users/:_id',
         element: <Mypage />,
       },
       {

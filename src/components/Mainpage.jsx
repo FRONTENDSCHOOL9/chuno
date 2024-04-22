@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Recommendlistitem from './Recommendlistitem';
-import Footer from './layout/Footer';
 import Header from './layout/Header';
 import styles from './styles/mainpage.module.css';
 
@@ -39,7 +38,6 @@ function Mainpage() {
         <div className={styles.topList}></div>
       </div>
       {/* *FIXME - 아이템리스트 렌더링 위치 입니다. */}
-      <Footer />
     </div>
   );
 }

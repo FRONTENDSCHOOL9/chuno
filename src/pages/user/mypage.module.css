@@ -1,17 +1,7 @@
-
 .mypage {
-  /* width: 393px; */
+  width: 100%;
   flex-direction: column;
-  /* border: 2px solid red; */
-  padding: 20px;
   box-sizing: border-box;
-}
-
-.mypageBefore {
-  width: 11px;
-  height: 20px;
-  margin-bottom: 15px;
-  cursor: pointer;
 }
 
 .mypageHead {
@@ -37,19 +27,18 @@
 }
 
 .profileCover {
-  width: 95px;
-  height: 95px;
   display: block;
   justify-content: center;
-  background-color: blue;
+  border-radius: 50%;
+  overflow: hidden;
   border-radius: 50%;
   margin-bottom: 30px;
 }
 
 .mypageBodyStitle {
-  font-size: 13px;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 14px;
+  color: white;
+  margin-bottom: 8px;
 }
 
 .mypageBodyInput {
@@ -72,11 +61,7 @@
 }
 
 .confirmButton {
+  margin-top: 50px;
   display: flex;
-  gap: 20px;
   justify-content: center;
-}
-
-.btn3 {
-  margin-bottom: 20px;
 }

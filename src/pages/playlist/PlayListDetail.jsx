@@ -35,9 +35,9 @@ function PlayListDetail() {
     fetchData();
   }, []);
 
-  const keywordList = item?.extra?.keyword?.map((keyword, index) => (
-    <span key={index}>{keyword}</span>
-  ));
+  // const keywordList = item?.extra?.keyword?.map((keyword, index) => (
+  //   <span key={index}>{keyword}</span>
+  // ));
 
   return (
     <div className={styles.wrap}>
@@ -64,16 +64,16 @@ function PlayListDetail() {
           </ul>
 
           <div className={styles.content}>{item.content}</div>
-          <div className={styles.themelist}>{keywordList}</div>
+          <div className={styles.themelist}></div>
 
           <div className={styles.playlistbox}>
-            <ul className={styles.playlist_wrap}>
+            {/* <ul className={styles.playlist_wrap}>
               {item.extra.music.map((music, index) => (
                 <li key={index} className={styles.playlist}>
                   {music}
                 </li>
               ))}
-            </ul>
+            </ul> */}
             <div className={styles.button_play}>
               <BtnPlaylistPlay onClick={() => navigate(`/music/${_id}`)}>
                 {'플레이리스트 재생'}
