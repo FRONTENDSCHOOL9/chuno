@@ -1,3 +1,5 @@
+// Mainpage.jsx
+// import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Recommendlistitem from './Recommendlistitem';
 import Header from './layout/Header';
@@ -14,13 +16,14 @@ function Mainpage() {
         <h5 className={styles.miniTitle}>주인장 PICK!</h5>
         <p className={styles.bodyText}>추천 플레이리스트</p>
         <div className={styles.recommendList}>
-          <Recommendlistitem theme={'이별'} />
-          <Recommendlistitem theme={'운동'} />
-          <Recommendlistitem theme={'행복'} />
-          <Recommendlistitem theme={'우울'} />
-          <Recommendlistitem theme={'집중'} />
-          <Recommendlistitem theme={'사랑'} />
-          <Recommendlistitem theme={'분노'} />
+          {/* 각 Recommendlistitem에 고정된 id 부여 */}
+          <Recommendlistitem id={1} theme={'이별'} />
+          <Recommendlistitem id={2} theme={'운동'} />
+          <Recommendlistitem id={3} theme={'행복'} />
+          <Recommendlistitem id={4} theme={'우울'} />
+          <Recommendlistitem id={5} theme={'집중'} />
+          <Recommendlistitem id={6} theme={'사랑'} />
+          <Recommendlistitem id={7} theme={'분노'} />
         </div>
       </div>
       <div>

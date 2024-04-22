@@ -23,6 +23,10 @@ function PlayListDetail() {
   const navigate = useNavigate();
   const changechar = /[^\w\s]/gi;
 
+  // const keywordList = item.extra?.keyword.map((keyword, index) => (
+  //   <span key={index}>{keyword}</span>
+  // ));
+
   const fetchData = async () => {
     try {
       const res = await axios.get(`/products/${_id}`);
@@ -82,6 +86,7 @@ function PlayListDetail() {
                 </li>
               ))}
             </ul> */}
+            {/* <div className={styles.themelist}>{keywordList}</div> */}
             <div className={styles.btnPlay}>
               <BtnPlaylistPlay onClick={() => navigate(`/music/${_id}`)}>
                 {'플레이리스트 재생'}

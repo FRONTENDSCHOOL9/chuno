@@ -40,7 +40,7 @@ function SearchYoutube() {
       setSearchResult(response.data.items);
     } catch (error) {
       console.error('Error searching YouTube:', error);
-      if (error.response && error.response.status === 429) {
+      if (error.response && error.response.status === 403) {
         selectNextKey();
       }
     }

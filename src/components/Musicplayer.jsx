@@ -33,6 +33,8 @@ function MusicPlayer() {
   const [error, setError] = useState(null);
   const { _id } = useParams();
 
+  const changechar = /[^\w\s]/gi;
+
   const fetchData = async () => {
     try {
       const res = await axios.get(`/products/${_id}`);
@@ -70,7 +72,6 @@ function MusicPlayer() {
       setCurrentVideoIndex(selectedIndex);
     }
   };
-  const changechar = /[^\w\s]/gi;
 
   return (
     <div>

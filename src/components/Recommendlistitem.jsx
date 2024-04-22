@@ -1,9 +1,6 @@
+// Recommendlistitem.jsx
 import styles from './styles/recommenditem.module.css';
 import PropTypes from 'prop-types';
-
-Recommendlistitem.propTypes = {
-  theme: PropTypes.string.isRequired,
-};
 
 function Recommendlistitem({ theme }) {
   return (
@@ -16,5 +13,10 @@ function Recommendlistitem({ theme }) {
     </>
   );
 }
+
+Recommendlistitem.propTypes = {
+  id: PropTypes.number.isRequired,
+  theme: PropTypes.string.isRequired,
+};
 
 export default Recommendlistitem;
