@@ -1,4 +1,3 @@
-// PlayListNew.jsx
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,13 +8,15 @@ import styles from './PlayList.module.css';
 import SearchYoutube from '@youtube/SearchYoutube';
 import { useRecoilValue } from 'recoil';
 import { selectedVideosState } from '@recoil/user/atoms.mjs';
-import { useNavigate } from 'react-router-dom'; // useNavigate 추가
+import { useNavigate } from 'react-router-dom';
 
 function PlayListNew() {
   const axios = useCustomAxios();
   const selectedVideos = useRecoilValue(selectedVideosState);
   const [selectedValues, setSelectedValues] = useState([]);
   const navigate = useNavigate(); // useNavigate 훅 추가
+
+  const [mainImage, setMainImage] = useState(null); // 파일 상태 추가
 
   const { register, handleSubmit } = useForm({
     values: {
@@ -26,6 +27,18 @@ function PlayListNew() {
       extra: {},
     },
   });
+
+  const handleFileChange = event => {
+    const file = event.target.files[0];
+    if (file) {
+      // 파일 정보를 상태에 저장
+      setMainImage({
+        path: `/files/${file.name}`,
+        name: file.name,
+        originalname: file.name,
+      });
+    }
+  };
 
   // 버튼 클릭 핸들러
   const handleClick = value => {
@@ -41,7 +54,13 @@ function PlayListNew() {
 
   const onSubmit = async (formData, event) => {
     event.preventDefault(); // 기본 제출 동작 중지
-
+    if (mainImage) {
+      formData.mainImages = {
+        path: mainImage.path,
+        name: mainImage.name,
+        originalname: mainImage.originalname,
+      };
+    }
     formData.extra = {
       ...formData.extra,
       keyword: selectedValues,
@@ -78,8 +97,9 @@ function PlayListNew() {
           <input
             type="file"
             id="mainImages"
+            onChange={handleFileChange} // 파일 변경 핸들러 추가
             className={styles}
-            {...register('file')}
+            {...register('mainImages')}
           />
         </div>
         <SearchYoutube></SearchYoutube>
@@ -107,3 +127,4 @@ function PlayListNew() {
 }
 
 export default PlayListNew;
+// PlayListNew.jsx

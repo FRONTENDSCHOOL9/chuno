@@ -9,8 +9,6 @@
     rgba(236, 241, 255, 1) 100%
   ); */
   /* background-image: url('https://images.unsplash.com/photo-1533113354171-490d836238e3?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
-  min-height: 100vh;
-  display: flex;
   overflow-y: hidden;
 }
 
@@ -18,14 +16,13 @@
   max-width: 800px;
   width: 100%;
   margin: 20px auto;
+  padding: 20px;
 
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-
   overflow: hidden;
 }
 * {

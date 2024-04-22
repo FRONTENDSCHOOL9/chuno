@@ -27,7 +27,6 @@ function PlayListDetail() {
     try {
       const res = await axios.get(`/products/${_id}`);
       setItem(res.data.item);
-      // console.log(res); 이 부분 삭제
     } catch (error) {
       setError(error);
     }
@@ -36,43 +35,45 @@ function PlayListDetail() {
     fetchData();
   }, []);
 
-  // const keywordList = item?.extra?.keyword?.map((keyword, index) => (
-  //   <span key={index}>{keyword}</span>
-  // ));
+  const keywordList = item?.extra?.keyword?.map((keyword, index) => (
+    <span key={index}>{keyword}</span>
+  ));
 
   return (
-    <div className={styles.wrap}>
-      <ButtonBack path={'/playlist'} />
+    <div>
       {error && <div>Error: {error.message}</div>}
+      <ButtonBack path={'/playlist'} />
+      <div className={styles.titleSection}>
+        <div className={styles.titles}>
+          <h3>{item.name}</h3>
+          <span>{item.seller.name}</span>
+        </div>
+        <span className={styles.count}>{item.extra.music?.length ?? 0}곡</span>
+      </div>
       {item && (
         <section className={styles.detailWrap}>
-          <img
-            className={styles.thumbBg}
-            src={
-              `${import.meta.env.VITE_API_SERVER}/files/${
-                import.meta.env.VITE_CLIENT_ID
-              }/yongyong.png` || item.images
-            }
-            alt={item.orginalname || 'Default Thumbnail'}
-          />
-          <ul className={styles.wrapList}>
-            <li className={styles.listitemDetail}>
-              <div className={styles.desc}>
-                <h3>{item.name}</h3>
-                <span>{item.seller.name}</span>
-              </div>
-              <span className={styles.count}>
-                {item.extra.music?.length ?? 0}곡
-              </span>
-            </li>
-          </ul>
+          <div className={styles.bgWrap}>
+            <img
+              className={styles.thumbBg}
+              src={
+                `${import.meta.env.VITE_API_SERVER}/files/${
+                  import.meta.env.VITE_CLIENT_ID
+                }/yongyong.png` || item.images
+              }
+              alt={item.orginalname || 'Default Thumbnail'}
+            />
+          </div>
 
-          <div className={styles.themeList}></div>
+          <div className={styles.themeList}>{keywordList}</div>
           <div className={styles.content}>
             <div className={styles.description}>{item.content}</div>
             <ul className={styles.songs}>
+              <h3>플레이리스트</h3>
               {item.extra.music.map((music, index) => (
-                <li key={index}>{music.title.replace(changechar, '')}</li>
+                <li key={index}>
+                  {index + 1 + '.  '}
+                  {music.title.replace(changechar, '')}
+                </li>
               ))}
             </ul>
             <div className={styles.btnPlay}>
