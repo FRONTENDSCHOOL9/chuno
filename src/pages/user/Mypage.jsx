@@ -59,7 +59,7 @@ function Mypage() {
       </div>
       <hr className={styles.mypageHeadHr} />
       <div className={styles.mypageBody}>
-        <div>
+        <div className={styles.profileWrap}>
           <img
             className={styles.profileCover}
             src={profileImage}
