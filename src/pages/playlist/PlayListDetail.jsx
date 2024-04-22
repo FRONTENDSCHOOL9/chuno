@@ -21,6 +21,7 @@ function PlayListDetail() {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const changechar = /[^\w\s]/gi;
 
   const fetchData = async () => {
     try {
@@ -65,8 +66,13 @@ function PlayListDetail() {
             </li>
           </ul>
           <div className={styles.content}>{item.content}</div>
-          <div className={styles.themeList}></div>
 
+          <div className={styles.themeList}></div>
+          <div>
+            {item.extra.music.map((music, index) => (
+              <div key={index}>{music.title.replace(changechar, '')}</div>
+            ))}
+          </div>
           <div className={styles.playlistBox}>
             {/* <ul className={styles.playlist_wrap}>
               {item.extra.music.map((music, index) => (
