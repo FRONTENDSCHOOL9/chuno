@@ -1,7 +1,5 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-}
+@import url(../../pages/colorVaration.css);
+
 
 /* 
       <ul className="recwrap_list">

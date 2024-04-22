@@ -1,10 +1,5 @@
-:root {
-  --color-4e7cf3: #4e7cf3;
-  --color-white: #fff;
-  --color-black: #000;
-  --color-ddd: #ddd;
-  --color-797979: #797979;
-}
+@import url(../../pages/colorVaration.css);
+
 
 .searchForm {
   display: flex;

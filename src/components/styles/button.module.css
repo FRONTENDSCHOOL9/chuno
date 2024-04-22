@@ -1,9 +1,4 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-  --color-ddd: #ddd;
-  --color-797979: #797979;
-}
+@import url(../../pages/colorVaration.css);
 
 .commonBtn {
   padding: 8px;
@@ -78,18 +73,6 @@
   box-sizing: border-box;
 }
 
-.btn2 {
-  background-color: var(--color-main);
-  border: none;
-  font-size: 12px;
-  color: var(--color-white);
-  width: 160px;
-  height: 32px;
-  border-radius: 10px;
-  border: none;
-  box-sizing: border-box;
-}
-
 .keywords {
   display: inline-block;
   text-align: center;
@@ -123,15 +106,13 @@
   color: var(--color-white);
 }
 
-.submitBtn:hover,
-.btn2:hover {
+.submitBtn:hover {
   background-color: var(--color-ddd);
-  color: var(--color-797979);
-  border: 2px solid var(--color-797979);
+  color: var(--color-7d7d7d);
+  border: 2px solid var(--color-7d7d7d);
 }
 
-.submitBtn:active,
-.btn2:active {
+.submitBtn:active {
   background-color: var(--color-white);
   color: var(--color-main);
   border: 2px solid var(--color-main);

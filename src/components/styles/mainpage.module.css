@@ -1,8 +1,6 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-  --color-eee: #eee;
-}
+@import url(../../pages/colorVaration.css);
+
+
 
 button {
   cursor: pointer;

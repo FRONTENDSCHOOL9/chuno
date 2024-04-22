@@ -1,7 +1,9 @@
+@import url(../pages/colorVaration.css);
+
 .wrap {
   width: 100%;
   margin: 20px auto;
-  background-color: #cbd9ff;
+  background-color: var(--color-cbd9ff);
   border-radius: 12px;
   padding: 20px 10px;
 }
@@ -9,10 +11,11 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  margin-bottom: 20px;
 
   & input {
     width: 100%;
-    background-color: #ecf1ff;
+    background-color: var(--color-ecf1ff);
     padding: 10px;
     outline: none;
     border: 0;
@@ -42,7 +45,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ecf1ff;
+  background-color: var(--color-ecf1ff);
   padding: 15px;
   overflow: hidden;
 
@@ -63,10 +66,10 @@
   width: 100%;
   margin: 10px 0 5px 0;
   border: 0;
-  background: #fff;
+  background: var(--color-white);
   font-weight: 500;
   font-size: 20px;
-  color: #ddd;
+  color: var(--color-ddd);
   border-radius: 8px;
 }
 
@@ -76,7 +79,7 @@
 .addedNotice {
   text-align: center;
   margin: 20px 0;
-  color: #888;
+  color: var(--color-888);
 }
 .list {
   margin: 10px 0;

@@ -39,7 +39,7 @@
 
 .mypageBodyStitle {
   font-size: 14px;
-  color: var(--color-333);
+  color: var(--color-333030);
   margin-bottom: 8px;
 }
 
@@ -50,7 +50,7 @@
   width: 100%;
   padding: 10px;
   border-radius: 6px;
-  background-color: var(--color-f9f9f9);
+  background-color: var(--color-f6f6f6);
   border: 1px solid var(--color-eee);
   margin-bottom: 30px;
   box-sizing: border-box;

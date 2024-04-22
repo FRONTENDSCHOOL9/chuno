@@ -44,9 +44,9 @@ a:hover {
     }
     & input {
       /* 입력칸을 자동완성해도 input의 배경색이 변하지 않도록 해주는 코드 두 줄 */
-      box-shadow: 0 0 0 1000px var(--color-f9f9f9) inset;
-      background-color: var(--color-f9f9f9);
-      border: solid 2px var(--color-f9f9f9);
+      box-shadow: 0 0 0 1000px var(--color-f6f6f6) inset;
+      background-color: var(--color-f6f6f6);
+      border: solid 2px var(--color-f6f6f6);
       border-radius: 8px;
       padding: 10px;
       &:focus {
