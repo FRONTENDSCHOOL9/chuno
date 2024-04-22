@@ -33,7 +33,7 @@ export const initData = async nextSeq => {
         price: 0,
         show: true,
         active: true,
-        name: 'test플레이리스트',
+        name: 'test데이터용',
         quantity: 99999,
         mainImages: [
           {
@@ -42,12 +42,19 @@ export const initData = async nextSeq => {
             originalname: '플레이리스트 썸네일.png',
           },
         ],
-        content: `플레이리스트 설명 및 집에 가고 싶다.`,
+        content: `플레이리스트 설명이 담기는 공간입니다. 테스트용 데이터입니다.`,
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          music: ['YmNj2FvdHho', 'YmNj2FvdHho'],
-          keyword: ['운동', '행복'],
+          music: [
+            { id: 'Vq-mGphIR9g', title: 'Happy to Die (Happy to Die)' },
+            { id: 'yY13X0BKaUw', title: 'MONSTA X 몬스타엑스 &#39;GAMBLER&' },
+            {
+              id: 'wH3JmLBOnMU',
+              title: 'Ashes - Stellar (Official Lyric Video)',
+            },
+          ],
+          keyword: ['우울', '사랑', '집중'],
         },
       },
     ],

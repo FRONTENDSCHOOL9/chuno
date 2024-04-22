@@ -3,7 +3,6 @@ import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { Link, useNavigate } from 'react-router-dom';
 import Submit from '@components/Submit';
 import styles from './auth.module.css';
-
 import dragon from '@assets/svg/dragon.svg';
 
 function Signup() {
@@ -108,6 +107,7 @@ function Signup() {
               type="email"
               id="email"
               placeholder="이메일을 입력하세요"
+              autoComplete="email"
               {...register('email', {
                 required: '이메일을 입력하세요.',
                 pattern: {
@@ -132,6 +132,7 @@ function Signup() {
               id="password"
               maxLength="24"
               placeholder="비밀번호를 입력하세요"
+              autoComplete="current-password"
               {...register('password', {
                 required: '비밀번호를 입력하세요.',
               })}
