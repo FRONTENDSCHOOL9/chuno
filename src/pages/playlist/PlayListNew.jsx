@@ -34,7 +34,9 @@ function PlayListNew() {
     });
   };
 
-  const onSubmit = async formData => {
+  const onSubmit = async (formData, event) => {
+    event.preventDefault(); // 기본 제출 동작 중지
+
     formData.extra = {
       ...formData.extra,
       keyword: selectedValues,

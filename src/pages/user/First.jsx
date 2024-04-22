@@ -7,20 +7,25 @@ function First() {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.firstpage}>
-      <img src={mainlogo} alt="함께들어용~" />
-      <Button className={styles.login} onClick={() => navigate('/users/login')}>
-        로그인
-      </Button>
-      <Button
-        className={styles.signup}
-        onClick={() => navigate('/users/signup')}
-      >
-        회원가입
-      </Button>
-      <Link to="/main" className={styles.unsign}>
-        비회원으로 시작하기
-      </Link>
+    <div id="App">
+      <div className={styles.firstpage}>
+        <img src={mainlogo} alt="함께들어용~" />
+        <Button
+          className={styles.login}
+          onClick={() => navigate('/users/login')}
+        >
+          로그인
+        </Button>
+        <Button
+          className={styles.signup}
+          onClick={() => navigate('/users/signup')}
+        >
+          회원가입
+        </Button>
+        <Link to="/main" className={styles.unsign}>
+          비회원으로 시작하기
+        </Link>
+      </div>
     </div>
   );
 }

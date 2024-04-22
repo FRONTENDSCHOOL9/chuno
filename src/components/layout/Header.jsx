@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import Button from '@components/Button';
 import styles from './header.module.css';
-
 function Header() {
   const navigate = useNavigate();
 
@@ -57,7 +56,7 @@ function Header() {
         <div className={styles.mainHeaderRight}>
           {user ? (
             <div>
-              <Link to={'/users/mypage'} className={styles.mainHeaderUser}>
+              <Link to={`/users/${user._id}`} className={styles.mainHeaderUser}>
                 <div>
                   <img
                     className={`${styles.w8} ${styles.roundedFull} ${styles.mr2}`}

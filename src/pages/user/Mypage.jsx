@@ -1,10 +1,38 @@
 import ButtonBack from '@components/ButtonBack';
+import { useEffect, useState } from 'react';
+import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import styles from './mypage.module.css';
 import Button4 from '@components/Button4';
 
 import dragon from '@assets/svg/dragon.svg';
+import { useParams } from 'react-router-dom';
 
 function Mypage() {
+  const axios = useCustomAxios();
+  const [userData, setUserData] = useState(null);
+  const { _id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/users/${_id}/_id`);
+        const { data } = res;
+        const { item } = data;
+        console.log(res);
+        setUserData(item);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+
+    const intervalId = setInterval(fetchData, 5 * 60 * 1000);
+
+    return () => clearInterval(intervalId);
+  }, [_id]);
+
   return (
     <div className={styles.mypage}>
       <ButtonBack path={'/main'} />
@@ -19,21 +47,26 @@ function Mypage() {
         <div>
           <img
             className={styles.profileCover}
-            src="././publish/profile01.png"
-            alt="profile01"
+            src={`${import.meta.env.VITE_API_SERVER}/files/${
+              import.meta.env.VITE_CLIENT_ID
+            }/yongyong.png`}
+            alt=""
           />
         </div>
         <form className={styles.mypageBodyInput} action="">
           <h3 className={styles.mypageBodyStitle}>닉네임</h3>
-          <input type="text" placeholder="doglike" />
+          <input type="text" placeholder={userData?.name || 'Name'} />
         </form>
         <form className={styles.mypageBodyInput} action="">
           <h3 className={styles.mypageBodyStitle}>아이디</h3>
-          <input type="text" placeholder="doglike@naver.com" />
+          <input type="text" placeholder={userData?.email || 'Email'} />
         </form>
         <form className={styles.mypageBodyInput} action="">
           <h3 className={styles.mypageBodyStitle}>비밀번호</h3>
-          <input type="password" placeholder="••••••••" />
+          <input
+            type="password"
+            placeholder={userData?.password ? '••••••••' : 'Password'}
+          />
         </form>
       </div>
       <div>

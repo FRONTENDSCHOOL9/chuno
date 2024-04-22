@@ -1,10 +1,4 @@
 .firstpage {
-  background: #619ae0;
-  background: linear-gradient(
-    0deg,
-    rgba(203, 217, 255, 1) 0%,
-    rgba(236, 241, 255, 1) 100%
-  );
   display: flex;
   flex-direction: column;
   justify-content: center;

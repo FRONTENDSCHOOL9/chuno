@@ -12,9 +12,6 @@
   );
 
   margin-bottom: 12px;
-  &:last-child {
-    margin-bottom: 0;
-  }
   & .iteminformation {
     display: flex;
     align-items: center;
@@ -102,15 +99,13 @@
   overflow: hidden;
   border-radius: 6px;
   & img {
-    width: 100%;
+    display: block;
+    width: 50px;
+    aspect-ratio: 1/1;
   }
 }
 /* BoardNew */
-.wrap {
-  margin: 0 auto;
-  width: 100%;
-  padding: 20px 10px;
-}
+
 .inputsection {
   display: flex;
   flex-direction: column;
