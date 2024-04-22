@@ -1,3 +1,14 @@
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-4e7cf3: #4e7cf3;
+  --color-706868: #706868;
+  --color-7d7d7d: #7d7d7d;
+  --color-bfaeae: #bfaeae;
+  --color-ecf1ff: #ecf1ff;
+}
+
 .listitem {
   cursor: pointer;
   padding: 10px;
@@ -22,7 +33,7 @@
     gap: 10px;
     & span {
       padding: 5px 20px;
-      background: #fefefe;
+      background: var(--color-white);
       border-radius: 20px;
       font-size: 14px;
     }
@@ -44,13 +55,13 @@
     & span {
       font-size: 14px;
       margin-left: auto;
-      color: #bfaeae;
+      color: var(--color-bfaeae);
     }
   }
   & .count {
     margin-left: auto;
     font-size: 10px;
-    color: #706868;
+    color: var(--color-706868);
   }
 }
 
@@ -79,7 +90,7 @@
     }
     & span {
       font-size: 10px;
-      color: #bfaeae;
+      color: var(--color-bfaeae);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -89,11 +100,11 @@
   & .count {
     margin-left: auto;
     font-size: 10px;
-    color: #706868;
+    color: var(--color-706868);
   }
 }
 .thumbnail {
-  background-color: #63ffe3;
+  background-color: var(--color-main);
   width: 50px;
   height: 50px;
   overflow: hidden;
@@ -115,8 +126,8 @@
   &:last-child {
     & button {
       border: 0;
-      background-color: #4e7cf3;
-      color: #fff;
+      background-color: var(--color-4e7cf3);
+      color: var(--color-white);
       border-radius: 8px;
       padding: 10px;
     }
@@ -128,24 +139,24 @@
   & input {
     width: 100%;
     padding: 10px;
-    background-color: #ecf1ff;
+    background-color: var(--color-ecf1ff);
     border-radius: 8px;
     border: 2px solid transparent;
     outline: none;
     &:focus {
-      border: 2px solid #619ae0;
+      border: 2px solid var(--color-main);
     }
   }
   & textarea {
     resize: none;
     height: 200px;
-    background-color: #ecf1ff;
+    background-color: var(--color-ecf1ff);
     border-radius: 8px;
     padding: 10px;
     outline: none;
     border: 2px solid transparent;
     &:focus {
-      border: 2px solid #619ae0;
+      border: 2px solid var(--color-main);
     }
   }
 }
@@ -155,12 +166,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #f3f6ff;
+  background-color: var(--color-ecf1ff);
   & .title {
   }
   & .name {
     font-size: 12px;
-    color: #bfaeae;
+    color: var(--color-bfaeae);
     margin-top: 4px;
   }
 }
@@ -178,13 +189,13 @@
 }
 
 .btn3Parent a {
-  color: white;
+  color: var(--color-white);
 }
 
 .btn3 {
-  background-color: #619ae0;
+  background-color: var(--color-main);
   padding: 4px 14px;
-  color: white;
+  color: var(--color-white);
   border-radius: 14px;
 }
 
@@ -207,7 +218,7 @@
 }
 
 .playlist {
-  color: #7d7d7d;
+  color: var(--color-7d7d7d);
   padding: 28px 10px;
-  border-bottom: 1px solid #7d7d7d;
+  border-bottom: 1px solid var(--color-7d7d7d);
 }

@@ -1,3 +1,7 @@
+:root {
+  --color-main: #619ae0;
+}
+
 .errorPage {
   display: flex;
   flex-direction: column;
@@ -17,6 +21,6 @@
 
 .errorMessage {
   margin-top: 20px;
-  color: #619ae0;
+  color: var(--color-main);
   font-size: 20px;
 }

@@ -1,3 +1,8 @@
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+}
+
 /* 
       <ul className="recwrap_list">
         <li className="reclistitem">
@@ -20,10 +25,10 @@
   flex-shrink: 1;
   min-width: 170px;
   border-radius: 12px;
-  background-color: red;
+  background-color: var(--color-main);
 }
 
 .recListItem h3 {
-  color: white;
+  color: var(--color-white);
   font-size: 16px;
 }

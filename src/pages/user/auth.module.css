@@ -1,9 +1,19 @@
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-f9f9f9: #f9f9f9;
+  --color-f6f6f6: #f6f6f6;
+  --color-df8484: #df8484;
+  --color-a4a4a4: #a4a4a4;
+}
+
 a:visited,
 a:active,
 a:link,
 a:hover {
   text-decoration: none;
-  color: #a4a4a4;
+  color: var(--color-a4a4a4);
 }
 
 .authPage {
@@ -41,22 +51,22 @@ a:hover {
     }
     & input {
       /* 입력칸을 자동완성해도 input의 배경색이 변하지 않도록 해주는 코드 두 줄 */
-      box-shadow: 0 0 0 1000px #f9f9f9 inset;
-      background-color: #f9f9f9;
-      border: solid 2px #f9f9f9;
+      box-shadow: 0 0 0 1000px var(--color-f9f9f9) inset;
+      background-color: var(--color-f9f9f9);
+      border: solid 2px var(--color-f9f9f9);
       border-radius: 8px;
       padding: 10px;
       &:focus {
         border: solid 2px;
-        outline-color: #619ae0;
+        outline-color: var(--color-main);
       }
     }
     & .required {
-      color: #fff;
+      color: var(--color-white);
       font-size: 10px;
       margin-top: 4px;
       font-weight: 400;
-      background: #df8484;
+      background: var(--color-df8484);
       padding: 4px 10px;
       border-radius: 4px;
     }
@@ -64,7 +74,7 @@ a:hover {
       margin-bottom: 4px;
     }
     & .essential {
-      color: #df8484;
+      color: var(--color-df8484);
     }
   }
 }
@@ -89,17 +99,17 @@ a:hover {
   gap: 12px;
   margin-top: 50px;
   & button {
-    background-color: #619ae0;
-    border: solid 2px #619ae0;
+    background-color: var(--color-main);
+    border: solid 2px var(--color-main);
     border-radius: 8px;
-    color: #fff;
+    color: var(--color-white);
   }
   & a {
     text-align: center;
     font-weight: bolder;
     padding: 10px 0;
-    background-color: #f6f6f6;
-    border: solid 2px #f6f6f6;
+    background-color: var(--color-f6f6f6);
+    border: solid 2px var(--color-f6f6f6);
     border-radius: 8px;
   }
 }
@@ -107,9 +117,9 @@ a:hover {
 input[type='file']::file-selector-button {
   width: 80px;
   height: 30px;
-  background: #619ae0;
+  background: var(--color-main);
   border: none;
-  color: white;
+  color: var(--color-white);
   border-radius: 10px;
   cursor: pointer;
   margin-right: 10px;

@@ -1,3 +1,11 @@
+:root {
+  --color-4e7cf3: #4e7cf3;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-ddd: #ddd;
+  --color-797979: #797979;
+}
+
 .searchForm {
   display: flex;
   margin: 10px 0;
@@ -6,15 +14,15 @@
 .search {
   outline: none;
   border: 0;
-  background-color: #fefefe;
-  border: 1px solid #eeeeee;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-ddd);
   border-radius: 8px;
   font-size: 14px;
   padding: 10px 8px;
   width: 100%;
 
   &:focus {
-    border-color: #4e7cf3;
+    border-color: var(--color-4e7cf3);
   }
 }
 .searchSubmit {
@@ -28,7 +36,7 @@
 
   &:hover {
     & svg {
-      fill: #000;
+      fill: var(--color-black);
     }
   }
 }

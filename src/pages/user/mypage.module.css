@@ -1,3 +1,13 @@
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+  --color-e7ecff: #e7ecff;
+  --color-black: #000;
+  --color-eee: #eee;
+  --color-f9f9f9: #f9f9f9;
+  --color-888: #888;
+}
+
 .mypage {
   width: 100%;
   flex-direction: column;
@@ -12,11 +22,11 @@
 }
 
 .mypageHeadTitle {
-  color: #619ae0;
+  color: var(--color-main);
 }
 
 .mypageHeadHr {
-  border: 1.5px solid #e7ecff;
+  border: 1.5px solid var(--color-e7ecff);
   margin-bottom: 30px;
 }
 
@@ -37,7 +47,7 @@
 
 .mypageBodyStitle {
   font-size: 14px;
-  color: white;
+  color: var(--color-white);
   margin-bottom: 8px;
 }
 
@@ -48,15 +58,15 @@
   width: 100%;
   padding: 10px;
   border-radius: 6px;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
+  background-color: var(--color-f9f9f9);
+  border: 1px solid var(--color-eee);
   margin-bottom: 30px;
   box-sizing: border-box;
 }
 
 .mypageBodyHash {
   font-size: 12px;
-  color: #888;
+  color: var(--color-888);
   margin-bottom: 8px;
 }
 

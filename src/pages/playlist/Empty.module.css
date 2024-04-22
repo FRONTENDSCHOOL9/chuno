@@ -1,3 +1,7 @@
+:root {
+  --color-main: #619ae0;
+}
+
 .emptyScreen {
   display: flex;
   flex-direction: column;
@@ -11,5 +15,5 @@
 .emptyScreenText {
   font-size: 14px;
   font-weight: bold;
-  color: #619ae0;
+  color: var(--color-main);
 }

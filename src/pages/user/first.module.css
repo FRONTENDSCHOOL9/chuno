@@ -1,3 +1,11 @@
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+  --color-ddd: #ddd;
+  --color-black: #000;
+  --color-111: #111;
+}
+
 .firstPage {
   display: flex;
   flex-direction: column;
@@ -10,9 +18,9 @@
 .firstPage Button {
   font-size: 0.9rem;
   max-width: 400px;
-  color: #fff;
+  color: var(--color-white);
   width: 100%;
-  box-shadow: 4px 2px 4px #ddd;
+  box-shadow: 4px 2px 4px var(--color-ddd);
   border-radius: 8px;
   line-height: unset;
   padding: 10px 0;
@@ -20,14 +28,14 @@
 }
 
 Button.login {
-  color: #111;
-  background: #fff;
+  color: var(--color-111);
+  background: var(--color-white);
   margin-top: 40px;
   margin-bottom: 8px;
 }
 
 Button.signup {
-  background-color: #619ae0;
+  background-color: var(--color-main);
   margin-bottom: 16px;
 }
 .unsign {
