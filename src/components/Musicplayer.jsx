@@ -62,6 +62,16 @@ function MusicPlayer() {
     setListBoxOpen(!isListBoxOpen);
   };
 
+  const handleSongSelect = videoId => {
+    const selectedIndex = item?.extra?.music.findIndex(
+      video => video.id === videoId,
+    );
+    if (selectedIndex !== -1) {
+      setCurrentVideoIndex(selectedIndex);
+    }
+  };
+  const changechar = /[^\w\s]/gi;
+
   return (
     <div>
       {!item && !error && <div>Loading...</div>}
@@ -97,7 +107,7 @@ function MusicPlayer() {
             />
           </div>
           <h3 className={styles.songTitle}>
-            {item.extra.music[currentVideoIndex].title}
+            {item.extra.music[currentVideoIndex].title.replace(changechar, '')}
           </h3>
           <div>
             <input
@@ -185,7 +195,12 @@ function MusicPlayer() {
                 alt=""
               />
             </div>
-            <h3>{item.extra.music[currentVideoIndex].title}</h3>
+            <h3>
+              {item.extra.music[currentVideoIndex].title.replace(
+                changechar,
+                '',
+              )}
+            </h3>
           </div>
           <div className={styles.songlist}>
             {item?.extra?.music.map((video, index) => (

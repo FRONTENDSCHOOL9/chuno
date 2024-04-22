@@ -64,7 +64,6 @@ function PlayListDetail() {
               </span>
             </li>
           </ul>
-
           <div className={styles.content}>{item.content}</div>
           <div className={styles.themeList}></div>
 
