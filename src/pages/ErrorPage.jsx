@@ -14,10 +14,10 @@ function ErrorPage() {
   return (
     <>
       <Header />
-      <div className={styles.errorpage}>
-        <img src={Cookie} className={styles.errorimage} />
+      <div className={styles.errorPage}>
+        <img src={Cookie} className={styles.errorImage} />
         {/* <h2>에러 메세지</h2> */}
-        <p className={styles.errormessage}>{message}</p>
+        <p className={styles.errorMessage}>{message}</p>
       </div>
       <Footer />
     </>

@@ -55,7 +55,7 @@
 }
 
 /* detail */
-.listitem_detail {
+.listitemDetail {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -106,7 +106,7 @@
 }
 /* BoardNew */
 
-.inputsection {
+.inputSection {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -151,7 +151,7 @@
 }
 
 /* BoardDetail */
-.section_title {
+.sectionTitle {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -188,20 +188,20 @@
   border-radius: 14px;
 }
 
-.playlistbox {
+.playlisBox {
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
-.playlist_wrap {
+.playlistWrap {
   & .playlist {
     margin: 10px 0;
   }
 }
 
-.button_play {
+.btnPlay {
   margin-top: 20px;
   border: 0;
 }

@@ -79,7 +79,7 @@ function SearchYoutube() {
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.searchbar}>
+      <div className={styles.searchBar}>
         <input
           type="text"
           value={searchTerm}
@@ -114,11 +114,11 @@ function SearchYoutube() {
       />
 
       {selectedVideos.length > 0 && (
-        <div className={styles.addedvideo}>
-          {/* <div className="player-wrapper">
+        <div className={styles.addedVideo}>
+          {/* <div className="playerWrapper">
             <ReactPlayer
               ref={playerRef}
-              className="react-player"
+              className="reactPlayer"
               url={`https://youtube.com/embed/${selectedVideos[currentVideoIndex]?.id}`}
               width="0"
               height="0"

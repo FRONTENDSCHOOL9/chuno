@@ -9,7 +9,7 @@ BtnCommon.propTypes = {
 function BtnCommon({ onClick, children }) {
   return (
     <button
-      className={`${styles.common_btn} ${styles.btn_post} ${styles.btn_active}`}
+      className={`${styles.commonBtn} ${styles.btnPost} ${styles.btnActive}`}
       onClick={onClick}
     >
       {children}

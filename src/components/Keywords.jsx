@@ -12,11 +12,11 @@ function Keywords({ selectedValues, onClick }) {
   };
 
   return (
-    <div className={styles.btn3Parent}>
+    <div className={styles.keywordsObj}>
       {['이별', '운동', '행복', '우울', '집중', '사랑', '분노'].map(value => (
         <div
           key={value}
-          className={`${styles.btn3} ${
+          className={`${styles.keywords} ${
             selectedValues.includes(value) ? styles.active : ''
           }`}
           onClick={() => handleClick(value)}

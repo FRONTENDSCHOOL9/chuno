@@ -14,7 +14,7 @@ function Search({ onClick }) {
   };
 
   return (
-    <form className={styles.searchform}>
+    <form className={styles.searchForm}>
       <input
         placeholder="키워드를 입력해주세요."
         className={styles.search}
@@ -23,7 +23,7 @@ function Search({ onClick }) {
         onChange={handleChange}
       />
       <button
-        className={styles.searchsubmit}
+        className={styles.searchSubmit}
         onClick={e => {
           e.preventDefault();
           onClick(keyword);

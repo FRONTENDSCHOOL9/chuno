@@ -63,9 +63,9 @@ function Login() {
   };
 
   return (
-    <div className={styles.authpage}>
-      <div className={styles.authpage_wrap}>
-        <div className={styles.pagename}>
+    <div className={styles.authPage}>
+      <div className={styles.authPageWrap}>
+        <div className={styles.pageName}>
           <Link to="/">
             <div className={styles.logo}>
               <img src={dragon} alt="" />
@@ -75,8 +75,8 @@ function Login() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.auth_input}>
-            <label className={styles.signuplabel} htmlFor="email">
+          <div className={styles.authInput}>
+            <label className={styles.signupLabel} htmlFor="email">
               아이디
             </label>
             <input
@@ -93,11 +93,11 @@ function Login() {
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
-          <div className={styles.auth_input}>
-            <label className={styles.signuplabel} htmlFor="password">
+          <div className={styles.authInput}>
+            <label className={styles.signupLabel} htmlFor="password">
               비밀번호
             </label>
-            <div className={styles.pwvisibility}>
+            <div className={styles.pwVisibility}>
               <span onClick={handlePasswordType}>
                 {pwType.visible ? (
                   <img className={styles.eyeIcon} src={passwordvisible} />
@@ -116,7 +116,7 @@ function Login() {
               {errors.password && <p>{errors.password.message}</p>}
             </div>
           </div>
-          <div className={styles.btn_auth}>
+          <div className={styles.btnAuth}>
             <Submit>로그인</Submit>
             <Link to="/users/signup">회원가입</Link>
           </div>

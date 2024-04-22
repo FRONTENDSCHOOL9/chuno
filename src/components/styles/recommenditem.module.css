@@ -4,13 +4,13 @@
           <h3>반려동물도 함께 듣는 곡</h3>
 */
 
-.recwrap_list {
+.recWrapList {
   display: flex;
   flex-grow: 1;
   height: 170px;
 }
 
-.reclistitem {
+.recListItem {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@
   background-color: red;
 }
 
-.reclistitem h3 {
+.recListItem h3 {
   color: white;
   font-size: 16px;
 }

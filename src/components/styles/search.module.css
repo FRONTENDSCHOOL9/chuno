@@ -1,4 +1,4 @@
-.searchform {
+.searchForm {
   display: flex;
   margin: 10px 0;
   position: relative;
@@ -17,7 +17,7 @@
     border-color: #4e7cf3;
   }
 }
-.searchsubmit {
+.searchSubmit {
   position: absolute;
   right: 0;
   top: 50%;

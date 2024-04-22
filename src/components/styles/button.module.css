@@ -1,4 +1,11 @@
-.common_btn {
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+  --color-ddd: #ddd;
+  --color-797979: #797979;
+}
+
+.commonBtn {
   padding: 8px;
   border-radius: 8px;
   font-size: 12px;
@@ -6,65 +13,65 @@
   outline: none;
   border: none;
 }
-.btn1 {
-  background-color: #619ae0;
+.submitBtn {
+  background-color: var(--color-main);
   font-size: 16px;
-  color: white;
+  color: var(--color-white);
   border: none;
   box-sizing: border-box;
 }
 
-.btn_post {
+.btnPost {
   display: block;
   margin: 0 auto;
-  background-color: #619ae0;
-  color: white;
+  background-color: var(--color-main);
+  color: var(--color-white);
 
   box-sizing: border-box;
   cursor: pointer;
 }
 
-.btn3Parent {
+.keywordsObj {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-.btn3 {
+.keywords {
   text-align: center;
   text-decoration: none;
-  background-color: white;
+  background-color: var(--color-white);
   font-size: 12px;
-  color: #619ae0;
+  color: var(--color-main);
   padding: 8px 20px;
   border-radius: 20px;
-  border: 2px solid #619ae0;
+  border: 2px solid var(--color-main);
   font-weight: bold;
   box-sizing: border-box;
 }
 
-.btn_active {
+.btnActive {
   &:active {
-    background-color: white;
-    color: #619ae0;
-    border: 2px solid #619ae0;
+    background-color: var(--color-white);
+    color: var(--color-main);
+    border: 2px solid var(--color-main);
   }
 }
 
-.btn3.active {
-  background-color: #619ae0;
-  color: white;
-  border: 2px solid #619ae0;
+.keywords.active {
+  background-color: var(--color-main);
+  color: var(--color-white);
+  border: 2px solid var(--color-main);
 }
 
 .back {
   margin-bottom: 20px;
   cursor: pointer;
 }
-.btn1 {
-  background-color: #619ae0;
+.submitBtn {
+  background-color: var(--color-main);
   border: none;
   font-size: 16px;
-  color: white;
+  color: var(--color-white);
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -72,10 +79,10 @@
 }
 
 .btn2 {
-  background-color: #619ae0;
+  background-color: var(--color-main);
   border: none;
   font-size: 12px;
-  color: white;
+  color: var(--color-white);
   width: 160px;
   height: 32px;
   border-radius: 10px;
@@ -83,19 +90,19 @@
   box-sizing: border-box;
 }
 
-.btn3 {
+.keywords {
   display: inline-block;
   text-align: center;
   line-height: 28px;
   text-decoration: none;
-  background-color: white;
+  background-color: var(--color-white);
   border: none;
   font-size: 12px;
-  color: #619ae0;
+  color: var(--color-main);
   width: 73px;
   padding: 2px;
   border-radius: 20px;
-  border: 2px solid #619ae0;
+  border: 2px solid var(--color-main);
   font-weight: bold;
 
   box-sizing: border-box;
@@ -103,7 +110,7 @@
   cursor: pointer;
 }
 
-.btncomplete {
+.btnComplete {
   font-size: 22px;
   width: 174px;
   padding: 7px;
@@ -111,27 +118,27 @@
 
   box-sizing: border-box;
 
-  background-color: #619ae0;
+  background-color: var(--color-main);
   border: none;
-  color: white;
+  color: var(--color-white);
 }
 
-.btn1:hover,
+.submitBtn:hover,
 .btn2:hover {
-  background-color: #ddd;
-  color: #797979;
-  border: 2px solid #797979;
+  background-color: var(--color-ddd);
+  color: var(--color-797979);
+  border: 2px solid var(--color-797979);
 }
 
-.btn1:active,
+.submitBtn:active,
 .btn2:active {
-  background-color: white;
-  color: #619ae0;
-  border: 2px solid #619ae0;
+  background-color: var(--color-white);
+  color: var(--color-main);
+  border: 2px solid var(--color-main);
 }
 
-.btn3:active {
-  background-color: #619ae0;
-  color: white;
-  border: 2px solid #619ae0;
+.keywords:active {
+  background-color: var(--color-main);
+  color: var(--color-white);
+  border: 2px solid var(--color-main);
 }

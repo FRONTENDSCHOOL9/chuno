@@ -1,3 +1,9 @@
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+  --color-eee: #eee;
+}
+
 button {
   cursor: pointer;
   border: none;
@@ -12,8 +18,8 @@ button {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-eee);
   margin-bottom: 30px;
   box-sizing: border-box;
 }
@@ -21,27 +27,27 @@ button {
   margin-bottom: 100px;
 }
 
-.minititle {
+.miniTitle {
   font-size: 12px;
-  color: #619ae0;
+  color: var(--color-main);
   font-weight: 400;
 }
-.minititle2 {
+.miniTitle2 {
   margin-top: 40px;
 }
-.bodytext {
+.bodyText {
   font-size: 18px;
   font-weight: bold;
-  color: white;
+  color: var(--color-white);
   margin-bottom: 12px;
 }
 
-.picktop {
+.pickTop {
   display: flex;
   justify-content: space-between;
 }
 
-.morebtn {
+.moreBtn {
   /* height: 10px; */
   margin-top: auto;
   margin-bottom: 12px;

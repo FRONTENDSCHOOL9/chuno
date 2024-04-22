@@ -1,3 +1,11 @@
+:root {
+  --color-main: #619ae0;
+  --color-white: #fff;
+  --color-eee: #eee;
+  --color-545050: #545050;
+  --color-333030: #333030;
+}
+
 html {
   background-size: cover;
   background-position: center;
@@ -16,7 +24,7 @@ html {
 }
 
 .musicplayerTop {
-  color: #545050;
+  color: var(--color-545050);
   & button {
     background-color: transparent;
     border: none;
@@ -28,7 +36,7 @@ html {
 }
 
 .musicMainCover {
-  background-color: #63ffe3;
+  background-color: var(--color-main);
   width: 100%;
   aspect-ratio: 1/1;
   overflow: hidden;
@@ -40,7 +48,7 @@ html {
 .songTitle {
   font-size: 22px;
   font-weight: bold;
-  color: #333030;
+  color: var(--color-333030);
   margin-bottom: 40px;
 }
 
@@ -48,7 +56,7 @@ html {
   width: 100%;
   border: none;
   margin-bottom: 40px;
-  accent-color: #619ae0;
+  accent-color: var(--color-main);
   cursor: pointer;
 }
 input[type='range'] {
@@ -69,7 +77,7 @@ input[type='range']::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #4caf50;
+  background: var(--color-main);
   cursor: pointer;
 }
 
@@ -79,7 +87,7 @@ input[type='range']::-webkit-slider-thumb {
   justify-content: center;
   margin: 20px 0;
 }
-.defaultcontrol {
+.defaultControl {
   display: flex;
   align-items: center;
   gap: 50px;
@@ -89,9 +97,9 @@ input[type='range']::-webkit-slider-thumb {
   position: relative;
   margin-left: auto;
 }
-.btn_volume {
+.btnVolume {
 }
-.volumerange {
+.volumeRa {
   position: absolute;
   top: 0;
   right: 50px;
@@ -99,7 +107,7 @@ input[type='range']::-webkit-slider-thumb {
 .prev:active path,
 .pause:active path,
 .next:active path {
-  fill: #619ae0; /* 첫 번째 요소에 대한 색상 */
+  fill: var(--color-main); /* 첫 번째 요소에 대한 색상 */
 }
 
 .listBox {
@@ -109,7 +117,7 @@ input[type='range']::-webkit-slider-thumb {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  color: white;
+  color: var(--color-white);
   cursor: pointer;
   transition: all 0.3s;
   height: 70px;
@@ -130,7 +138,7 @@ input[type='range']::-webkit-slider-thumb {
   &::-webkit-scrollbar {
     display: none;
   }
-  & .songlist_title {
+  & .songlistTitle {
     text-align: center;
     line-height: 50px;
     opacity: 1;
@@ -139,7 +147,7 @@ input[type='range']::-webkit-slider-thumb {
   }
 }
 /* --toggle--- */
-.currentplay {
+.currentPlay {
   max-width: 800px;
   display: flex;
   align-items: center;
@@ -159,7 +167,7 @@ input[type='range']::-webkit-slider-thumb {
   }
 }
 
-.songlist_item {
+.songlistItem {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -168,7 +176,7 @@ input[type='range']::-webkit-slider-thumb {
   & img {
     width: 50px;
     aspect-ratio: 1/1;
-    background-color: white;
+    background-color: var(--color-white);
     margin-right: 20px;
     border-radius: 8px;
   }

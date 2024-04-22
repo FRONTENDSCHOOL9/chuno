@@ -54,7 +54,7 @@ function PlayListNew() {
     <div className={styles.wrap}>
       <ButtonBack path={'/playlist'} />
       <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
-        <div className={styles.inputsection}>
+        <div className={styles.inputSection}>
           <label htmlFor="name">제목</label>
           <input
             type="text"
@@ -66,7 +66,7 @@ function PlayListNew() {
             })}
           />
         </div>
-        <div className={styles.inputsection}>
+        <div className={styles.inputSection}>
           <label htmlFor="mainImages">썸네일을 지정해주세요</label>
           <input
             type="file"
@@ -76,7 +76,7 @@ function PlayListNew() {
           />
         </div>
         <SearchYoutube></SearchYoutube>
-        <div className={styles.inputsection}>
+        <div className={styles.inputSection}>
           <label htmlFor="content">내용</label>
           <textarea
             id="content"
@@ -88,10 +88,10 @@ function PlayListNew() {
             })}
           />
         </div>
-        <div className={styles.inputsection}>
+        <div className={styles.inputSection}>
           <Keywords selectedValues={selectedValues} onClick={handleClick} />
         </div>
-        <div className={styles.inputsection}>
+        <div className={styles.inputSection}>
           <Submit type="submit">등록 완료</Submit>
         </div>
       </form>

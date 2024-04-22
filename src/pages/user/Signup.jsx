@@ -65,17 +65,17 @@ function Signup() {
   };
 
   return (
-    <div className={styles.authpage}>
-      <div className={styles.authpage_wrap}>
-        <div className={styles.pagename}>
+    <div className={styles.authPage}>
+      <div className={styles.authPageWrap}>
+        <div className={styles.pageName}>
           <Link to="/">
             <img src={dragon} alt="" />
           </Link>
           <h2>회원이 되어주세용</h2>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.auth_input}>
-            <div className={styles.signuplabel}>
+          <div className={styles.authInput}>
+            <div className={styles.signupLabel}>
               <label htmlFor="name">닉네임</label>
               <label className={styles.essential} htmlFor="name">
                 *
@@ -97,8 +97,8 @@ function Signup() {
               <p className={styles.required}>{errors.name.message}</p>
             )}
           </div>
-          <div className={styles.auth_input}>
-            <div className={styles.signuplabel}>
+          <div className={styles.authInput}>
+            <div className={styles.signupLabel}>
               <label htmlFor="email">아이디</label>
               <label className={styles.essential} htmlFor="name">
                 *
@@ -120,8 +120,8 @@ function Signup() {
               <p className={styles.required}>{errors.email.message}</p>
             )}
           </div>
-          <div className={styles.auth_input}>
-            <div className={styles.signuplabel}>
+          <div className={styles.authInput}>
+            <div className={styles.signupLabel}>
               <label htmlFor="password">비밀번호</label>
               <label className={styles.essential} htmlFor="name">
                 *
@@ -140,8 +140,8 @@ function Signup() {
               <p className={styles.required}>{errors.password.message}</p>
             )}
           </div>
-          <div className={styles.auth_input}>
-            <div className={styles.signuplabel}>
+          <div className={styles.authInput}>
+            <div className={styles.signupLabel}>
               <label htmlFor="passwordCheck">비밀번호 확인</label>
               <label className={styles.essential} htmlFor="name">
                 *
@@ -163,8 +163,8 @@ function Signup() {
               <p className={styles.required}>{errors.passwordCheck.message}</p>
             )}
           </div>
-          <div className={styles.auth_input}>
-            <div className={styles.signuplabel}>
+          <div className={styles.authInput}>
+            <div className={styles.signupLabel}>
               <label htmlFor="profileImage">프로필 이미지</label>
             </div>
             <input
@@ -175,7 +175,7 @@ function Signup() {
               {...register('profileImage')}
             />
           </div>
-          <div className={styles.btn_auth}>
+          <div className={styles.btnAuth}>
             <Submit>회원가입</Submit>
           </div>
         </form>

@@ -46,19 +46,19 @@ function PlayList() {
   //   if (selectedKeywords.includes(keyword)) {
   //     setSelectedKeywords(selectedKeywords.filter(k => k !== keyword));
   //   } else {
-  //     setSelectedKeywords([...selectedKeywords, keyword]);
+  //     setSelectwqedKeywords([...selectedKeywords, keyword]);
   //   }
   // };
 
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrapf}>
       <ButtonBack path={'/main'} />
       <Search></Search>
       {/* <Keywords
         selectedValues={selectedKeywords}
         onClick={handleKeywordClick}
       /> */}
-      <ul className={styles.wrap_list}>{itemList}</ul>
+      <ul className={styles.wrapList}>{itemList}</ul>
       <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
     </div>
   );

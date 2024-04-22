@@ -11,8 +11,8 @@ function Mainpage() {
         <input type="text" placeholder="키워드 검색" />
       </form>
       <div>
-        <h5 className={styles.minititle}>주인장 PICK!</h5>
-        <p className={styles.bodytext}>추천 플레이리스트</p>
+        <h5 className={styles.miniTitle}>주인장 PICK!</h5>
+        <p className={styles.bodyText}>추천 플레이리스트</p>
         <div className={styles.recommendList}>
           <Recommendlistitem theme={'이별'} />
           <Recommendlistitem theme={'운동'} />
@@ -24,14 +24,14 @@ function Mainpage() {
         </div>
       </div>
       <div>
-        <div className={styles.picktop}>
+        <div className={styles.pickTop}>
           <div>
-            <h5 className={`${styles.minititle} ${styles.minititle2}`}>
+            <h5 className={`${styles.miniTitle} ${styles.miniTitle2}`}>
               Most Pick!
             </h5>
             <p className={styles.bodytext}>최신 업데이트</p>
           </div>
-          <Link to={'/playlist'} className={styles.morebtn}>
+          <Link to={'/playlist'} className={styles.moreBtn}>
             더보기
           </Link>
         </div>

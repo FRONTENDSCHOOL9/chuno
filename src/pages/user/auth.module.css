@@ -6,7 +6,7 @@ a:hover {
   color: #a4a4a4;
 }
 
-.authpage {
+.authPage {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -14,7 +14,7 @@ a:hover {
   padding: 10%;
 }
 
-.authpage_wrap {
+.authPageWrap {
   width: 100%;
   & .pagename {
     display: flex;
@@ -31,7 +31,7 @@ a:hover {
   }
 
   /*  */
-  & .auth_input {
+  & .authInput {
     display: flex;
     flex-direction: column;
     margin-bottom: 22px;
@@ -60,7 +60,7 @@ a:hover {
       padding: 4px 10px;
       border-radius: 4px;
     }
-    & .signuplabel {
+    & .signupLabel {
       margin-bottom: 4px;
     }
     & .essential {
@@ -70,7 +70,7 @@ a:hover {
 }
 
 /* *NOTE - 비밀번호가 보이고 안 보이게 만드는 버튼 구현용 */
-.pwvisibility {
+.pwVisibility {
   position: relative;
   & input {
     width: 100%;
@@ -82,7 +82,7 @@ a:hover {
     right: 10px;
   }
 }
-.btn_auth {
+.btnAuth {
   display: flex;
   flex-direction: column;
   font-size: 16px;

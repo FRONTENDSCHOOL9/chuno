@@ -8,7 +8,7 @@ function First() {
 
   return (
     <div id="App">
-      <div className={styles.firstpage}>
+      <div className={styles.firstPage}>
         <img src={mainlogo} alt="함께들어용~" />
         <Button
           className={styles.login}

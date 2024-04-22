@@ -85,10 +85,10 @@ function MusicPlayer() {
             src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex]}/maxresdefault.jpg`}
             alt=""
           />
-          <div className="player-wrapper">
+          <div className={styles.playerWrapper}>
             <ReactPlayer
               // ref={playerRef}
-              className="react-player"
+              className={styles.reactPlayer}
               playing={!isPlaying}
               url={
                 item
@@ -120,7 +120,7 @@ function MusicPlayer() {
           </div>
 
           <div className={styles.musicControl}>
-            <div className={styles.defaultcontrol}>
+            <div className={styles.defaultControl}>
               <button
                 onClick={() =>
                   handlePrevClick(
@@ -156,7 +156,7 @@ function MusicPlayer() {
             {/* 볼륨 조절 버튼 */}
             <div className={styles.volumes}>
               <button
-                className={styles.btn_volume}
+                className={styles.btnVolume}
                 onClick={() =>
                   toggleVolumeControl(isVolumeControlOpen, setVolumeControlOpen)
                 }
@@ -165,7 +165,7 @@ function MusicPlayer() {
               </button>
               {/* 볼륨 조절 영역 */}
               {isVolumeControlOpen && (
-                <div className={styles.volumera}>
+                <div className={styles.volumeRa}>
                   <input
                     type="range"
                     min={0}
@@ -185,8 +185,8 @@ function MusicPlayer() {
           className={`${styles.listBox} ${isListBoxOpen ? styles.fullBox : ''}`}
           onClick={toggleListBox}
         >
-          <h4 className={styles.songlist_title}>곡 목록</h4>
-          <div className={styles.currentplay}>
+          <h4 className={styles.songlistTitle}>곡 목록</h4>
+          <div className={styles.currentPlay}>
             <div className={styles.thumbnail}>
               <img
                 src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex]}/maxresdefault.jpg`}
@@ -198,7 +198,7 @@ function MusicPlayer() {
           <div className={styles.songlist}>
             {item?.extra?.music.map((videoId, index) => (
               <div
-                className={styles.songlist_item}
+                className={styles.songlistItem}
                 key={index}
                 onClick={() => handleSongSelect(videoId)}
               >

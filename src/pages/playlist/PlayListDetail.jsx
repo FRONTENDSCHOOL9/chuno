@@ -45,8 +45,8 @@ function PlayListDetail() {
       {error && <div>Error: {error.message}</div>}
       {item && (
         <section>
-          <ul className={styles.wrap_list}>
-            <li className={styles.listitem_detail}>
+          <ul className={styles.wrapList}>
+            <li className={styles.listitemDetail}>
               <div className={styles.thumbnail}>
                 <img
                   src={`${import.meta.env.VITE_API_SERVER}/files/${
@@ -64,9 +64,9 @@ function PlayListDetail() {
           </ul>
 
           <div className={styles.content}>{item.content}</div>
-          <div className={styles.themelist}></div>
+          <div className={styles.themeList}></div>
 
-          <div className={styles.playlistbox}>
+          <div className={styles.playlistBox}>
             {/* <ul className={styles.playlist_wrap}>
               {item.extra.music.map((music, index) => (
                 <li key={index} className={styles.playlist}>
@@ -74,7 +74,7 @@ function PlayListDetail() {
                 </li>
               ))}
             </ul> */}
-            <div className={styles.button_play}>
+            <div className={styles.btnPlay}>
               <BtnPlaylistPlay onClick={() => navigate(`/music/${_id}`)}>
                 {'플레이리스트 재생'}
               </BtnPlaylistPlay>
