@@ -1,12 +1,5 @@
 @import url(../../pages/colorVaration.css);
 
-
-/* 
-      <ul className="recwrap_list">
-        <li className="reclistitem">
-          <h3>반려동물도 함께 듣는 곡</h3>
-*/
-
 .recWrapList {
   display: flex;
   flex-grow: 1;
@@ -18,10 +11,8 @@
   align-items: center;
   justify-content: center;
   justify-items: stretch;
-  min-width: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
-  min-width: 170px;
+  width: 30.333%;
+  height: 100px;
   border-radius: 12px;
   background-color: var(--color-main);
 }

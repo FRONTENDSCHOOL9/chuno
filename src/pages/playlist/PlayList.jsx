@@ -1,46 +1,46 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import ButtonBack from '@/components/ButtonBack';
 import PlayListItem from './PlayListItem';
 import Search from '@components/Search';
-
-import BtnCommon from '@/components/BtnCommon';
+import BtnCommon from '@components/BtnCommon';
 import styles from './PlayList.module.css';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
+import Pagination from '@components/pagination';
 
 function PlayList() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get('/products');
         const newData = res.data.item;
-        if (JSON.stringify(data) !== JSON.stringify(newData)) {
-          setData(newData);
-        }
+        setData(newData);
+        setTotalPages(Math.ceil(newData.length / itemsPerPage));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
+  }, [axios, itemsPerPage]);
 
-    const intervalId = setInterval(fetchData, 5 * 60 * 1000);
-
-    return () => clearInterval(intervalId);
-  }, [axios, data]);
-
-  // 검색기능
   const filteredData = data?.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  const itemList = filteredData?.map(item => (
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData?.slice(indexOfFirstItem, indexOfLastItem);
+
+  const itemList = currentItems?.map(item => (
     <PlayListItem key={item._id} item={item} />
   ));
 
@@ -48,30 +48,28 @@ function PlayList() {
     navigate(`/playlist/new`);
   };
 
-  // 검색어가 변경될 때마다 검색어 상태를 업데이트
   const handleSearchChange = keyword => {
     setSearchTerm(keyword);
   };
 
-  // const handleKeywordClick = keyword => {
-  //   if (selectedKeywords.includes(keyword)) {
-  //     setSelectedKeywords(selectedKeywords.filter(k => k !== keyword));
-  //   } else {
-  //     setSelectwqedKeywords([...selectedKeywords, keyword]);
-  //   }
-  // };
+  const handlePageChange = page => {
+    setCurrentPage(page);
+  };
 
   return (
-    <div className={styles.wrap}>
-      <ButtonBack path={'/main'} />
+    <>
+      <div className={styles.isScrolled}>
+        <ButtonBack path={'/main'} />
+        <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
+      </div>
       <Search onClick={handleSearchChange} />
-      {/* <Keywords
-        selectedValues={selectedKeywords}
-        onClick={handleKeywordClick}
-      /> */}
       <ul className={styles.wrapList}>{itemList}</ul>
-      <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
-    </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
+    </>
   );
 }
 

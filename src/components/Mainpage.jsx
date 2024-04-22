@@ -9,30 +9,24 @@ function Mainpage() {
   return (
     <div>
       <Header />
-      <form className={styles.mainpageInput} action="">
-        <input type="text" placeholder="키워드 검색" />
-      </form>
-      <div>
-        <h5 className={styles.miniTitle}>주인장 PICK!</h5>
-        <p className={styles.bodyText}>추천 플레이리스트</p>
+      <div className={styles.mainTop}>
+        <span className={styles.miniTitle}>주인장 PICK!</span>
+        <h2 className={styles.bodyText}>추천 플레이리스트</h2>
         <div className={styles.recommendList}>
-          {/* 각 Recommendlistitem에 고정된 id 부여 */}
-          <Recommendlistitem id={1} theme={'이별'} />
-          <Recommendlistitem id={2} theme={'운동'} />
-          <Recommendlistitem id={3} theme={'행복'} />
-          <Recommendlistitem id={4} theme={'우울'} />
-          <Recommendlistitem id={5} theme={'집중'} />
-          <Recommendlistitem id={6} theme={'사랑'} />
-          <Recommendlistitem id={7} theme={'분노'} />
+          <Recommendlistitem id={1} theme={'이별'} value={'fury'} />
+          <Recommendlistitem id={2} theme={'운동'} value={'fury'} />
+          <Recommendlistitem id={3} theme={'행복'} value={'fury'} />
+          <Recommendlistitem id={4} theme={'우울'} value={'fury'} />
+          <Recommendlistitem id={5} theme={'집중'} value={'fury'} />
+          <Recommendlistitem id={6} theme={'사랑'} value={'fury'} />
+          <Recommendlistitem id={7} theme={'분노'} value={'fury'} />
         </div>
       </div>
-      <div>
+      <div className={styles.contents}>
         <div className={styles.pickTop}>
           <div>
-            <h5 className={`${styles.miniTitle} ${styles.miniTitle2}`}>
-              Most Pick!
-            </h5>
-            <p className={styles.bodytext}>최신 업데이트</p>
+            <span className={styles.miniTitle}>Most Pick!</span>
+            <h2 className={styles.bodyText}>최신 업데이트</h2>
           </div>
           <Link to={'/playlist'} className={styles.moreBtn}>
             더보기

@@ -4,9 +4,6 @@
   padding: 8px;
   border-radius: 8px;
   font-size: 12px;
-
-  outline: none;
-  border: none;
 }
 .submitBtn {
   background-color: var(--color-main);
@@ -18,7 +15,6 @@
 
 .btnPost {
   display: block;
-  margin: 0 auto;
   background-color: var(--color-main);
   color: var(--color-white);
 
@@ -59,7 +55,6 @@
 }
 
 .back {
-  margin-bottom: 20px;
   cursor: pointer;
   position: relative;
   z-index: 10;
