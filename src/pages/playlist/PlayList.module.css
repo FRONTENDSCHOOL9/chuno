@@ -14,11 +14,11 @@
   );
 
   margin-bottom: 12px;
-  & .iteminformation {
+  & .itemInformation {
     display: flex;
     align-items: center;
   }
-  & .themelist {
+  & .themeList {
     margin-top: 10px;
     display: flex;
     gap: 10px;

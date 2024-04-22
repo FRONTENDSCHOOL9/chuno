@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 function Recommendlistitem({ theme }) {
   return (
     <>
-      <ul className={styles.recwrap_list}>
-        <li className={styles.reclistitem}>
+      <ul className={styles.recwrapList}>
+        <li className={styles.recListItem}>
           <h3>{theme}</h3>
         </li>
       </ul>
