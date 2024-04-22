@@ -1,9 +1,7 @@
-import Footer from '@components/layout/Footer';
-import Header from '@components/layout/Header';
 import { useRouteError } from 'react-router-dom';
 import Cookie from '@assets/404error.svg';
 import styles from './errorpage.module.css';
-
+import ButtonBack from '@components/ButtonBack';
 
 function ErrorPage() {
   const err = useRouteError();
@@ -13,13 +11,14 @@ function ErrorPage() {
       : '예상하지 못한 에러가 발생했습니다.';
   return (
     <>
-      <Header />
-      <div className={styles.errorPage}>
-        <img src={Cookie} className={styles.errorImage} />
-        {/* <h2>에러 메세지</h2> */}
-        <p className={styles.errorMessage}>{message}</p>
+      <div id="App">
+        <ButtonBack path={'/main'} />
+        <div className={styles.errorPage}>
+          <img src={Cookie} className={styles.errorImage} />
+          {/* <h2>에러 메세지</h2> */}
+          <p className={styles.errorMessage}>{message}</p>
+        </div>
       </div>
-      <Footer />
     </>
   );
 }

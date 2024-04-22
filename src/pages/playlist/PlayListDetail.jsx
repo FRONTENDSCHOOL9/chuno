@@ -23,10 +23,6 @@ function PlayListDetail() {
   const navigate = useNavigate();
   const changechar = /[^\w\s]/gi;
 
-  // const keywordList = item.extra?.keyword.map((keyword, index) => (
-  //   <span key={index}>{keyword}</span>
-  // ));
-
   const fetchData = async () => {
     try {
       const res = await axios.get(`/products/${_id}`);
@@ -49,17 +45,18 @@ function PlayListDetail() {
       <ButtonBack path={'/playlist'} />
       {error && <div>Error: {error.message}</div>}
       {item && (
-        <section>
+        <section className={styles.detailWrap}>
+          <img
+            className={styles.thumbBg}
+            src={
+              `${import.meta.env.VITE_API_SERVER}/files/${
+                import.meta.env.VITE_CLIENT_ID
+              }/yongyong.png` || item.images
+            }
+            alt={item.orginalname || 'Default Thumbnail'}
+          />
           <ul className={styles.wrapList}>
             <li className={styles.listitemDetail}>
-              <div className={styles.thumbnail}>
-                <img
-                  src={`${import.meta.env.VITE_API_SERVER}/files/${
-                    import.meta.env.VITE_CLIENT_ID
-                  }/yongyong.png`}
-                  alt={item.orginalname || 'Default Thumbnail'}
-                />
-              </div>
               <div className={styles.desc}>
                 <h3>{item.name}</h3>
                 <span>{item.seller.name}</span>
@@ -69,24 +66,15 @@ function PlayListDetail() {
               </span>
             </li>
           </ul>
-          <div className={styles.content}>{item.content}</div>
-          {/* <div className={styles.content}>{item.mainImages}</div> */}
 
           <div className={styles.themeList}></div>
-          <div>
-            {item.extra.music.map((music, index) => (
-              <div key={index}>{music.title.replace(changechar, '')}</div>
-            ))}
-          </div>
-          <div className={styles.playlistBox}>
-            {/* <ul className={styles.playlist_wrap}>
+          <div className={styles.content}>
+            <div className={styles.description}>{item.content}</div>
+            <ul className={styles.songs}>
               {item.extra.music.map((music, index) => (
-                <li key={index} className={styles.playlist}>
-                  {music}
-                </li>
+                <li key={index}>{music.title.replace(changechar, '')}</li>
               ))}
-            </ul> */}
-            {/* <div className={styles.themelist}>{keywordList}</div> */}
+            </ul>
             <div className={styles.btnPlay}>
               <BtnPlaylistPlay onClick={() => navigate(`/music/${_id}`)}>
                 {'플레이리스트 재생'}
