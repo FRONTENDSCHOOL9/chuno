@@ -17,6 +17,7 @@ import playIcon from '@assets/svg/play.svg';
 import prevIcon from '@assets/svg/prev.svg';
 import nextIcon from '@assets/svg/next.svg';
 import volumeIcon from '@assets/svg/buttons/volume.svg';
+import ButtonBack from './ButtonBack';
 
 function MusicPlayer() {
   const playerRef = useRef(null);
@@ -32,8 +33,6 @@ function MusicPlayer() {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const { _id } = useParams();
-
-  const changechar = /[^\w\s]/gi;
 
   const fetchData = async () => {
     try {
@@ -72,11 +71,12 @@ function MusicPlayer() {
       setCurrentVideoIndex(selectedIndex);
     }
   };
+  const changechar = /[^\w\s]/gi;
 
   return (
-    <div>
+    <div className={styles.wrap}>
+      <ButtonBack path={`/playlist/${_id}`} />
       {!item && !error && <div>Loading...</div>}
-      {error && <div>Error: {error.message}</div>}
       {item && (
         <div
           className={`${styles.musicplayerWrap} ${
@@ -156,7 +156,6 @@ function MusicPlayer() {
                 <img className={styles.next} src={nextIcon} alt="" />
               </button>
             </div>
-            {/* 볼륨 조절 버튼 */}
             <div className={styles.volumes}>
               <button
                 className={styles.btnVolume}
@@ -166,7 +165,6 @@ function MusicPlayer() {
               >
                 <img src={volumeIcon} alt="" />
               </button>
-              {/* 볼륨 조절 영역 */}
               {isVolumeControlOpen && (
                 <div className={styles.volumeRa}>
                   <input
@@ -188,7 +186,7 @@ function MusicPlayer() {
           className={`${styles.listBox} ${isListBoxOpen ? styles.fullBox : ''}`}
           onClick={toggleListBox}
         >
-          <h4 className={styles.songlistTitle}>곡 목록</h4>
+          <h4 className={styles.songlistTitle}>재생중인 곡</h4>
           <div className={styles.currentPlay}>
             <div className={styles.thumbnail}>
               <img
@@ -203,6 +201,7 @@ function MusicPlayer() {
               )}
             </h3>
           </div>
+          <h4 className={styles.songlistTitle}>곡 목록</h4>
           <div className={styles.songlist}>
             {item?.extra?.music.map((video, index) => (
               <div
