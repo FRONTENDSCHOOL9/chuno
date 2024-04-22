@@ -26,7 +26,7 @@ function PlayListDetail() {
     try {
       const res = await axios.get(`/products/${_id}`);
       setItem(res.data.item);
-      console.log(res);
+      // console.log(res); 이 부분 삭제
     } catch (error) {
       setError(error);
     }
