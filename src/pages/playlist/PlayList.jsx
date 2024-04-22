@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ButtonBack from '@/components/ButtonBack';
 import PlayListItem from './PlayListItem';
 import Search from '@components/Search';
+import BtnCommon from '@components/BtnCommon';
 import styles from './PlayList.module.css';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import Pagination from '@components/pagination';
@@ -10,9 +11,11 @@ import Pagination from '@components/pagination';
 function PlayList() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +32,9 @@ function PlayList() {
     fetchData();
   }, [axios, itemsPerPage]);
 
+  const filteredData = data?.filter(item =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -46,7 +52,9 @@ function PlayList() {
     setSearchTerm(keyword);
   };
 
-
+  const handlePageChange = page => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
