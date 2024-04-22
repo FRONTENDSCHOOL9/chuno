@@ -1,14 +1,12 @@
 @import url(../../pages/colorVaration.css);
 
 
-html {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.wrap {
+  position: relative;
+  overflow: hidden;
 }
 
 .musicplayerWrap {
-  padding: 20px;
   margin-bottom: 100px;
 
   backdrop-filter: blur(10px);
@@ -26,18 +24,12 @@ html {
   }
 }
 
-.userIcon {
-  height: 18px;
-}
-
 .musicMainCover {
   background-color: var(--color-main);
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 16/9;
   overflow: hidden;
-  border-radius: 6px;
   margin: 20px 0;
-  border-radius: 10px;
 }
 
 .songTitle {
@@ -106,16 +98,17 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .listBox {
+  padding: 20px;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(50px);
   color: var(--color-white);
   cursor: pointer;
   transition: all 0.3s;
-  height: 70px;
+  height: 100px;
   & .songlistTitle {
     opacity: 0;
     height: 0;
@@ -124,6 +117,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .fullBox {
+  padding: 20px;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -134,10 +128,10 @@ input[type='range']::-webkit-slider-thumb {
     display: none;
   }
   & .songlistTitle {
-    text-align: center;
-    line-height: 50px;
+    line-height: 72px;
     opacity: 1;
     height: 50px;
+    font-size: 18px;
     transition: all 0.3s;
   }
 }
@@ -146,15 +140,13 @@ input[type='range']::-webkit-slider-thumb {
   max-width: 800px;
   display: flex;
   align-items: center;
-  margin: 0 auto 20px auto;
+  height: 72px;
+  overflow: hidden;
 }
 
 .songlist {
   max-width: 800px;
-  margin: 0 auto;
-
-  & .songlistItem,
-  .option {
+  & .option {
     margin: auto 0;
   }
   & .option {
@@ -163,9 +155,11 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .songlistItem {
+  margin: 10px 0 20px 0;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
-  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 .thumbnail {
   & img {
