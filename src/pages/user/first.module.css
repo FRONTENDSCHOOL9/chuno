@@ -1,10 +1,5 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-  --color-ddd: #ddd;
-  --color-black: #000;
-  --color-111: #111;
-}
+@import url(../colorVaration.css);
+
 
 .firstPage {
   display: flex;

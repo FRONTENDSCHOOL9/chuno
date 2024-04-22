@@ -1,12 +1,5 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-  --color-black: #000;
-  --color-f9f9f9: #f9f9f9;
-  --color-f6f6f6: #f6f6f6;
-  --color-df8484: #df8484;
-  --color-a4a4a4: #a4a4a4;
-}
+@import url(../colorVaration.css);
+
 
 a:visited,
 a:active,

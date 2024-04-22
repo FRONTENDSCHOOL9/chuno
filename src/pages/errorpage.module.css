@@ -1,6 +1,4 @@
-:root {
-  --color-main: #619ae0;
-}
+@import url(colorVaration.css);
 
 .errorPage {
   display: flex;

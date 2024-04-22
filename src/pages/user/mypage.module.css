@@ -1,12 +1,4 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-  --color-e7ecff: #e7ecff;
-  --color-black: #000;
-  --color-eee: #eee;
-  --color-f9f9f9: #f9f9f9;
-  --color-888: #888;
-}
+@import url(../colorVaration.css);
 
 .mypage {
   width: 100%;
@@ -47,7 +39,7 @@
 
 .mypageBodyStitle {
   font-size: 14px;
-  color: var(--color-white);
+  color: var(--color-333);
   margin-bottom: 8px;
 }
 

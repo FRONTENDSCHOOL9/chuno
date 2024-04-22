@@ -1,13 +1,6 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-  --color-black: #000;
-  --color-4e7cf3: #4e7cf3;
-  --color-706868: #706868;
-  --color-7d7d7d: #7d7d7d;
-  --color-bfaeae: #bfaeae;
-  --color-ecf1ff: #ecf1ff;
-}
+@import url(../colorVaration.css);
+
+
 
 .listitem {
   cursor: pointer;
