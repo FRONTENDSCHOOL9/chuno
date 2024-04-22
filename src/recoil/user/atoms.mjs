@@ -11,3 +11,8 @@ export const memberState = atom({
   default: null,
   effects: [persistAtom],
 });
+
+export const selectedVideosState = atom({
+  key: 'selectedVideosState',
+  default: [],
+});

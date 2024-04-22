@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './youtube.module.css';
 import SearchResult from './SearchResult';
 import CreateList from '@youtube/CreateList'; // 이 줄을 수정했습니다.
+// import ReactPlayer from 'react-player';
 
 import axios from 'axios'; // axios를 import
 
@@ -10,10 +11,11 @@ const API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(',');
 const MAX_API_KEYS = API_KEYS.length;
 
 function SearchYoutube() {
+  // const playerRef = useRef(null);
   const axiosInstance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3',
   });
-  // 나머지 코드는 이전과 동일합니다.
+
   const [currentKeyIndex, setCurrentKeyIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);

@@ -1,3 +1,4 @@
+// PlayListNew.jsx
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -5,12 +6,16 @@ import Submit from '@/components/Submit';
 import ButtonBack from '@/components/ButtonBack';
 import Keywords from '@/components/Keywords';
 import styles from './PlayList.module.css';
-/* import { Link } from 'react-router-dom'; */
 import SearchYoutube from '@youtube/SearchYoutube';
+import { useRecoilValue } from 'recoil';
+import { selectedVideosState } from '@recoil/user/atoms.mjs';
+import { useNavigate } from 'react-router-dom'; // useNavigate 추가
 
 function PlayListNew() {
   const axios = useCustomAxios();
+  const selectedVideos = useRecoilValue(selectedVideosState);
   const [selectedValues, setSelectedValues] = useState([]);
+  const navigate = useNavigate(); // useNavigate 훅 추가
 
   const { register, handleSubmit } = useForm({
     values: {
@@ -40,11 +45,13 @@ function PlayListNew() {
     formData.extra = {
       ...formData.extra,
       keyword: selectedValues,
+      music: selectedVideos, // 선택된 비디오 목록 추가
     };
 
     try {
       const res = await axios.post('/seller/products/', formData);
       console.log(res);
+      navigate(`/playlist`); // 등록 후 플레이리스트 페이지로 이동
     } catch (error) {
       console.error('Error:', error);
     }
