@@ -28,7 +28,7 @@ function PlayListItem({ item }) {
       className={styles.listitem}
       onClick={() => navigate(`/playlist/${item._id}`)}
     >
-      <div className={styles.iteminformation}>
+      <div className={styles.itemInformation}>
         <div className={styles.thumbnail}>
           <img
             src={`${import.meta.env.VITE_API_SERVER}/files/${
@@ -43,7 +43,7 @@ function PlayListItem({ item }) {
         </div>
       </div>
       <div className={styles.theme}></div>
-      <div className={styles.themelist}>{keywordList}</div>
+      <div className={styles.themeList}>{keywordList}</div>
     </li>
   );
 }

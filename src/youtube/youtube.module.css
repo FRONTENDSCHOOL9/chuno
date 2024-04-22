@@ -11,7 +11,6 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom: 20px;
 
   & input {
     width: 100%;
@@ -79,7 +78,7 @@
 .addedNotice {
   text-align: center;
   margin: 20px 0;
-  color: var(--color-888);
+  color: var(--color-ddd);
 }
 .list {
   margin: 10px 0;

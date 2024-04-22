@@ -24,14 +24,14 @@ function SearchResult({ searchResult }) {
   };
 
   return (
-    <ul className={styles.wrap_player}>
+    <ul className={styles.wrapPlayer}>
       {searchResult.map(item => (
-        <li className={styles.playerlist} key={item.id.videoId}>
+        <li className={styles.playerList} key={item.id.videoId}>
           <iframe
             className={styles.resultvideo}
             src={`https://youtube.com/embed/${item.id.videoId}`}
           ></iframe>
-          <h3 className={styles.listname}>
+          <h3 className={styles.listName}>
             {item.snippet.title.replace(changechar, '')}
           </h3>
           <button

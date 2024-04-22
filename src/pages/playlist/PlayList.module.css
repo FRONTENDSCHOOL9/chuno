@@ -1,13 +1,4 @@
-:root {
-  --color-main: #619ae0;
-  --color-white: #fff;
-  --color-black: #000;
-  --color-4e7cf3: #4e7cf3;
-  --color-706868: #706868;
-  --color-7d7d7d: #7d7d7d;
-  --color-bfaeae: #bfaeae;
-  --color-ecf1ff: #ecf1ff;
-}
+@import url(../colorVaration.css);
 
 .listitem {
   cursor: pointer;
@@ -23,11 +14,11 @@
   );
 
   margin-bottom: 12px;
-  & .iteminformation {
+  & .itemInformation {
     display: flex;
     align-items: center;
   }
-  & .themelist {
+  & .themeList {
     margin-top: 10px;
     display: flex;
     gap: 10px;
@@ -182,7 +173,10 @@
 }
 .thumbBg {
   width: 100%;
-  background: #ccc;
+  left: 0;
+  height: 500px;
+  background: var(--color-ccc);
+  z-index: -1;
 }
 .titleSection {
   position: relative;
@@ -213,10 +207,8 @@
     font-size: 18px;
   }
   & .songs {
-    & li {
-      border-bottom: 1px solid #fff;
-      padding: 20px 0 10px 0;
-    }
+    padding: 20px 0 10px 0;
+    border-bottom: 1px solid #fff;
   }
   & .btnPlay {
     margin-top: 20px;

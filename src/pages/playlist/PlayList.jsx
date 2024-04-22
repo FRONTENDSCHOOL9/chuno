@@ -62,7 +62,7 @@ function PlayList() {
   // };
 
   return (
-    <div className={styles.wrapf}>
+    <div className={styles.wrap}>
       <ButtonBack path={'/main'} />
       <Search onClick={handleSearchChange} />
       {/* <Keywords

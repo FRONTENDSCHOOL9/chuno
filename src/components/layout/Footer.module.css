@@ -1,12 +1,14 @@
+@import url(../../pages/colorVaration.css);
+
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
-  background-color: #619ae0;
+  background-color: var(--color-main);
   padding: 20px 0;
   & a {
-    color: white;
+    color: var(--color-white);
   }
 }
