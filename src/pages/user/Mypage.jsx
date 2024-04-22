@@ -67,7 +67,6 @@ function Mypage() {
           />
         </div>
 
-        {/* //NOTE - form 타입 하나로 병합 */}
         <form className={styles.mypageBodyInput} action="">
           <h3 className={styles.mypageBodyStitle}>닉네임</h3>
           <input type="text" placeholder={userData?.name || 'Name'} />
@@ -86,16 +85,6 @@ function Mypage() {
             autoComplete="new-password"
           />
         </form>
-      </div>
-      <div>
-        <h3 className={styles.mypageBodyStitle}>
-          선호하는 음악장르를 선택해주세요.
-        </h3>
-        <h5 className={styles.mypageBodyHash}>#장르</h5>
-      </div>
-      <div className={styles.confirmButton}>
-        <Button4 />
-        {/* FIXME - 버튼 컴포넌트 통일해서 변경예정  */}
       </div>
     </div>
   );
