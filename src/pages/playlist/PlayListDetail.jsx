@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
+
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ButtonBack from '@components/ButtonBack';
@@ -26,6 +27,7 @@ function PlayListDetail() {
     try {
       const res = await axios.get(`/products/${_id}`);
       setItem(res.data.item);
+      // console.log(res); 이 부분 삭제
     } catch (error) {
       setError(error);
     }
@@ -40,39 +42,37 @@ function PlayListDetail() {
 
   return (
     <div>
-      {error && <div>Error: {error.message}</div>}
       <ButtonBack path={'/playlist'} />
-      <div className={styles.titleSection}>
-        <div className={styles.titles}>
-          <h3>{item.name}</h3>
-          <span>{item.seller.name}</span>
-        </div>
-        <span className={styles.count}>{item.extra.music?.length ?? 0}곡</span>
-      </div>
+      {error && <div>Error: {error.message}</div>}
       {item && (
         <section className={styles.detailWrap}>
+          <div className={styles.titleWrap}>
+            <div className={styles.titles}>
+              <h3>{item.name}</h3>
+              <span>{item.seller.name}</span>
+            </div>
+            <span className={styles.count}>
+              {item.extra.music?.length ?? 0}곡
+            </span>
+          </div>
           <div className={styles.bgWrap}>
             <img
               className={styles.thumbBg}
-              src={
-                `${import.meta.env.VITE_API_SERVER}/files/${
-                  import.meta.env.VITE_CLIENT_ID
-                }/yongyong.png` || item.images
-              }
-              alt={item.orginalname || 'Default Thumbnail'}
+              // src={
+              //   `${import.meta.env.VITE_API_SERVER}/files/${
+              //     import.meta.env.VITE_CLIENT_ID
+              //   }/yongyong.png` || item.images
+              // }
+              // alt={item.orginalname || 'Default Thumbnail'}
             />
           </div>
 
-          {/* <div className={styles.themeList}>{keywordList}</div> */}
+          <div className={styles.themeList}></div>
           <div className={styles.content}>
             <div className={styles.description}>{item.content}</div>
             <ul className={styles.songs}>
-              <h3>플레이리스트</h3>
               {item.extra.music.map((music, index) => (
-                <li key={index}>
-                  {index + 1 + '.  '}
-                  {music.title.replace(changechar, '')}
-                </li>
+                <li key={index}>{music.title.replace(changechar, '')}</li>
               ))}
             </ul>
             <div className={styles.btnPlay}>
