@@ -66,6 +66,7 @@ function PlayListDetail() {
             </li>
           </ul>
           <div className={styles.content}>{item.content}</div>
+          {/* <div className={styles.content}>{item.mainImages}</div> */}
 
           <div className={styles.themeList}></div>
           <div>

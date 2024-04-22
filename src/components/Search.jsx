@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles/search.module.css';
-
 Search.propTypes = {
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
 };
-
 function Search({ onClick }) {
   const [keyword, setKeyword] = useState('');
 
@@ -13,8 +11,13 @@ function Search({ onClick }) {
     setKeyword(e.target.value);
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    onClick(keyword);
+  };
+
   return (
-    <form className={styles.searchForm}>
+    <form className={styles.searchForm} onSubmit={handleSubmit}>
       <input
         placeholder="키워드를 입력해주세요."
         className={styles.search}
@@ -22,13 +25,7 @@ function Search({ onClick }) {
         value={keyword}
         onChange={handleChange}
       />
-      <button
-        className={styles.searchSubmit}
-        onClick={e => {
-          e.preventDefault();
-          onClick(keyword);
-        }}
-      >
+      <button type="submit" className={styles.searchSubmit}>
         <svg
           width="20"
           height="20"
