@@ -59,7 +59,9 @@ function PlayListDetail() {
                 <h3>{item.name}</h3>
                 <span>{item.seller.name}</span>
               </div>
-              <span className={styles.count}>15곡</span>
+              <span className={styles.count}>
+                {item.extra.music?.length ?? 0}곡
+              </span>
             </li>
           </ul>
 
