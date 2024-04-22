@@ -3,18 +3,24 @@
 // handleAddButtonClick 함수를 props로 받아 해당 버튼이 클릭되었을 때 실행될 동작을 처리
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
+import { useRecoilState } from 'recoil';
+import { selectedVideosState } from '@recoil/user/atoms.mjs';
 
 SearchResult.propTypes = {
-  searchResult: PropTypes.array.isRequired, // 배열이어야 하며 필수
-  handleAddButtonClick: PropTypes.func.isRequired, // 함수이어야 하며 필수
+  searchResult: PropTypes.array.isRequired,
 };
 
-function SearchResult({ searchResult, handleAddButtonClick }) {
+function SearchResult({ searchResult }) {
   const changechar = /[^\w\s]/gi;
+  const [selectedVideos, setSelectedVideos] =
+    useRecoilState(selectedVideosState); // Recoil atom 상태를 가져옵니다.
 
   const handleAddButton = (videoId, videoTitle) => {
-    // handleAddButtonClick 함수를 호출할 때 클릭된 버튼의 정보를 전달
-    handleAddButtonClick(videoId, videoTitle);
+    // 선택한 비디오를 Recoil atom에 추가합니다.
+    setSelectedVideos(prevSelectedVideos => [
+      ...prevSelectedVideos,
+      { id: videoId, title: videoTitle },
+    ]);
   };
 
   return (
@@ -27,12 +33,10 @@ function SearchResult({ searchResult, handleAddButtonClick }) {
           ></iframe>
           <h3 className={styles.listname}>
             {item.snippet.title.replace(changechar, '')}
-          </h3>{' '}
+          </h3>
           <button
             className={styles.playadd}
-            onClick={
-              () => handleAddButton(item.id.videoId, item.snippet.title) // 클릭 이벤트 핸들러에서 함수를 호출하도록 수정
-            }
+            onClick={() => handleAddButton(item.id.videoId, item.snippet.title)}
           >
             +
           </button>

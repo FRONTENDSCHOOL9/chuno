@@ -7,9 +7,12 @@ import Keywords from '@/components/Keywords';
 import styles from './PlayList.module.css';
 /* import { Link } from 'react-router-dom'; */
 import SearchYoutube from '@youtube/SearchYoutube';
+import { useRecoilValue } from 'recoil';
+import { selectedVideosState } from '@recoil/user/atoms.mjs';
 
 function PlayListNew() {
   const axios = useCustomAxios();
+  const selectedVideos = useRecoilValue(selectedVideosState);
   const [selectedValues, setSelectedValues] = useState([]);
 
   const { register, handleSubmit } = useForm({
@@ -40,6 +43,7 @@ function PlayListNew() {
     formData.extra = {
       ...formData.extra,
       keyword: selectedValues,
+      music: selectedVideos, // 선택된 비디오 목록 추가
     };
 
     try {
