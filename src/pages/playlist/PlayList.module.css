@@ -156,6 +156,7 @@
 
 /* 상세보기화면 */
 .detailWrap {
+  position: relative;
 }
 .wrapList {
   & .listitemDetail {
@@ -163,14 +164,6 @@
   }
 }
 
-.bgWrap {
-  width: 100%;
-  height: 300px;
-  margin-top: -100px;
-  border-radius: 10px;
-  transform: scale(1.15);
-  overflow: hidden;
-}
 .thumbBg {
   width: 100%;
   left: 0;
@@ -178,37 +171,31 @@
   background: var(--color-ccc);
   z-index: -1;
 }
-.titleSection {
-  position: relative;
-  z-index: 10;
+.sectionTitle {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  backdorp-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.1);
   gap: 10px;
-  & .titles {
-    & h3 {
-      font-weight: bold;
-      font-size: 22px;
-    }
+  background-color: var(--color-ecf1ff);
+  & .title {
+  }
+  & .name {
+    font-size: 12px;
+    color: var(--color-bfaeae);
+    margin-top: 4px;
   }
 }
 .content {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  margin-bottom: -20px;
-  padding: 20px;
+  z-index: 99999;
+  padding: 20px 10px;
   background-color: rgb(202, 233, 255);
-  border-radius: 8px 8px 0 0;
   & .description {
-    margin-bottom: 20px;
+    padding: 20px 0;
     font-size: 18px;
   }
   & .songs {
     padding: 20px 0 10px 0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--color-white);
   }
   & .btnPlay {
     margin-top: 20px;

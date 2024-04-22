@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ButtonBack from '@components/ButtonBack';
@@ -35,9 +34,9 @@ function PlayListDetail() {
     fetchData();
   }, []);
 
-  const keywordList = item?.extra?.keyword?.map((keyword, index) => (
-    <span key={index}>{keyword}</span>
-  ));
+  // const keywordList = item?.extra?.keyword?.map((keyword, index) => (
+  //   <span key={index}>{keyword}</span>
+  // ));
 
   return (
     <div>
@@ -64,7 +63,7 @@ function PlayListDetail() {
             />
           </div>
 
-          <div className={styles.themeList}>{keywordList}</div>
+          {/* <div className={styles.themeList}>{keywordList}</div> */}
           <div className={styles.content}>
             <div className={styles.description}>{item.content}</div>
             <ul className={styles.songs}>
