@@ -38,7 +38,7 @@ function MusicPlayer() {
       const res = await axios.get(`/products/${_id}`);
       if (res.data.item.extra) {
         setItem(res.data.item);
-        console.log(res);
+        console.log(res.data.item);
       } else {
         setError(new Error("Item data does not contain 'extra' property."));
       }
@@ -58,14 +58,6 @@ function MusicPlayer() {
     }
   }, [volume]);
 
-  const handleSongSelect = videoId => {
-    // 선택된 곡의 인덱스 설정
-    const selectedIndex = item?.extra?.music.findIndex(id => id === videoId);
-    if (selectedIndex !== -1) {
-      setCurrentVideoIndex(selectedIndex);
-    }
-  };
-
   const toggleListBox = () => {
     setListBoxOpen(!isListBoxOpen);
   };
@@ -74,7 +66,7 @@ function MusicPlayer() {
     <div>
       {!item && !error && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
-      {item && item.extra && (
+      {item && (
         <div
           className={`${styles.musicplayerWrap} ${
             isListBoxOpen ? styles.overflow : ''
@@ -82,7 +74,7 @@ function MusicPlayer() {
         >
           <img
             className={styles.musicMainCover}
-            src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex]}/maxresdefault.jpg`}
+            src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/maxresdefault.jpg`}
             alt=""
           />
           <div className={styles.playerWrapper}>
@@ -92,7 +84,7 @@ function MusicPlayer() {
               playing={!isPlaying}
               url={
                 item
-                  ? `https://youtube.com/embed/${item.extra.music[currentVideoIndex]}`
+                  ? `https://youtube.com/embed/${item.extra.music[currentVideoIndex].id}`
                   : ''
               }
               width="0"
@@ -104,9 +96,9 @@ function MusicPlayer() {
               volume={volume}
             />
           </div>
-          <p className={styles.songTitle}>
-            {/* Render song title dynamically */}
-          </p>
+          <h3 className={styles.songTitle}>
+            {item.extra.music[currentVideoIndex].title}
+          </h3>
           <div>
             <input
               className={styles.seekBar}
@@ -125,7 +117,7 @@ function MusicPlayer() {
                 onClick={() =>
                   handlePrevClick(
                     item?.extra?.music,
-                    currentVideoIndex,
+                    [currentVideoIndex],
                     setCurrentVideoIndex,
                   )
                 }
@@ -180,7 +172,7 @@ function MusicPlayer() {
           </div>
         </div>
       )}
-      {item && item.extra && (
+      {item && (
         <div
           className={`${styles.listBox} ${isListBoxOpen ? styles.fullBox : ''}`}
           onClick={toggleListBox}
@@ -189,26 +181,26 @@ function MusicPlayer() {
           <div className={styles.currentPlay}>
             <div className={styles.thumbnail}>
               <img
-                src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex]}/maxresdefault.jpg`}
+                src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/maxresdefault.jpg`}
                 alt=""
               />
             </div>
-            <h3>${item.extra.music[currentVideoIndex]}</h3>
+            <h3>{item.extra.music[currentVideoIndex].title}</h3>
           </div>
           <div className={styles.songlist}>
-            {item?.extra?.music.map((videoId, index) => (
+            {item?.extra?.music.map((video, index) => (
               <div
                 className={styles.songlistItem}
                 key={index}
-                onClick={() => handleSongSelect(videoId)}
+                onClick={() => handleSongSelect(video.id)}
               >
                 <div className={styles.thumbnail}>
                   <img
-                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                     alt=""
                   />
                 </div>
-                <h3>{videoId}</h3>
+                <h3>{video.title}</h3>
               </div>
             ))}
           </div>

@@ -10,15 +10,18 @@ PlayListItem.propTypes = {
     seller: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }).isRequired,
+    extra: PropTypes.shape({
+      keyword: PropTypes.array,
+    }),
   }).isRequired,
 };
 
 function PlayListItem({ item }) {
   const navigate = useNavigate();
 
-  // const keywordList = item.extra?.keyword.map((keyword, index) => (
-  //   <span key={index}>{keyword}</span>
-  // ));
+  const keywordList = item.extra?.keyword.map((keyword, index) => (
+    <span key={index}>{keyword}</span>
+  ));
 
   return (
     <li
@@ -40,7 +43,7 @@ function PlayListItem({ item }) {
         </div>
       </div>
       <div className={styles.theme}></div>
-      <div className={styles.themelist}>{}</div>
+      <div className={styles.themelist}>{keywordList}</div>
     </li>
   );
 }
