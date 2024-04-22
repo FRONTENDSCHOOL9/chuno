@@ -61,6 +61,8 @@
 .back {
   margin-bottom: 20px;
   cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 .submitBtn {
   background-color: var(--color-main);

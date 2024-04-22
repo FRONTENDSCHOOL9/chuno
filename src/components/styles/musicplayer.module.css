@@ -1,6 +1,5 @@
 @import url(../../pages/colorVaration.css);
 
-
 .wrap {
   position: relative;
   overflow: hidden;
@@ -100,6 +99,7 @@ input[type='range']::-webkit-slider-thumb {
 .listBox {
   padding: 20px;
   position: fixed;
+  z-index: 999;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -118,7 +118,6 @@ input[type='range']::-webkit-slider-thumb {
 
 .fullBox {
   padding: 20px;
-  position: fixed;
   left: 0;
   bottom: 0;
   height: 100%;
