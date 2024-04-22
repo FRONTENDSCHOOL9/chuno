@@ -29,6 +29,8 @@
 }
 
 .profileCover {
+  max-width: 100px;
+  height: 100px;
   display: block;
   justify-content: center;
   border-radius: 50%;
