@@ -2,15 +2,15 @@
 import styles from './styles/recommenditem.module.css';
 import PropTypes from 'prop-types';
 
+Recommendlistitem.propTypes = {
+  value: PropTypes.string,
+};
+
 function Recommendlistitem({ theme }) {
   return (
-    <>
-      <ul className={styles.recwrapList}>
-        <li className={styles.recListItem}>
-          <h3>{theme}</h3>
-        </li>
-      </ul>
-    </>
+    <div className={styles.recListItem}>
+      <h3>{theme}</h3>
+    </div>
   );
 }
 

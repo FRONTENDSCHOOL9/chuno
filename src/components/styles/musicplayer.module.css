@@ -1,8 +1,8 @@
 @import url(../../pages/colorVaration.css);
 
 .wrap {
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 .musicplayerWrap {
@@ -100,8 +100,8 @@ input[type='range']::-webkit-slider-thumb {
   padding: 20px;
   position: fixed;
   z-index: 999;
-  left: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(50px);
@@ -109,6 +109,7 @@ input[type='range']::-webkit-slider-thumb {
   cursor: pointer;
   transition: all 0.3s;
   height: 100px;
+  overflow: hidden;
   & .songlistTitle {
     opacity: 0;
     height: 0;
@@ -117,9 +118,6 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .fullBox {
-  padding: 20px;
-  left: 0;
-  bottom: 0;
   height: 100%;
   transition: all 0.3s;
   overflow-y: scroll;
@@ -147,9 +145,6 @@ input[type='range']::-webkit-slider-thumb {
   max-width: 800px;
   & .option {
     margin: auto 0;
-  }
-  & .option {
-    margin-left: auto;
   }
 }
 
