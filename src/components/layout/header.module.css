@@ -1,3 +1,5 @@
+@import url(../../pages/colorVaration.css);
+
 .header {
   padding: 10px 0;
 }
@@ -31,7 +33,7 @@
 
 .mainHeaderRight,
 .mainHeaderRight button {
-  color: #a4a4a4;
+  color: var(--color-a4a4a4);
   font-size: 12px;
   letter-spacing: -0.5px;
   display: flex;
@@ -42,7 +44,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: gray;
+  background-color: var(--color-7d7d7d);
 }
 
 .mainHeaderUser {
