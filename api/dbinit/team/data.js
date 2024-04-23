@@ -189,7 +189,7 @@ export const initData = async nextSeq => {
             { id: '7pzCcMhhIjg', title: 'Claire Rosinkranz - "Hotel"' },
             { id: '3iycK4F8iv4', title: 'New Hippie Generation' },
           ],
-          keyword: ['행복', '집중', '사랑'],
+          keyword: ['행복', '집중'],
         },
       },
       {
