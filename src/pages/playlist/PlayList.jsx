@@ -8,6 +8,7 @@ import styles from './PlayList.module.css';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import Pagination from '@components/pagination';
 import Keywords from '../../components/Keywords';
+import Loading from '@components/loading';
 
 function PlayList() {
   const axios = useCustomAxios();
@@ -80,21 +81,29 @@ function PlayList() {
 
   return (
     <>
-      <div className={styles.isScrolled}>
-        <ButtonBack path={'/main'} />
-        <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
-      </div>
-      <Search onClick={handleSearchChange} />
-      <Keywords
-        selectedValues={selectedKeywords}
-        onClick={handleKeywordClick}
-      />
-      <ul className={styles.wrapList}>{itemList}</ul>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      {data ? (
+        <div className={styles.isScrolled}>
+          <ButtonBack path={'/main'} />
+          <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
+        </div>
+      ) : (
+        <Loading />
+      )}
+      {data && (
+        <>
+          <Search onClick={handleSearchChange} />
+          <Keywords
+            selectedValues={selectedKeywords}
+            onClick={handleKeywordClick}
+          />
+          <ul className={styles.wrapList}>{itemList}</ul>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </>
+      )}
     </>
   );
 }
