@@ -7,6 +7,7 @@ PlayListItem.propTypes = {
   item: PropTypes.shape({
     _id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    mainImages: PropTypes.string.isRequired,
     seller: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }).isRequired,
@@ -19,6 +20,17 @@ PlayListItem.propTypes = {
 function PlayListItem({ item }) {
   const navigate = useNavigate();
 
+  let thumbnail = item?.mainImages;
+  if (thumbnail) {
+    thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/${thumbnail}`;
+  } else {
+    thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/yongyong.png`;
+  }
+
   const keywordList = item.extra?.keyword.map((keyword, index) => (
     <span key={index}>{keyword}</span>
   ));
@@ -30,12 +42,7 @@ function PlayListItem({ item }) {
     >
       <div className={styles.itemInformation}>
         <div className={styles.thumbnail}>
-          <img
-            src={`${import.meta.env.VITE_API_SERVER}/files/${
-              import.meta.env.VITE_CLIENT_ID
-            }/yongyong.png`}
-            alt={item.name || 'Default Thumbnail'}
-          />
+          <img src={thumbnail} alt={item.name || 'Default Thumbnail'} />
         </div>
         <div className={styles.desc}>
           <h3>{item.name}</h3>

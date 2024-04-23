@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ButtonBack from '@components/ButtonBack';
@@ -12,7 +11,7 @@ PlayListDetail.propTypes = {
     extra: PropTypes.shape({
       keyword: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
-  }).isRequired,
+  }),
 };
 
 function PlayListDetail() {
@@ -27,7 +26,6 @@ function PlayListDetail() {
     try {
       const res = await axios.get(`/products/${_id}`);
       setItem(res.data.item);
-      // console.log(res); 이 부분 삭제
     } catch (error) {
       setError(error);
     }
@@ -36,9 +34,16 @@ function PlayListDetail() {
     fetchData();
   }, []);
 
-  // const keywordList = item?.extra?.keyword?.map((keyword, index) => (
-  //   <span key={index}>{keyword}</span>
-  // ));
+  let thumbnail = item?.mainImages;
+  if (thumbnail) {
+    thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/${thumbnail}`;
+  } else if (!thumbnail) {
+    thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/yongyong.png`;
+  }
 
   return (
     <div>
@@ -58,12 +63,8 @@ function PlayListDetail() {
           <div className={styles.bgWrap}>
             <img
               className={styles.thumbBg}
-              // src={
-              //   `${import.meta.env.VITE_API_SERVER}/files/${
-              //     import.meta.env.VITE_CLIENT_ID
-              //   }/yongyong.png` || item.images
-              // }
-              // alt={item.orginalname || 'Default Thumbnail'}
+              src={thumbnail}
+              alt={item.name || 'Default Thumbnail'}
             />
           </div>
 

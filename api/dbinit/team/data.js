@@ -35,13 +35,6 @@ export const initData = async nextSeq => {
         active: true,
         name: 'test데이터용',
         quantity: 99999,
-        mainImages: [
-          {
-            path: `/files/09-chuno/yongyong.png`,
-            name: 'yongyong.png',
-            originalname: '플레이리스트 썸네일.png',
-          },
-        ],
         content: `플레이리스트 설명이 담기는 공간입니다. 테스트용 데이터입니다.`,
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),

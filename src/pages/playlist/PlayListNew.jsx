@@ -16,29 +16,16 @@ function PlayListNew() {
   const [selectedValues, setSelectedValues] = useState([]);
   const navigate = useNavigate(); // useNavigate 훅 추가
 
-  const [mainImage, setMainImage] = useState(null); // 파일 상태 추가
-
   const { register, handleSubmit } = useForm({
     values: {
       price: 0,
       name: '',
       quantity: 99999,
       show: true,
+      mainImages: [],
       extra: {},
     },
   });
-
-  const handleFileChange = event => {
-    const file = event.target.files[0];
-    if (file) {
-      // 파일 정보를 상태에 저장
-      setMainImage({
-        path: `/files/${file.name}`,
-        name: file.name,
-        originalname: file.name,
-      });
-    }
-  };
 
   // 버튼 클릭 핸들러
   const handleClick = value => {
@@ -52,25 +39,37 @@ function PlayListNew() {
     });
   };
 
-  const onSubmit = async (formData, event) => {
-    event.preventDefault(); // 기본 제출 동작 중지
-    if (mainImage) {
-      formData.mainImages = {
-        path: mainImage.path,
-        name: mainImage.name,
-        originalname: mainImage.originalname,
-      };
-    }
-    formData.extra = {
-      ...formData.extra,
-      keyword: selectedValues,
-      music: selectedVideos, // 선택된 비디오 목록 추가
-    };
-
+  const onSubmit = async formData => {
     try {
-      const res = await axios.post('/seller/products/', formData);
-      console.log(res);
-      navigate(`/playlist`); // 등록 후 플레이리스트 페이지로 이동
+      if (formData.mainImages.length > 0) {
+        const imageFormData = new FormData();
+        imageFormData.append('attach', formData.mainImages[0]);
+
+        const fileRes = await axios('/files', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          data: imageFormData,
+        });
+        formData.mainImages = fileRes.data.item[0].name;
+        /*         console.log(formData.mainImages) */
+        formData.extra = {
+          ...formData.extra,
+          keyword: selectedValues,
+          music: selectedVideos, // 선택된 비디오 목록 추가
+        };
+      } else {
+        formData.extra = {
+          ...formData.extra,
+          keyword: selectedValues,
+          music: selectedVideos, // 선택된 비디오 목록 추가
+        };
+      }
+
+      await axios.post('/seller/products/', formData);
+      alert('플레이리스트가 등록되었습니다.');
+      navigate(`/playlist`);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -96,8 +95,8 @@ function PlayListNew() {
           <label htmlFor="mainImages">썸네일을 지정해주세요</label>
           <input
             type="file"
+            accept="image/*"
             id="mainImages"
-            onChange={handleFileChange} // 파일 변경 핸들러 추가
             className={styles}
             {...register('mainImages')}
           />
@@ -127,4 +126,3 @@ function PlayListNew() {
 }
 
 export default PlayListNew;
-// PlayListNew.jsx
