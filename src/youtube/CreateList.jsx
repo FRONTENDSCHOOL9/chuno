@@ -25,7 +25,7 @@ function generateThumbnailUrl(videoId, quality = 'mqdefault') {
 function CreateList({ handleDeleteButtonClick }) {
   const [selectedVideos, setSelectedVideos] =
     useRecoilState(selectedVideosState);
-  const changechar = /[^\w\s]/gi;
+  const changechar = /[\u3131-\uD79Da-zA-Z\s!-/:-@[-`{-~]+/g;
 
   const distinctVideos = selectedVideos.filter(
     (video, index, self) => index === self.findIndex(v => v.id === video.id),
@@ -44,9 +44,7 @@ function CreateList({ handleDeleteButtonClick }) {
               alt={video.title}
             />
             {/* 영상 제목 */}
-            <p className={styles.listTitle}>
-              {video.title.replace(changechar, '')}
-            </p>
+            <p className={styles.listTitle}>{video.title.match(changechar)}</p>
             {/* 삭제 및 재생 버튼 */}
             <div
               className={styles.listDeleteButton}
