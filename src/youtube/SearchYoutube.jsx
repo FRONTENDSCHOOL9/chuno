@@ -109,6 +109,7 @@ function SearchYoutube() {
       />
 
       <CreateList
+        setSelectedVideos={selectedVideos}
         selectedVideos={selectedVideos}
         handleDeleteButtonClick={handleDeleteButtonClick}
         handleVideoItemClick={handleVideoItemClick}

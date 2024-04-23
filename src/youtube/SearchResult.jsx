@@ -5,9 +5,10 @@ import { selectedVideosState } from '@recoil/user/atoms.mjs';
 
 SearchResult.propTypes = {
   searchResult: PropTypes.array.isRequired,
+  handleAddButtonClick: PropTypes.func.isRequired,
 };
 
-function SearchResult({ searchResult }) {
+function SearchResult({ searchResult, handleAddButtonClick }) {
   function escapeSpecialCharacters(str) {
     return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
   }
@@ -20,6 +21,7 @@ function SearchResult({ searchResult }) {
       ...prevSelectedVideos,
       { id: videoId, title: videoTitle },
     ]);
+    handleAddButtonClick(videoId, videoTitle);
   };
 
   return (
