@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
 import { useRecoilState } from 'recoil';
+import cancle from '@assets/svg/buttons/cancle.svg';
 import { selectedVideosState } from '@recoil/user/atoms.mjs';
 
 CreateList.propTypes = {
@@ -56,7 +57,7 @@ function CreateList({ handleDeleteButtonClick }) {
                 );
               }}
             >
-              -
+              <img src={cancle} alt="" />
             </div>
           </li>
         ))}
