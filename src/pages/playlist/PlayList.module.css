@@ -4,7 +4,7 @@
   cursor: pointer;
   padding: 10px;
   border-radius: 8px;
-
+  margin-bottom: 12px;
   background: rgb(202, 233, 255);
   background: linear-gradient(
     -50deg,
@@ -13,7 +13,6 @@
     rgba(var(--gradient02-color03)) 100%
   );
 
-  margin-bottom: 12px;
   & .itemInformation {
     display: flex;
     align-items: center;
@@ -31,7 +30,6 @@
   }
   & .desc {
     width: 100%;
-
     margin-left: 10px;
     display: flex;
     align-items: center;
@@ -60,7 +58,6 @@
 .isScrolled {
   position: sticky;
   top: -30px;
-
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -82,8 +79,8 @@
     aspect-ratio: 1/1;
   }
 }
-/* BoardNew */
 
+/* 입력 섹션 */
 .inputSection {
   display: flex;
   flex-direction: column;
@@ -129,25 +126,26 @@
   }
 }
 
-/* 상세보기화면 */
-/* detail */
+/* 상세보기 화면 */
 .detailWrap {
   position: relative;
   height: 100%;
   padding-bottom: 20px;
 }
+
 .wrapList {
   & .listitemDetail {
     background: none;
   }
 }
+
 .titleWrap {
   display: flex;
   align-items: center;
   position: relative;
   z-index: 9999;
   margin-top: 20px;
-  mix-blend-mode: difference;
+  background: rgba(100, 100, 100, 0.1);
   & .titles {
     display: flex;
     flex-direction: column;
@@ -169,21 +167,23 @@
   & .count {
     margin-left: auto;
     font-size: 16px;
-    color: var(--color-706868);
+    color: var(--color-white);
   }
 }
 
 .bgWrap {
   transform: scale(1.2);
-  margin-top: -100px;
+  margin-top: -110px;
   height: 500px;
   overflow: hidden;
 }
+
 .thumbBg {
   margin-top: -120px;
   background: var(--color-ccc);
   z-index: -1;
 }
+
 .sectionTitle {
   display: flex;
   align-items: center;
@@ -197,11 +197,13 @@
     margin-top: 4px;
   }
 }
+
 .sectiontitle {
   font-weight: 600;
   margin-bottom: 10px;
   font-size: 14px;
 }
+
 .content {
   margin-top: -160px;
   position: relative;
@@ -248,6 +250,7 @@
     margin-top: 20px;
   }
 }
+
 .btnPlay {
   margin: 0 auto;
 }

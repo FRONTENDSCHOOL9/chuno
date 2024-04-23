@@ -1,73 +1,37 @@
 @import url(../../pages/colorVaration.css);
 
+/* 버튼 */
 .commonBtn {
   padding: 8px;
   border-radius: 8px;
   font-size: 12px;
 }
+
+/* 제출 버튼 */
 .submitBtn {
   background-color: var(--color-main);
   font-size: 16px;
   color: var(--color-white);
   border: none;
+  border-radius: 8px;
+  padding: 8px;
   box-sizing: border-box;
 }
 
+/* 포스트 버튼 */
 .btnPost {
   display: block;
   background-color: var(--color-main);
   color: var(--color-white);
-
   box-sizing: border-box;
   cursor: pointer;
 }
 
+/* 키워드 */
 .keywordsObj {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-}
-.keywords {
-  text-align: center;
-  text-decoration: none;
-  background-color: var(--color-white);
-  font-size: 12px;
-  color: var(--color-main);
-  padding: 8px 20px;
-  border-radius: 20px;
-  border: 2px solid var(--color-main);
-  font-weight: bold;
-  box-sizing: border-box;
-}
-
-.btnActive {
-  &:active {
-    background-color: var(--color-white);
-    color: var(--color-main);
-    border: 2px solid var(--color-main);
-  }
-}
-
-.keywords.active {
-  background-color: var(--color-main);
-  color: var(--color-white);
-  border: 2px solid var(--color-main);
-}
-
-.back {
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-}
-.submitBtn {
-  background-color: var(--color-main);
-  border: none;
-  font-size: 16px;
-  color: var(--color-white);
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  box-sizing: border-box;
 }
 
 .keywords {
@@ -76,7 +40,6 @@
   line-height: 28px;
   text-decoration: none;
   background-color: var(--color-white);
-  border: none;
   font-size: 12px;
   color: var(--color-main);
   width: 73px;
@@ -84,25 +47,46 @@
   border-radius: 20px;
   border: 2px solid var(--color-main);
   font-weight: bold;
-
   box-sizing: border-box;
   margin-bottom: 20px;
   cursor: pointer;
 }
 
+.keywords.active {
+  background-color: var(--color-main);
+  color: var(--color-white);
+  border: 2px solid var(--color-main);
+}
+
+/* 액티브 버튼 */
+.btnActive {
+  &:active {
+    background-color: var(--color-white);
+    color: var(--color-main);
+    border: 2px solid var(--color-main);
+  }
+}
+
+/* 백 버튼 */
+.back {
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+/* 완료 버튼 */
 .btnComplete {
   font-size: 22px;
   width: 174px;
   padding: 7px;
   border-radius: 30px;
-
-  box-sizing: border-box;
-
   background-color: var(--color-main);
-  border: none;
   color: var(--color-white);
+  border: none;
+  box-sizing: border-box;
 }
 
+/* 버튼 호버와 액티브 */
 .submitBtn:hover {
   background-color: var(--color-ccc);
   color: var(--color-7d7d7d);
@@ -121,6 +105,7 @@
   border: 2px solid var(--color-main);
 }
 
+/* 페이지네이션 버튼 */
 .pagination button {
   color: var(--color-706868);
   background-color: var(--color-ecf1ff);
@@ -130,8 +115,3 @@
   margin-right: 4px;
   font-weight: bolder;
 }
-
-/* .pagination button.active {
-  background-color: var(--color-black);
-  color: var(--color-black);
-} */

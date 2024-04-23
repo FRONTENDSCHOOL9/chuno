@@ -31,7 +31,6 @@ function Layout() {
 
 export default Layout;
 
-
 /* background: linear-gradient(
   0deg,
   rgba(var(--gradient01-start)) 0%,

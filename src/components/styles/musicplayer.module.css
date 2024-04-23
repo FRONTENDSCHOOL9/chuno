@@ -1,9 +1,36 @@
 @import url(../../pages/colorVaration.css);
 
+/* 기본 설정 */
 .hiddenOverflow {
   overflow: hidden;
 }
 
+/* 레이아웃과 위치 */
+.musicMainCover {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin: 20px 0;
+  background-color: var(--color-main);
+  overflow: hidden;
+}
+
+.currentPlay {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  height: 72px;
+  overflow: hidden;
+}
+
+/* 텍스트와 관련된 스타일 */
+.songTitle {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--color-333030);
+  margin-bottom: 40px;
+}
+
+/* 컬러 */
 .musicplayerTop {
   color: var(--color-545050);
   & button {
@@ -12,21 +39,7 @@
   }
 }
 
-.musicMainCover {
-  background-color: var(--color-main);
-  width: 100%;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  margin: 20px 0;
-}
-
-.songTitle {
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--color-333030);
-  margin-bottom: 40px;
-}
-
+/* 박스 모델 */
 .seekBar {
   width: 100%;
   border: none;
@@ -34,10 +47,11 @@
   accent-color: var(--color-main);
   cursor: pointer;
 }
+
+/* 폰트와 타이포그래피 */
 input[type='range'] {
-  /* 기본 스타일 */
   -webkit-appearance: none;
-  height: 10px; /* 바의 높이를 조절합니다. */
+  height: 10px;
   border-radius: 5px;
   background: var(--color-ccc);
   outline: none;
@@ -45,17 +59,7 @@ input[type='range'] {
   transition: opacity 0.2s;
 }
 
-input[type='range']::-webkit-slider-thumb {
-  /* 슬라이더(thumb) 스타일 */
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--color-main);
-  cursor: pointer;
-}
-
+/* 레이아웃 */
 .musicControl {
   display: flex;
   align-items: center;
@@ -63,24 +67,26 @@ input[type='range']::-webkit-slider-thumb {
   margin: 20px 0;
   margin-left: 30px;
 }
+
 .defaultControl {
   display: flex;
   align-items: center;
   gap: 50px;
   margin-left: auto;
 }
+
 .volumes {
   position: relative;
   margin-left: auto;
 }
-.btnVolume {
-}
+
 .volumeRa {
   position: absolute;
   top: 0;
   right: 50px;
 }
 
+/* 이미지와 아이콘 */
 .prev svg {
   width: 37px;
   height: 24px;
@@ -93,6 +99,7 @@ input[type='range']::-webkit-slider-thumb {
   fill: red;
 }
 
+/* 목록 */
 .listBox {
   position: sticky;
   padding: 20px;
@@ -134,15 +141,8 @@ input[type='range']::-webkit-slider-thumb {
     transition: all 0.3s;
   }
 }
-/* --toggle--- */
-.currentPlay {
-  max-width: 800px;
-  display: flex;
-  align-items: center;
-  height: 72px;
-  overflow: hidden;
-}
 
+/* 리스트 아이템 */
 .songlist {
   max-width: 800px;
   & .option {
@@ -156,6 +156,8 @@ input[type='range']::-webkit-slider-thumb {
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
+
+/* 이미지 */
 .thumbnail {
   & img {
     width: 50px;
