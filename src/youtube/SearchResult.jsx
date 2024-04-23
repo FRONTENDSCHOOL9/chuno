@@ -28,7 +28,7 @@ function SearchResult({ searchResult }) {
       {searchResult.map(item => (
         <li className={styles.playerList} key={item.id.videoId}>
           <iframe
-            className={styles.resultvideo}
+            className={styles.resultVideo}
             src={`https://youtube.com/embed/${item.id.videoId}`}
           ></iframe>
           <h3 className={styles.listName}>

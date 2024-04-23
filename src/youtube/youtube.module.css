@@ -48,13 +48,13 @@
   padding: 15px;
   overflow: hidden;
 
-  & .resultvideo {
+  & .resultVideo {
     border-radius: 8px;
     width: 100%;
     aspect-ratio: 16/9;
   }
 }
-.listName {
+.resultvideo .listName {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -87,13 +87,24 @@
   align-items: center;
 }
 .listThumb {
-  width: 80px;
-  height: 50px;
-  border-radius: 8px;
+  width: 120px;
+  aspect-ratio: 16/9;
+  border-radius: 6px;
 }
 .listTitle {
+  font-size: 14px;
 }
 .listDeleteButton {
+  display: block;
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  background-color: var(--color-main);
+  text-align: center;
+  line-height: 16px;
+  border-radius: 50%;
+  font-weight: bolder;
+  color: var(--color-white);
 }
 
 .controls {

@@ -20,5 +20,9 @@
 
   --gradient01-start: 203, 217, 255, 1;
   --gradient01-end: 236, 241, 255, 1;
+
+  --gradient02-color01: 202, 233, 255, 1;
+  --gradient02-color02: 253, 243, 255, 1;
+  --gradient02-color03: 244, 242, 252, 1;
 }
 

@@ -32,9 +32,9 @@ a:hover {
     }
   }
 
-.pageName h2 {
-  color: var(--color-333030);
-}
+  .pageName h2 {
+    color: var(--color-333030);
+  }
 
   /*  */
   & .authInput {
@@ -124,4 +124,5 @@ input[type='file']::file-selector-button {
   border-radius: 10px;
   cursor: pointer;
   margin-right: 10px;
+  font-size: 14px;
 }

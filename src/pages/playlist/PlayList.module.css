@@ -5,13 +5,14 @@
   padding: 10px;
   border-radius: 8px;
 
-  background: rgb(202, 233, 255);
+    background: rgb(202, 233, 255);
   background: linear-gradient(
-    90deg,
-    rgba(202, 233, 255, 1) 0%,
-    rgba(253, 243, 255, 1) 50%,
-    rgba(244, 242, 252, 1) 100%
+    -50deg,
+    rgba(var(--gradient02-color01)) 0%,
+    rgba(var(--gradient02-color02)) 70%,
+    rgba(var(--gradient02-color03)) 100%
   );
+
 
   margin-bottom: 12px;
   & .itemInformation {

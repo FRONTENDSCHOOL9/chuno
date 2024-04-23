@@ -22,13 +22,21 @@
 
   --gradient01-start: 203, 217, 255, 1;
   --gradient01-end: 236, 241, 255, 1;
+
+  --gradient02-color01: 202, 233, 255, 1;
+  --gradient02-color02: 253, 243, 255, 1;
+  --gradient02-color03: 244, 242, 252, 1;
 }
 
 .dark-mode {
-  --color-main: #619ae0;
   --color-333030: #eee;
-
+  --color-ecf1ff: #eee;
+  --color-cbd9ff: #7d7d7d;
 
   --gradient01-start: 28, 27, 27, 1;
   --gradient01-end: 65, 65, 65, 1;
+
+  --gradient02-color01: 204, 204, 204, 1;
+  --gradient02-color02: 164, 164, 164, 1;
+  --gradient02-color03: 125, 125, 125, 1;
 }
