@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ButtonBack from '@components/ButtonBack';
 import BtnPlaylistPlay from '@components/BtnPlaylistPlay';
 import styles from './PlayList.module.css';
+import Loading from '@components/loading';
 
 PlayListDetail.propTypes = {
   item: PropTypes.shape({
@@ -20,6 +21,7 @@ function PlayListDetail() {
   const { _id } = useParams();
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   function escapeSpecialCharacters(str) {
@@ -32,8 +34,11 @@ function PlayListDetail() {
       setItem(res.data.item);
     } catch (error) {
       setError(error);
+    } finally {
+      setIsLoading(false);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -52,6 +57,7 @@ function PlayListDetail() {
   return (
     <>
       <ButtonBack path={'/playlist'} />
+      {isLoading && <Loading />} {/* 로딩 상태 표시 */}
       {error && <div>Error: {error.message}</div>}
       {item && (
         <section className={styles.detailWrap}>

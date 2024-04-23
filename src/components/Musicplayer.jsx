@@ -18,6 +18,7 @@ import prevIcon from '@assets/svg/prev.svg';
 import nextIcon from '@assets/svg/next.svg';
 import volumeIcon from '@assets/svg/buttons/volume.svg';
 import ButtonBack from './ButtonBack';
+import Loading from './loading';
 
 function MusicPlayer() {
   const playerRef = useRef(null);
@@ -73,9 +74,9 @@ function MusicPlayer() {
   const changechar = /[^\w\s]/gi;
 
   return (
-    <div className={styles.wrap}>
-      <ButtonBack path={`/playlist/${_id}`} />
-      {!item && !error && <div>Loading...</div>}
+    <>
+      <ButtonBack path={`/playlist/${_id}`}></ButtonBack>
+      {!item && !error && <Loading />}
       {item && (
         <div
           className={`${styles.musicplayerWrap} ${
@@ -185,42 +186,46 @@ function MusicPlayer() {
           className={`${styles.listBox} ${isListBoxOpen ? styles.fullBox : ''}`}
           onClick={toggleListBox}
         >
-          <h4 className={styles.songlistTitle}>재생중인 곡</h4>
-          <div className={styles.currentPlay}>
-            <div className={styles.thumbnail}>
-              <img
-                src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/maxresdefault.jpg`}
-                alt=""
-              />
-            </div>
-            <h3>
-              {item.extra.music[currentVideoIndex].title.replace(
-                changechar,
-                '',
-              )}
-            </h3>
-          </div>
-          <h4 className={styles.songlistTitle}>곡 목록</h4>
-          <div className={styles.songlist}>
-            {item?.extra?.music.map((video, index) => (
-              <div
-                className={styles.songlistItem}
-                key={index}
-                onClick={() => handleSongSelect(video.id)}
-              >
-                <div className={styles.thumbnail}>
-                  <img
-                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-                    alt=""
-                  />
-                </div>
-                <h3>{video.title}</h3>
+          <div className={styles.curretbox}>
+            <h4 className={styles.songlistTitle}>재생중인 곡</h4>
+            <div className={styles.currentPlay}>
+              <div className={styles.thumbnail}>
+                <img
+                  src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/maxresdefault.jpg`}
+                  alt=""
+                />
               </div>
-            ))}
+              <h3>
+                {item.extra.music[currentVideoIndex].title.replace(
+                  changechar,
+                  '',
+                )}
+              </h3>
+            </div>
+          </div>
+          <div className={styles.selectBox}>
+            <h4 className={styles.songlistTitle}>곡 목록</h4>
+            <div className={styles.songlist}>
+              {item?.extra?.music.map((video, index) => (
+                <div
+                  className={styles.songlistItem}
+                  key={index}
+                  onClick={() => handleSongSelect(video.id)}
+                >
+                  <div className={styles.thumbnail}>
+                    <img
+                      src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                      alt=""
+                    />
+                  </div>
+                  <h3>{video.title}</h3>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

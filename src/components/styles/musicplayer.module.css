@@ -72,6 +72,7 @@ input[type='range']::-webkit-slider-thumb {
   align-items: center;
   justify-content: center;
   margin: 20px 0;
+  margin-left: 30px;
 }
 .defaultControl {
   display: flex;
@@ -116,20 +117,25 @@ input[type='range']::-webkit-slider-thumb {
   cursor: pointer;
   transition: all 0.3s;
   height: 100px;
-  overflow: hidden;
   & .songlistTitle {
     opacity: 0;
     height: 0;
     transition: all 0.3s;
+  }
+  & .selectBox {
+    display: none;
   }
 }
 
 .fullBox {
   height: 100%;
   transition: all 0.3s;
-  overflow-y: scroll;
+  overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
+  }
+  & .selectBox {
+    display: block;
   }
   & .songlistTitle {
     line-height: 72px;
