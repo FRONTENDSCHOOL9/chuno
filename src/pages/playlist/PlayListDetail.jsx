@@ -21,7 +21,10 @@ function PlayListDetail() {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const changechar = /[\u3131-\uD79Da-zA-Z\s!-/:-@[-`{-~]+/g;
+
+  function escapeSpecialCharacters(str) {
+    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
+  }
 
   const fetchData = async () => {
     try {
@@ -80,8 +83,8 @@ function PlayListDetail() {
                     src={`https://img.youtube.com/vi/${music.id}/maxresdefault.jpg`}
                     alt=""
                   />
-                  <span>{`${index + 1 + '.'}  ${music.title.match(
-                    changechar,
+                  <span>{`${index + 1 + '.'}  ${escapeSpecialCharacters(
+                    music.title,
                   )}`}</span>
                 </li>
               ))}

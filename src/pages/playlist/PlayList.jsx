@@ -19,7 +19,6 @@ function PlayList() {
   const [totalPages, setTotalPages] = useState(1);
   const [selectedKeywords, setSelectedKeywords] = useState([]);
 
-  // fetchData 함수를 useEffect 외부로 이동
   const fetchData = async () => {
     try {
       const res = await axios.get('/products');
@@ -32,7 +31,6 @@ function PlayList() {
   };
 
   useEffect(() => {
-    // fetchData 함수 내부 호출
     fetchData();
   }, []);
 
