@@ -1,22 +1,22 @@
-import useCustomAxios from '@hooks/useCustomAxios.mjs';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRecoilValue } from 'recoil';
+import { selectedVideosState } from '@recoil/user/atoms.mjs';
+import { useNavigate } from 'react-router-dom';
+import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import Submit from '@/components/Submit';
 import ButtonBack from '@/components/ButtonBack';
 import Keywords from '@/components/Keywords';
 import styles from './PlayList.module.css';
 import SearchYoutube from '@youtube/SearchYoutube';
-import { useRecoilValue } from 'recoil';
-import { selectedVideosState } from '@recoil/user/atoms.mjs';
-import { useNavigate } from 'react-router-dom';
 
 function PlayListNew() {
   const axios = useCustomAxios();
   const selectedVideos = useRecoilValue(selectedVideosState);
   const [selectedValues, setSelectedValues] = useState([]);
-  const navigate = useNavigate(); // useNavigate 훅 추가
+  const navigate = useNavigate();
 
-  const [mainImage, setMainImage] = useState(null); // 파일 상태 추가
+  const [mainImage, setMainImage] = useState(null);
 
   const { register, handleSubmit } = useForm({
     values: {
@@ -28,10 +28,13 @@ function PlayListNew() {
     },
   });
 
+  useEffect(() => {
+    setSelectedValues([]);
+  }, [selectedVideos]);
+
   const handleFileChange = event => {
     const file = event.target.files[0];
     if (file) {
-      // 파일 정보를 상태에 저장
       setMainImage({
         path: `/files/${file.name}`,
         name: file.name,
@@ -40,7 +43,6 @@ function PlayListNew() {
     }
   };
 
-  // 버튼 클릭 핸들러
   const handleClick = value => {
     setSelectedValues(prevValues => {
       const index = prevValues.indexOf(value);
@@ -53,7 +55,7 @@ function PlayListNew() {
   };
 
   const onSubmit = async (formData, event) => {
-    event.preventDefault(); // 기본 제출 동작 중지
+    event.preventDefault();
     if (mainImage) {
       formData.mainImages = {
         path: mainImage.path,
@@ -64,13 +66,15 @@ function PlayListNew() {
     formData.extra = {
       ...formData.extra,
       keyword: selectedValues,
-      music: selectedVideos, // 선택된 비디오 목록 추가
+      music: selectedVideos,
     };
 
     try {
       const res = await axios.post('/seller/products/', formData);
       console.log(res);
-      navigate(`/playlist`); // 등록 후 플레이리스트 페이지로 이동
+      navigate(`/playlist`);
+      setSelectedValues([]);
+      setMainImage(null);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -97,12 +101,12 @@ function PlayListNew() {
           <input
             type="file"
             id="mainImages"
-            onChange={handleFileChange} // 파일 변경 핸들러 추가
+            onChange={handleFileChange}
             className={styles}
             {...register('mainImages')}
           />
         </div>
-        <SearchYoutube></SearchYoutube>
+        <SearchYoutube />
         <div className={styles.inputSection}>
           <label htmlFor="content">내용</label>
           <textarea
@@ -127,4 +131,3 @@ function PlayListNew() {
 }
 
 export default PlayListNew;
-// PlayListNew.jsx
