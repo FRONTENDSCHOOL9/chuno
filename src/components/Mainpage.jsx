@@ -9,19 +9,20 @@ import PlayListItem from '@pages/playlist/PlayListItem';
 function Mainpage() {
   const axios = useCustomAxios();
   const [data, setData] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get('/products');
-        const newData = res.data.item;
-        setData(newData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
 
+  const fetchData = async () => {
+    try {
+      const res = await axios.get('/products');
+      const newData = res.data.item;
+      setData(newData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
-  }, []);
+  }, {});
 
   const itemList = data
     ?.slice(0, 5)

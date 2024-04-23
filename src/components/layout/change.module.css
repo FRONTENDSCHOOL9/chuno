@@ -28,7 +28,16 @@
   --color-main: #619ae0;
   --color-333030: #eee;
 
-
   --gradient01-start: 28, 27, 27, 1;
   --gradient01-end: 65, 65, 65, 1;
+}
+
+.btntheme {
+  display: flex;
+  margin-left: auto;
+  line-height: 0;
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  color: #4e7cf3;
 }
