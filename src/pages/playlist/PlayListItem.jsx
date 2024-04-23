@@ -6,7 +6,7 @@ PlayListItem.propTypes = {
   item: PropTypes.shape({
     _id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    mainImages: PropTypes.arrayOf(PropTypes.shape).isRequired,
+    mainImages: PropTypes.arrayOf(PropTypes.string).isRequired,
     seller: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }).isRequired,
@@ -24,15 +24,18 @@ function PlayListItem({ item }) {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
     }/${thumbnail}`;
-  } else if (!thumbnail) {
+  } else {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
     }/yongyong.png`;
   }
 
-  const keywordList = item.extra?.keyword.map((keyword, index) => (
-    <span key={index}>{keyword}</span>
-  ));
+  // item.extra.keyword가 있는 경우에만 map 함수 호출
+  const keywordList =
+    item.extra?.keyword &&
+    item.extra.keyword.map((keyword, index) => (
+      <span key={index}>{keyword}</span>
+    ));
 
   return (
     <li

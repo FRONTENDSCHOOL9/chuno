@@ -1,11 +1,32 @@
-// Mainpage.jsx
-// import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import Recommendlistitem from './Recommendlistitem';
 import Header from './layout/Header';
 import styles from './styles/mainpage.module.css';
+import PlayListItem from '@pages/playlist/PlayListItem';
 
 function Mainpage() {
+  const axios = useCustomAxios();
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get('/products');
+        const newData = res.data.item;
+        setData(newData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const itemList = data
+    ?.slice(0, 5)
+    .map(item => <PlayListItem key={item._id} item={item} />);
+
   return (
     <div>
       <Header />
@@ -32,9 +53,8 @@ function Mainpage() {
             더보기
           </Link>
         </div>
-        <div className={styles.topList}></div>
+        <ul className={styles.topList}>{itemList}</ul>
       </div>
-      {/* *FIXME - 아이템리스트 렌더링 위치 입니다. */}
     </div>
   );
 }

@@ -47,7 +47,7 @@ function PlayListDetail() {
   }
 
   return (
-    <div>
+    <>
       <ButtonBack path={'/playlist'} />
       {error && <div>Error: {error.message}</div>}
       {item && (
@@ -72,9 +72,19 @@ function PlayListDetail() {
           <div className={styles.themeList}></div>
           <div className={styles.content}>
             <div className={styles.description}>{item.content}</div>
+
             <ul className={styles.songs}>
               {item.extra.music.map((music, index) => (
-                <li key={index}>{music.title.replace(changechar, '')}</li>
+                <li key={index}>
+                  <img
+                    src={`https://img.youtube.com/vi/${music.id}/maxresdefault.jpg`}
+                    alt=""
+                  />
+                  <span>{`${index + 1 + '.'}  ${music.title.replace(
+                    changechar,
+                    '',
+                  )}`}</span>
+                </li>
               ))}
             </ul>
             <div className={styles.btnPlay}>
@@ -85,7 +95,7 @@ function PlayListDetail() {
           </div>
         </section>
       )}
-    </div>
+    </>
   );
 }
 
