@@ -14,7 +14,7 @@ function PlayListNew() {
   const axios = useCustomAxios();
   const selectedVideos = useRecoilValue(selectedVideosState);
   const [selectedValues, setSelectedValues] = useState([]);
-  const navigate = useNavigate(); // useNavigate 훅 추가
+  const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm({
     values: {
