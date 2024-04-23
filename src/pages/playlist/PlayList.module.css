@@ -5,14 +5,13 @@
   padding: 10px;
   border-radius: 8px;
 
-    background: rgb(202, 233, 255);
+  background: rgb(202, 233, 255);
   background: linear-gradient(
     -50deg,
     rgba(var(--gradient02-color01)) 0%,
     rgba(var(--gradient02-color02)) 70%,
     rgba(var(--gradient02-color03)) 100%
   );
-
 
   margin-bottom: 12px;
   & .itemInformation {
@@ -90,6 +89,7 @@
   flex-direction: column;
   width: 100%;
   margin: 20px 0;
+  color: var(--color-333030);
 
   &:last-child {
     & button {
@@ -134,6 +134,7 @@
 .detailWrap {
   position: relative;
   height: 100%;
+  padding-bottom: 20px;
 }
 .wrapList {
   & .listitemDetail {
@@ -206,6 +207,8 @@
   height: 100%;
   margin-top: -160px;
   position: relative;
+  display: flex;
+  flex-direction: column;
   z-index: 99999;
   padding: 20px;
   margin-bottom: -20px;
@@ -246,4 +249,7 @@
   & .btnPlay {
     margin-top: 20px;
   }
+}
+.btnPlay {
+  margin: 0 auto;
 }

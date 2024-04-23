@@ -32,7 +32,7 @@ function SearchYoutube() {
           key: API_KEYS[currentKeyIndex],
           part: 'snippet',
           q: searchTerm,
-          maxResults: 5,
+          maxResults: 6,
           type: 'video',
         },
       });

@@ -9,7 +9,7 @@ ButtonBack.propTypes = {
 function ButtonBack({ path }) {
   const navigate = useNavigate();
   return (
-    <div className={styles.back} onClick={() => navigate(path)}>
+    <span className={styles.back} onClick={() => navigate(path)}>
       <svg
         width="11"
         height="20"
@@ -22,7 +22,7 @@ function ButtonBack({ path }) {
           fill="#619ae0"
         />
       </svg>
-    </div>
+    </span>
   );
 }
 
