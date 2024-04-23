@@ -12,6 +12,7 @@ import Empty from '@pages/playlist/Empty';
 import Musicplayer from '@components/Musicplayer';
 import Mainpage from '@components/Mainpage';
 import SearchYoutube from '@youtube/SearchYoutube';
+import ThemeList from '@pages/playlist/themeList';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: 'music/:_id',
         element: <Musicplayer />,
+      },
+      {
+        path: 'themelist/:theme',
+        element: <ThemeList />,
       },
       {
         path: 'main',
