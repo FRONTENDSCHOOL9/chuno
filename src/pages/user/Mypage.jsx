@@ -33,9 +33,7 @@ function Mypage() {
         const res = await axios.get(`/users/${_id}/_id`);
         const { data } = res;
         const { item } = data;
-        console.log(res);
         setUserData(item);
-        console.log(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
