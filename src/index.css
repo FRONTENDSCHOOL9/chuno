@@ -10,6 +10,11 @@
   display: flex;
   justify-content: center;
   position: relative;
+  background: linear-gradient(
+    0deg,
+    rgba(var(--gradient03-start)) 0%,
+    rgba(var(--gradient03-end)) 100%
+  );
 }
 
 #App {

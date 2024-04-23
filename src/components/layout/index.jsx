@@ -10,6 +10,9 @@ function Layout() {
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode);
     setIcon(prevIcon => (prevIcon.type === FiSun ? <FiMoon /> : <FiSun />)); // 아이콘 변경
+    // 배경색 토글
+    const root = document.getElementById('root');
+    root.style.backgroundColor = darkMode ? `'#fff'` : '#333';
   };
 
   return (
@@ -27,3 +30,11 @@ function Layout() {
 }
 
 export default Layout;
+
+
+/* background: linear-gradient(
+  0deg,
+  rgba(var(--gradient01-start)) 0%,
+  rgba(var(--gradient01-end)) 100%
+);
+ */
