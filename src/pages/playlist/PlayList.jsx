@@ -19,18 +19,20 @@ function PlayList() {
   const [totalPages, setTotalPages] = useState(1);
   const [selectedKeywords, setSelectedKeywords] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get('/products');
-        const newData = res.data.item;
-        setData(newData);
-        setTotalPages(Math.ceil(newData.length / itemsPerPage));
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+  // fetchData 함수를 useEffect 외부로 이동
+  const fetchData = async () => {
+    try {
+      const res = await axios.get('/products');
+      const newData = res.data.item;
+      setData(newData);
+      setTotalPages(Math.ceil(newData.length / itemsPerPage));
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
+  useEffect(() => {
+    // fetchData 함수 내부 호출
     fetchData();
   }, []);
 
