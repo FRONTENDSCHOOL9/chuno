@@ -40,3 +40,13 @@
   --gradient02-color02: 164, 164, 164, 1;
   --gradient02-color03: 125, 125, 125, 1;
 }
+
+.btntheme {
+  display: flex;
+  margin-left: auto;
+  line-height: 0;
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  color: #4e7cf3;
+}

@@ -21,7 +21,10 @@ function PlayListDetail() {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const changechar = /[^\w\s]/gi;
+
+  function escapeSpecialCharacters(str) {
+    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
+  }
 
   const fetchData = async () => {
     try {
@@ -43,11 +46,11 @@ function PlayListDetail() {
   } else if (!thumbnail) {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
-    }/yongyong.png`;
+    }/yong.png`;
   }
 
   return (
-    <div>
+    <>
       <ButtonBack path={'/playlist'} />
       {error && <div>Error: {error.message}</div>}
       {item && (
@@ -72,9 +75,18 @@ function PlayListDetail() {
           <div className={styles.themeList}></div>
           <div className={styles.content}>
             <div className={styles.description}>{item.content}</div>
+
             <ul className={styles.songs}>
               {item.extra.music.map((music, index) => (
-                <li key={index}>{music.title.replace(changechar, '')}</li>
+                <li key={index}>
+                  <img
+                    src={`https://img.youtube.com/vi/${music.id}/maxresdefault.jpg`}
+                    alt=""
+                  />
+                  <span>{`${index + 1 + '.'}  ${escapeSpecialCharacters(
+                    music.title,
+                  )}`}</span>
+                </li>
               ))}
             </ul>
             <div className={styles.btnPlay}>
@@ -85,7 +97,7 @@ function PlayListDetail() {
           </div>
         </section>
       )}
-    </div>
+    </>
   );
 }
 

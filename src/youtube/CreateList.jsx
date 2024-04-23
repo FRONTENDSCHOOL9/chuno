@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
 import { useRecoilState } from 'recoil';
+import cancle from '@assets/svg/buttons/cancle.svg';
 import { selectedVideosState } from '@recoil/user/atoms.mjs';
 
 CreateList.propTypes = {
@@ -24,7 +25,9 @@ function generateThumbnailUrl(videoId, quality = 'mqdefault') {
 function CreateList({ handleDeleteButtonClick }) {
   const [selectedVideos, setSelectedVideos] =
     useRecoilState(selectedVideosState);
-  const changechar = /[^\w\s]/gi;
+  function escapeSpecialCharacters(str) {
+    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
+  }
 
   const distinctVideos = selectedVideos.filter(
     (video, index, self) => index === self.findIndex(v => v.id === video.id),
@@ -44,7 +47,7 @@ function CreateList({ handleDeleteButtonClick }) {
             />
             {/* 영상 제목 */}
             <p className={styles.listTitle}>
-              {video.title.replace(changechar, '')}
+              {escapeSpecialCharacters(video.title)}
             </p>
             {/* 삭제 및 재생 버튼 */}
             <div
@@ -56,7 +59,7 @@ function CreateList({ handleDeleteButtonClick }) {
                 );
               }}
             >
-              -
+              <img src={cancle} alt="" />
             </div>
           </li>
         ))}

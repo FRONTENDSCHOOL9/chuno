@@ -110,3 +110,15 @@
 .controls {
   margin: 0 auto;
 }
+
+.listDeleteButton {
+  display: flex;
+  background: var(--color-white);
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 21px;
+  line-height: -1;
+  & span {
+  }
+}

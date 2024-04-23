@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import styles from './youtube.module.css';
 import SearchResult from './SearchResult';
-import CreateList from '@youtube/CreateList'; // 이 줄을 수정했습니다.
+import CreateList from '@youtube/CreateList';
 // import ReactPlayer from 'react-player';
 
-import axios from 'axios'; // axios를 import
+import axios from 'axios';
 
-// 환경 변수 설정
 const API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(',');
 const MAX_API_KEYS = API_KEYS.length;
 
@@ -86,7 +85,7 @@ function SearchYoutube() {
           type="text"
           value={searchTerm}
           onChange={handleInputChange}
-          onKeyDown={handleSearchKeyPress} // onKeyPress -> onKeyDown으로 변경
+          onKeyDown={handleSearchKeyPress}
         />
         <button onClick={handleSearchClick}>
           <svg
