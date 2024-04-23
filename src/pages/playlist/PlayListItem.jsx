@@ -27,7 +27,7 @@ function PlayListItem({ item }) {
   } else {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
-    }/yongyong.png`;
+    }/yong.png`;
   }
 
   // item.extra.keyword가 있는 경우에만 map 함수 호출
