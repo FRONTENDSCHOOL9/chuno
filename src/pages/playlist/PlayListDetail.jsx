@@ -36,7 +36,7 @@ function PlayListDetail() {
   }, []);
 
   let thumbnail = item?.mainImages;
-  if (thumbnail && !thumbnail.startsWith('http')) {
+  if (thumbnail) {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
     }/${thumbnail}`;
