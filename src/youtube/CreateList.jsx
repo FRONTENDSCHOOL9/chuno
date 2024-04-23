@@ -3,33 +3,39 @@ import styles from './youtube.module.css';
 import { useRecoilState } from 'recoil';
 import cancle from '@assets/svg/buttons/cancle.svg';
 import { selectedVideosState } from '@recoil/user/atoms.mjs';
+import { set } from 'react-hook-form';
 
 CreateList.propTypes = {
   selectedVideos: PropTypes.array.isRequired,
+  setSelectedVideos: PropTypes.func.isRequired,
   handleDeleteButtonClick: PropTypes.func.isRequired,
   handleVideoItemClick: PropTypes.func.isRequired,
 };
 
-// YouTube 썸네일 URL 생성 함수
-function generateThumbnailUrl(videoId, quality = 'mqdefault') {
-  const baseUrl = 'https://img.youtube.com/vi/';
-  const qualityOptions = {
-    default: 'default.jpg',
-    mqdefault: 'mqdefault.jpg',
-    maxresdefault: 'maxresdefault.jpg',
-  };
-  const qualitySuffix = qualityOptions[quality] || qualityOptions.mqdefault;
-  return `${baseUrl}${videoId}/${qualitySuffix}`;
-}
+function CreateList({
+  selectedVideos: selectedVideosLocal,
+  setSelectedVideos: setSelectedVideosLocal,
+  handleDeleteButtonClick,
+}) {
+  // YouTube 썸네일 URL 생성 함수
+  function generateThumbnailUrl(videoId, quality = 'mqdefault') {
+    const baseUrl = 'https://img.youtube.com/vi/';
+    const qualityOptions = {
+      default: 'default.jpg',
+      mqdefault: 'mqdefault.jpg',
+      maxresdefault: 'maxresdefault.jpg',
+    };
+    const qualitySuffix = qualityOptions[quality] || qualityOptions.mqdefault;
+    return `${baseUrl}${videoId}/${qualitySuffix}`;
+  }
 
-function CreateList({ handleDeleteButtonClick }) {
   const [selectedVideos, setSelectedVideos] =
     useRecoilState(selectedVideosState);
   function escapeSpecialCharacters(str) {
     return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
   }
 
-  const distinctVideos = selectedVideos.filter(
+  const distinctVideos = selectedVideosLocal.filter(
     (video, index, self) => index === self.findIndex(v => v.id === video.id),
   );
 
