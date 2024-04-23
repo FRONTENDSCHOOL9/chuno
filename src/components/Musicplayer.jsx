@@ -39,7 +39,6 @@ function MusicPlayer() {
       const res = await axios.get(`/products/${_id}`);
       if (res.data.item.extra) {
         setItem(res.data.item);
-        console.log(res.data.item);
       } else {
         setError(new Error("Item data does not contain 'extra' property."));
       }
