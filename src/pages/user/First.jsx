@@ -21,6 +21,33 @@ function First() {
       <Link to="/main" className={styles.unsign}>
         비회원으로 시작하기
       </Link>
+
+      <div className={styles.waveWrapper}>
+        <div className={`${styles.waveWrapperInner} ${styles.bgTop}`}>
+          <div
+            className={`${styles.wave} ${styles.waveTop}`}
+            style={{
+              backgroundImage: "url('http://ruelline.co.kr/img/wave1.png')",
+            }}
+          ></div>
+        </div>
+        <div className={`${styles.waveWrapperInner} ${styles.bgMiddle}`}>
+          <div
+            className={`${styles.wave} ${styles.waveMiddle}`}
+            style={{
+              backgroundImage: "url('http://ruelline.co.kr/img/wave2.png')",
+            }}
+          ></div>
+        </div>
+        <div className={`${styles.waveWrapperInner} ${styles.bgBottom}`}>
+          <div
+            className={`${styles.wave} ${styles.waveBottom}`}
+            style={{
+              backgroundImage: "url('http://ruelline.co.kr/img/wave3.png')",
+            }}
+          ></div>
+        </div>
+      </div>
     </div>
   );
 }
