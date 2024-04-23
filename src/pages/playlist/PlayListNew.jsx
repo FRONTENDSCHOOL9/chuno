@@ -101,7 +101,9 @@ function PlayListNew() {
             {...register('mainImages')}
           />
         </div>
-        <SearchYoutube></SearchYoutube>
+      </form>
+      <SearchYoutube></SearchYoutube>
+      <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
         <div className={styles.inputSection}>
           <label htmlFor="content">내용</label>
           <textarea
