@@ -30,12 +30,6 @@ function CreateList({ handleDeleteButtonClick }) {
     (video, index, self) => index === self.findIndex(v => v.id === video.id),
   );
 
-  function escapeSpecialCharacters(str) {
-    return str.replace(/[^A-Za-z0-9\s]/g, match => {
-      return '%' + match.charCodeAt(0).toString(16).toUpperCase();
-    });
-  }
-
   return (
     <div className={styles.added_wrap}>
       <p className={styles.added_notice}>아래에 추가한 노래가 표시 됩니다. </p>
