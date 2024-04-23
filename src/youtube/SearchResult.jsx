@@ -11,7 +11,7 @@ SearchResult.propTypes = {
 };
 
 function SearchResult({ searchResult }) {
-  const changechar = /[^\w\s]/gi;
+  const changechar = /[\u3131-\uD79Da-zA-Z\s!-/:-@[-`{-~]+/g;
   const [selectedVideos, setSelectedVideos] =
     useRecoilState(selectedVideosState); // Recoil atom 상태를 가져옵니다.
 
@@ -32,7 +32,7 @@ function SearchResult({ searchResult }) {
             src={`https://youtube.com/embed/${item.id.videoId}`}
           ></iframe>
           <h3 className={styles.listName}>
-            {item.snippet.title.replace(changechar, '')}
+            {item.snippet.title.match(changechar)}
           </h3>
           <button
             className={styles.playadd}
