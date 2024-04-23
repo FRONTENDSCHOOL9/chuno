@@ -1,23 +1,30 @@
 @import url(../../pages/colorVaration.css);
 
-.recWrapList {
-  display: flex;
-  flex-grow: 1;
-  height: 170px;
-}
-
 .recListItem {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-items: stretch;
-  width: 30.333%;
-  height: 100px;
+  width: 30%;
   border-radius: 12px;
   background-color: var(--color-main);
-}
-
-.recListItem h3 {
-  color: var(--color-white);
-  font-size: 16px;
+  overflow: hidden;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  & h3 {
+    color: var(--color-white);
+    font-size: 16px;
+    position: absolute;
+  }
+  & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }

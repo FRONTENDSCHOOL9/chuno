@@ -1,22 +1,19 @@
-// Recommendlistitem.jsx
+import { Link } from 'react-router-dom';
 import styles from './styles/recommenditem.module.css';
 import PropTypes from 'prop-types';
 
 Recommendlistitem.propTypes = {
-  value: PropTypes.string,
+  theme: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
-function Recommendlistitem({ theme }) {
+function Recommendlistitem({ theme, value }) {
   return (
-    <div className={styles.recListItem}>
-      <h3>{theme}</h3>
-    </div>
+    <Link to={`/themelist/${theme}`} className={styles.recListItem}>
+      <h3 className={styles.themeTitle}>{theme}</h3>
+      <img src={`http://ruelline.co.kr/img/${value}.jpg`} alt="" />
+    </Link>
   );
 }
-
-Recommendlistitem.propTypes = {
-  id: PropTypes.number.isRequired,
-  theme: PropTypes.string.isRequired,
-};
 
 export default Recommendlistitem;

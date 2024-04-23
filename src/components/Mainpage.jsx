@@ -35,13 +35,13 @@ function Mainpage() {
         <span className={styles.miniTitle}>주인장 PICK!</span>
         <h2 className={styles.bodyText}>추천 플레이리스트</h2>
         <div className={styles.recommendList}>
-          <Recommendlistitem id={1} theme={'이별'} value={'fury'} />
-          <Recommendlistitem id={2} theme={'운동'} value={'fury'} />
-          <Recommendlistitem id={3} theme={'행복'} value={'fury'} />
-          <Recommendlistitem id={4} theme={'우울'} value={'fury'} />
-          <Recommendlistitem id={5} theme={'집중'} value={'fury'} />
-          <Recommendlistitem id={6} theme={'사랑'} value={'fury'} />
-          <Recommendlistitem id={7} theme={'분노'} value={'fury'} />
+          <Recommendlistitem theme={'이별'} value={'broken'} />
+          <Recommendlistitem theme={'운동'} value={'exercise'} />
+          <Recommendlistitem theme={'행복'} value={'happy'} />
+          <Recommendlistitem theme={'우울'} value={'sad'} />
+          <Recommendlistitem theme={'집중'} value={'conp'} />
+          <Recommendlistitem theme={'사랑'} value={'love'} />
+          <Recommendlistitem theme={'분노'} value={'anger'} />
         </div>
       </div>
       <div className={styles.contents}>

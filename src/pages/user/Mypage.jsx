@@ -2,7 +2,6 @@ import ButtonBack from '@components/ButtonBack';
 import { useEffect, useState } from 'react';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import styles from './mypage.module.css';
-import Button4 from '@components/Button4';
 import dragon from '@assets/svg/dragon.svg';
 import { useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
@@ -27,23 +26,18 @@ function Mypage() {
     }/yongyong.png`;
   }
 
+  const fetchData = async formData => {
+    try {
+      const res = await axios.get(`/users/${_id}/_id`);
+      const { data } = res;
+      const { item } = data;
+      setUserData(item);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async formData => {
-      try {
-        const res = await axios.get(`/users/${_id}/_id`);
-        const { data } = res;
-        const { item } = data;
-        setUserData(item);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
     fetchData();
-
-    const intervalId = setInterval(fetchData, 5 * 60 * 1000);
-
-    return () => clearInterval(intervalId);
   }, []);
 
   return (

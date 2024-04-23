@@ -1,16 +1,5 @@
 @import url(../../pages/colorVaration.css);
 
-.wrap {
-  overflow: hidden;
-  position: relative;
-}
-
-.musicplayerWrap {
-  margin-bottom: 100px;
-
-  backdrop-filter: blur(10px);
-}
-
 .hiddenOverflow {
   overflow: hidden;
 }
@@ -105,18 +94,14 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .listBox {
+  position: sticky;
   padding: 20px;
-  position: fixed;
-  z-index: 999;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  height: 100px;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(20px);
   color: var(--color-white);
   cursor: pointer;
   transition: all 0.3s;
-  height: 100px;
   & .songlistTitle {
     opacity: 0;
     height: 0;
@@ -128,6 +113,11 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .fullBox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   height: 100%;
   transition: all 0.3s;
   overflow-y: auto;
@@ -138,7 +128,6 @@ input[type='range']::-webkit-slider-thumb {
     display: block;
   }
   & .songlistTitle {
-    line-height: 72px;
     opacity: 1;
     height: 50px;
     font-size: 18px;
@@ -157,7 +146,6 @@ input[type='range']::-webkit-slider-thumb {
 .songlist {
   max-width: 800px;
   & .option {
-    margin: auto 0;
   }
 }
 

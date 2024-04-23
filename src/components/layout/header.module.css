@@ -26,18 +26,11 @@
 
 /* right start */
 
-.mainHeaderRight div {
+.mainHeaderRight {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-}
-
-.mainHeaderRight,
-.mainHeaderRight button {
-  color: var(--color-a4a4a4);
-  font-size: 12px;
-  letter-spacing: -0.5px;
-  display: flex;
-  align-items: center;
+  margin-left: auto;
 }
 
 .mainHeaderRight .roundedFull {
