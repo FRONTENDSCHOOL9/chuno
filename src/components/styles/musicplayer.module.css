@@ -50,7 +50,7 @@ input[type='range'] {
   -webkit-appearance: none;
   height: 10px; /* 바의 높이를 조절합니다. */
   border-radius: 5px;
-  background: var(--color-ddd);
+  background: var(--color-ccc);
   outline: none;
   opacity: 0.7;
   transition: opacity 0.2s;
@@ -90,10 +90,17 @@ input[type='range']::-webkit-slider-thumb {
   top: 0;
   right: 50px;
 }
-.prev:active path,
-.pause:active path,
-.next:active path {
-  fill: var(--color-main); /* 첫 번째 요소에 대한 색상 */
+
+.prev svg {
+  width: 37px;
+  height: 24px;
+}
+
+.prev svg,
+.pause svg path,
+.next path {
+  background-color: red;
+  fill: red;
 }
 
 .listBox {
@@ -103,8 +110,8 @@ input[type='range']::-webkit-slider-thumb {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(50px);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
   color: var(--color-white);
   cursor: pointer;
   transition: all 0.3s;

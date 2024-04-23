@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import styles from './styles/button.module.css';
 
 Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
@@ -12,7 +13,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   };
 
   return (
-    <div className="pagination">
+    <div className={styles.pagination}>
       {Array.from({ length: totalPages }, (_, index) => index + 1).map(page => (
         <button
           key={page}

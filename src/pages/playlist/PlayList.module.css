@@ -81,6 +81,7 @@
     aspect-ratio: 1/1;
   }
 }
+
 /* BoardNew */
 
 .inputSection {
@@ -92,7 +93,7 @@
   &:last-child {
     & button {
       border: 0;
-      background-color: var(--color-4e7cf3);
+      background-color: var(--color-main);
       color: var(--color-white);
       border-radius: 8px;
       padding: 10px;
@@ -101,6 +102,7 @@
 
   & label {
     margin: 5px 0;
+    color: var(--color-333030);
   }
   & input {
     width: 100%;
@@ -195,8 +197,10 @@
   z-index: 99999;
   padding: 20px 10px;
   margin-bottom: -20px;
-  background-color: rgb(202, 233, 255);
+  background-color: var(--color-ecf1ff);
   border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: column;
   & .description {
     padding: 20px 0;
     font-size: 18px;
@@ -207,5 +211,6 @@
   }
   & .btnPlay {
     margin-top: 20px;
+    margin: 20px auto 0;
   }
 }

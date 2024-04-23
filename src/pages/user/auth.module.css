@@ -1,6 +1,5 @@
 @import url(../colorVaration.css);
 
-
 a:visited,
 a:active,
 a:link,
@@ -33,6 +32,10 @@ a:hover {
     }
   }
 
+.pageName h2 {
+  color: var(--color-333030);
+}
+
   /*  */
   & .authInput {
     display: flex;
@@ -44,9 +47,9 @@ a:hover {
     }
     & input {
       /* 입력칸을 자동완성해도 input의 배경색이 변하지 않도록 해주는 코드 두 줄 */
-      box-shadow: 0 0 0 1000px var(--color-f6f6f6) inset;
-      background-color: var(--color-f6f6f6);
-      border: solid 2px var(--color-f6f6f6);
+      box-shadow: 0 0 0 1000px var(--color-eee) inset;
+      background-color: var(--color-eee);
+      border: solid 2px var(--color-ccc);
       border-radius: 8px;
       padding: 10px;
       &:focus {
@@ -65,10 +68,15 @@ a:hover {
     }
     & .signupLabel {
       margin-bottom: 4px;
+      color: var(--color-333030);
     }
+
     & .essential {
       color: var(--color-df8484);
     }
+  }
+  & .signupLabel label {
+    color: var(--color-333030);
   }
 }
 
@@ -101,8 +109,8 @@ a:hover {
     text-align: center;
     font-weight: bolder;
     padding: 10px 0;
-    background-color: var(--color-f6f6f6);
-    border: solid 2px var(--color-f6f6f6);
+    background-color: var(--color-eee);
+    border: solid 2px var(--color-ccc);
     border-radius: 8px;
   }
 }

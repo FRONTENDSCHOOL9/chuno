@@ -31,24 +31,24 @@ function CreateList({ handleDeleteButtonClick }) {
   );
 
   return (
-    <div className={styles.added_wrap}>
-      <p className={styles.added_notice}>아래에 추가한 노래가 표시 됩니다. </p>
-      <ul className={styles.playlistadded}>
+    <div className={styles.addedWrap}>
+      <p className={styles.addedNotice}>아래에 추가한 노래가 표시 됩니다. </p>
+      <ul className={styles.playlistAdded}>
         {distinctVideos.map(video => (
           <li className={styles.list} key={video.id}>
             {/* 썸네일 이미지 */}
             <img
-              className={styles.list_thumb}
+              className={styles.listThumb}
               src={generateThumbnailUrl(video.id)}
               alt={video.title}
             />
             {/* 영상 제목 */}
-            <p className={styles.list_title}>
+            <p className={styles.listTitle}>
               {video.title.replace(changechar, '')}
             </p>
             {/* 삭제 및 재생 버튼 */}
             <div
-              className={styles.list_delete_button}
+              className={styles.listDeleteButton}
               onClick={() => {
                 handleDeleteButtonClick(video.id);
                 setSelectedVideos(prevSelectedVideos =>

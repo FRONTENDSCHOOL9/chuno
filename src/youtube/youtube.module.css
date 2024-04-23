@@ -68,7 +68,7 @@
   background: var(--color-white);
   font-weight: 500;
   font-size: 20px;
-  color: var(--color-ddd);
+  color: var(--color-ccc);
   border-radius: 8px;
 }
 
@@ -78,7 +78,7 @@
 .addedNotice {
   text-align: center;
   margin: 20px 0;
-  color: var(--color-ddd);
+  color: var(--color-a4a4a4);
 }
 .list {
   margin: 10px 0;

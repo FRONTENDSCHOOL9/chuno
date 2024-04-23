@@ -104,7 +104,7 @@
 }
 
 .submitBtn:hover {
-  background-color: var(--color-ddd);
+  background-color: var(--color-ccc);
   color: var(--color-7d7d7d);
   border: 2px solid var(--color-7d7d7d);
 }
@@ -120,3 +120,18 @@
   color: var(--color-white);
   border: 2px solid var(--color-main);
 }
+
+.pagination button {
+  color: var(--color-706868);
+  background-color: var(--color-ecf1ff);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 4px;
+  font-weight: bolder;
+}
+
+/* .pagination button.active {
+  background-color: var(--color-black);
+  color: var(--color-black);
+} */

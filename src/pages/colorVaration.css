@@ -14,9 +14,11 @@
   --color-888: #888;
   --color-a4a4a4: #a4a4a4;
   --color-ccc: #ccc;
-  --color-ddd: #ddd;
   --color-eee: #eee;
-  --color-f6f6f6: #f6f6f6;
   --color-bfaeae: #bfaeae;
   --color-df8484: #df8484;
+
+  --gradient01-start: 203, 217, 255, 1;
+  --gradient01-end: 236, 241, 255, 1;
 }
+

@@ -22,6 +22,7 @@ button {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 12px;
+  color: var(--color-333030);
 }
 
 .contents {

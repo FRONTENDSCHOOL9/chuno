@@ -1,16 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('../src/pages/colorVaration.css');
 
 #root {
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0 auto;
-  background: #619ae0;
-  background: linear-gradient(
-    0deg,
-    rgba(203, 217, 255, 1) 0%,
-    rgba(236, 241, 255, 1) 100%
-  );
+
   height: 100vh;
-  /* background-image: url('https://images.unsplash.com/photo-1533113354171-490d836238e3?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
   overflow-y: hidden;
   display: flex;
   justify-content: center;
@@ -24,7 +19,11 @@
   padding: 20px;
   max-height: 870px;
 
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    0deg,
+    rgba(var(--gradient01-start)) 0%,
+    rgba(var(--gradient01-end)) 100%
+  );
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(20px);
