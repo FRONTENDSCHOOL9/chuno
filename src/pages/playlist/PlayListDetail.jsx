@@ -8,6 +8,7 @@ import styles from './PlayList.module.css';
 
 PlayListDetail.propTypes = {
   item: PropTypes.shape({
+    mainImages: PropTypes.arrayOf(PropTypes.shape).isRequired,
     extra: PropTypes.shape({
       keyword: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
@@ -35,7 +36,7 @@ function PlayListDetail() {
   }, []);
 
   let thumbnail = item?.mainImages;
-  if (thumbnail) {
+  if (thumbnail && !thumbnail.startsWith('http')) {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
     }/${thumbnail}`;

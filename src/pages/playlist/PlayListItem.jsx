@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-
 import styles from './PlayList.module.css';
 
 PlayListItem.propTypes = {
   item: PropTypes.shape({
     _id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    mainImages: PropTypes.string.isRequired,
+    mainImages: PropTypes.arrayOf(PropTypes.shape).isRequired,
     seller: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }).isRequired,
@@ -25,7 +24,7 @@ function PlayListItem({ item }) {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
     }/${thumbnail}`;
-  } else {
+  } else if (!thumbnail) {
     thumbnail = `${import.meta.env.VITE_API_SERVER}/files/${
       import.meta.env.VITE_CLIENT_ID
     }/yongyong.png`;

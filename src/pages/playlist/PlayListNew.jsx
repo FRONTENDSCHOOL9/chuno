@@ -53,13 +53,13 @@ function PlayListNew() {
           data: imageFormData,
         });
         formData.mainImages = fileRes.data.item[0].name;
-        /*         console.log(formData.mainImages) */
         formData.extra = {
           ...formData.extra,
           keyword: selectedValues,
           music: selectedVideos, // 선택된 비디오 목록 추가
         };
       } else {
+        delete formData.mainImages;
         formData.extra = {
           ...formData.extra,
           keyword: selectedValues,
