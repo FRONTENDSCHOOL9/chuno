@@ -4,7 +4,6 @@ import styles from './youtube.module.css';
 import { useRecoilState } from 'recoil';
 import cancle from '@assets/svg/buttons/cancle.svg';
 import { selectedVideosState } from '@recoil/user/atoms.mjs';
-import { set } from 'react-hook-form';
 
 CreateList.propTypes = {
   selectedVideos: PropTypes.array.isRequired,
@@ -15,7 +14,6 @@ CreateList.propTypes = {
 
 function CreateList({
   selectedVideos: selectedVideosLocal,
-  setSelectedVideos: setSelectedVideosLocal,
   handleDeleteButtonClick,
 }) {
   // YouTube 썸네일 URL 생성 함수
