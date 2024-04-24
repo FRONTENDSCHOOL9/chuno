@@ -13,7 +13,17 @@ function Keywords({ selectedValues, onClick }) {
 
   return (
     <div className={styles.keywordsObj}>
-      {['이별', '운동', '행복', '우울', '집중', '사랑', '분노'].map(value => (
+      {[
+        '리듬타용',
+        '놀러가용',
+        '행복해용',
+        '우울해용',
+        '집중해용',
+        '멍때려용',
+        '화가나용',
+        '내꿈꿔용 ',
+        '움직여용',
+      ].map(value => (
         <div
           key={value}
           className={`${styles.keywords} ${
