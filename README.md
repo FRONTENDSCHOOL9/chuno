@@ -94,7 +94,7 @@
 
 ## 화면 구성
 <div>
- <img src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/63d60ea5-3bf5-4cb2-b0de-d19655b9722a.gif">
+ <img style="width: 500px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/63d60ea5-3bf5-4cb2-b0de-d19655b9722a.gif">
 </div>
 
 <br>
