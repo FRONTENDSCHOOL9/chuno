@@ -30,9 +30,10 @@ function CreateList({
 
   const [selectedVideos, setSelectedVideos] =
     useRecoilState(selectedVideosState);
-  function escapeSpecialCharacters(str) {
+
+  const escapeSpecialCharacters = str => {
     return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
-  }
+  };
 
   const distinctVideos = selectedVideosLocal.filter(
     (video, index, self) => index === self.findIndex(v => v.id === video.id),
