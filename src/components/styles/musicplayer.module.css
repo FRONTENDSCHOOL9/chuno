@@ -44,7 +44,7 @@
 .seekBar {
   width: 100%;
   border: none;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   accent-color: var(--color-main);
   cursor: pointer;
 }
@@ -78,22 +78,24 @@
   accent-color: var(--color-main);
 }
 
-/* 이미지와 아이콘 */
-.prev svg {
-  width: 37px;
-  height: 24px;
+.musicplayerWrap {
+  margin-bottom: auto;
+  height: 100%;
 }
 
-.prev svg,
-.pause svg path,
-.next path {
-  background-color: red;
-  fill: red;
+.musicWrap {
+  display: flex;
+  flex-direction: column;
 }
 
 /* 목록 */
 .listBox {
-  position: sticky;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: auto;
+  /* position: sticky; */
   margin-bottom: -20px;
   padding: 20px;
   height: 100px;
