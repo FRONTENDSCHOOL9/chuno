@@ -217,7 +217,7 @@ function MusicPlayer() {
             <div className={styles.currentPlay}>
               <div className={styles.thumbnail}>
                 <img
-                  src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/maxresdefault.jpg`}
+                  src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/default.jpg`}
                   alt=""
                 />
               </div>
@@ -241,7 +241,7 @@ function MusicPlayer() {
                 >
                   <div className={styles.thumbnail}>
                     <img
-                      src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                      src={`https://img.youtube.com/vi/${video.id}/default.jpg`}
                       alt=""
                     />
                   </div>

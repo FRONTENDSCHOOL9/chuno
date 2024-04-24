@@ -49,7 +49,7 @@ function Header() {
               />
             </svg>
             <div>
-              <span>같이들어龍</span>
+              <span>함께들어龍</span>
             </div>
           </Link>
         </div>

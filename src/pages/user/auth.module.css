@@ -18,7 +18,7 @@ a:hover {
 
 .authPageWrap {
   width: 100%;
-  & .pagename {
+  & .pageName {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -31,6 +31,7 @@ a:hover {
       font-weight: bolder;
     }
   }
+
 
   .pageName h2 {
     color: var(--color-333030);

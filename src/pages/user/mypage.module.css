@@ -15,14 +15,13 @@
 
 .mypageHeadTitle {
   color: var(--color-main);
+  font-weight: bold;
 }
 
 .mypageHeadHr {
   border: 1.5px solid var(--color-e7ecff);
   margin-bottom: 30px;
 }
-
-
 
 .mypageBody {
   display: flex;
