@@ -20,6 +20,7 @@
   align-items: center;
   height: 72px;
   overflow: hidden;
+  padding-left: 20px;
 }
 
 /* 텍스트와 관련된 스타일 */
@@ -102,6 +103,7 @@ input[type='range'] {
 /* 목록 */
 .listBox {
   position: sticky;
+  margin-bottom: -20px;
   padding: 20px;
   height: 100px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -109,6 +111,8 @@ input[type='range'] {
   color: var(--color-white);
   cursor: pointer;
   transition: all 0.3s;
+  margin: 0 -20px;
+
   & .songlistTitle {
     opacity: 0;
     height: 0;
@@ -128,17 +132,26 @@ input[type='range'] {
   height: 100%;
   transition: all 0.3s;
   overflow-y: auto;
+  /* margin: 0 10px; */
+  padding: 20px;
   &::-webkit-scrollbar {
     display: none;
   }
   & .selectBox {
     display: block;
+    padding: 20px;
   }
   & .songlistTitle {
     opacity: 1;
-    height: 50px;
+    height: 40px;
     font-size: 18px;
     transition: all 0.3s;
+  }
+  & .titleFirst {
+    padding-left: 20px;
+  }
+  & .titleSecond {
+    margin-top: 20px;
   }
 }
 

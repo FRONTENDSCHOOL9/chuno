@@ -82,7 +82,9 @@ function MusicPlayer() {
       setCurrentVideoIndex(selectedIndex);
     }
   };
-  const changechar = /[^\w\s]/gi;
+  const escapeSpecialCharacters = str => {
+    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
+  };
 
   const handleVideoEnd = () => {
     setCurrentVideoIndex(prevIndex =>
@@ -122,7 +124,7 @@ function MusicPlayer() {
             />
           </div>
           <h3 className={styles.songTitle}>
-            {item.extra.music[currentVideoIndex].title.replace(changechar, '')}
+            {escapeSpecialCharacters(item.extra.music[currentVideoIndex].title)}
           </h3>
           <div>
             <input
@@ -201,7 +203,9 @@ function MusicPlayer() {
           onClick={toggleListBox}
         >
           <div className={styles.curretbox}>
-            <h4 className={styles.songlistTitle}>재생중인 곡</h4>
+            <h4 className={`${styles.songlistTitle} ${styles.titleFirst}`}>
+              재생중인 곡
+            </h4>
             <div className={styles.currentPlay}>
               <div className={styles.thumbnail}>
                 <img
@@ -210,15 +214,16 @@ function MusicPlayer() {
                 />
               </div>
               <h3>
-                {item.extra.music[currentVideoIndex].title.replace(
-                  changechar,
-                  '',
+                {escapeSpecialCharacters(
+                  item.extra.music[currentVideoIndex].title,
                 )}
               </h3>
             </div>
           </div>
           <div className={styles.selectBox}>
-            <h4 className={styles.songlistTitle}>곡 목록</h4>
+            <h4 className={`${styles.songlistTitle} ${styles.titleSecond}`}>
+              곡 목록
+            </h4>
             <div className={styles.songlist}>
               {item?.extra?.music.map((video, index) => (
                 <div

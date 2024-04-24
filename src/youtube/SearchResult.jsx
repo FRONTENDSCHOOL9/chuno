@@ -9,9 +9,9 @@ SearchResult.propTypes = {
 };
 
 function SearchResult({ searchResult, handleAddButtonClick }) {
-  function escapeSpecialCharacters(str) {
+  const escapeSpecialCharacters = str => {
     return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
-  }
+  };
 
   const [selectedVideos, setSelectedVideos] =
     useRecoilState(selectedVideosState);
