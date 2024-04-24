@@ -1,3 +1,4 @@
+// 게시물(플레이 리스트)들 업로드 후 전체 출력 부분
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ButtonBack from '@/components/ButtonBack';
@@ -36,7 +37,7 @@ function PlayList() {
   }, []);
 
   const filterData = (items, searchTerm, selectedKeywords) => {
-    if (!items) return []; // 데이터가 없는 경우 빈 배열 반환
+    if (!items) return [];
     return items.filter(item => {
       const keywords = item.extra?.keyword || [];
       const nameMatch = item.name

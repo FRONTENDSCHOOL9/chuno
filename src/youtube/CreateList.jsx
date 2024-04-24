@@ -1,3 +1,4 @@
+// 선택한 음악 출력 부분
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
 import { useRecoilState } from 'recoil';
@@ -55,7 +56,7 @@ function CreateList({
             <p className={styles.listTitle}>
               {escapeSpecialCharacters(video.title)}
             </p>
-            {/* 삭제 및 재생 버튼 */}
+            {/* 삭제 버튼 */}
             <div
               className={styles.listDeleteButton}
               onClick={() => {
