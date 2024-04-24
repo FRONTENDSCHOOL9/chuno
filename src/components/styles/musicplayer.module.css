@@ -49,17 +49,7 @@
   cursor: pointer;
 }
 
-/* 폰트와 타이포그래피 */
-input[type='range'] {
-  -webkit-appearance: none;
-  height: 10px;
-  border-radius: 5px;
-  background: var(--color-ccc);
-  outline: none;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
+/*  */
 /* 레이아웃 */
 .musicControl {
   display: flex;
@@ -85,6 +75,7 @@ input[type='range'] {
   position: absolute;
   top: 0;
   right: 50px;
+  accent-color: var(--color-main);
 }
 
 /* 이미지와 아이콘 */
