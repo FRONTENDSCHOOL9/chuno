@@ -94,11 +94,10 @@
 
 ## 화면 구성
 <div>
- <img style="width: 500px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/63d60ea5-3bf5-4cb2-b0de-d19655b9722a.gif">
- <img style="width: 500px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/6333cc6a-8c03-4121-aac2-8228311a2ed3.gif">
+ <img style="width: 350px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/63d60ea5-3bf5-4cb2-b0de-d19655b9722a.gif">
+ <img style="width: 350px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/6333cc6a-8c03-4121-aac2-8228311a2ed3.gif">
+ <img style="width: 250px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/137178966/352af067-06ef-4acb-9d6e-02a987de1025.gif">
 </div>
-
-[시연 영상](https://github.com/FRONTENDSCHOOL9/chuno/assets/137178966/352af067-06ef-4acb-9d6e-02a987de1025)
 
 <br>
 
