@@ -4,11 +4,11 @@
 
 ## 배포주소
 
--
+- [CHUNO] (https://chuno9.netlify.app/)
 
 ## 🎶프로젝트 소개
 
-프로젝트 명인 추노(CHUNO)에는 '**추**천하는 **노**래'라는 의미를 담아, 본 프로젝트는 사용자들로 하여금 각자의 플레이스트를 공유하는 경험을 유도하고 있습니다.
+프로젝트 명인 추노(CHUNO)에는 '**추**천하는 **노**래'라는 의미를 담아, 사용자들로 하여금 각자의 플레이스트를 공유하는 경험을 유도하고 있습니다. 사용자들은 자신의 플레이리스트를 추천할 수 있고, 동시에 타인의 플레이리스트를 감상할 수도 있습니다.
 
 ## ⌚개발 기간
 
@@ -29,7 +29,7 @@
 <div><img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
   <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
   <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"
+  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 </div>
 
 ### Environment
