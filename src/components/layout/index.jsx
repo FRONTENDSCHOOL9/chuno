@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi'; // 아이콘 추가
 import styles from './change.module.css';
 
@@ -9,11 +9,16 @@ function Layout() {
 
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode);
-    setIcon(prevIcon => (prevIcon.type === FiSun ? <FiMoon /> : <FiSun />)); // 아이콘 변경
-    // 배경색 토글
-    const root = document.getElementById('root');
-    root.style.backgroundColor = darkMode ? `'#fff'` : '#333';
   };
+
+  useEffect(() => {
+    // darkMode 상태 변경에 따라 배경색을 변경
+    const root = document.getElementById('root');
+    root.style.backgroundColor = darkMode ? '#333' : '#fff';
+
+    // 아이콘 변경
+    setIcon(prevIcon => (darkMode ? <FiMoon /> : <FiSun />));
+  }, [darkMode]);
 
   return (
     <div
@@ -30,10 +35,3 @@ function Layout() {
 }
 
 export default Layout;
-
-/* background: linear-gradient(
-  0deg,
-  rgba(var(--gradient01-start)) 0%,
-  rgba(var(--gradient01-end)) 100%
-);
- */
