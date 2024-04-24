@@ -1,8 +1,10 @@
+ <div align="center"> 
 <img src="https://github.com/FRONTENDSCHOOL9/chuno/assets/137178966/83797ec1-42ad-4475-8bd6-21a889057d1d.png"  width="667" height="369"/>
 
 # PROJECT_CHUNO
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Nanum+Gothic&weight=800&size=18&pause=1000&color=000000&vCenter=true&random=false&width=430&height=30&lines=%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC+%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C+%EC%8A%A4%EC%BF%A8+9%EA%B8%B0%2C+%ED%8C%80+%EB%86%809%EC%9E%88%EC%A1%B0+%EA%B0%9C%EB%B0%9C.)](https://git.io/typing-svg)
+</div>
 
 <br>
 
@@ -33,7 +35,7 @@
 |:---:|:---:|:---:|:---:|
 |**남동현(팀장)**|**박희진**|**이원명**|**김도희**|
 |FE개발자|FE개발자|FE개발자|FE개발자|
-|커피맛집|추노팀과 함께여서 행복했습니다 ~~언년아~~|혼자가 아닌 팀원들과 힘을 모아 큰 산을 넘은 느낌이 아주 뿌듯합니다. ~~이제 좀 쉬고싶다.~~|~~해치웠나...?~~|
+|커피맛집|추노팀과 함께여서 만들어 낼 수 있었습니다 ~~언년아~~|혼자가 아닌 팀원들과 힘을 모아 큰 산을 넘은 느낌이 아주 뿌듯합니다. ~~이제 좀 쉬고싶다.~~|~~해치웠나...?~~|
 
 <br>
 
