@@ -13,7 +13,7 @@ function Layout() {
 
   useEffect(() => {
     const root = document.getElementById('root');
-    root.style.backgroundColor = darkMode ? '#333' : '#eee';
+    root.style.backgroundColor = darkMode ? '#333' : '#F0F8FB ';
 
     setIcon(darkMode ? <FiMoon /> : <FiSun />);
   }, [darkMode]);

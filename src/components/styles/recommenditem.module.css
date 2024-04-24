@@ -7,9 +7,9 @@
   justify-items: stretch;
   justify-items: stretch;
   width: 30%;
+  aspect-ratio: 1/1;
   flex-grow: 1;
   border-radius: 12px;
-  background-color: var(--color-main);
   overflow: hidden;
   position: relative;
   &::before {
@@ -17,16 +17,25 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(30, 30, 30, 0.4);
   }
   & h3 {
     color: var(--color-white);
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: 600;
     position: absolute;
   }
   & img {
     display: block;
     width: 100%;
     height: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .recListItem {
+    & h3 {
+      font-size: 16px;
+    }
   }
 }

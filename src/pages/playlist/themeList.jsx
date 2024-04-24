@@ -44,19 +44,21 @@ function ThemeList() {
 
   return (
     <>
-      {data ? (
-        <div className={styles.isScrolled}>
-          <ButtonBack path={'/main'} />
-          <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
-        </div>
-      ) : (
-        <Loading />
-      )}
-      {data && (
-        <>
-          <ul className={styles.wrapList}>{itemList}</ul>
-        </>
-      )}
+      <div className={styles.contSection}>
+        {data ? (
+          <div className={styles.isScrolled}>
+            <ButtonBack path={'/main'} />
+            <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
+          </div>
+        ) : (
+          <Loading />
+        )}
+        {data && (
+          <>
+            <ul className={styles.wrapList}>{itemList}</ul>
+          </>
+        )}
+      </div>
     </>
   );
 }

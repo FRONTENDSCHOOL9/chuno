@@ -30,7 +30,6 @@
   }
 }
 
-/* right start */
 .rightWrap {
   display: flex;
   align-items: center;
@@ -67,6 +66,15 @@
   transform: translateY(-50%);
 }
 
+.nonWrap {
+  display: flex;
+  gap: 12px;
+}
+.nonlogin {
+  display: flex;
+  align-items: center;
+}
+
 .userText {
-  margin-left: 6px;
+  margin-left: 2px;
 }

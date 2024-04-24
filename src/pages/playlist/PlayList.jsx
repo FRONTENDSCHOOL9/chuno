@@ -82,29 +82,31 @@ function PlayList() {
 
   return (
     <>
-      {data ? (
-        <div className={styles.isScrolled}>
-          <ButtonBack path={'/main'} />
-          <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
-        </div>
-      ) : (
-        <Loading />
-      )}
-      {data && (
-        <>
-          <Search onClick={handleSearchChange} />
-          <Keywords
-            selectedValues={selectedKeywords}
-            onClick={handleKeywordClick}
-          />
-          <ul className={styles.wrapList}>{itemList}</ul>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-        </>
-      )}
+      <div className={styles.contSection}>
+        {data ? (
+          <div className={styles.isScrolled}>
+            <ButtonBack path={'/main'} />
+            <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
+          </div>
+        ) : (
+          <Loading />
+        )}
+        {data && (
+          <>
+            <Search onClick={handleSearchChange} />
+            <Keywords
+              selectedValues={selectedKeywords}
+              onClick={handleKeywordClick}
+            />
+            <ul className={styles.wrapList}>{itemList}</ul>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </>
+        )}
+      </div>
     </>
   );
 }
