@@ -5,7 +5,9 @@
   align-items: center;
   justify-content: center;
   justify-items: stretch;
+  justify-items: stretch;
   width: 30%;
+  flex-grow: 1;
   border-radius: 12px;
   background-color: var(--color-main);
   overflow: hidden;

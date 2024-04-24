@@ -1,10 +1,5 @@
-@import url(../../pages/colorVaration.css);
+@import url();
 
-button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-}
 /* ------------------- */
 
 .mainTop {
@@ -44,5 +39,6 @@ button {
 .recommendList {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  justify-conetnt: center;
+  gap: 16px;
 }

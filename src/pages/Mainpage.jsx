@@ -29,7 +29,7 @@ function Mainpage() {
     .map(item => <PlayListItem key={item._id} item={item} />);
 
   return (
-    <div>
+    <>
       <Header />
       <div className={styles.mainTop}>
         <span className={styles.miniTitle}>주인장 PICK!</span>
@@ -58,7 +58,7 @@ function Mainpage() {
         </div>
         <ul className={styles.topList}>{itemList}</ul>
       </div>
-    </div>
+    </>
   );
 }
 

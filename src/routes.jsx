@@ -1,6 +1,5 @@
-import Layout from '@components/layout';
 import { createBrowserRouter } from 'react-router-dom';
-import First from '@pages/user/First';
+import Layout from '@components/layout';
 import Login from '@pages/user/Login';
 import Signup from '@pages/user/Signup';
 import ErrorPage from '@pages/ErrorPage';
@@ -10,9 +9,10 @@ import PlayListNew from '@pages/playlist/PlayListNew';
 import PlayListDetail from '@pages/playlist/PlayListDetail';
 import Empty from '@pages/playlist/Empty';
 import Musicplayer from '@components/Musicplayer';
-import Mainpage from '@pages/playlist/Mainpage';
 import SearchYoutube from '@youtube/SearchYoutube';
 import ThemeList from '@pages/playlist/themeList';
+import Mainpage from '@pages/Mainpage';
+import First from '@pages/user/First';
 
 const router = createBrowserRouter([
   {

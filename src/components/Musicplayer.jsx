@@ -108,7 +108,7 @@ function MusicPlayer() {
   };
 
   return (
-    <div className={styles.musicWrap}>
+    <>
       <ButtonBack path={`/playlist/${_id}`}></ButtonBack>
       {!item && !error && <Loading />}
       {item && (
@@ -266,7 +266,7 @@ function MusicPlayer() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
