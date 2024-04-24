@@ -12,12 +12,10 @@ function Layout() {
   };
 
   useEffect(() => {
-    // darkMode 상태 변경에 따라 배경색을 변경
     const root = document.getElementById('root');
     root.style.backgroundColor = darkMode ? '#333' : '#fff';
 
-    // 아이콘 변경
-    setIcon(prevIcon => (darkMode ? <FiMoon /> : <FiSun />));
+    setIcon(darkMode ? <FiMoon /> : <FiSun />);
   }, [darkMode]);
 
   return (
@@ -27,7 +25,7 @@ function Layout() {
     >
       <button className={styles.btntheme} onClick={toggleDarkMode}>
         {icon}
-      </button>{' '}
+      </button>
       {/* 아이콘 표시 */}
       <Outlet />
     </div>
