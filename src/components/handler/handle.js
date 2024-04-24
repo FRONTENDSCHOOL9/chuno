@@ -1,5 +1,5 @@
-export const handlePlayPause = (isPlaying, setIsPlaying) => {
-  setIsPlaying(prevState => !prevState);
+export const handlePlayPause = () => {
+  setIsPlaying(prevIsPlaying => !prevIsPlaying);
 };
 
 export const handleSeekChange = (e, playerRef) => {

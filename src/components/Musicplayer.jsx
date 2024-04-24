@@ -7,7 +7,6 @@ import {
   handlePlayPause,
   handleSeekChange,
   handlePrevClick,
-  handleNextClick,
   handleProgress,
   handleVolumeChange,
   toggleVolumeControl,
@@ -59,6 +58,18 @@ function MusicPlayer() {
     }
   }, [volume]);
 
+  useEffect(() => {
+    const player = playerRef.current;
+    if (player) {
+      player.seekTo(0);
+      setIsPlaying(true);
+    }
+  }, [currentVideoIndex]);
+
+  useEffect(() => {
+    setIsPlaying(true); // 페이지에 진입할 때 자동 재생
+  }, []); // 빈 배열을 넣어 한 번만 실행되도록 설정
+
   const toggleListBox = () => {
     setListBoxOpen(!isListBoxOpen);
   };
@@ -72,6 +83,12 @@ function MusicPlayer() {
     }
   };
   const changechar = /[^\w\s]/gi;
+
+  const handleVideoEnd = () => {
+    setCurrentVideoIndex(prevIndex =>
+      prevIndex === item.extra.music.length - 1 ? 0 : prevIndex + 1,
+    );
+  };
 
   return (
     <>
@@ -90,14 +107,10 @@ function MusicPlayer() {
           />
           <div className={styles.playerWrapper}>
             <ReactPlayer
-              // ref={playerRef}
+              ref={playerRef}
               className={styles.reactPlayer}
-              playing={!isPlaying}
-              url={
-                item
-                  ? `https://youtube.com/embed/${item.extra.music[currentVideoIndex].id}`
-                  : ''
-              }
+              playing={isPlaying}
+              url={`https://youtube.com/embed/${item.extra.music[currentVideoIndex].id}`}
               width="0"
               height="0"
               controls={false}
@@ -105,6 +118,7 @@ function MusicPlayer() {
                 handleProgress(state, setPlayedSeconds, setDuration)
               }
               volume={volume}
+              onEnded={handleVideoEnd}
             />
           </div>
           <h3 className={styles.songTitle}>
@@ -146,10 +160,10 @@ function MusicPlayer() {
 
               <button
                 onClick={() =>
-                  handleNextClick(
-                    item?.extra?.music,
-                    currentVideoIndex,
-                    setCurrentVideoIndex,
+                  setCurrentVideoIndex(prevIndex =>
+                    prevIndex === item.extra.music.length - 1
+                      ? 0
+                      : prevIndex + 1,
                   )
                 }
               >
