@@ -21,7 +21,7 @@ function Keywords({ selectedValues, onClick }) {
         '집중해용',
         '멍때려용',
         '화가나용',
-        '내꿈꿔용 ',
+        '내꿈꿔용',
         '움직여용',
       ].map(value => (
         <div
