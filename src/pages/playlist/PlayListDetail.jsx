@@ -25,9 +25,9 @@ function PlayListDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  function escapeSpecialCharacters(str) {
+  const escapeSpecialCharacters = str => {
     return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
-  }
+  };
 
   const fetchData = async () => {
     try {
