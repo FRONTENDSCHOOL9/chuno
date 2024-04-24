@@ -35,15 +35,15 @@ function Mainpage() {
         <span className={styles.miniTitle}>주인장 PICK!</span>
         <h2 className={styles.bodyText}>추천 플레이리스트</h2>
         <div className={styles.recommendList}>
-          <Recommendlistitem theme={'리듬타용'} value={'broken'} />
-          <Recommendlistitem theme={'놀러가용'} value={'exercise'} />
+          <Recommendlistitem theme={'리듬타용'} value={'rythmn'} />
+          <Recommendlistitem theme={'놀러가용'} value={'play'} />
           <Recommendlistitem theme={'행복해용'} value={'happy'} />
           <Recommendlistitem theme={'우울해용'} value={'sad'} />
           <Recommendlistitem theme={'집중해용'} value={'conp'} />
-          <Recommendlistitem theme={'멍때려용'} value={'love'} />
+          <Recommendlistitem theme={'멍때려용'} value={'mung'} />
           <Recommendlistitem theme={'화가나용'} value={'anger'} />
-          <Recommendlistitem theme={'내꿈꿔용'} value={'anger'} />
-          <Recommendlistitem theme={'움직여용'} value={'anger'} />
+          <Recommendlistitem theme={'내꿈꿔용'} value={'dream'} />
+          <Recommendlistitem theme={'움직여용'} value={'act'} />
         </div>
       </div>
       <div className={styles.contents}>
