@@ -1,7 +1,3 @@
-export const handlePlayPause = () => {
-  setIsPlaying(prevIsPlaying => !prevIsPlaying);
-};
-
 export const handleSeekChange = (e, playerRef) => {
   const seekTo = parseFloat(e.target.value);
   playerRef.current.seekTo(seekTo, 'seconds');

@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube';
 import styles from './styles/musicplayer.module.css';
 import {
-  handlePlayPause,
   handleSeekChange,
   handlePrevClick,
   handleProgress,
@@ -23,7 +22,7 @@ function MusicPlayer() {
   const playerRef = useRef(null);
 
   const axios = useCustomAxios();
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [playedSeconds, setPlayedSeconds] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.5);
@@ -67,11 +66,15 @@ function MusicPlayer() {
   }, [currentVideoIndex]);
 
   useEffect(() => {
-    setIsPlaying(true); // 페이지에 진입할 때 자동 재생
-  }, []); // 빈 배열을 넣어 한 번만 실행되도록 설정
+    setIsPlaying(true); // 최초 렌더링 시 재생 상태로 변경
+  }, []);
 
   const toggleListBox = () => {
     setListBoxOpen(!isListBoxOpen);
+  };
+
+  const escapeSpecialCharacters = str => {
+    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
   };
 
   const handleSongSelect = videoId => {
@@ -82,14 +85,19 @@ function MusicPlayer() {
       setCurrentVideoIndex(selectedIndex);
     }
   };
-  const escapeSpecialCharacters = str => {
-    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
-  };
 
   const handleVideoEnd = () => {
     setCurrentVideoIndex(prevIndex =>
       prevIndex === item.extra.music.length - 1 ? 0 : prevIndex + 1,
     );
+  };
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handlePause = () => {
+    setIsPlaying(false);
   };
 
   return (
@@ -152,11 +160,11 @@ function MusicPlayer() {
                 <img className={styles.prev} src={prevIcon} alt="" />
               </button>
 
-              <button onClick={() => handlePlayPause(isPlaying, setIsPlaying)}>
+              <button onClick={isPlaying ? handlePause : handlePlay}>
                 {isPlaying ? (
-                  <img src={pauseIcon} className={styles.pause} />
-                ) : (
                   <img src={playIcon} className={styles.play} />
+                ) : (
+                  <img src={pauseIcon} className={styles.pause} />
                 )}
               </button>
 
