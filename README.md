@@ -94,7 +94,7 @@
 
 ## 화면 구성
 
--
+<img src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/cc28aba2-be90-4194-be9e-fd5347abfeb8.gif">
 
 ## 소감 한 마디
 
