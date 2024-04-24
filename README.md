@@ -96,10 +96,8 @@
 <div>
  <img style="width: 400px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/63d60ea5-3bf5-4cb2-b0de-d19655b9722a.gif">
  <img style="width: 400px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/6333cc6a-8c03-4121-aac2-8228311a2ed3.gif">
-</div>
-<div>
- <img style="width: 350px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/137178966/352af067-06ef-4acb-9d6e-02a987de1025.gif">
- <img style="width: 350px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/728e6a1b-9980-4305-8152-21590edcefd.gif">
+ <img style="width: 400px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/137178966/352af067-06ef-4acb-9d6e-02a987de1025.gif">
+ <img style="width: 400px;" src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/728e6a1b-9980-4305-8152-21590edcefd9.gif">
 </div>
 
 <br>
