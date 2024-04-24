@@ -10,7 +10,9 @@
 
 ## 배포주소
 
-- **[CHUNO](https://chuno9.netlify.app/)**
+ 🌐 배포 URL : **[CHUNO](https://chuno9.netlify.app/)**  
+ 🆔 ID : dragon@test.com / PW : 11111111
+
 
 <br>
 
