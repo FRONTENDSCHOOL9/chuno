@@ -9,9 +9,14 @@
 .musicMainCover {
   width: 100%;
   aspect-ratio: 16/9;
-  margin: 20px 0;
+  margin: 20px -20px;
   background-color: var(--color-main);
   overflow: hidden;
+}
+
+.currentbox {
+  border: 1px solid red;
+  background-color: red;
 }
 
 .currentPlay {
@@ -78,9 +83,14 @@
   accent-color: var(--color-main);
 }
 
+.volumeRa input {
+  width: 50px;
+}
+
 .musicplayerWrap {
   margin-bottom: auto;
   height: 100%;
+  padding: 0 20px;
 }
 
 .musicWrap {
@@ -171,5 +181,17 @@
     background-color: var(--color-white);
     margin-right: 20px;
     border-radius: 8px;
+  }
+}
+
+@media (max-width: 450px) {
+  .volumes {
+    display: none;
+  }
+  .defaultControl {
+    margin: 0 auto;
+  }
+  .musicControl {
+    margin: 20px 30px;
   }
 }
