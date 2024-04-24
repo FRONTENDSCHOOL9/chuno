@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import Recommendlistitem from '@components/Recommendlistitem';
 import Header from '@components/layout/Header';
-import styles from '@components/styles/mainpage.module.css';
+import styles from './mainpage.module.css';
 import PlayListItem from '@pages/playlist/PlayListItem';
 
 function Mainpage() {
@@ -49,7 +49,7 @@ function Mainpage() {
       <div className={styles.contents}>
         <div className={styles.pickTop}>
           <div>
-            <span className={styles.miniTitle}>Most Pick!</span>
+            <span className={styles.miniTitle}>NEW!</span>
             <h2 className={styles.bodyText}>최신 업데이트</h2>
           </div>
           <Link to={'/playlist'} className={styles.moreBtn}>

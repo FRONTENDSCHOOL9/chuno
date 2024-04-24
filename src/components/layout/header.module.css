@@ -6,6 +6,7 @@
 
 .navWrap {
   display: flex;
+  justify-content: space-between;
   position: relative;
 }
 
@@ -22,15 +23,22 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  & span {
+    color: var(--color-main);
+    white-space: nowrap;
+  }
 }
 
 /* right start */
-
+.rightWrap {
+  display: flex;
+  align-items: center;
+}
 .mainHeaderRight {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-left: auto;
+  justify-content: flex-end;
 }
 
 .mainHeaderRight .roundedFull {

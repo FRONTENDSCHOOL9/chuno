@@ -48,14 +48,12 @@ function Header() {
                 fill="#619AE0"
               />
             </svg>
-            <div>
-              <span>함께들어龍</span>
-            </div>
+            <span>함께들어龍</span>
           </Link>
         </div>
-        <div className={styles.mainHeaderRight}>
+        <div className={styles.rightWrap}>
           {user ? (
-            <div>
+            <div className={styles.mainHeaderRight}>
               <Link to={`/users/${user._id}`} className={styles.mainHeaderUser}>
                 <div>
                   <img
