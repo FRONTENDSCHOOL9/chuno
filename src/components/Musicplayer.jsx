@@ -66,6 +66,13 @@ function MusicPlayer() {
   }, [currentVideoIndex]);
 
   useEffect(() => {
+    const player = playerRef.current;
+    if (player) {
+      setDuration(player.getDuration());
+    }
+  }, [duration]);
+
+  useEffect(() => {
     setIsPlaying(true); // 최초 렌더링 시 재생 상태로 변경
   }, []);
 
