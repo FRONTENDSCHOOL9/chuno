@@ -32,9 +32,8 @@ a:hover {
     }
   }
 
-
   .pageName h2 {
-    color: var(--color-333030);
+    color: var(--color-main);
   }
 
   /*  */
