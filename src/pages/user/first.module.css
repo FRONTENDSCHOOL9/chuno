@@ -1,31 +1,41 @@
 @import url(../colorVaration.css);
 
 .firstPage {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
-  overflow: hidden;
+
+  & Button {
+    font-size: 0.9rem;
+    max-width: 400px;
+    color: var(--color-white);
+    width: 100%;
+    border-radius: 8px;
+    line-height: unset;
+    padding: 10px 0;
+    font-weight: 500;
+  }
 }
 
-.firstPage Button {
-  font-size: 0.9rem;
-  max-width: 400px;
-  color: var(--color-white);
-  width: 100%;
-  border-radius: 8px;
-  line-height: unset;
-  padding: 10px 0;
-  font-weight: 500;
-}
-
-Button.login {
+.firstPage Button.login {
   color: var(--color-111);
   background: var(--color-white);
   margin-top: 40px;
   margin-bottom: 8px;
+}
+
+.loginSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  max-width: 500px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 Button.signup {
@@ -58,16 +68,9 @@ Button.signup {
   position: absolute;
   left: 0;
   right: 0;
+  bottom: 0;
   z-index: -1;
-  height: 400px;
-  bottom: -40px;
-}
-.waveWrapperInner {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  height: 100%;
-  bottom: -10px;
+  height: 260px;
 }
 .bgTop {
   z-index: 15;
@@ -90,7 +93,7 @@ Button.signup {
   transform-origin: center bottom;
 }
 .waveTop {
-  background-size: 50% 100px;
+  background-size: 50% 200px;
 }
 .waveAnimation .waveTop {
   animation: move-wave 3s;
