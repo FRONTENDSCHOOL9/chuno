@@ -93,8 +93,11 @@
 <br>
 
 ## 화면 구성
+<div>
+ <img src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/63d60ea5-3bf5-4cb2-b0de-d19655b9722a.gif">
+</div>
 
-<img src="https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/cc28aba2-be90-4194-be9e-fd5347abfeb8.gif">
+<br>
 
 ## 소감 한 마디
 
