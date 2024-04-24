@@ -177,7 +177,6 @@
   }
 }
 
-
 @media (max-width: 450px) {
   .volumes {
     display: none;
@@ -190,5 +189,8 @@
   }
   .controlerWapper {
     padding: 0 20px;
+  }
+  .musicWrap {
+    height: 100%;
   }
 }

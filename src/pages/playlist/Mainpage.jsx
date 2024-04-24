@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-import Recommendlistitem from './Recommendlistitem';
-import Header from './layout/Header';
-import styles from './styles/mainpage.module.css';
+import Recommendlistitem from '@components/Recommendlistitem';
+import Header from '@components/layout/Header';
+import styles from '@components/styles/mainpage.module.css';
 import PlayListItem from '@pages/playlist/PlayListItem';
 
 function Mainpage() {
