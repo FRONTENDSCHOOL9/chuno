@@ -1,3 +1,4 @@
+// 새로운 게시물(플레이 리스트) 등록 부분
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -109,10 +110,10 @@ function PlayListNew() {
           <textarea
             id="content"
             rows="15"
-            placeholder="내용을 입력하세요."
+            placeholder="10글자 이상 입력해주세요."
             className={styles}
             {...register('content', {
-              required: '내용을 입력하세요.',
+              required: '10글자 이상 입력해주세요.',
             })}
           />
         </div>

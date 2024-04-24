@@ -1,3 +1,4 @@
+// 게시물(플레이 리스트)를 하나씩 확인하는 부분
 import PropTypes from 'prop-types';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useEffect, useState } from 'react';

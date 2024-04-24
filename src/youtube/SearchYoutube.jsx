@@ -1,8 +1,8 @@
+// 유튜브 API 컨테이너 컴포넌트
 import { useState } from 'react';
 import styles from './youtube.module.css';
 import SearchResult from './SearchResult';
 import CreateList from '@youtube/CreateList';
-// import ReactPlayer from 'react-player';
 
 import axios from 'axios';
 
@@ -10,7 +10,6 @@ const API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(',');
 const MAX_API_KEYS = API_KEYS.length;
 
 function SearchYoutube() {
-  // const playerRef = useRef(null);
   const axiosInstance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3',
   });
@@ -115,20 +114,7 @@ function SearchYoutube() {
         handleVideoItemClick={handleVideoItemClick}
       />
 
-      {selectedVideos.length > 0 && (
-        <div className={styles.addedVideo}>
-          {/* <div className="playerWrapper">
-            <ReactPlayer
-              ref={playerRef}
-              className="reactPlayer"
-              url={`https://youtube.com/embed/${selectedVideos[currentVideoIndex]?.id}`}
-              width="0"
-              height="0"
-              controls={false}
-            />
-          </div> */}
-        </div>
-      )}
+      {selectedVideos.length > 0 && <div className={styles.addedVideo}></div>}
     </div>
   );
 }
