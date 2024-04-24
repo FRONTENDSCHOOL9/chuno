@@ -57,11 +57,11 @@ function PlayListDetail() {
 
   return (
     <>
-      <ButtonBack path={'/playlist'} />
       {isLoading && <Loading />} {/* 로딩 상태 표시 */}
       {error && <div>Error: {error.message}</div>}
       {item && (
         <section className={styles.detailWrap}>
+          <ButtonBack path={'/playlist'} />
           <div className={styles.titleWrap}>
             <div className={styles.titles}>
               <h3>{item.name}</h3>

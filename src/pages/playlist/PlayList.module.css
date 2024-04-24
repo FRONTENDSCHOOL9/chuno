@@ -104,26 +104,29 @@
 }
 
 .isScrolled {
-  position: sticky;
-  top: -30px;
   align-items: center;
   display: flex;
   justify-content: space-between;
   backdrop-filter: blur(10px);
-  margin: 0 -20px;
-  padding: 20px;
   z-index: 2;
 }
 
+.contSection {
+  margin-top: 80px;
+}
+
 .thumbnail {
-  background-color: var(--color-main);
   width: 50px;
   height: 50px;
   flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
   & img {
     width: 50px;
     height: 50px;
     display: block;
+    border-radius: 4px;
     aspect-ratio: 1/1;
   }
 }
@@ -176,12 +179,11 @@
 
 /* 상세보기 화면 */
 .detailWrap {
-  position: relative;
-  height: 100%;
-  padding-bottom: 20px;
+  margin-top: 20px;
 }
 
 .wrapList {
+  margin-top: 10px;
   & .listitemDetail {
     background: none;
   }
@@ -192,7 +194,7 @@
   align-items: center;
   position: relative;
   z-index: 9999;
-  margin: 0 10px;
+  padding: 10px;
   margin-top: 40px;
   background: rgba(100, 100, 100, 0.8);
   & .titles {
@@ -222,14 +224,13 @@
 
 .bgWrap {
   transform: scale(1.2);
-  margin-top: -110px;
+  margin-top: -120px;
   height: 500px;
-  overflow: hidden;
 }
 
 .thumbBg {
-  margin-top: -120px;
-  background: var(--color-ccc);
+  width: 100%;
+  background: var(--color-fff);
   z-index: -1;
 }
 
@@ -255,6 +256,7 @@
 
 .content {
   margin-top: -160px;
+  border-radius: 8px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -263,10 +265,10 @@
   margin-bottom: -20px;
   background: rgb(202, 233, 255);
   background: linear-gradient(
-    20eg,
-    rgba(202, 233, 255, 1) 0%,
-    rgba(253, 243, 255, 1) 50%,
-    rgba(244, 242, 252, 1) 100%
+    -50deg,
+    rgba(var(--gradient02-color01)) 0%,
+    rgba(var(--gradient02-color02)) 70%,
+    rgba(var(--gradient02-color03)) 100%
   );
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   & .description {
@@ -307,5 +309,7 @@
 @media (max-width: 450px) {
   .thumbBg {
     margin-top: -50px;
+    height: 100%;
+    width: auto;
   }
 }
