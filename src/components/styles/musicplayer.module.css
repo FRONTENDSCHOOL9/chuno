@@ -90,6 +90,7 @@
 }
 
 .musicWrap {
+  overflow-x: hiddden;
   display: flex;
   flex-direction: column;
   padding-bottom: 100px;
@@ -192,5 +193,6 @@
   }
   .musicWrap {
     height: 100%;
+    overflow: hidden;
   }
 }
