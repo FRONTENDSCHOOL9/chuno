@@ -24,28 +24,31 @@ function First() {
 
       <div className={styles.waveWrapper}>
         <div className={`${styles.waveWrapperInner} ${styles.bgTop}`}>
-          <div
-            className={`${styles.wave} ${styles.waveTop}`}
-            style={{
-              backgroundImage: "url('http://ruelline.co.kr/img/wave1.png')",
-            }}
-          ></div>
+          <div className={`${styles.wave} ${styles.waveTop}`}>
+            <img
+              src={`${import.meta.env.VITE_API_SERVER}/files/${
+                import.meta.env.VITE_CLIENT_ID
+              }/wave1.png`}
+            />
+          </div>
         </div>
         <div className={`${styles.waveWrapperInner} ${styles.bgMiddle}`}>
-          <div
-            className={`${styles.wave} ${styles.waveMiddle}`}
-            style={{
-              backgroundImage: "url('http://ruelline.co.kr/img/wave2.png')",
-            }}
-          ></div>
+          <div className={`${styles.wave} ${styles.waveMiddle}`}>
+            <img
+              src={`${import.meta.env.VITE_API_SERVER}/files/${
+                import.meta.env.VITE_CLIENT_ID
+              }/wave2.png`}
+            />
+          </div>
         </div>
         <div className={`${styles.waveWrapperInner} ${styles.bgBottom}`}>
-          <div
-            className={`${styles.wave} ${styles.waveBottom}`}
-            style={{
-              backgroundImage: "url('http://ruelline.co.kr/img/wave3.png')",
-            }}
-          ></div>
+          <div className={`${styles.wave} ${styles.waveBottom}`}>
+            <img
+              src={`${import.meta.env.VITE_API_SERVER}/files/${
+                import.meta.env.VITE_CLIENT_ID
+              }/wave3.png`}
+            />
+          </div>
         </div>
       </div>
     </div>

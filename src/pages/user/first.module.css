@@ -40,11 +40,17 @@ Button.signup {
   0% {
     transform: translateX(0) translateZ(0) scaleY(1);
   }
+  25% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.55);
+  }
   50% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+  75% {
     transform: translateX(-25%) translateZ(0) scaleY(0.55);
   }
   100% {
-    transform: translateX(-50%) translateZ(0) scaleY(1);
+    transform: translateX(0%) translateZ(0) scaleY(1);
   }
 }
 .waveWrapper {
@@ -89,19 +95,19 @@ Button.signup {
 .waveAnimation .waveTop {
   animation: move-wave 3s;
   -webkit-animation: move-wave 3s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
 }
 .waveMiddle {
   background-size: 50% 200px;
 }
 .waveAnimation .waveMiddle {
-  animation: move_wave 10s linear infinite;
+  animation: move_wave 20s linear infinite;
 }
 .waveBottom {
   background-size: 50% 150px;
 }
 .waveAnimation,
 .waveBottom {
-  animation: move_wave 15s linear infinite;
+  animation: move_wave 30s linear infinite;
 }
