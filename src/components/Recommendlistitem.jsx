@@ -11,7 +11,12 @@ function Recommendlistitem({ theme, value }) {
   return (
     <Link to={`/themelist/${theme}`} className={styles.recListItem}>
       <h3 className={styles.themeTitle}>{theme}</h3>
-      <img src={`http://ruelline.co.kr/img/${value}.jpg`} alt="" />
+      <img
+        src={`${import.meta.env.VITE_API_SERVER}/files/${
+          import.meta.env.VITE_CLIENT_ID
+        }/${value}.jpg`}
+        alt="테마별 이미지"
+      />
     </Link>
   );
 }
