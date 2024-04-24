@@ -10,7 +10,7 @@ import PlayListNew from '@pages/playlist/PlayListNew';
 import PlayListDetail from '@pages/playlist/PlayListDetail';
 import Empty from '@pages/playlist/Empty';
 import Musicplayer from '@components/Musicplayer';
-import Mainpage from '@components/Mainpage';
+import Mainpage from '@pages/playlist/Mainpage';
 import SearchYoutube from '@youtube/SearchYoutube';
 import ThemeList from '@pages/playlist/themeList';
 
