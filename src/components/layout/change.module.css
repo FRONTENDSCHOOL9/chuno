@@ -54,3 +54,9 @@
   color: #4e7cf3;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
+
+@media (max-width: 450px) {
+  .btntheme {
+    right: 10px;
+  }
+}
