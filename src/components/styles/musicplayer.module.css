@@ -19,7 +19,6 @@
   max-width: 800px;
   display: flex;
   align-items: center;
-  /* height: 72px; */
   overflow: hidden;
   padding-left: 20px;
 }
@@ -56,7 +55,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px 0;
   margin-left: 30px;
 }
 
@@ -80,6 +78,7 @@
 }
 
 .musicplayerWrap {
+  height: 100%;
   margin-top: 20px;
 }
 
@@ -96,7 +95,6 @@
   left: 0;
   right: 0;
   padding: 20px;
-  /* height: 80px; */
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(20px);
   color: var(--color-white);
@@ -145,8 +143,11 @@
 
 /* 리스트 아이템 */
 .songlist {
-  & .option {
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .songlistItem {
@@ -168,6 +169,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .songlist {
+    display: block;
+  }
+}
+
 @media (max-width: 450px) {
   .volumes {
     display: none;
@@ -182,7 +189,6 @@
     padding: 0 20px;
   }
   .musicWrap {
-    height: 100%;
     overflow: hidden;
   }
   .listBox {
