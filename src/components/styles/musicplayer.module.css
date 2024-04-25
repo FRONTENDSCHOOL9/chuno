@@ -3,6 +3,11 @@
 }
 
 /* 레이아웃과 위치 */
+
+.wrap {
+  margin-top: 20px;
+}
+
 .musicMainCover {
   width: 100%;
   aspect-ratio: 16/9;
