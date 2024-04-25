@@ -77,54 +77,56 @@ function PlayListNew() {
   };
 
   return (
-    <div className={styles.wrap}>
-      <ButtonBack path={'/playlist'} />
-      <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
-        <div className={styles.inputSection}>
-          <label htmlFor="name">제목</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="제목을 입력하세요."
-            className={styles.title}
-            {...register('name', {
-              required: '제목을 입력하세요.',
-            })}
-          />
-        </div>
-        <div className={styles.inputSection}>
-          <label htmlFor="mainImages">썸네일을 지정해주세요</label>
-          <input
-            type="file"
-            accept="image/*"
-            id="mainImages"
-            className={styles}
-            {...register('mainImages')}
-          />
-        </div>
-      </form>
-      <SearchYoutube></SearchYoutube>
-      <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
-        <div className={styles.inputSection}>
-          <label htmlFor="content">내용</label>
-          <textarea
-            id="content"
-            rows="15"
-            placeholder="10글자 이상 입력해주세요."
-            className={styles}
-            {...register('content', {
-              required: '10글자 이상 입력해주세요.',
-            })}
-          />
-        </div>
-        <div className={styles.inputSection}>
-          <Keywords selectedValues={selectedValues} onClick={handleClick} />
-        </div>
-        <div className={styles.inputSection}>
-          <Submit type="submit">등록 완료</Submit>
-        </div>
-      </form>
-    </div>
+    <>
+      <div className={styles.newWrap}>
+        <ButtonBack path={'/playlist'} />
+        <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
+          <div className={styles.inputSection}>
+            <label htmlFor="name">제목</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="제목을 입력하세요."
+              className={styles.title}
+              {...register('name', {
+                required: '제목을 입력하세요.',
+              })}
+            />
+          </div>
+          <div className={styles.inputSection}>
+            <label htmlFor="mainImages">썸네일을 지정해주세요</label>
+            <input
+              type="file"
+              accept="image/*"
+              id="mainImages"
+              className={styles}
+              {...register('mainImages')}
+            />
+          </div>
+        </form>
+        <SearchYoutube></SearchYoutube>
+        <form onSubmit={handleSubmit(onSubmit, { shouldFocusError: false })}>
+          <div className={styles.inputSection}>
+            <label htmlFor="content">내용</label>
+            <textarea
+              id="content"
+              rows="15"
+              placeholder="10글자 이상 입력해주세요."
+              className={styles}
+              {...register('content', {
+                required: '10글자 이상 입력해주세요.',
+              })}
+            />
+          </div>
+          <div className={styles.inputSection}>
+            <Keywords selectedValues={selectedValues} onClick={handleClick} />
+          </div>
+          <div className={styles.inputSection}>
+            <Submit type="submit">등록 완료</Submit>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 
