@@ -1,7 +1,10 @@
 @import url(colorVaration.css);
 
+.errorWrap {
+  height: 100%;
+}
 .errorPage {
-  margin-top: 100px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
