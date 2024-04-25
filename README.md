@@ -31,7 +31,7 @@
 
 <br>
 
-## 🧑‍💻개발자 소개
+## 🧑‍💻TEAM.NOL9
 
 |![ndh](https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/bec63b62-06a2-4166-aa9e-5c72fb6fdeb0)|![phj](https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/e8ebe5a3-7e33-4f53-90fd-5d147e069641)|![lwm](https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/fb41af84-2d33-4ecc-83c2-105db0d27860)|![kdh](https://github.com/FRONTENDSCHOOL9/chuno/assets/97140105/e214adc6-d114-411e-9786-bd1b05ea3a4d)|
 |:---:|:---:|:---:|:---:|
