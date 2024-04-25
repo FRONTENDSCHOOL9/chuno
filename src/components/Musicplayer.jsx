@@ -109,163 +109,167 @@ function MusicPlayer() {
 
   return (
     <>
-      <ButtonBack path={`/playlist/${_id}`}></ButtonBack>
-      {!item && !error && <Loading />}
-      {item && (
-        <div
-          className={`${styles.musicplayerWrap} ${
-            isListBoxOpen ? styles.overflow : ''
-          }`}
-        >
-          <img
-            className={styles.musicMainCover}
-            src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/maxresdefault.jpg`}
-            alt=""
-          />
-          <div className={styles.controlerWapper}>
-            <div className={styles.playerWrapper}>
-              <ReactPlayer
-                ref={playerRef}
-                className={styles.reactPlayer}
-                playing={isPlaying}
-                url={`https://youtube.com/embed/${item.extra.music[currentVideoIndex].id}`}
-                width="0"
-                height="0"
-                controls={false}
-                onProgress={state =>
-                  handleProgress(state, setPlayedSeconds, setDuration)
-                }
-                volume={volume}
-                onEnded={handleVideoEnd}
-              />
-            </div>
-            <h3 className={styles.songTitle}>
-              {escapeSpecialCharacters(
-                item.extra.music[currentVideoIndex].title,
-              )}
-            </h3>
-            <div>
-              <input
-                className={styles.seekBar}
-                type="range"
-                min={0}
-                max={duration}
-                step="any"
-                value={playedSeconds}
-                onChange={e => handleSeekChange(e, playerRef)}
-              />
-            </div>
-
-            <div className={styles.musicControl}>
-              <div className={styles.defaultControl}>
-                <button
-                  onClick={() =>
-                    handlePrevClick(
-                      item?.extra?.music,
-                      [currentVideoIndex],
-                      setCurrentVideoIndex,
-                    )
+      <div className={styles.wrap}>
+        <ButtonBack path={`/playlist/${_id}`}></ButtonBack>
+        {!item && !error && <Loading />}
+        {item && (
+          <div
+            className={`${styles.musicplayerWrap} ${
+              isListBoxOpen ? styles.overflow : ''
+            }`}
+          >
+            <img
+              className={styles.musicMainCover}
+              src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/maxresdefault.jpg`}
+              alt=""
+            />
+            <div className={styles.controlerWapper}>
+              <div className={styles.playerWrapper}>
+                <ReactPlayer
+                  ref={playerRef}
+                  className={styles.reactPlayer}
+                  playing={isPlaying}
+                  url={`https://youtube.com/embed/${item.extra.music[currentVideoIndex].id}`}
+                  width="0"
+                  height="0"
+                  controls={false}
+                  onProgress={state =>
+                    handleProgress(state, setPlayedSeconds, setDuration)
                   }
-                >
-                  <img className={styles.prev} src={prevIcon} alt="" />
-                </button>
-
-                <button onClick={isPlaying ? handlePause : handlePlay}>
-                  {isPlaying ? (
-                    <img src={playIcon} className={styles.play} />
-                  ) : (
-                    <img src={pauseIcon} className={styles.pause} />
-                  )}
-                </button>
-
-                <button
-                  onClick={() =>
-                    setCurrentVideoIndex(prevIndex =>
-                      prevIndex === item.extra.music.length - 1
-                        ? 0
-                        : prevIndex + 1,
-                    )
-                  }
-                >
-                  <img className={styles.next} src={nextIcon} alt="" />
-                </button>
-              </div>
-              <div className={styles.volumes}>
-                <button
-                  className={styles.btnVolume}
-                  onClick={() =>
-                    toggleVolumeControl(
-                      isVolumeControlOpen,
-                      setVolumeControlOpen,
-                    )
-                  }
-                >
-                  <img src={volumeIcon} alt="" />
-                </button>
-                {isVolumeControlOpen && (
-                  <div className={styles.volumeRa}>
-                    <input
-                      type="range"
-                      min={0}
-                      max={1}
-                      step="any"
-                      value={volume}
-                      onChange={e => handleVolumeChange(e, setVolume)}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {item && (
-        <div
-          className={`${styles.listBox} ${isListBoxOpen ? styles.fullBox : ''}`}
-          onClick={toggleListBox}
-        >
-          <div className={styles.curretbox}>
-            <h4 className={`${styles.songlistTitle} ${styles.titleFirst}`}>
-              재생중인 곡
-            </h4>
-            <div className={styles.currentPlay}>
-              <div className={styles.thumbnail}>
-                <img
-                  src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/default.jpg`}
-                  alt=""
+                  volume={volume}
+                  onEnded={handleVideoEnd}
                 />
               </div>
-              <h3>
+              <h3 className={styles.songTitle}>
                 {escapeSpecialCharacters(
                   item.extra.music[currentVideoIndex].title,
                 )}
               </h3>
-            </div>
-          </div>
-          <div className={styles.selectBox}>
-            <h4 className={`${styles.songlistTitle} ${styles.titleSecond}`}>
-              곡 목록
-            </h4>
-            <div className={styles.songlist}>
-              {item?.extra?.music.map((video, index) => (
-                <div
-                  className={styles.songlistItem}
-                  key={index}
-                  onClick={() => handleSongSelect(video.id)}
-                >
-                  <div className={styles.thumbnail}>
-                    <img
-                      src={`https://img.youtube.com/vi/${video.id}/default.jpg`}
-                      alt=""
-                    />
-                  </div>
-                  <h3>{video.title}</h3>
+              <div>
+                <input
+                  className={styles.seekBar}
+                  type="range"
+                  min={0}
+                  max={duration}
+                  step="any"
+                  value={playedSeconds}
+                  onChange={e => handleSeekChange(e, playerRef)}
+                />
+              </div>
+
+              <div className={styles.musicControl}>
+                <div className={styles.defaultControl}>
+                  <button
+                    onClick={() =>
+                      handlePrevClick(
+                        item?.extra?.music,
+                        [currentVideoIndex],
+                        setCurrentVideoIndex,
+                      )
+                    }
+                  >
+                    <img className={styles.prev} src={prevIcon} alt="" />
+                  </button>
+
+                  <button onClick={isPlaying ? handlePause : handlePlay}>
+                    {isPlaying ? (
+                      <img src={playIcon} className={styles.play} />
+                    ) : (
+                      <img src={pauseIcon} className={styles.pause} />
+                    )}
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      setCurrentVideoIndex(prevIndex =>
+                        prevIndex === item.extra.music.length - 1
+                          ? 0
+                          : prevIndex + 1,
+                      )
+                    }
+                  >
+                    <img className={styles.next} src={nextIcon} alt="" />
+                  </button>
                 </div>
-              ))}
+                <div className={styles.volumes}>
+                  <button
+                    className={styles.btnVolume}
+                    onClick={() =>
+                      toggleVolumeControl(
+                        isVolumeControlOpen,
+                        setVolumeControlOpen,
+                      )
+                    }
+                  >
+                    <img src={volumeIcon} alt="" />
+                  </button>
+                  {isVolumeControlOpen && (
+                    <div className={styles.volumeRa}>
+                      <input
+                        type="range"
+                        min={0}
+                        max={1}
+                        step="any"
+                        value={volume}
+                        onChange={e => handleVolumeChange(e, setVolume)}
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+        {item && (
+          <div
+            className={`${styles.listBox} ${
+              isListBoxOpen ? styles.fullBox : ''
+            }`}
+            onClick={toggleListBox}
+          >
+            <div className={styles.curretbox}>
+              <h4 className={`${styles.songlistTitle} ${styles.titleFirst}`}>
+                재생중인 곡
+              </h4>
+              <div className={styles.currentPlay}>
+                <div className={styles.thumbnail}>
+                  <img
+                    src={`https://img.youtube.com/vi/${item.extra.music[currentVideoIndex].id}/default.jpg`}
+                    alt=""
+                  />
+                </div>
+                <h3>
+                  {escapeSpecialCharacters(
+                    item.extra.music[currentVideoIndex].title,
+                  )}
+                </h3>
+              </div>
+            </div>
+            <div className={styles.selectBox}>
+              <h4 className={`${styles.songlistTitle} ${styles.titleSecond}`}>
+                곡 목록
+              </h4>
+              <div className={styles.songlist}>
+                {item?.extra?.music.map((video, index) => (
+                  <div
+                    className={styles.songlistItem}
+                    key={index}
+                    onClick={() => handleSongSelect(video.id)}
+                  >
+                    <div className={styles.thumbnail}>
+                      <img
+                        src={`https://img.youtube.com/vi/${video.id}/default.jpg`}
+                        alt=""
+                      />
+                    </div>
+                    <h3>{video.title}</h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

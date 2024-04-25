@@ -68,9 +68,17 @@
 
 /* 백 버튼 */
 .back {
+  padding: 5px;
   cursor: pointer;
   position: relative;
   z-index: 10;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* 완료 버튼 */
