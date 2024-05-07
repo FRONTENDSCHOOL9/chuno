@@ -34,6 +34,6 @@
 .recommendList {
   display: flex;
   flex-wrap: wrap;
-  justify-conetnt: center;
+  justify-content: center;
   gap: 16px;
 }
