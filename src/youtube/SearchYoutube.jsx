@@ -8,9 +8,7 @@ import axios from 'axios';
 // 초기 KEY값이랑 복사본 KEY값 생성
 const INITIAL_API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(','); // 초기 KEY 값
 // let으로 선언한 이유: 변수의 값을 변경하기 때문에(const는 불가능!)
-let API_KEYS = [...INITIAL_API_KEYS]; // 복사본 KEY값
-
-const MAX_API_KEYS = API_KEYS.length;
+let API_KEYS = [...INITIAL_API_KEYS]; // 복사본 KEY값, 이 것을 키 값으로 사용핳 것임
 
 function SearchYoutube() {
   const axiosInstance = axios.create({
@@ -54,9 +52,10 @@ function SearchYoutube() {
   const restoreKeys = () => {
     API_KEYS = [...INITIAL_API_KEYS]; // 초기 키 값으로 복구(이 부분 때문에 위에서 let을 쓴 것임)
   };
-
+  // 403 에러가 뜨면 가장 앞의 키 값을 제거함
   const selectNextKey = () => {
-    setCurrentKeyIndex(prevIndex => (prevIndex + 1) % MAX_API_KEYS);
+    API_KEYS = API_KEYS.slice(1); // 맨 앞의 키값을 삭제 하고 적용,
+    setCurrentKeyIndex(0); // 첫 번째 키를 현재 키 인덱스로 설정합니다.
   };
 
   const searchYoutube = async () => {
