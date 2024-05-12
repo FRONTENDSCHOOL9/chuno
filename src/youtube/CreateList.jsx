@@ -1,4 +1,4 @@
-// 선택한 음악 출력 부분
+// 선택한 노래를 출력하는 부분
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
 import { useRecoilState } from 'recoil';
