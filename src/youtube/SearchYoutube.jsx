@@ -1,12 +1,15 @@
 // 유튜브 API 컨테이너 컴포넌트
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './youtube.module.css';
 import SearchResult from './SearchResult';
 import CreateList from '@youtube/CreateList';
-
 import axios from 'axios';
 
-const API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(',');
+// 초기 KEY값이랑 복사본 KEY값 생성
+const INITIAL_API_KEYS = import.meta.env.VITE_YOUTUBE_API.split(','); // 초기 KEY 값
+// let으로 선언한 이유: 변수의 값을 변경하기 때문에(const는 불가능!)
+let API_KEYS = [...INITIAL_API_KEYS]; // 복사본 KEY값
+
 const MAX_API_KEYS = API_KEYS.length;
 
 function SearchYoutube() {
@@ -19,6 +22,38 @@ function SearchYoutube() {
   const [searchResult, setSearchResult] = useState([]);
   const [selectedVideos, setSelectedVideos] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  // 매일 오후 4시에 KEY값을 원래대로 초기화(초기 KEY 값으로 설정하는 코드)
+  useEffect(() => {
+    // setInterval 함수는 주어진 시간 간격마다 특정한 함수를 반복적으로 실행(JavaScript의 내장 함수)
+    const interval = setInterval(() => {
+      const current = new Date(); // 현재 시간을 나타냄
+
+      // 오후 4시를 계산 하는 식
+      // new Date(현재 연도,현재 월[0부터 시작(ex: 1월은 0)],현재날짜,시,분,초,밀리초)
+      const resetTime = new Date(
+        current.getFullYear(),
+        current.getMonth(),
+        current.getDate(),
+        16,
+        0,
+        0,
+        0,
+      ).getTime();
+      const currentTime = current.getTime();
+
+      // 현재 시간이 오후 4시와 동일하묜 키 값울 초기 값으로 리셋
+      if (currentTime === resetTime) {
+        restoreKeys();
+      }
+    }, 1000); // 1초 간격으로 체크
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const restoreKeys = () => {
+    API_KEYS = [...INITIAL_API_KEYS]; // 초기 키 값으로 복구(이 부분 때문에 위에서 let을 쓴 것임)
+  };
 
   const selectNextKey = () => {
     setCurrentKeyIndex(prevIndex => (prevIndex + 1) % MAX_API_KEYS);
