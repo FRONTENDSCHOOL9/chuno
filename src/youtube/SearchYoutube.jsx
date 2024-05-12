@@ -54,8 +54,8 @@ function SearchYoutube() {
   };
   // 403 에러가 뜨면 가장 앞의 키 값을 제거함
   const selectNextKey = () => {
-    API_KEYS = API_KEYS.slice(1); // 맨 앞의 키값을 삭제 하고 적용,
-    setCurrentKeyIndex(0); // 첫 번째 키를 현재 키 인덱스로 설정합니다.
+    API_KEYS = API_KEYS.slice(1); // 맨 앞의 키값을 삭제 하고 적용
+    setCurrentKeyIndex(0); // 첫 번째 키를 현재 키 인덱스로 설정
   };
 
   const searchYoutube = async () => {
