@@ -10,7 +10,8 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .mypageHeadTitle {
@@ -29,8 +30,8 @@
   align-items: center;
 }
 .profileWrap {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   overflow: hidden;
   border-radius: 50%;
   display: flex;
@@ -45,15 +46,52 @@
 
 .mypageBodyInput {
   width: 100%;
+  & input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: var(--color-eee);
+    border: 1px solid var(--color-ccc);
+    margin-bottom: 30px;
+    box-sizing: border-box;
+  }
 }
-.mypageBodyInput input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
+
+.mypageMarking {
   background-color: var(--color-eee);
   border: 1px solid var(--color-ccc);
-  margin-bottom: 30px;
   box-sizing: border-box;
+  border-radius: 6px;
+  height: 100px;
+  display: flex;
+  margin-bottom: 40px;
+  & li {
+    user-select: none;
+    height: 100px;
+    width: 100px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-main);
+    overflow: hidden;
+  }
+}
+
+.mypageMarkingNone {
+  background-color: var(--color-eee);
+  border: 1px solid var(--color-ccc);
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--color-333030);
+
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .mypageBodyHash {
@@ -63,7 +101,14 @@
 }
 
 .confirmButton {
-  margin-top: 50px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background-color: #7eaadb;
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  box-sizing: border-box;
 }
