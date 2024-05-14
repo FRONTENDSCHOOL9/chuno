@@ -6,9 +6,6 @@ import Header from '@components/layout/Header';
 import styles from './mainpage.module.css';
 import PlayListItem from '@pages/playlist/PlayListItem';
 
-/* swiper  추가시작 */
-// import React, { useRef } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -56,7 +53,7 @@ export default function Mainpage() {
             slidesPerView={3}
             spaceBetween={10}
             loop={true}
-            autoplay={{ delay: 1000 }} // 3초마다 슬라이드가 자동으로 전환됨
+            autoplay={{ delay: 500 }} // 3초마다 슬라이드가 자동으로 전환됨
             pagination={{
               clickable: true,
             }}
@@ -118,5 +115,3 @@ export default function Mainpage() {
     </>
   );
 }
-
-
