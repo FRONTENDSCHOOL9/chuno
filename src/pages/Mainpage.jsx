@@ -7,20 +7,26 @@ import styles from './mainpage.module.css';
 import PlayListItem from '@pages/playlist/PlayListItem';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 
 // import './styles.css';
 
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import {
+  // SwiperCore,
+  Pagination /* Scrollbar */,
+  // Autoplay,
+} from /* Autoplay  */ /* Navigation */ 'swiper/modules';
 
 /* swiper  import end */
 
 export default function Mainpage() {
+  // SwiperCore.use([Autoplay]);
+
   const axios = useCustomAxios();
   const [data, setData] = useState(null);
 
@@ -53,49 +59,79 @@ export default function Mainpage() {
             slidesPerView={3}
             spaceBetween={10}
             loop={true}
-            autoplay={{ delay: 500 }} // 3초마다 슬라이드가 자동으로 전환됨
+            autoplay={{ delay: 500, disableOnInteraction: false }}
             pagination={{
               clickable: true,
             }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
+            // scrollbar={{
+            //   hide: false,
+            // }}
+            // navigation={true}
+            modules={[Pagination]} /* Pagination, Navigation,Scrollbar */
             className={styles.mySwiper}
           >
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'리듬타용'} value={'rythmn'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'리듬타용'}
+                value={'rythmn'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'놀러가용'} value={'play'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'놀러가용'}
+                value={'play'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'행복해용'} value={'happy'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'행복해용'}
+                value={'happy'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'우울해용'} value={'sad'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'우울해용'}
+                value={'sad'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'집중해용'} value={'conp'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'집중해용'}
+                value={'conp'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'멍때려용'} value={'mung'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'멍때려용'}
+                value={'mung'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'화가나용'} value={'anger'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'화가나용'}
+                value={'anger'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'내꿈꿔용'} value={'dream'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'내꿈꿔용'}
+                value={'dream'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
-            <SwiperSlide>
-              {' '}
-              <Recommendlistitem theme={'움직여용'} value={'act'} />
+            <SwiperSlide className={styles.mySwiperList}>
+              <Recommendlistitem
+                theme={'움직여용'}
+                value={'act'}
+                className={styles.mySwiperItem}
+              />
             </SwiperSlide>
           </Swiper>
         </div>

@@ -26,10 +26,22 @@
   }
   & img {
     display: block;
-    height: 100%;
+    height: 105%;
   }
 }
 
+.recListItem:hover {
+  border: 4px solid var(--color-main);
+}
+.recListItem img {
+  /* transition: all 0.3s ease; */
+  z-index: -9999;
+}
+.recListItem:hover img {
+  transform: scale(1.05);
+  z-index: -9999;
+  /* hover 상태일 때 약간 확대합니다 */
+}
 @media (max-width: 450px) {
   .recListItem {
     & h3 {

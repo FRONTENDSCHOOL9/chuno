@@ -86,3 +86,27 @@ body {
   margin-right: auto;
 }
 
+.mySwiperList {
+  margin-bottom: 40px;
+  /* background-color: pink; */
+  /* border: 2px solid purple; */
+  color: red;
+  > .mySwiperItem {
+    border: 2px solid orange;
+  }
+}
+.swiper-pagination-bullet {
+  background-color: pink;
+  color: red;
+}
+
+.swiper-scrollbar-drag {
+  background-color: red;
+}
+.swiper-scrollbar {
+  background-color: blue;
+}
+
+.swiper-pagination-bullet.active {
+  background-color: red;
+}

@@ -149,7 +149,7 @@ function SearchYoutube() {
       <button
         onClick={searchYoutube}
         className={styles.playadd}
-        style={{ color: '#333030', fontSize: '16px' }}
+        style={{ color: 'black' }}
       >
         더보기
       </button>

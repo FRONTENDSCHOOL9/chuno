@@ -40,7 +40,7 @@
 }
 
 .playerList {
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,17 +72,18 @@
   font-size: 20px;
   color: var(--color-ccc);
   border-radius: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 .playadd:hover {
-  color: var(--color-a4a4a4);
+  color: var(--color-main);
 }
 
 .addedWrap {
-  margin: 20px 0;
+  margin: 10px 0 20px;
 }
 .addedNotice {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0 20px;
   color: var(--color-a4a4a4);
 }
 .list {
@@ -122,9 +123,43 @@
   background: var(--color-white);
   justify-content: center;
   align-items: center;
-  height: 20px;
-  width: 21px;
+  height: 30px;
+  min-width: 30px;
+  aspect-ratio: 1/1;
   line-height: -1;
   & span {
+  }
+}
+.listDeleteButton:hover {
+  color: var(--color-main);
+}
+
+@media (max-width: 600px) {
+  .wrapPlayer {
+    display: block;
+    width: 100%;
+  }
+  .playerList {
+    width: 98%;
+    flex-direction: row;
+    margin-bottom: 10px;
+    .resultVideo {
+      width: 30%;
+    }
+    .playadd {
+      width: 30px;
+      height: 30px;
+      aspect-ratio: 1/1;
+      margin: 0 0 0 auto;
+      border-radius: 50%;
+    }
+    .listName {
+      font-size: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
