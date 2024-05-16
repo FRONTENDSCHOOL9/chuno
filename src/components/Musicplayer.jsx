@@ -162,9 +162,12 @@ function MusicPlayer() {
                   value={playedSeconds}
                   onChange={e => handleSeekChange(e, playerRef)}
                 />
+                {/* 현재 진행 시간 */}
                 <time dateTime="P1S">{formatTime(playedSeconds)}</time>
-                {/**FIXME -  밀리초인듯 */}
-                <time dateTime="P1S">{formatTime(duration)}</time>
+                {/* 전체 재생 시간 */}
+                <time dateTime="P1S" className={styles.totalTime}>
+                  {formatTime(duration)}
+                </time>
               </div>
 
               <div className={styles.musicControl}>

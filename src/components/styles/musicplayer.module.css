@@ -167,6 +167,10 @@
   }
 }
 
+.totalTime {
+  float: right;
+}
+
 @media (max-width: 768px) {
   .songlist {
     display: block;
