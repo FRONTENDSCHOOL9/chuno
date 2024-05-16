@@ -69,11 +69,7 @@ function SearchYoutube() {
           type: 'video',
         },
       });
-      // 이전 검색 결과와 새로운 검색 결과를 합침
-      setSearchResult(prevSearchResults => [
-        ...prevSearchResults,
-        ...response.data.items,
-      ]);
+      setSearchResult(response.data.items);
     } catch (error) {
       console.error('Error searching YouTube:', error);
       if (error.response && error.response.status === 403) {
@@ -144,15 +140,7 @@ function SearchYoutube() {
         searchResult={searchResult}
         handleAddButtonClick={handleAddButtonClick}
       />
-      {/* 더 보기 버튼 생성 (팀원 분들께 CSS 꼭여쭤보기) */}
-      <br></br>
-      <button
-        onClick={searchYoutube}
-        className={styles.playadd}
-        style={{ color: 'black' }}
-      >
-        더보기
-      </button>
+
       <CreateList
         setSelectedVideos={selectedVideos}
         selectedVideos={selectedVideos}
