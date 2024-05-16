@@ -1,0 +1,21 @@
+meta {
+  name: 회원 삭제
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{url}}/users/2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "phone": "01011112222"
+  }
+}

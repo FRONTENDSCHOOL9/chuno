@@ -1,0 +1,23 @@
+meta {
+  name: 상품 북마크 하기
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/bookmarks
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "user_id": 4,
+      "product_id": 5,
+      "memo": "아빠 생신 선물로 사야지"
+  }
+}

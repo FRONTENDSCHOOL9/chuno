@@ -107,6 +107,12 @@ function MusicPlayer() {
     setIsPlaying(false);
   };
 
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    seconds = Math.floor(seconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
+
   return (
     <>
       <div className={styles.wrap}>
@@ -140,6 +146,7 @@ function MusicPlayer() {
                   onEnded={handleVideoEnd}
                 />
               </div>
+              <span>{}</span>
               <h3 className={styles.songTitle}>
                 {escapeSpecialCharacters(
                   item.extra.music[currentVideoIndex].title,
@@ -155,6 +162,9 @@ function MusicPlayer() {
                   value={playedSeconds}
                   onChange={e => handleSeekChange(e, playerRef)}
                 />
+                <time dateTime="P1S">{formatTime(playedSeconds)}</time>
+                {/**FIXME -  밀리초인듯 */}
+                <time dateTime="P1S">{formatTime(duration)}</time>
               </div>
 
               <div className={styles.musicControl}>
