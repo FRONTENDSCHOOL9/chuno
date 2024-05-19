@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player/youtube';
 import styles from './styles/musicplayer.module.css';
 import {
   handleSeekChange,
-  handlePrevClick,
+  // handlePrevClick,
   handleProgress,
   handleVolumeChange,
   toggleVolumeControl,
@@ -29,6 +29,7 @@ function MusicPlayer() {
   const [isListBoxOpen, setListBoxOpen] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isVolumeControlOpen, setVolumeControlOpen] = useState(false);
+  const [isRandom, setIsRandom] = useState(false);
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const { _id } = useParams();
@@ -93,9 +94,14 @@ function MusicPlayer() {
     }
   };
 
+  // 다음 노래를 선택하는 함수 (랜덤으로 선택함)
   const handleVideoEnd = () => {
     setCurrentVideoIndex(prevIndex =>
-      prevIndex === item.extra.music.length - 1 ? 0 : prevIndex + 1,
+      isRandom
+        ? Math.floor(Math.random() * item.extra.music.length)
+        : prevIndex === item.extra.music.length - 1
+        ? 0
+        : prevIndex + 1,
     );
   };
 
@@ -105,6 +111,72 @@ function MusicPlayer() {
 
   const handlePause = () => {
     setIsPlaying(false);
+  };
+
+  // `재생목록`에서 노래를 랜덤으로 선택
+  const handleRandomPlay = () => {
+    setCurrentVideoIndex(Math.floor(Math.random() * item.extra.music.length));
+  };
+  // 이전곡
+  const handlePrevClick = () => {
+    setCurrentVideoIndex(prevIndex =>
+      isRandom
+        ? Math.floor(Math.random() * item.extra.music.length)
+        : prevIndex === 0
+        ? item.extra.music.length - 1
+        : prevIndex - 1,
+    );
+  };
+  // 다음곡
+  const handleNextClick = () => {
+    setCurrentVideoIndex(prevIndex =>
+      isRandom
+        ? Math.floor(Math.random() * item.extra.music.length)
+        : prevIndex === item.extra.music.length - 1
+        ? 0
+        : prevIndex + 1,
+    );
+  };
+
+  // 랜덤 재생 모드를 토글
+  const toggleRandom = () => {
+    setIsRandom(!isRandom);
+  };
+
+  // 10초 전으로 이동하는 함수
+  const handleBackward10 = () => {
+    const newTime = playedSeconds - 10;
+    if (newTime >= 0) {
+      setPlayedSeconds(newTime);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(newTime);
+      }
+    } else {
+      setPlayedSeconds(0);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(0);
+      }
+    }
+  };
+
+  // 10초 후로 이동하는 함수
+  const handleForward10 = () => {
+    const newTime = playedSeconds + 10;
+    if (newTime <= duration) {
+      setPlayedSeconds(newTime);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(newTime);
+      }
+    } else {
+      setPlayedSeconds(duration);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(duration);
+      }
+    }
   };
 
   function formatTime(seconds) {
@@ -172,15 +244,7 @@ function MusicPlayer() {
 
               <div className={styles.musicControl}>
                 <div className={styles.defaultControl}>
-                  <button
-                    onClick={() =>
-                      handlePrevClick(
-                        item?.extra?.music,
-                        [currentVideoIndex],
-                        setCurrentVideoIndex,
-                      )
-                    }
-                  >
+                  <button onClick={handlePrevClick}>
                     <img className={styles.prev} src={prevIcon} alt="" />
                   </button>
 
@@ -192,17 +256,23 @@ function MusicPlayer() {
                     )}
                   </button>
 
-                  <button
-                    onClick={() =>
-                      setCurrentVideoIndex(prevIndex =>
-                        prevIndex === item.extra.music.length - 1
-                          ? 0
-                          : prevIndex + 1,
-                      )
-                    }
-                  >
+                  <button onClick={handleNextClick}>
                     <img className={styles.next} src={nextIcon} alt="" />
                   </button>
+
+                  <button
+                    onClick={() => {
+                      toggleRandom();
+                      handleRandomPlay();
+                    }}
+                    className={isRandom ? styles.active : ''}
+                  >
+                    {/* 랜덤 재생 모드인 경우 '랜덤 재생 중'으로 표시 */}
+                    {isRandom ? '랜덤 재생 O' : '랜덤 재생 X'}
+                  </button>
+
+                  <button onClick={handleBackward10}>10초전</button>
+                  <button onClick={handleForward10}>10초후</button>
                 </div>
                 <div className={styles.volumes}>
                   <button
