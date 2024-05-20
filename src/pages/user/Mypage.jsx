@@ -8,8 +8,6 @@ import { useRecoilState } from 'recoil';
 import { memberState } from '@recoil/user/atoms.mjs';
 import Bookmark from '@pages/user/Bookmark';
 
-//FIXME - fetch 이용해서 회원정보 수정
-
 function Mypage() {
   const axios = useCustomAxios();
   const [userData, setUserData] = useState(null);
@@ -42,14 +40,21 @@ function Mypage() {
   }, []);
 
   const [disabled, setDisabled] = useState(true);
-  const toggleDisabled = () => {
+
+  const toggleDisabled = async () => {
     if (disabled) {
       alert('이제 정보를 수정할 수 있습니다.');
       setDisabled(!disabled);
     } else {
       //ANCHOR - 회원 정보 수정 기능 통신 삽입 예정.
-      alert('작성하신 내용으로 회원 정보를 변경합니다.');
-      setDisabled(!disabled);
+      try {
+        /* const res = await axios.patch(`/users/${user._id}`, formData); */
+
+        alert('작성하신 내용으로 회원 정보를 변경합니다.');
+        setDisabled(!disabled);
+      } catch (error) {
+        console.error('Error updating data:', error);
+      }
     }
   };
 
@@ -68,7 +73,11 @@ function Mypage() {
           <img src={profileImage} alt="유저 프로필 이미지" />
         </div>
 
-        <form className={styles.mypageBodyInput} action="">
+        <form
+          /*  onSubmit={handleFormSubmit} */
+          className={styles.mypageBodyInput}
+          action=""
+        >
           <h3 className={styles.mypageBodyStitle}>닉네임</h3>
           <input
             type="text"
@@ -81,15 +90,7 @@ function Mypage() {
             type="text"
             placeholder={userData?.email || 'Email'}
             autoComplete="email"
-            disabled={disabled}
-          />
-
-          <h3 className={styles.mypageBodyStitle}>비밀번호</h3>
-          <input
-            type="password"
-            placeholder={userData?.password ? '••••••••' : 'Password'}
-            autoComplete="new-password"
-            disabled={disabled}
+            disabled
           />
         </form>
         <form className={styles.mypageBodyInput}>
