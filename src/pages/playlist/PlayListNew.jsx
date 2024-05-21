@@ -99,7 +99,7 @@ function PlayListNew() {
               type="file"
               accept="image/*"
               id="mainImages"
-              className={styles}
+              className={styles.title}
               {...register('mainImages')}
             />
           </div>
@@ -112,7 +112,7 @@ function PlayListNew() {
               id="content"
               rows="15"
               placeholder="10글자 이상 입력해주세요."
-              className={styles}
+              className={styles.title}
               {...register('content', {
                 required: '10글자 이상 입력해주세요.',
               })}

@@ -49,13 +49,15 @@ a:hover {
     }
     & input {
       /* 입력칸을 자동완성해도 input의 배경색이 변하지 않도록 해주는 코드 두 줄 */
-      box-shadow: 0 0 0 1000px var(--color-eee) inset;
-      background-color: var(--color-eee);
-      border: solid 2px var(--color-ccc);
+      /* box-shadow: 0 0 0 1000px var(--color-eee) inset; */
+      box-shadow: 0 0 0 1000px var(--color-white) inset;
+      /* background-color: var(--color-eee); */
+      /* border: solid 2px var(--color-ccc); */
+      border: none;
       border-radius: 8px;
       padding: 10px;
       &:focus {
-        border: solid 2px;
+        outline: solid 2px;
         outline-color: var(--color-main);
       }
     }
@@ -90,9 +92,10 @@ a:hover {
   }
   & span {
     position: absolute;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
     right: 10px;
+    cursor: pointer;
   }
 }
 .btnAuth {
@@ -103,16 +106,18 @@ a:hover {
   margin-top: 50px;
   & button {
     background-color: var(--color-main);
-    border: solid 2px var(--color-main);
+    border: solid 1px var(--color-main);
     border-radius: 8px;
     color: var(--color-white);
+    transition: all 0.2s;
+    font-weight: bolder;
   }
   & a {
     text-align: center;
     font-weight: bolder;
     padding: 10px 0;
     background-color: var(--color-eee);
-    border: solid 2px var(--color-ccc);
+    border: solid 1px var(--color-ccc);
     border-radius: 8px;
   }
 }

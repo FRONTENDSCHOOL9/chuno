@@ -5,13 +5,7 @@
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 12px;
-  background: rgb(202, 233, 255);
-  background: linear-gradient(
-    -50deg,
-    rgba(var(--gradient02-color01)) 0%,
-    rgba(var(--gradient02-color02)) 70%,
-    rgba(var(--gradient02-color03)) 100%
-  );
+  background: var(--color-blackwhite01);
 
   & .itemInformation {
     display: flex;
@@ -22,10 +16,13 @@
     display: flex;
     gap: 10px;
     & span {
-      padding: 5px 20px;
+      padding: 4px 16px;
       background: var(--color-white);
       border-radius: 20px;
-      font-size: 14px;
+      font-size: 13px;
+      border: 1px solid var(--color-main);
+      font-weight: bold;
+      color: var(--color-main);
     }
   }
   & .desc {
@@ -41,11 +38,12 @@
       white-space: nowrap;
       max-width: 500px;
       min-width: 100px;
+      color: var(--color-333030);
     }
     & span {
       font-size: 14px;
       margin-left: auto;
-      color: #333030;
+      color: var(--color-333030);
     }
   }
   & .count {
@@ -61,13 +59,6 @@
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 12px;
-    background: rgb(202, 233, 255);
-    background: linear-gradient(
-      -50deg,
-      rgba(var(--gradient02-color01)) 0%,
-      rgba(var(--gradient02-color02)) 70%,
-      rgba(var(--gradient02-color03)) 100%
-    );
 
     & .itemInformation {
       display: flex;
@@ -122,6 +113,8 @@
   flex-grow: 1;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  border: 1px solid gray;
+  box-sizing: border-box;
 
   & img {
     width: 50px;
@@ -156,9 +149,10 @@
   & input {
     width: 100%;
     padding: 10px;
-    background-color: var(--color-ecf1ff);
     border-radius: 8px;
     border: 2px solid transparent;
+    background-color: white;
+    color: #7d7d7d;
     outline: none;
     &:focus {
       border: 2px solid var(--color-main);
@@ -167,7 +161,7 @@
   & textarea {
     resize: none;
     height: 200px;
-    background-color: var(--color-ecf1ff);
+    /* background-color: var(--color-ecf1ff); */
     border-radius: 8px;
     padding: 10px;
     outline: none;
@@ -195,9 +189,11 @@
   align-items: center;
   position: relative;
   z-index: 9999;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 40px;
-  background: rgba(100, 100, 100, 0.8);
+  border-radius: 8px;
+  /* background: rgba(100, 100, 100, 0.8); */
+  background: var(--color-blackwhiteOp01);
   & .titles {
     display: flex;
     flex-direction: column;
@@ -206,10 +202,10 @@
       font-size: 22px;
       font-weight: 600;
       margin-bottom: 4px;
-      color: var(--color-white);
+      color: var(--color-blackwhite02);
     }
     & span {
-      color: var(--color-ccc);
+      color: var(--color-blackwhite02);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -219,7 +215,7 @@
   & .count {
     margin-left: auto;
     font-size: 16px;
-    color: var(--color-white);
+    color: var(--color-blackwhite02);
   }
 }
 
@@ -263,16 +259,11 @@
   z-index: 99999;
   padding: 20px;
   margin-bottom: -20px;
-  background: rgb(202, 233, 255);
-  background: linear-gradient(
-    -50deg,
-    rgba(var(--gradient02-color01)) 0%,
-    rgba(var(--gradient02-color02)) 70%,
-    rgba(var(--gradient02-color03)) 100%
-  );
+  background-color: var(--color-blackwhite01);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   & .description {
-    border-bottom: 1px solid var(--color-white);
+    color: var(--color-blackwhite02);
+    border-bottom: 1px solid var(--color-blackwhite02);
     padding: 10px 0;
     & p {
       font-size: 18px;
@@ -281,13 +272,15 @@
   }
   & .songs {
     padding: 30px 0 10px 0;
+    color: var(--color-blackwhite02);
+
     & li {
       display: flex;
       align-items: center;
       gap: 10px;
       margin: 10px 0;
       padding: 10px 0;
-      border-bottom: 1px solid var(--color-white);
+      border-bottom: 1px solid var(--color-blackwhite02);
       & img {
         aspect-ratio: 1/1;
         max-width: 50px;

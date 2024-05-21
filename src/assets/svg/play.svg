@@ -5,12 +5,12 @@ viewBox="0 0 22 40"
 fill="#545050"
 xmlns="http://www.w3.org/2000/svg"
 >
-<rect width="6.15385" height="40" rx="3.07692" fill="#545050" />
+<rect width="6.15385" height="40" rx="3.07692" fill="#2f2f2f" />
 <rect
     x="15.3848"
     width="6.15385"
     height="40"
     rx="3.07692"
-    fill="#545050"
+    fill="#2f2f2f"
 />
 </svg>

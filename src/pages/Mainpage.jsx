@@ -13,14 +13,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
-// import './styles.css';
+import './mainpageStyles.css';
 
 // import required modules
 import {
-  // SwiperCore,
-  Pagination /* Scrollbar */,
-  // Autoplay,
-} from /* Autoplay  */ /* Navigation */ 'swiper/modules';
+  Navigation,
+  Pagination,
+  Autoplay,
+  /* Scrollbar, */
+} from 'swiper/modules';
 
 /* swiper  import end */
 
@@ -59,7 +60,8 @@ export default function Mainpage() {
             slidesPerView={3}
             spaceBetween={10}
             loop={true}
-            autoplay={{ delay: 500, disableOnInteraction: false }}
+            autoplay={true}
+            freeMode={true}
             pagination={{
               clickable: true,
             }}
@@ -67,7 +69,7 @@ export default function Mainpage() {
             //   hide: false,
             // }}
             // navigation={true}
-            modules={[Pagination]} /* Pagination, Navigation,Scrollbar */
+            modules={[Pagination, Navigation, Autoplay]}
             className={styles.mySwiper}
           >
             <SwiperSlide className={styles.mySwiperList}>
