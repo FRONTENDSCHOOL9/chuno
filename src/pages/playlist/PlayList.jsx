@@ -19,18 +19,18 @@ function PlayList() {
   const [itemsPerPage] = useState(5);
   const [selectedKeywords, setSelectedKeywords] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const res = await axios.get('/products');
+      const newData = res.data.item;
+      setData(newData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get('/products');
-        const newData = res.data.item;
-        setData(newData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
     fetchData();
-  }, [axios]);
+  }, []);
 
   const filteredData = useMemo(() => {
     if (!data) return [];

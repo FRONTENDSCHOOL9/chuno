@@ -65,7 +65,7 @@ function Mypage() {
           token: user.token,
         });
 
-        const res = await axios.patch(`/users/${user._id}`, formData);
+        // const res = await axios.patch(`/users/${user._id}`, formData);
         alert('작성하신 내용으로 회원 정보를 변경합니다.');
         setDisabled(!disabled);
       } catch (err) {
@@ -117,21 +117,24 @@ function Mypage() {
               },
             })}
           />
-          <h3 className={styles.mypageBodyStitle}>아이디</h3>
+          {errors.name && (
+            <p className={styles.required}>{errors.name.message}</p>
+          )}
+          <h3 htmlFor="email" className={styles.mypageBodyStitle}>
+            아이디
+          </h3>
           <input
             type="text"
+            id="email"
             placeholder={userData?.email || 'Email'}
             autoComplete="email"
             disabled
           />
 
-          {errors.name && (
-            <p className={styles.required}>{errors.name.message}</p>
-          )}
-        </form>
-        <form className={styles.mypageBodyInput}>
-          <h3 className={styles.mypageBodyStitle}>내가 북마크한 곡</h3>
-          <Bookmark />
+          <div>
+            <h3 className={styles.mypageBodyStitle}>내가 북마크한 곡</h3>
+            <Bookmark />
+          </div>
         </form>
         <button
           className={styles.confirmButton}
