@@ -3,7 +3,11 @@
 .light-mode {
   --color-main: #619ae0;
   --color-white: #fff;
-  --color-black: #000;
+  --color-blackwhite01: #fff;
+  --color-blackwhite02: #333030;
+  --color-blackwhiteOp01: rgba(255, 255, 255, 0.5);
+  --color-blueGray01: #c7e1f5;
+  /* --color-black: #000; */
   --color-111: #111;
   --color-4e7cf3: #4e7cf3;
   --color-cbd9ff: #cbd9ff;
@@ -22,23 +26,21 @@
 
   --gradient01-start: 203, 217, 255, 1;
   --gradient01-end: 236, 241, 255, 1;
-
-  --gradient02-color01: 202, 233, 255, 1;
-  --gradient02-color02: 253, 243, 255, 1;
-  --gradient02-color03: 244, 242, 252, 1;
 }
 
 .dark-mode {
+  --color-blackwhite01: #2f2f2f;
+  --color-blackwhite02: white;
+  --color-blackwhiteOp01: rgba(40, 40, 40, 0.8);
+
+  --color-blueGray01: #393939;
+
   --color-333030: #eee;
   --color-ecf1ff: #eee;
   --color-cbd9ff: #7d7d7d;
 
   --gradient01-start: 28, 27, 27, 1;
   --gradient01-end: 65, 65, 65, 1;
-
-  --gradient02-color01: 204, 204, 204, 1;
-  --gradient02-color02: 164, 164, 164, 1;
-  --gradient02-color03: 125, 125, 125, 1;
 }
 .btntheme {
   position: absolute;

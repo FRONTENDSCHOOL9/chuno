@@ -3,10 +3,11 @@
 .wrap {
   width: 100%;
   margin: 20px auto;
-  background-color: var(--color-cbd9ff);
+  background-color: var(--color-blueGray01);
   border-radius: 12px;
-  padding: 20px 10px;
+  padding: 20px 10px 5px;
 }
+
 .searchBar {
   display: flex;
   flex-wrap: wrap;
@@ -14,7 +15,7 @@
 
   & input {
     width: 100%;
-    background-color: var(--color-ecf1ff);
+    background-color: white;
     padding: 10px;
     outline: none;
     border: 0;
@@ -38,13 +39,27 @@
   margin-top: 20px;
   gap: 20px;
 }
-
+.wrapPlayer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-main);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3;
+}
 .playerList {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-ecf1ff);
+  background-color: white;
   padding: 15px;
   overflow: hidden;
   width: 47%;
@@ -66,28 +81,41 @@
 .playadd {
   width: 100%;
   margin: auto 0 5px 0;
-  border: 0;
-  background: var(--color-white);
+  background: #f0f0f0;
   font-weight: 500;
   font-size: 20px;
-  color: var(--color-ccc);
+  color: var(--color-888);
+  border: 0;
   border-radius: 8px;
   font-family: 'Noto Sans KR', sans-serif;
 }
 .playadd:hover {
-  color: var(--color-main);
+  color: var(--color-white);
+  background: #c8c8d2;
 }
 
 .addedWrap {
   margin: 10px 0 20px;
+  /* border: 2px solid red; */
 }
 .addedNotice {
+  /* border: 2px solid blue; */
   text-align: center;
   margin: 10px 0 20px;
-  color: var(--color-a4a4a4);
+  color: var(--color-333030);
 }
-.list {
+.playlistAdded {
+  /* border: 2px solid orange; */
+  background: white;
+  padding: 15px;
   margin: 10px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.list {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -99,39 +127,31 @@
 }
 .listTitle {
   font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.listDeleteButton {
-  display: block;
-  margin-left: auto;
-  min-width: 20px;
-  height: 20px;
-  background-color: var(--color-main);
-  text-align: center;
-  line-height: 16px;
-  border-radius: 50%;
-  font-weight: bolder;
-  color: var(--color-white);
-  cursor: pointer;
-}
-
 .controls {
   margin: 0 auto;
 }
 
 .listDeleteButton {
   display: flex;
-  background: var(--color-white);
+  margin-left: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #f0f0f0;
   justify-content: center;
   align-items: center;
   height: 30px;
   min-width: 30px;
   aspect-ratio: 1/1;
   line-height: -1;
-  & span {
-  }
 }
 .listDeleteButton:hover {
-  color: var(--color-main);
+  background-color: #c8c8d2;
 }
 
 @media (max-width: 600px) {
@@ -147,7 +167,7 @@
       width: 30%;
     }
     .playadd {
-      width: 30px;
+      max-width: 30px;
       height: 30px;
       aspect-ratio: 1/1;
       margin: 0 0 0 auto;

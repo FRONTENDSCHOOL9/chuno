@@ -77,4 +77,6 @@
 
 .userText {
   margin-left: 2px;
+  font-size: 16px;
+  color: var(--color-a4a4a4);
 }

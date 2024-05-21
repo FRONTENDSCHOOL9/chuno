@@ -167,6 +167,10 @@
 .totalTime {
   float: right;
 }
+.totalTime,
+.playTime {
+  color: var(--color-333030);
+}
 
 @media (max-width: 768px) {
   .songlist {

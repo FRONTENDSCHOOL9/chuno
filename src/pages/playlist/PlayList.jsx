@@ -1,4 +1,5 @@
-import { useEffect, useState, useMemo } from 'react';
+// 게시물(플레이 리스트)들 업로드 후 전체 출력 부분
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ButtonBack from '@/components/ButtonBack';
 import PlayListItem from './PlayListItem';
@@ -17,6 +18,7 @@ function PlayList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
+  const [totalPages, setTotalPages] = useState(1);
   const [selectedKeywords, setSelectedKeywords] = useState([]);
 
   const fetchData = async () => {
@@ -24,17 +26,19 @@ function PlayList() {
       const res = await axios.get('/products');
       const newData = res.data.item;
       setData(newData);
+      setTotalPages(Math.ceil(newData.length / itemsPerPage));
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  const filteredData = useMemo(() => {
-    if (!data) return [];
-    return data.filter(item => {
+  const filterData = (items, searchTerm, selectedKeywords) => {
+    if (!items) return [];
+    return items.filter(item => {
       const keywords = item.extra?.keyword || [];
       const nameMatch = item.name
         .toLowerCase()
@@ -44,25 +48,24 @@ function PlayList() {
       );
       return nameMatch && keywordMatch;
     });
-  }, [data, searchTerm, selectedKeywords]);
+  };
 
-  const totalPages = useMemo(() => {
-    return Math.ceil(filteredData.length / itemsPerPage);
-  }, [filteredData.length, itemsPerPage]);
+  const filteredData = filterData(data, searchTerm, selectedKeywords);
 
-  const currentItems = useMemo(() => {
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    return filteredData.slice(indexOfFirstItem, indexOfLastItem);
-  }, [filteredData, currentPage, itemsPerPage]);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData?.slice(indexOfFirstItem, indexOfLastItem);
+
+  const itemList = currentItems?.map(item => (
+    <PlayListItem key={item._id} item={item} />
+  ));
 
   const handleNewPost = () => {
-    navigate('/playlist/new');
+    navigate(`/playlist/new`);
   };
 
   const handleSearchChange = keyword => {
     setSearchTerm(keyword);
-    setCurrentPage(1); // 검색 시 페이지를 첫 페이지로 설정
   };
 
   const handlePageChange = page => {
@@ -70,45 +73,41 @@ function PlayList() {
   };
 
   const handleKeywordClick = keyword => {
-    setSelectedKeywords(prevKeywords => {
-      const updatedKeywords = prevKeywords.includes(keyword)
-        ? prevKeywords.filter(k => k !== keyword)
-        : [...prevKeywords, keyword];
-      setCurrentPage(1);
-      return updatedKeywords;
-    });
+    if (selectedKeywords.includes(keyword)) {
+      setSelectedKeywords(selectedKeywords.filter(k => k !== keyword));
+    } else {
+      setSelectedKeywords([...selectedKeywords, keyword]);
+    }
   };
 
   return (
-    <div className={styles.contSection}>
-      {data ? (
-        <>
+    <>
+      <div className={styles.contSection}>
+        {data ? (
           <div className={styles.isScrolled}>
-            <ButtonBack path="/main" />
+            <ButtonBack path={'/main'} />
             <BtnCommon onClick={handleNewPost}>플레이리스트 추가하기</BtnCommon>
           </div>
-          <Search onClick={handleSearchChange} />
-          <Keywords
-            selectedValues={selectedKeywords}
-            onClick={handleKeywordClick}
-          />
-          <ul className={styles.wrapList}>
-            {currentItems.map(item => (
-              <PlayListItem key={item._id} item={item} />
-            ))}
-          </ul>
-          {selectedKeywords.length === 0 && (
+        ) : (
+          <Loading />
+        )}
+        {data && (
+          <>
+            <Search onClick={handleSearchChange} />
+            <Keywords
+              selectedValues={selectedKeywords}
+              onClick={handleKeywordClick}
+            />
+            <ul className={styles.wrapList}>{itemList}</ul>
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
               onPageChange={handlePageChange}
             />
-          )}
-        </>
-      ) : (
-        <Loading />
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

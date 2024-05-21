@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player/youtube';
 import styles from './styles/musicplayer.module.css';
 import {
   handleSeekChange,
-  // handlePrevClick,
+  handlePrevClick,
   handleProgress,
   handleVolumeChange,
   toggleVolumeControl,
@@ -29,7 +29,6 @@ function MusicPlayer() {
   const [isListBoxOpen, setListBoxOpen] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isVolumeControlOpen, setVolumeControlOpen] = useState(false);
-  const [isRandom, setIsRandom] = useState(false);
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const { _id } = useParams();
@@ -94,14 +93,9 @@ function MusicPlayer() {
     }
   };
 
-  // 다음 노래를 선택하는 함수 (랜덤으로 선택함)
   const handleVideoEnd = () => {
     setCurrentVideoIndex(prevIndex =>
-      isRandom
-        ? Math.floor(Math.random() * item.extra.music.length)
-        : prevIndex === item.extra.music.length - 1
-        ? 0
-        : prevIndex + 1,
+      prevIndex === item.extra.music.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
@@ -113,114 +107,11 @@ function MusicPlayer() {
     setIsPlaying(false);
   };
 
-  // `재생목록`에서 노래를 랜덤으로 선택
-  const handleRandomPlay = () => {
-    setCurrentVideoIndex(Math.floor(Math.random() * item.extra.music.length));
-  };
-  // 이전곡
-  const handlePrevClick = () => {
-    setCurrentVideoIndex(prevIndex =>
-      isRandom
-        ? Math.floor(Math.random() * item.extra.music.length)
-        : prevIndex === 0
-        ? item.extra.music.length - 1
-        : prevIndex - 1,
-    );
-  };
-  // 다음곡
-  const handleNextClick = () => {
-    setCurrentVideoIndex(prevIndex =>
-      isRandom
-        ? Math.floor(Math.random() * item.extra.music.length)
-        : prevIndex === item.extra.music.length - 1
-        ? 0
-        : prevIndex + 1,
-    );
-  };
-
-  // 랜덤 재생 모드를 토글
-  const toggleRandom = () => {
-    setIsRandom(!isRandom);
-  };
-
-  // 10초 전으로 이동하는 함수
-  const handleBackward10 = () => {
-    const newTime = playedSeconds - 10;
-    if (newTime >= 0) {
-      setPlayedSeconds(newTime);
-      const player = playerRef.current.getInternalPlayer();
-      if (player) {
-        player.seekTo(newTime);
-      }
-    } else {
-      setPlayedSeconds(0);
-      const player = playerRef.current.getInternalPlayer();
-      if (player) {
-        player.seekTo(0);
-      }
-    }
-  };
-
-  // 10초 후로 이동하는 함수
-  const handleForward10 = () => {
-    const newTime = playedSeconds + 10;
-    if (newTime <= duration) {
-      setPlayedSeconds(newTime);
-      const player = playerRef.current.getInternalPlayer();
-      if (player) {
-        player.seekTo(newTime);
-      }
-    } else {
-      setPlayedSeconds(duration);
-      const player = playerRef.current.getInternalPlayer();
-      if (player) {
-        player.seekTo(duration);
-      }
-    }
-  };
-
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     seconds = Math.floor(seconds % 60);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
-
-  const handleButtonClick = () => {
-    console.log('Button clicked!');
-  };
-  const handleKeyDown = event => {
-    const musicLength = item?.extra?.music?.length ?? 1; // 옵셔널 체이닝과 nullish 병합 연산자 사용
-
-    switch (event.key) {
-      case ' ': //spacebar 일시정지/플레이
-        handleCombinedClick(); // 토글 동작
-        break;
-      case 'n':
-        setCurrentVideoIndex(prevIndex =>
-          prevIndex === 0 ? musicLength + 1 : prevIndex + 1,
-        ); // 다음 곡으로 이동
-        break;
-      case 'p':
-        setCurrentVideoIndex(prevIndex =>
-          prevIndex === 0 ? musicLength - 1 : prevIndex - 1,
-        ); // 이전 곡으로 이동
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleCombinedClick = () => {
-    //pause,play
-    setIsPlaying(prevIsPlaying => !prevIsPlaying); // 상태를 토글합니다.
-    handleButtonClick();
-  };
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
 
   return (
     <>
@@ -282,17 +173,14 @@ function MusicPlayer() {
               <div className={styles.musicControl}>
                 <div className={styles.defaultControl}>
                   <button
-                    onClick={() => {
-                      toggleRandom();
-                      handleRandomPlay();
-                    }}
-                    className={isRandom ? styles.active : ''}
+                    onClick={() =>
+                      handlePrevClick(
+                        item?.extra?.music,
+                        [currentVideoIndex],
+                        setCurrentVideoIndex,
+                      )
+                    }
                   >
-                    {/* 랜덤 재생 모드인 경우 '랜덤 재생 중'으로 표시 */}
-                    {isRandom ? '랜덤 재생 O' : '랜덤 재생 X'}
-                  </button>
-                  <button onClick={handleBackward10}>10초전</button>
-                  <button onClick={handlePrevClick}>
                     <img className={styles.prev} src={prevIcon} alt="" />
                   </button>
 
@@ -304,36 +192,42 @@ function MusicPlayer() {
                     )}
                   </button>
 
-                  <button onClick={handleNextClick}>
+                  <button
+                    onClick={() =>
+                      setCurrentVideoIndex(prevIndex =>
+                        prevIndex === item.extra.music.length - 1
+                          ? 0
+                          : prevIndex + 1,
+                      )
+                    }
+                  >
                     <img className={styles.next} src={nextIcon} alt="" />
                   </button>
-
-                  <button onClick={handleForward10}>10초후</button>
-                  <div className={styles.volumes}>
-                    <button
-                      className={styles.btnVolume}
-                      onClick={() =>
-                        toggleVolumeControl(
-                          isVolumeControlOpen,
-                          setVolumeControlOpen,
-                        )
-                      }
-                    >
-                      <img src={volumeIcon} alt="" />
-                    </button>
-                    {isVolumeControlOpen && (
-                      <div className={styles.volumeRa}>
-                        <input
-                          type="range"
-                          min={0}
-                          max={1}
-                          step="any"
-                          value={volume}
-                          onChange={e => handleVolumeChange(e, setVolume)}
-                        />
-                      </div>
-                    )}
-                  </div>
+                </div>
+                <div className={styles.volumes}>
+                  <button
+                    className={styles.btnVolume}
+                    onClick={() =>
+                      toggleVolumeControl(
+                        isVolumeControlOpen,
+                        setVolumeControlOpen,
+                      )
+                    }
+                  >
+                    <img src={volumeIcon} alt="" />
+                  </button>
+                  {isVolumeControlOpen && (
+                    <div className={styles.volumeRa}>
+                      <input
+                        type="range"
+                        min={0}
+                        max={1}
+                        step="any"
+                        value={volume}
+                        onChange={e => handleVolumeChange(e, setVolume)}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
