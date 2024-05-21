@@ -31,8 +31,6 @@
   & .desc {
     width: 100%;
     margin-left: 10px;
-    display: flex;
-    align-items: center;
     & h3 {
       font-size: 18px;
       font-weight: 600;
@@ -53,6 +51,18 @@
     font-size: 10px;
     color: var(--color-706868);
   }
+}
+.bookmark {
+  /* 북마크 버튼의 스타일을 설정합니다. */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.bookmarked {
+  /* 북마크가 활성화되었을 때의 스타일을 설정합니다. */
+  color: yellow;
 }
 
 @media (max-width: 450px) {

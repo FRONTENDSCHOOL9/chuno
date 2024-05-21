@@ -16,3 +16,8 @@ export const selectedVideosState = atom({
   key: 'selectedVideosState',
   default: [],
 });
+
+export const bookmarkIdsState = atom({
+  key: 'bookmarkIdsState',
+  default: [], // 초기값은 빈 배열로 설정
+});
