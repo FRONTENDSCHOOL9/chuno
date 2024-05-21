@@ -65,7 +65,11 @@ function Mypage() {
           token: user.token,
         });
 
-        // const res = await axios.patch(`/users/${user._id}`, formData);
+        const res = await axios.patch(
+          `/users/
+        ${user._id}`,
+          formData,
+        );
         alert('작성하신 내용으로 회원 정보를 변경합니다.');
         setDisabled(!disabled);
       } catch (err) {

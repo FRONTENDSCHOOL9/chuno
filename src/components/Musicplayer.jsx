@@ -185,6 +185,43 @@ function MusicPlayer() {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
 
+  const handleButtonClick = () => {
+    console.log('Button clicked!');
+  };
+  const handleKeyDown = event => {
+    const musicLength = item?.extra?.music?.length ?? 1; // 옵셔널 체이닝과 nullish 병합 연산자 사용
+
+    switch (event.key) {
+      case ' ': //spacebar 일시정지/플레이
+        handleCombinedClick(); // 토글 동작
+        break;
+      case 'n':
+        setCurrentVideoIndex(prevIndex =>
+          prevIndex === 0 ? musicLength + 1 : prevIndex + 1,
+        ); // 다음 곡으로 이동
+        break;
+      case 'p':
+        setCurrentVideoIndex(prevIndex =>
+          prevIndex === 0 ? musicLength - 1 : prevIndex - 1,
+        ); // 이전 곡으로 이동
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleCombinedClick = () => {
+    //pause,play
+    setIsPlaying(prevIsPlaying => !prevIsPlaying); // 상태를 토글합니다.
+    handleButtonClick();
+  };
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.wrap}>
@@ -244,6 +281,17 @@ function MusicPlayer() {
 
               <div className={styles.musicControl}>
                 <div className={styles.defaultControl}>
+                  <button
+                    onClick={() => {
+                      toggleRandom();
+                      handleRandomPlay();
+                    }}
+                    className={isRandom ? styles.active : ''}
+                  >
+                    {/* 랜덤 재생 모드인 경우 '랜덤 재생 중'으로 표시 */}
+                    {isRandom ? '랜덤 재생 O' : '랜덤 재생 X'}
+                  </button>
+                  <button onClick={handleBackward10}>10초전</button>
                   <button onClick={handlePrevClick}>
                     <img className={styles.prev} src={prevIcon} alt="" />
                   </button>
@@ -260,44 +308,32 @@ function MusicPlayer() {
                     <img className={styles.next} src={nextIcon} alt="" />
                   </button>
 
-                  <button
-                    onClick={() => {
-                      toggleRandom();
-                      handleRandomPlay();
-                    }}
-                    className={isRandom ? styles.active : ''}
-                  >
-                    {/* 랜덤 재생 모드인 경우 '랜덤 재생 중'으로 표시 */}
-                    {isRandom ? '랜덤 재생 O' : '랜덤 재생 X'}
-                  </button>
-
-                  <button onClick={handleBackward10}>10초전</button>
                   <button onClick={handleForward10}>10초후</button>
-                </div>
-                <div className={styles.volumes}>
-                  <button
-                    className={styles.btnVolume}
-                    onClick={() =>
-                      toggleVolumeControl(
-                        isVolumeControlOpen,
-                        setVolumeControlOpen,
-                      )
-                    }
-                  >
-                    <img src={volumeIcon} alt="" />
-                  </button>
-                  {isVolumeControlOpen && (
-                    <div className={styles.volumeRa}>
-                      <input
-                        type="range"
-                        min={0}
-                        max={1}
-                        step="any"
-                        value={volume}
-                        onChange={e => handleVolumeChange(e, setVolume)}
-                      />
-                    </div>
-                  )}
+                  <div className={styles.volumes}>
+                    <button
+                      className={styles.btnVolume}
+                      onClick={() =>
+                        toggleVolumeControl(
+                          isVolumeControlOpen,
+                          setVolumeControlOpen,
+                        )
+                      }
+                    >
+                      <img src={volumeIcon} alt="" />
+                    </button>
+                    {isVolumeControlOpen && (
+                      <div className={styles.volumeRa}>
+                        <input
+                          type="range"
+                          min={0}
+                          max={1}
+                          step="any"
+                          value={volume}
+                          onChange={e => handleVolumeChange(e, setVolume)}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
