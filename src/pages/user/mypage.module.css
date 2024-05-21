@@ -41,6 +41,7 @@
   font-size: 14px;
   color: var(--color-333030);
   margin-bottom: 8px;
+  margin-top: 20px;
 }
 
 .mypageBodyInput {
@@ -49,11 +50,8 @@
     width: 100%;
     padding: 10px;
     border-radius: 6px;
-    /* background-color: var(--color-eee); */
-    background-color: var(--color-white);
-    /* border: 1px solid var(--color-ccc); */
-    border: none;
-    margin-bottom: 30px;
+    background-color: var(--color-eee);
+    border: 1px solid var(--color-ccc);
     box-sizing: border-box;
   }
 }

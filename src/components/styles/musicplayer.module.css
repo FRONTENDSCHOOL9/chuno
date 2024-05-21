@@ -55,25 +55,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 30px;
 }
 
 .defaultControl {
   display: flex;
   align-items: center;
   gap: 50px;
-  margin-left: auto;
 }
 
 .volumes {
   position: relative;
-  margin-left: auto;
 }
 
 .volumeRa {
   position: absolute;
-  top: 0;
-  right: 50px;
+  top: 100%;
+  right: 0;
   accent-color: var(--color-main);
 }
 
