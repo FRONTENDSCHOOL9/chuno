@@ -38,11 +38,9 @@
   gap: 16px;
 }
 
-
-
 /* 스와이퍼 */
 
-#app {
+#Mainpage {
   height: 100%;
 }
 html,
@@ -76,12 +74,20 @@ body {
 .swiper {
   margin-left: auto;
   margin-right: auto;
+  border: 2px solid darkblue;
+}
+
+.swiper-wrapper {
+  border: 2px solid violet;
 }
 
 .mySwiperList {
-  margin-bottom: 40px;
-  color: red;
-  > .mySwiperItem {
-    border: 2px solid orange;
+  max-width: 300px;
+  margin-bottom: 70px;
+}
+
+@media (max-width: 768px) {
+  .mySwiperList {
+    margin-bottom: 30px;
   }
 }

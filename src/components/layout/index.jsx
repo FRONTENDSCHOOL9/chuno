@@ -13,9 +13,6 @@ function Layout() {
 
   useEffect(() => {
     const root = document.getElementById('root');
-    // root.style.backgroundColor = darkMode ? '#333' : '#F0F8FB ';
-    // root.style.backgroundColor = darkMode ? '#1f1f1f' : '#eaf6fd ';
-    // root.style.backgroundColor = darkMode ? '#1f1f1f' : '#dff2fc ';
     root.style.backgroundColor = darkMode ? '#212121' : '#dff2fc ';
 
     setIcon(darkMode ? <FiMoon /> : <FiSun />);
@@ -30,7 +27,8 @@ function Layout() {
         {icon}
       </button>
       {/* 아이콘 표시 */}
-      <Outlet />
+      {/* <Outlet /> */} {/* 240523 수정 */}
+      <Outlet context={{ darkMode, toggleDarkMode }} /> {/* 240523 수정 */}
     </div>
   );
 }

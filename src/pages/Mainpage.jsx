@@ -1,33 +1,19 @@
+import { /* React, */ useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import Recommendlistitem from '@components/Recommendlistitem';
 import Header from '@components/layout/Header';
 import styles from './mainpage.module.css';
 import PlayListItem from '@pages/playlist/PlayListItem';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-
 import './mainpageStyles.css';
-
-// import required modules
-import {
-  Navigation,
-  Pagination,
-  Autoplay,
-  /* Scrollbar, */
-} from 'swiper/modules';
-
-/* swiper  import end */
+import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules';
 
 export default function Mainpage() {
-  // SwiperCore.use([Autoplay]);
-
   const axios = useCustomAxios();
   const [data, setData] = useState(null);
 
@@ -43,7 +29,11 @@ export default function Mainpage() {
 
   useEffect(() => {
     fetchData();
-  }, {});
+  }, []);
+
+  useEffect(() => {
+    console.log('Swiper data:', data);
+  }, [data]);
 
   const itemList = data
     ?.slice(0, 5)
@@ -55,21 +45,31 @@ export default function Mainpage() {
       <div className={styles.mainTop}>
         <span className={styles.miniTitle}>주인장 PICK!</span>
         <h2 className={styles.bodyText}>추천 플레이리스트</h2>
-        <div className={styles.recommendList}>
+        <div className="recommendList">
           <Swiper
             slidesPerView={3}
             spaceBetween={10}
             loop={true}
             autoplay={true}
             freeMode={true}
-            pagination={{
-              clickable: true,
-            }}
-            // scrollbar={{
-            //   hide: false,
-            // }}
-            // navigation={true}
-            modules={[Pagination, Navigation, Autoplay]}
+            navigation={true}
+            pagination={{ clickable: true }}
+            scrollbar={true}
+            /* breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+            }} */
+            modules={[Pagination, Navigation, Autoplay, Scrollbar]}
             className={styles.mySwiper}
           >
             <SwiperSlide className={styles.mySwiperList}>

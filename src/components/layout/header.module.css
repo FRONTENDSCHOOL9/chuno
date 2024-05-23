@@ -80,3 +80,9 @@
   font-size: 16px;
   color: var(--color-a4a4a4);
 }
+
+@media (max-width: 460px) {
+  .mainHeaderLogo {
+    width: 85%;
+  }
+}

@@ -296,7 +296,7 @@
         max-width: 50px;
       }
       & span {
-        font-size: 18px;
+        font-size: 16px;
       }
     }
   }
@@ -310,13 +310,41 @@
 }
 
 @media (max-width: 450px) {
-  .thumbBg {
+  /*   .thumbBg {
     margin-top: -50px;
     height: 100%;
     width: auto;
+  } */
+  .titleWrap {
+    margin-top: 20px;
   }
-}
+  .titleWrap .titles {
+    h3 {
+      font-size: 18px;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+  .titleWrap .count {
+    font-size: 14px;
+  }
+  .bgWrap {
+    height: auto;
+  }
+  .newWrap {
+    margin-top: 20px;
+  }
 
-.newWrap {
-  margin-top: 20px;
+  .content {
+    margin-top: -20px;
+    .songs li {
+      padding-top: 0;
+      span {
+        font-size: 14px;
+        line-height: 1.6;
+        /* border: 2px solid red; */
+      }
+    }
+  }
 }

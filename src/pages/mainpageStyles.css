@@ -7,3 +7,69 @@
   border-radius: 10px;
   background-color: var(--color-main);
 }
+
+.swiper-pagination {
+  display: none;
+  margin-bottom: 30px;
+}
+.swiper-scrollbar {
+  max-width: calc(100% - 160px);
+  background-color: var(--color-white);
+  margin-bottom: 28px;
+}
+.swiper-scrollbar-drag {
+  /* color: var(--color-main); */
+  background-color: var(--color-main);
+}
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  margin-top: auto;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  bottom: 10px;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.3);
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: translate(2px, 2px);
+}
+.recommendList {
+  display: flex;
+  .swiper {
+    display: flex;
+    position: relative;
+  }
+}
+.swiper-button-prev {
+  margin-left: calc(100% - 130px);
+}
+.swiper-button-next {
+  margin-left: calc(100% - 150px);
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: '222';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: url(/src/assets/swiperArrowLeft.png) no-repeat center/cover;
+}
+.swiper-button-next::after {
+  background: url(/src/assets/swiperArrowRight.png) no-repeat center/cover;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+  .swiper-scrollbar {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+}

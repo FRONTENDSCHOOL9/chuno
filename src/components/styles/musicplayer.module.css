@@ -1,6 +1,9 @@
 .hiddenOverflow {
   overflow: hidden;
 }
+button {
+  padding: 0;
+}
 
 /* 레이아웃과 위치 */
 
@@ -60,7 +63,8 @@
 .defaultControl {
   display: flex;
   align-items: center;
-  gap: 50px;
+  /* gap: 50px; */
+  /* border: 2px solid red; */
 }
 
 .volumes {
@@ -164,12 +168,24 @@
   }
 }
 
-.totalTime {
-  float: right;
-}
-.totalTime,
-.playTime {
+.timerWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
   color: var(--color-333030);
+}
+
+.defaultControl {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.centerControl {
+  display: flex;
+  justify-content: center;
+  /* gap: 50px; */
+  gap: 5vw;
 }
 
 @media (max-width: 768px) {
@@ -179,22 +195,25 @@
 }
 
 @media (max-width: 450px) {
-  .volumes {
-    display: none;
-  }
   .defaultControl {
     margin: 0 auto;
   }
-  .musicControl {
-    margin: 20px 30px;
-  }
+
   .controlerWapper {
     padding: 0 20px;
   }
-  .musicWrap {
-    overflow: hidden;
-  }
+
   .listBox {
     bottom: 0;
+  }
+  .volumes .btnVolume {
+    visibility: hidden;
+  }
+
+  .centerControl button img {
+    width: 80%;
+  }
+  .centerControl {
+    gap: 20px;
   }
 }

@@ -10,15 +10,42 @@ import {
   handleVolumeChange,
   toggleVolumeControl,
 } from './handler/handle';
-import pauseIcon from '@assets/svg/pause.svg';
-import playIcon from '@assets/svg/play.svg';
-import prevIcon from '@assets/svg/prev.svg';
-import nextIcon from '@assets/svg/next.svg';
-import volumeIcon from '@assets/svg/buttons/volume.svg';
+import pause from '@assets/svg/pause.svg';
+import pauseDark from '@assets/svg/pauseDark.svg';
+import play from '@assets/svg/play.svg';
+import playDark from '@assets/svg/playDark.svg';
+import prev from '@assets/svg/prev.svg';
+import prevDark from '@assets/svg/prevDark.svg';
+import next from '@assets/svg/next.svg';
+import nextDark from '@assets/svg/nextDark.svg';
+import randomIC from '@assets/svg/randomplay.svg';
+import randomICDark from '@assets/svg/randomplayDark.svg';
+import norandomIC from '@assets/svg/norandomplay.svg';
+import norandomICDark from '@assets/svg/norandomplayDark.svg';
+import after10s from '@assets/svg/after10s.svg';
+import after10sDark from '@assets/svg/after10sDark.svg';
+import before10s from '@assets/svg/before10s.svg';
+import before10sDark from '@assets/svg/before10sDark.svg';
+import volumeIC from '@assets/svg/buttons/volume.svg';
+import volumeICDark from '@assets/svg/buttons/volumeDark.svg';
 import ButtonBack from './ButtonBack';
 import Loading from './loading';
+import { useOutletContext } from 'react-router-dom'; /* 240523 수정 */
 
 function MusicPlayer() {
+  // const [darkMode, setDarkMode] = useState(false);
+  const [after10sIcon, setAfter10sIcon] = useState(after10s);
+  const [before10sIcon, setBefore10sIcon] = useState(before10s);
+  const [pauseIcon, setPauseIcon] = useState(pause); //240523 수정
+  const [playIcon, setPlayIcon] = useState(play); //240523 수정
+  const [prevIcon, setPrevIcon] = useState(prev); //240523 수정
+  const [nextIcon, setNextIcon] = useState(next); //240523 수정
+  const [volumeIcon, setVolumeIcon] = useState(volumeIC); //240523 수정
+  const [randomIcon, setRandomIcon] = useState(randomIC); //240523 수정
+  const [norandomIcon, setNorandomIcon] = useState(norandomIC); //240523 수정
+
+  const { darkMode } = useOutletContext(); // darkMode 상태 가져오기 240523 수정
+
   const playerRef = useRef(null);
 
   const axios = useCustomAxios();
@@ -222,6 +249,19 @@ function MusicPlayer() {
     };
   }, []);
 
+  //아이콘 모드별 교체
+  useEffect(() => {
+    setAfter10sIcon(darkMode ? after10sDark : after10s);
+    setBefore10sIcon(darkMode ? before10sDark : before10s);
+    setPauseIcon(darkMode ? pauseDark : pause);
+    setPlayIcon(darkMode ? playDark : play);
+    setPrevIcon(darkMode ? prevDark : prev);
+    setNextIcon(darkMode ? nextDark : next);
+    setVolumeIcon(darkMode ? volumeICDark : volumeIC);
+    setRandomIcon(darkMode ? randomICDark : randomIC);
+    setNorandomIcon(darkMode ? norandomICDark : norandomIC);
+  }, [darkMode]);
+
   return (
     <>
       <div className={styles.wrap}>
@@ -271,12 +311,16 @@ function MusicPlayer() {
                   value={playedSeconds}
                   onChange={e => handleSeekChange(e, playerRef)}
                 />
-                {/* 현재 진행 시간 */}
-                <time dateTime="P1S">{formatTime(playedSeconds)}</time>
-                {/* 전체 재생 시간 */}
-                <time dateTime="P1S" className={styles.totalTime}>
-                  {formatTime(duration)}
-                </time>
+                <div className={styles.timerWrapper}>
+                  {/* 현재 진행 시간 */}
+                  <time dateTime="P1S" className={styles.playTime}>
+                    {formatTime(playedSeconds)}
+                  </time>
+                  {/* 전체 재생 시간 */}
+                  <time dateTime="P1S" className={styles.totalTime}>
+                    {formatTime(duration)}
+                  </time>
+                </div>
               </div>
 
               <div className={styles.musicControl}>
@@ -289,26 +333,40 @@ function MusicPlayer() {
                     className={isRandom ? styles.active : ''}
                   >
                     {/* 랜덤 재생 모드인 경우 '랜덤 재생 중'으로 표시 */}
-                    {isRandom ? '랜덤 재생 O' : '랜덤 재생 X'}
-                  </button>
-                  <button onClick={handleBackward10}>10초전</button>
-                  <button onClick={handlePrevClick}>
-                    <img className={styles.prev} src={prevIcon} alt="" />
-                  </button>
-
-                  <button onClick={isPlaying ? handlePause : handlePlay}>
-                    {isPlaying ? (
-                      <img src={playIcon} className={styles.play} />
+                    {/* {isRandom ? '랜덤 재생 O' : '랜덤 재생 X'} */}
+                    {isRandom ? (
+                      <img src={randomIcon} className="randomBtn" />
                     ) : (
-                      <img src={pauseIcon} className={styles.pause} />
+                      <img src={norandomIcon} className="randomBtn" />
                     )}
                   </button>
+                  <div className={styles.centerControl}>
+                    <button onClick={handleBackward10}>
+                      {/* <img src={before10s} /> */}
+                      <img src={before10sIcon} /> {/* 240523 수정 */}
+                    </button>
 
-                  <button onClick={handleNextClick}>
-                    <img className={styles.next} src={nextIcon} alt="" />
-                  </button>
+                    <button onClick={handlePrevClick}>
+                      <img src={prevIcon} className={styles.prev} alt="" />
+                    </button>
 
-                  <button onClick={handleForward10}>10초후</button>
+                    <button onClick={isPlaying ? handlePause : handlePlay}>
+                      {isPlaying ? (
+                        <img src={playIcon} className={styles.play} />
+                      ) : (
+                        <img src={pauseIcon} className={styles.pause} />
+                      )}
+                    </button>
+
+                    <button onClick={handleNextClick}>
+                      <img src={nextIcon} className={styles.next} alt="" />
+                    </button>
+
+                    <button onClick={handleForward10}>
+                      {/* <img src={after10s} /> */}
+                      <img src={after10sIcon} /> {/* 240523 수정 */}
+                    </button>
+                  </div>
                   <div className={styles.volumes}>
                     <button
                       className={styles.btnVolume}
