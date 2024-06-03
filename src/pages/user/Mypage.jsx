@@ -3,29 +3,28 @@ import { useEffect, useState } from 'react';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import styles from './mypage.module.css';
 import dragon from '@assets/svg/dragon.svg';
-import { useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { memberState } from '@recoil/user/atoms.mjs';
 import Bookmark from '@pages/user/Bookmark';
-
-//FIXME - fetch 이용해서 회원정보 수정
+import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 
 function Mypage() {
   const axios = useCustomAxios();
-  const [userData, setUserData] = useState(null);
   const { _id } = useParams();
-  const [user] = useRecoilState(memberState);
-
-  let profileImage = user?.profile;
-  if (profileImage && !profileImage.startsWith('http')) {
-    profileImage = `${import.meta.env.VITE_API_SERVER}/files/${
-      import.meta.env.VITE_CLIENT_ID
-    }/${profileImage}`;
-  } else if (!profileImage) {
-    profileImage = `${import.meta.env.VITE_API_SERVER}/files/${
-      import.meta.env.VITE_CLIENT_ID
-    }/yongyong.png`;
-  }
+  const [userData, setUserData] = useState();
+  const [user, setUser] = useRecoilState(memberState);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError,
+  } = useForm({
+    values: {
+      name: user?.item?.name,
+      profileImage: user?.profile,
+    },
+  });
 
   const fetchData = async () => {
     try {
@@ -41,15 +40,45 @@ function Mypage() {
     fetchData();
   }, []);
 
+  let profileImage = user?.profile;
+  if (profileImage && !profileImage.startsWith('http')) {
+    profileImage = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/${profileImage}`;
+  } else if (!profileImage) {
+    profileImage = `${import.meta.env.VITE_API_SERVER}/files/${
+      import.meta.env.VITE_CLIENT_ID
+    }/yongyong.png`;
+  }
+
   const [disabled, setDisabled] = useState(true);
-  const toggleDisabled = () => {
+
+  const onSubmit = async formData => {
     if (disabled) {
       alert('이제 정보를 수정할 수 있습니다.');
       setDisabled(!disabled);
     } else {
-      //ANCHOR - 회원 정보 수정 기능 통신 삽입 예정.
-      alert('작성하신 내용으로 회원 정보를 변경합니다.');
-      setDisabled(!disabled);
+      try {
+        setUser({
+          _id: user._id,
+          name: formData.name,
+          token: user.token,
+        });
+
+        const res = await axios.patch(`/users/${user._id}`, formData);
+        alert('작성하신 내용으로 회원 정보를 변경합니다.');
+        setDisabled(!disabled);
+      } catch (err) {
+        console.error(err);
+        if (err.response?.data.errors) {
+          err.response?.data.errors.forEach(error =>
+            setError(error.path, { message: error.msg }),
+          );
+        } else if (err.response?.data.message) {
+          console.error(err);
+          alert(err.response?.data.message);
+        }
+      }
     }
   };
 
@@ -68,35 +97,46 @@ function Mypage() {
           <img src={profileImage} alt="유저 프로필 이미지" />
         </div>
 
-        <form className={styles.mypageBodyInput} action="">
-          <h3 className={styles.mypageBodyStitle}>닉네임</h3>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles.mypageBodyInput}
+          action=""
+        >
+          <h3 htmlFor="name" className={styles.mypageBodyStitle}>
+            닉네임
+          </h3>
           <input
             type="text"
+            id="name"
             placeholder={userData?.name || 'Name'}
             disabled={disabled}
+            {...register('name', {
+              minLength: {
+                value: 2,
+                message: '닉네임을 2글자 이상 입력하세요.',
+              },
+            })}
           />
-
           <h3 className={styles.mypageBodyStitle}>아이디</h3>
           <input
             type="text"
             placeholder={userData?.email || 'Email'}
             autoComplete="email"
-            disabled={disabled}
+            disabled
           />
 
-          <h3 className={styles.mypageBodyStitle}>비밀번호</h3>
-          <input
-            type="password"
-            placeholder={userData?.password ? '••••••••' : 'Password'}
-            autoComplete="new-password"
-            disabled={disabled}
-          />
+          {errors.name && (
+            <p className={styles.required}>{errors.name.message}</p>
+          )}
         </form>
         <form className={styles.mypageBodyInput}>
           <h3 className={styles.mypageBodyStitle}>내가 북마크한 곡</h3>
           <Bookmark />
         </form>
-        <button className={styles.confirmButton} onClick={toggleDisabled}>
+        <button
+          className={styles.confirmButton}
+          onClick={handleSubmit(onSubmit)}
+        >
           {disabled ? '정보 수정하기' : '수정 완료'}
         </button>
       </div>
