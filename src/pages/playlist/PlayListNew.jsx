@@ -1,4 +1,3 @@
-// 새로운 게시물(플레이 리스트) 등록 부분
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -10,12 +9,16 @@ import SearchYoutube from '@youtube/SearchYoutube';
 import { useRecoilValue } from 'recoil';
 import { selectedVideosState } from '@recoil/user/atoms.mjs';
 import { useNavigate } from 'react-router-dom';
+import Modal from '@/components/Modal'; // Modal 컴포넌트 임포트
 
 function PlayListNew() {
   const axios = useCustomAxios();
   const selectedVideos = useRecoilValue(selectedVideosState);
   const [selectedValues, setSelectedValues] = useState([]);
   const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 정의
+  const [modalMessage, setModalMessage] = useState(''); // 모달 메시지 상태 정의
 
   const { register, handleSubmit } = useForm({
     values: {
@@ -28,7 +31,6 @@ function PlayListNew() {
     },
   });
 
-  // 버튼 클릭 핸들러
   const handleClick = value => {
     setSelectedValues(prevValues => {
       const index = prevValues.indexOf(value);
@@ -69,8 +71,13 @@ function PlayListNew() {
       }
 
       await axios.post('/seller/products/', formData);
-      alert('플레이리스트가 등록되었습니다.');
-      navigate(`/playlist`);
+      setModalMessage('플레이리스트가 등록되었습니다.');
+      setIsModalOpen(true);
+      // 모달이 닫힌 후 이동
+      setTimeout(() => {
+        setIsModalOpen(false);
+        navigate(`/playlist`);
+      }, 2000);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -126,6 +133,12 @@ function PlayListNew() {
           </div>
         </form>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        message={modalMessage}
+        showCancelButton={false}
+      />
     </>
   );
 }

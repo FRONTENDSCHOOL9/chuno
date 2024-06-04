@@ -1,0 +1,75 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 모달이 다른 요소 위에 올라오도록 설정 */
+}
+
+.modalContent {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(1px);
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 90%; /* 모달의 너비를 조정 */
+  max-height: 90%; /* 모달의 최대 높이를 조정 */
+  overflow-y: auto; /* 스크롤이 넘칠 경우 스크롤을 표시 */
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.closeButton {
+  position: absolute; /* 누락된 스타일 추가 */
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modalText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalMessage {
+  font-weight: bold;
+}
+
+.cancelButton {
+  background: #619ae0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+}

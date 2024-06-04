@@ -5,6 +5,7 @@ import { useSetRecoilState } from 'recoil';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Submit from '@components/Submit';
+import Modal from '@components/Modal';
 import styles from './auth.module.css';
 
 import dragon from '@assets/svg/dragon.svg';
@@ -16,6 +17,9 @@ function Login() {
     type: 'password',
     visible: false,
   });
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   const handlePasswordType = () => {
     setpwType(prevState => ({
@@ -49,17 +53,23 @@ function Login() {
         profile: res.data.item.profileImage,
         token: res.data.item.token,
       });
-      alert(res.data.item.name + '님 로그인 되었습니다.');
-      navigate(location.state?.from ? location.state?.from : '/main');
+      setModalMessage(res.data.item.name + '님 로그인 되었습니다.');
+      setModalOpen(true);
     } catch (err) {
       if (err.response?.data.errors) {
         err.response?.data.errors.forEach(error =>
           setError(error.path, { message: error.msg }),
         );
       } else if (err.response?.data.message) {
-        alert(err.response?.data.message);
+        setModalMessage(err.response?.data.message);
+        setModalOpen(true);
       }
     }
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    navigate(location.state?.from ? location.state?.from : '/main');
   };
 
   return (
@@ -123,6 +133,12 @@ function Login() {
             <Link to="/users/signup">회원가입</Link>
           </div>
         </form>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          message={modalMessage}
+          showCancelButton={true}
+        />
       </div>
     </div>
   );

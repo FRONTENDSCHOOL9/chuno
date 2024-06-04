@@ -1,13 +1,17 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { Link, useNavigate } from 'react-router-dom';
 import Submit from '@components/Submit';
 import styles from './auth.module.css';
 import dragon from '@assets/svg/dragon.svg';
+import Modal from '@components/Modal';
 
 function Signup() {
   const axios = useCustomAxios();
   const navigate = useNavigate();
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
   const {
     register,
     handleSubmit,
@@ -18,15 +22,13 @@ function Signup() {
 
   const onSubmit = async formData => {
     try {
-      // 비밀번호 확인
       if (formData.password !== formData.passwordCheck) {
         setError('passwordCheck', { message: '비밀번호가 일치하지 않습니다.' });
-        return; // 비밀번호가 일치하지 않으면 함수를 종료
+        return;
       }
 
       formData.type = 'seller';
 
-      // 이미지 먼저 업로드
       if (formData.profileImage.length > 0) {
         const imageFormData = new FormData();
         imageFormData.append('attach', formData.profileImage[0]);
@@ -40,27 +42,30 @@ function Signup() {
         });
         formData.profileImage = fileRes.data.item[0].name;
       } else {
-        // profileImage 속성을 제거
         delete formData.profileImage;
       }
 
       const res = await axios.post('/users', formData);
-      alert(
+      setModalMessage(
         res.data.item.name +
           '님 회원가입이 완료 되었습니다.\n로그인 후에 이용하세요.',
       );
-      navigate('/users/login');
+      setModalOpen(true);
     } catch (err) {
-      // AxiosError(네트워크 에러-response가 없음, 서버의 4xx, 5xx 응답 상태 코드를 받았을 때-response 있음)
       if (err.response?.data.errors) {
-        // API 서버가 응답한 에러
         err.response?.data.errors.forEach(error =>
           setError(error.path, { message: error.msg }),
         );
       } else if (err.response?.data.message) {
-        alert(err.response?.data.message);
+        setModalMessage(err.response?.data.message);
+        setModalOpen(true);
       }
     }
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    navigate('/users/login');
   };
 
   return (
@@ -73,6 +78,7 @@ function Signup() {
           <h2>회원이 되어주세용</h2>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Form fields */}
           <div className={styles.authInput}>
             <div className={styles.signupLabel}>
               <label htmlFor="name">닉네임</label>
@@ -96,6 +102,7 @@ function Signup() {
               <p className={styles.required}>{errors.name.message}</p>
             )}
           </div>
+          {/* Other form fields */}
           <div className={styles.authInput}>
             <div className={styles.signupLabel}>
               <label htmlFor="email">아이디</label>
@@ -180,6 +187,12 @@ function Signup() {
             <Submit>회원가입</Submit>
           </div>
         </form>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          message={modalMessage}
+          showCancelButton={true}
+        />
       </div>
     </div>
   );
