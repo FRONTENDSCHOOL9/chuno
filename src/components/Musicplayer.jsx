@@ -215,6 +215,8 @@ function MusicPlayer() {
   const handleButtonClick = () => {
     console.log('Button clicked!');
   };
+
+  // 24/06/18 수정 - 박희진(문제 있으면 말씀해주세요)
   const handleKeyDown = event => {
     const musicLength = item?.extra?.music?.length ?? 1; // 옵셔널 체이닝과 nullish 병합 연산자 사용
 
@@ -222,10 +224,13 @@ function MusicPlayer() {
       case ' ': //spacebar 일시정지/플레이
         handleCombinedClick(); // 토글 동작
         break;
+      // 다음 곡으로 이동
+      // 마지막 곡에서 첫 번째 곡으로 이동할 수 있게 수정
       case 'n':
         setCurrentVideoIndex(prevIndex =>
-          prevIndex === 0 ? musicLength + 1 : prevIndex + 1,
-        ); // 다음 곡으로 이동
+          prevIndex === musicLength - 1 ? 0 : prevIndex + 1,
+        );
+
         break;
       case 'p':
         setCurrentVideoIndex(prevIndex =>
@@ -247,7 +252,8 @@ function MusicPlayer() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [item]);
+  // 의존성 배열에 item을 추가해서 item이 변경될 때마다 handleKeyDown 함수가 새로 등록되도록 설정
 
   //아이콘 모드별 교체
   useEffect(() => {
