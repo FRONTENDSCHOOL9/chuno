@@ -93,6 +93,160 @@ function MusicPlayer() {
     setListBoxOpen(!isListBoxOpen);
   };
 
+  const escapeSpecialCharacters = str => {
+    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
+  };
+
+  const handleSongSelect = videoId => {
+    const selectedIndex = item?.extra?.music.findIndex(
+      video => video.id === videoId,
+    );
+    if (selectedIndex !== -1) {
+      setCurrentVideoIndex(selectedIndex);
+    }
+  };
+
+  // 다음 노래를 선택하는 함수 (랜덤으로 선택함)
+  const handleVideoEnd = () => {
+    setCurrentVideoIndex(prevIndex =>
+      isRandom
+        ? Math.floor(Math.random() * item.extra.music.length)
+        : prevIndex === item.extra.music.length - 1
+        ? 0
+        : prevIndex + 1,
+    );
+  };
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handlePause = () => {
+    setIsPlaying(false);
+  };
+
+  // `재생목록`에서 노래를 랜덤으로 선택
+  const handleRandomPlay = () => {
+    setCurrentVideoIndex(Math.floor(Math.random() * item.extra.music.length));
+  };
+  // 이전곡
+  const handlePrevClick = () => {
+    setCurrentVideoIndex(prevIndex =>
+      isRandom
+        ? Math.floor(Math.random() * item.extra.music.length)
+        : prevIndex === 0
+        ? item.extra.music.length - 1
+        : prevIndex - 1,
+    );
+  };
+  // 다음곡
+  const handleNextClick = () => {
+    setCurrentVideoIndex(prevIndex =>
+      isRandom
+        ? Math.floor(Math.random() * item.extra.music.length)
+        : prevIndex === item.extra.music.length - 1
+        ? 0
+        : prevIndex + 1,
+    );
+  };
+
+  // 랜덤 재생 모드를 토글
+  const toggleRandom = () => {
+    setIsRandom(!isRandom);
+  };
+
+  // 10초 전으로 이동하는 함수
+  const handleBackward10 = () => {
+    const newTime = playedSeconds - 10;
+    if (newTime >= 0) {
+      setPlayedSeconds(newTime);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(newTime);
+      }
+    } else {
+      setPlayedSeconds(0);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(0);
+      }
+    }
+  };
+
+  // 10초 후로 이동하는 함수
+  const handleForward10 = () => {
+    const newTime = playedSeconds + 10;
+    if (newTime <= duration) {
+      setPlayedSeconds(newTime);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(newTime);
+      }
+    } else {
+      setPlayedSeconds(duration);
+      const player = playerRef.current.getInternalPlayer();
+      if (player) {
+        player.seekTo(duration);
+      }
+    }
+  };
+
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    seconds = Math.floor(seconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
+
+  const handleButtonClick = () => {
+    console.log('Button clicked!');
+  };
+  const handleKeyDown = event => {
+    const musicLength = item?.extra?.music?.length ?? 1; // 옵셔널 체이닝과 nullish 병합 연산자 사용
+
+    switch (event.key) {
+      case ' ': //spacebar 일시정지/플레이
+        handleCombinedClick(); // 토글 동작
+        break;
+      case 'n':
+        setCurrentVideoIndex(prevIndex =>
+          prevIndex === 0 ? musicLength + 1 : prevIndex + 1,
+        ); // 다음 곡으로 이동
+        break;
+      case 'p':
+        setCurrentVideoIndex(prevIndex =>
+          prevIndex === 0 ? musicLength - 1 : prevIndex - 1,
+        ); // 이전 곡으로 이동
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleCombinedClick = () => {
+    //pause,play
+    setIsPlaying(prevIsPlaying => !prevIsPlaying); // 상태를 토글합니다.
+    handleButtonClick();
+  };
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  //아이콘 모드별 교체
+  useEffect(() => {
+    setAfter10sIcon(darkMode ? after10sDark : after10s);
+    setBefore10sIcon(darkMode ? before10sDark : before10s);
+    setPauseIcon(darkMode ? pauseDark : pause);
+    setPlayIcon(darkMode ? playDark : play);
+    setPrevIcon(darkMode ? prevDark : prev);
+    setNextIcon(darkMode ? nextDark : next);
+    setVolumeIcon(darkMode ? volumeICDark : volumeIC);
+    setRandomIcon(darkMode ? randomICDark : randomIC);
+    setNorandomIcon(darkMode ? norandomICDark : norandomIC);
+  }, [darkMode]);
+
   return (
     <div className={styles.wrap}>
       <ButtonBack path={`/playlist/${_id}`} />
