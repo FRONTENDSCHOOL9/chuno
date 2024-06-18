@@ -101,6 +101,7 @@ function PlayListDetail() {
                 {'플레이리스트 재생'}
               </BtnPlaylistPlay>
             </div>
+            <div className={styles.contentBg}></div>
           </div>
         </section>
       )}

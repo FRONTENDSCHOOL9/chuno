@@ -1,6 +1,5 @@
 @import url(../../pages/colorVaration.css);
 
-
 .searchForm {
   display: flex;
   margin: 10px 0;
@@ -22,7 +21,7 @@
 }
 .searchSubmit {
   position: absolute;
-  right: 0;
+  right: 10px;
   top: 50%;
   transform: translate(-10%, -40%);
   outline: none;

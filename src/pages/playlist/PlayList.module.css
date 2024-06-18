@@ -62,7 +62,9 @@
   /* 북마크가 활성화되었을 때의 스타일을 설정합니다. */
   color: yellow;
 }
-
+.newWrap {
+  margin-top: 20px;
+}
 @media (max-width: 450px) {
   .listitem {
     cursor: pointer;
@@ -131,7 +133,7 @@
     height: 50px;
     display: block;
     border-radius: 4px;
-    aspect-ratio: 1/1;
+    object-fit: cover;
   }
 }
 
@@ -146,7 +148,7 @@
   &:last-child {
     & button {
       border: 0;
-      background-color: var(--color-4e7cf3);
+      background-color: var(--color-main);
       color: var(--color-white);
       border-radius: 8px;
       padding: 10px;
@@ -245,8 +247,7 @@
   align-items: center;
   gap: 10px;
   background-color: var(--color-ecf1ff);
-  & .title {
-  }
+
   & .name {
     font-size: 12px;
     color: var(--color-bfaeae);
@@ -264,17 +265,20 @@
   margin-top: -160px;
   border-radius: 8px;
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  z-index: 99999;
   padding: 20px;
   margin-bottom: -20px;
-  background-color: var(--color-blackwhite01);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: 20px;
+
   & .description {
     color: var(--color-blackwhite02);
     border-bottom: 1px solid var(--color-blackwhite02);
     padding: 10px 0;
+
     & p {
       font-size: 18px;
       color: #141414;
@@ -292,8 +296,10 @@
       padding: 10px 0;
       border-bottom: 1px solid var(--color-blackwhite02);
       & img {
-        aspect-ratio: 1/1;
+        object-fit: cover;
         max-width: 50px;
+        height: 50px;
+        border-radius: 4px;
       }
       & span {
         font-size: 16px;
@@ -303,11 +309,29 @@
   & .btnPlay {
     margin-top: 20px;
   }
+  & .contentBg {
+    position: absolute; /* 부모 요소에 상대적으로 위치를 설정합니다. */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-blackwhite01);
+    opacity: 0.8;
+    z-index: -1; /* contentBg가 content 뒤에 있도록 z-index를 설정합니다. */
+  }
 }
 
 .btnPlay {
   margin: 0 auto;
 }
+/* .dontent::after {
+  content: '';
+  position: absolute;
+  border: 2px solid red;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+} */
 
 @media (max-width: 450px) {
   /*   .thumbBg {
@@ -331,9 +355,6 @@
   }
   .bgWrap {
     height: auto;
-  }
-  .newWrap {
-    margin-top: 20px;
   }
 
   .content {
