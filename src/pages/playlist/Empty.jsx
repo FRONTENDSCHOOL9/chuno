@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import BtnCommon from '@/components/BtnCommon';
+import BtnCommon from '@components/buttons/BtnCommon';
 import styles from './Empty.module.css';
 
 function Empty() {

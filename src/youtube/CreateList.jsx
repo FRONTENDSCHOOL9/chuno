@@ -1,23 +1,16 @@
-// 선택한 노래를 출력하는 부분
 import PropTypes from 'prop-types';
 import styles from './youtube.module.css';
-import { useRecoilState } from 'recoil';
 import cancle from '@assets/svg/buttons/cancle.svg';
-import { selectedVideosState } from '@recoil/user/atoms.mjs';
+import { useMemo } from 'react';
 
 CreateList.propTypes = {
   selectedVideos: PropTypes.array.isRequired,
-  setSelectedVideos: PropTypes.func.isRequired,
   handleDeleteButtonClick: PropTypes.func.isRequired,
-  handleVideoItemClick: PropTypes.func.isRequired,
 };
 
-function CreateList({
-  selectedVideos: selectedVideosLocal,
-  handleDeleteButtonClick,
-}) {
+function CreateList({ selectedVideos, handleDeleteButtonClick }) {
   // YouTube 썸네일 URL 생성 함수
-  function generateThumbnailUrl(videoId, quality = 'mqdefault') {
+  const generateThumbnailUrl = (videoId, quality = 'mqdefault') => {
     const baseUrl = 'https://img.youtube.com/vi/';
     const qualityOptions = {
       default: 'default.jpg',
@@ -26,17 +19,20 @@ function CreateList({
     };
     const qualitySuffix = qualityOptions[quality] || qualityOptions.mqdefault;
     return `${baseUrl}${videoId}/${qualitySuffix}`;
-  }
-
-  const [selectedVideos, setSelectedVideos] =
-    useRecoilState(selectedVideosState);
-
-  const escapeSpecialCharacters = str => {
-    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
   };
 
-  const distinctVideos = selectedVideosLocal.filter(
-    (video, index, self) => index === self.findIndex(v => v.id === video.id),
+  // 특수 문자 이스케이프
+  const escapeSpecialCharacters = str =>
+    str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
+
+  // 중복 제거된 비디오 리스트
+  const distinctVideos = useMemo(
+    () =>
+      selectedVideos.filter(
+        (video, index, self) =>
+          index === self.findIndex(v => v.id === video.id),
+      ),
+    [selectedVideos],
   );
 
   return (
@@ -58,14 +54,9 @@ function CreateList({
             {/* 삭제 버튼 */}
             <div
               className={styles.listDeleteButton}
-              onClick={() => {
-                handleDeleteButtonClick(video.id);
-                setSelectedVideos(prevSelectedVideos =>
-                  prevSelectedVideos.filter(v => v.id !== video.id),
-                );
-              }}
+              onClick={() => handleDeleteButtonClick(video.id)}
             >
-              <img src={cancle} alt="" />
+              <img src={cancle} alt="삭제" />
             </div>
           </li>
         ))}

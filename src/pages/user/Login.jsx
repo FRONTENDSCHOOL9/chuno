@@ -4,8 +4,8 @@ import { memberState } from '@recoil/user/atoms.mjs';
 import { useSetRecoilState } from 'recoil';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import Submit from '@components/Submit';
-import Modal from '@components/Modal';
+import Submit from '@components/buttons/Submit';
+import Modal from '@components/modal/Modal';
 import styles from './auth.module.css';
 
 import dragon from '@assets/svg/dragon.svg';

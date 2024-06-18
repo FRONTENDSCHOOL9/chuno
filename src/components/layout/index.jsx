@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi'; // 아이콘 추가
 import styles from './change.module.css';
-
+// import Footer from '@components/footer/footer';
 function Layout() {
   const [darkMode, setDarkMode] = useState(false);
   const [icon, setIcon] = useState(<FiSun />); // 초기 아이콘 설정
@@ -12,8 +12,9 @@ function Layout() {
   };
 
   useEffect(() => {
-    const root = document.getElementById('root');
-    root.style.backgroundColor = darkMode ? '#212121' : '#dff2fc ';
+    document.documentElement.style.backgroundColor = darkMode
+      ? '#212121'
+      : '#dff2fc ';
 
     setIcon(darkMode ? <FiMoon /> : <FiSun />);
   }, [darkMode]);
@@ -29,6 +30,7 @@ function Layout() {
       {/* 아이콘 표시 */}
       {/* <Outlet /> */} {/* 240523 수정 */}
       <Outlet context={{ darkMode, toggleDarkMode }} /> {/* 240523 수정 */}
+      {/* <Footer /> */}
     </div>
   );
 }

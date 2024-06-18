@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from './styles/button.module.css';
+import styles from './button.module.css';
 import Back from '@assets/svg/buttons/back.svg';
 
 ButtonBack.propTypes = {

@@ -9,19 +9,21 @@ SearchResult.propTypes = {
 };
 
 function SearchResult({ searchResult, handleAddButtonClick }) {
-  const escapeSpecialCharacters = str => {
-    return str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
-  };
+  const escapeSpecialCharacters = str =>
+    str.replace(/&(?:[a-zA-Z]+|#\d+);/g, '');
 
   const [selectedVideos, setSelectedVideos] =
     useRecoilState(selectedVideosState);
 
   const handleAddButton = (videoId, videoTitle) => {
-    setSelectedVideos(prevSelectedVideos => [
-      ...prevSelectedVideos,
-      { id: videoId, title: videoTitle },
-    ]);
-    handleAddButtonClick(videoId, videoTitle);
+    if (!selectedVideos.some(video => video.id === videoId)) {
+      const newVideo = { id: videoId, title: videoTitle };
+      setSelectedVideos(prevSelectedVideos => [
+        ...prevSelectedVideos,
+        newVideo,
+      ]);
+      handleAddButtonClick(newVideo);
+    }
   };
 
   return (

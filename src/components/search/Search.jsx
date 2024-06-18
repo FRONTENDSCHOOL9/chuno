@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles/search.module.css';
+import styles from './search.module.css';
 Search.propTypes = {
   onClick: PropTypes.func.isRequired,
 };

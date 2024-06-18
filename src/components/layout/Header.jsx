@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { memberState } from '@recoil/user/atoms.mjs';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import Button from '@components/Button';
+import Button from '@components/buttons/Button';
 import styles from './header.module.css';
 function Header() {
   const navigate = useNavigate();

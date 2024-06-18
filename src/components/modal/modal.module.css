@@ -29,18 +29,21 @@
   justify-content: center;
   align-items: center;
   z-index: 1000; /* 모달이 다른 요소 위에 올라오도록 설정 */
+  height: 100vh;
 }
 
 .modalContent {
   background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 5px;
-  max-width: 500px;
-  width: 90%; /* 모달의 너비를 조정 */
-  max-height: 90%; /* 모달의 최대 높이를 조정 */
-  overflow-y: auto; /* 스크롤이 넘칠 경우 스크롤을 표시 */
-  animation: slideIn 0.3s ease-in-out;
+  max-width: 400px;
+  width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  animation: _slideIn_1ynae_1 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 
 .closeButton {

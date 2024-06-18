@@ -1,7 +1,7 @@
-import { /* React, */ useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-import Recommendlistitem from '@components/Recommendlistitem';
+import Recommendlistitem from '@components/recomendlistitem/Recommendlistitem';
 import Header from '@components/layout/Header';
 import styles from './mainpage.module.css';
 import PlayListItem from '@pages/playlist/PlayListItem';

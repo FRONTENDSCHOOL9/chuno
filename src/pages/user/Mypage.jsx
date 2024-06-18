@@ -1,4 +1,4 @@
-import ButtonBack from '@components/ButtonBack';
+import ButtonBack from '@components/buttons/ButtonBack';
 import { useEffect, useState } from 'react';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import styles from './mypage.module.css';

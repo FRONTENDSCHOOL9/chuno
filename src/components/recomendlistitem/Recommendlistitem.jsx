@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './styles/recommenditem.module.css';
+import styles from './recommenditem.module.css';
 import PropTypes from 'prop-types';
 
 Recommendlistitem.propTypes = {
