@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { Link, useNavigate } from 'react-router-dom';
-import Submit from '@components/Submit';
+import Submit from '@components/buttons/Submit';
 import styles from './auth.module.css';
 import dragon from '@assets/svg/dragon.svg';
-import Modal from '@components/Modal';
+import Modal from '@components/modal/Modal';
 
 function Signup() {
   const axios = useCustomAxios();

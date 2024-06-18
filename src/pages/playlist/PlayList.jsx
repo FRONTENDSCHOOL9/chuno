@@ -1,14 +1,16 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ButtonBack from '@/components/ButtonBack';
-import PlayListItem from './PlayListItem';
-import Search from '@components/Search';
-import BtnCommon from '@components/BtnCommon';
-import styles from './PlayList.module.css';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-import Pagination from '@components/pagination';
-import Keywords from '../../components/Keywords';
-import Loading from '@components/loading';
+
+import ButtonBack from '@components/buttons/ButtonBack';
+import PlayListItem from './PlayListItem';
+import Search from '@components/search/Search';
+import BtnCommon from '@components/buttons/BtnCommon';
+import Pagination from '@components/buttons/pagination';
+import Keywords from '@components/buttons/Keywords';
+import Loading from '@components/loading/Loading';
+
+import styles from './PlayList.module.css';
 
 function PlayList() {
   const axios = useCustomAxios();

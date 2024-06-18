@@ -16,6 +16,7 @@ button {
   aspect-ratio: 16/9;
   background-color: var(--color-main);
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .currentPlay {
@@ -45,6 +46,7 @@ button {
 
 /* 박스 모델 */
 .seekBar {
+  margin-top: 20px;
   width: 100%;
   border: none;
   margin-bottom: 10px;
@@ -55,9 +57,9 @@ button {
 /*  */
 /* 레이아웃 */
 .musicControl {
-  display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .defaultControl {

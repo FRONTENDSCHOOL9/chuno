@@ -1,15 +1,15 @@
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Submit from '@/components/Submit';
-import ButtonBack from '@/components/ButtonBack';
-import Keywords from '@/components/Keywords';
+import Submit from '@components/buttons/Submit';
+import ButtonBack from '@components/buttons/ButtonBack';
+import Keywords from '@components/buttons/Keywords';
 import styles from './PlayList.module.css';
 import SearchYoutube from '@youtube/SearchYoutube';
 import { useRecoilValue } from 'recoil';
 import { selectedVideosState } from '@recoil/user/atoms.mjs';
 import { useNavigate } from 'react-router-dom';
-import Modal from '@/components/Modal'; // Modal 컴포넌트 임포트
+import Modal from '@components/modal/Modal';
 
 function PlayListNew() {
   const axios = useCustomAxios();

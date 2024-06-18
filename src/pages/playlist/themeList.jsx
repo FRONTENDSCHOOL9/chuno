@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'; // useParams 추가
-import ButtonBack from '@/components/ButtonBack';
+import ButtonBack from '@components/buttons/ButtonBack';
 import PlayListItem from './PlayListItem';
-import BtnCommon from '@components/BtnCommon';
+import BtnCommon from '@components/buttons/BtnCommon';
 import styles from './PlayList.module.css';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
-import Loading from '@components/loading';
+import Loading from '@components/loading/Loading';
 
 function ThemeList() {
   const axios = useCustomAxios();

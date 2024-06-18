@@ -1,12 +1,11 @@
-// 게시물(플레이 리스트)를 하나씩 확인하는 부분
 import PropTypes from 'prop-types';
 import useCustomAxios from '@hooks/useCustomAxios.mjs';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import ButtonBack from '@components/ButtonBack';
-import BtnPlaylistPlay from '@components/BtnPlaylistPlay';
+import ButtonBack from '@components/buttons/ButtonBack';
+import BtnPlaylistPlay from '@components/buttons/BtnPlaylistPlay';
 import styles from './PlayList.module.css';
-import Loading from '@components/loading';
+import Loading from '@components/loading/Loading';
 
 PlayListDetail.propTypes = {
   item: PropTypes.shape({

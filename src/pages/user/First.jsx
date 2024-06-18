@@ -1,4 +1,4 @@
-import Button from '@components/Button';
+import Button from '@components/buttons/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './first.module.css';
 import mainlogo from '@assets/svg/mainlogo.svg';
