@@ -126,8 +126,8 @@ function MusicPlayer() {
             item={item}
             darkMode={darkMode}
             icons={{
-              randomIcon: isRandom ? randomICDark : randomIC,
-              norandomIcon: isRandom ? norandomICDark : norandomIC,
+              randomIcon: darkMode ? randomICDark : randomIC,
+              norandomIcon: darkMode ? norandomICDark : norandomIC,
               pauseIcon: darkMode ? pauseDark : pause,
               playIcon: darkMode ? playDark : play,
               prevIcon: darkMode ? prevDark : prev,
