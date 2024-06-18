@@ -152,11 +152,14 @@ button {
 }
 
 .songlistItem {
-  margin: 10px 0 20px 0;
-  padding-bottom: 20px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 15px 10px;
+  transition: all 0.3s;
+}
+.songlistItem:hover {
+  background-color: #222;
 }
 
 /* 이미지 */
